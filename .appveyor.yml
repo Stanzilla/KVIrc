@@ -64,6 +64,20 @@ install:
     # - c:\cygwin\bin\cat /proc/cpuinfo
     # - c:\cygwin\bin\cat /proc/meminfo
     - c:\cygwin\bin\sh -lc '/usr/bin/rebase-trigger full'
+     - ps: |
+        if ($env:target_arch -eq "x86") {
+            $Target = "c:\cygwin64"
+            Get-ChildItem -Path $Target -Recurse -force |
+            Where-Object { -not ($_.psiscontainer) } |
+            Remove-Item –Force
+            Remove-Item -Recurse -Force $Target
+        } else {
+            $Target = "c:\cygwin"
+            Get-ChildItem -Path $Target -Recurse -force |
+            Where-Object { -not ($_.psiscontainer) } |
+            Remove-Item –Force
+            Remove-Item -Recurse -Force $Target
+        }
     - ps: |
         if ((Test-Path "c:\OpenSSL-$env:ssl_arch") -And ((Get-Item "c:\OpenSSL-$env:ssl_arch\bin\ssleay32.dll").VersionInfo.ProductVersion -eq '1.0.2o')) {
             echo "using preinstalled OpenSSL"
@@ -77,9 +91,9 @@ install:
     # - c:\cygwin\bin\find /cygdrive/c/OpenSSL-%ssl_arch% "-type" f
     - ps: |
         choco install strawberryperl -y $env:choco_arch
+        choco install cygwin -y $env:choco_arch
         # Strawberry perl doesn't support MSVC, but we force the support.
         c:\cygwin\bin\bash -c "/bin/cat .appveyor.perl >> /cygdrive/c/Strawberry/perl/lib/core/config.h"
-        choco install cygwin -y $env:choco_arch
     - ps: |
         c:\msys64\usr\bin\pacman -Q
         c:\msys64\usr\bin\pacman -S --noconfirm $env:mingw_fourple-enchant
@@ -111,21 +125,13 @@ build_script:
     - mkdir build
     - cd build
     - '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %vc_arch%'
-    - path
+    # - path
     - vcpkg remove --outdated
     - vcpkg install gettext:%arch%-windows
     - vcpkg install zlib:%arch%-windows
     - ps: |
         cmake .. "-GNMake Makefiles" "-DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake" "-DCMAKE_BUILD_TYPE=$env:cmake_build_type" "-DCMAKE_PREFIX_PATH=c:/Qt/$env:qt_ver" "-DOPENSSL_ROOT_DIR=c:/OpenSSL-$env:ssl_arch" "-DWANT_PERL=YES" "-DPERL_EXECUTABLE=c:/Strawberry/perl/bin/perl.exe" "-DWANT_PHONON=NO" "-DCMAKE_START_TEMP_FILE=" "-DCMAKE_END_TEMP_FILE=" "-DCMAKE_VERBOSE_MAKEFILE=1" "-DEnchant_FOUND=1" "-DEnchant_INCLUDE_DIRS=c:/enchant-headers;$env:mingw_root/include/enchant;$env:mingw_root/include/glib-2.0" "-DEnchant_LDFLAGS=$env:mingw_root/lib/libenchant.dll.a" "-DWANT_KDE=NO" "-DWANT_PYTHON=YES" "-DWANT_QTWEBKIT=NO"
     - ps: Push-AppveyorArtifact CMakeCache.txt
-    - ps: |
-        if ($env:target_arch -eq "x86") {
-            $Target = "c:\cygwin64"
-            Get-ChildItem -Path $Target -Recurse -force |
-            Where-Object { -not ($_.psiscontainer) } |
-            Remove-Item –Force
-            Remove-Item -Recurse -Force $Target
-        }
     - nmake install
     # - c:\cygwin\bin\ls -l release/
     - ps: |
@@ -136,6 +142,7 @@ build_script:
             windeployqt "--dir" "release/qt-plugins" "--libdir" "release/" "release/kvirc.exe" "release/modules/"
         }
     - ps: |
+        refreshenv
         if ($env:cmake_build_type -eq "Debug") {
             c:\cygwin\bin\cp -pv "c:/Tools/vcpkg/installed/$env:arch-windows/debug/bin/zlibd.pdb" "c:/Tools/vcpkg/installed/$env:arch-windows/debug/bin/zlibd1.dll" "/cygdrive/c/OpenSSL-$env:ssl_arch/libeay32.dll" "/cygdrive/c/OpenSSL-$env:ssl_arch/ssleay32.dll" "/cygdrive/c/OpenSSL-$env:ssl_arch/bin/msvcr120.dll" "c:/Program Files (x86)/Windows Kits/10/bin/$env:arch/ucrt/ucrtbased.dll" release/
         } else {
