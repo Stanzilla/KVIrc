@@ -91,7 +91,11 @@ install:
     # - c:\cygwin\bin\find /cygdrive/c/OpenSSL-%ssl_arch% "-type" f
     - ps: |
         choco install strawberryperl -y --no-progress $env:choco_arch
-        choco install cygwin -fy --no-progress $env:choco_arch
+        if ($env:target_arch -eq "x86") {
+            choco install cygwin -fy --no-progress $env:choco_arch --install-directory 'c:\cygwin'
+        } else {
+            choco install cygwin -fy --no-progress $env:choco_arch --install-directory 'c:\cygwin64'
+        }
         # Strawberry perl doesn't support MSVC, but we force the support.
         c:\cygwin\bin\bash -c "/bin/cat .appveyor.perl >> /cygdrive/c/Strawberry/perl/lib/core/config.h"
     - ps: |
