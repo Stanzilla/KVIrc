@@ -90,8 +90,8 @@ install:
         }
     # - c:\cygwin\bin\find /cygdrive/c/OpenSSL-%ssl_arch% "-type" f
     - ps: |
-        choco install strawberryperl -y $env:choco_arch
-        choco install cygwin -y $env:choco_arch
+        choco install strawberryperl -y --no-progress $env:choco_arch
+        choco install cygwin -fy --no-progress $env:choco_arch
         # Strawberry perl doesn't support MSVC, but we force the support.
         c:\cygwin\bin\bash -c "/bin/cat .appveyor.perl >> /cygdrive/c/Strawberry/perl/lib/core/config.h"
     - ps: |
@@ -118,8 +118,8 @@ install:
         }
     - ps: |
         (New-Object Net.WebClient).DownloadFile('https://github.com/lordmulder/stdutils/releases/download/1.13/StdUtils.2018-03-29.zip', 'c:\StdUtils.2018-03-29.zip')
-        7z e -o"C:\Program Files (x86)\NSIS\Plugins\x86-unicode" c:\StdUtils.2018-03-29.zip Plugins\Unicode\*.dll
-        7z e -o"C:\Program Files (x86)\NSIS\Include" c:\StdUtils.2018-03-29.zip Include\*.nsh
+        7z e -o"C:\Program Files (x86)\NSIS\Plugins\x86-unicode" c:\StdUtils.2018-03-29.zip Plugins\Unicode\*.dll > nul
+        7z e -o"C:\Program Files (x86)\NSIS\Include" c:\StdUtils.2018-03-29.zip Include\*.nsh > nul
     # - c:\cygwin\bin\find "/cygdrive/c/Program Files (x86)/NSIS" "-type" f
 build_script:
     - mkdir build
@@ -132,7 +132,7 @@ build_script:
     - ps: |
         cmake .. "-GNMake Makefiles" "-DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake" "-DCMAKE_BUILD_TYPE=$env:cmake_build_type" "-DCMAKE_PREFIX_PATH=c:/Qt/$env:qt_ver" "-DOPENSSL_ROOT_DIR=c:/OpenSSL-$env:ssl_arch" "-DWANT_PERL=YES" "-DPERL_EXECUTABLE=c:/Strawberry/perl/bin/perl.exe" "-DWANT_PHONON=NO" "-DCMAKE_START_TEMP_FILE=" "-DCMAKE_END_TEMP_FILE=" "-DCMAKE_VERBOSE_MAKEFILE=1" "-DEnchant_FOUND=1" "-DEnchant_INCLUDE_DIRS=c:/enchant-headers;$env:mingw_root/include/enchant;$env:mingw_root/include/glib-2.0" "-DEnchant_LDFLAGS=$env:mingw_root/lib/libenchant.dll.a" "-DWANT_KDE=NO" "-DWANT_PYTHON=YES" "-DWANT_QTWEBKIT=NO"
     - ps: Push-AppveyorArtifact CMakeCache.txt
-    - nmake install
+    - nmake install /NOLOGO
     # - c:\cygwin\bin\ls -l release/
     - ps: |
         $env:Path += ";c:/Qt/$env:qt_ver/bin"
