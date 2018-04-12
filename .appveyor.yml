@@ -81,7 +81,6 @@ install:
         c:\cygwin\bin\bash -c "/bin/cat .appveyor.perl >> /cygdrive/c/Strawberry/perl/lib/core/config.h"
         choco install cygwin -y $env:choco_arch
     - ps: |
-        c:\msys64\usr\bin\pacman -Syu
         c:\msys64\usr\bin\pacman -Q
         c:\msys64\usr\bin\pacman -S --noconfirm $env:mingw_fourple-enchant
         c:\cygwin\bin\sh -lc 'mkdir -p /cygdrive/c/enchant-headers; cp -vp $mingw_root/lib/glib-2.0/include/glibconfig.h $mingw_root/include/enchant/enchant.h /cygdrive/c/enchant-headers/'
