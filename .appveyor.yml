@@ -64,7 +64,7 @@ install:
     # - c:\cygwin\bin\cat /proc/cpuinfo
     # - c:\cygwin\bin\cat /proc/meminfo
     - c:\cygwin\bin\sh -lc '/usr/bin/rebase-trigger full'
-     - ps: |
+    - ps: |
         if ($env:target_arch -eq "x86") {
             $Target = "c:\cygwin64"
             Get-ChildItem -Path $Target -Recurse -force |
