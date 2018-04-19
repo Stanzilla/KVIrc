@@ -64,16 +64,16 @@ KviKvsModuleInterface::~KviKvsModuleInterface()
 	delete m_pModuleCallbackCommandExecRoutineDict;
 }
 
-#define COMPLETE_WORD_BY_DICT(word, list, type, dict)         \
-	{                                                           \
-		KviPointerHashTableIterator<QString, type> it(*dict);     \
-		int l = word.length();                                    \
-		while(it.current())                                       \
-		{                                                         \
-			if(KviQString::equalCIN(word, it.currentKey(), l))      \
-				list.push_back(it.currentKey());                      \
-			++it;                                                   \
-		}                                                         \
+#define COMPLETE_WORD_BY_DICT(word, list, type, dict)          \
+	{                                                          \
+		KviPointerHashTableIterator<QString, type> it(*dict);  \
+		int l = word.length();                                 \
+		while(it.current())                                    \
+		{                                                      \
+			if(KviQString::equalCIN(word, it.currentKey(), l)) \
+				list.push_back(it.currentKey());               \
+			++it;                                              \
+		}                                                      \
 	}
 
 void KviKvsModuleInterface::completeCommand(const QString & szCommandBegin, std::vector<QString> & pMatches)

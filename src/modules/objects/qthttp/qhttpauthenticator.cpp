@@ -131,8 +131,8 @@ static QByteArray qNtlmPhase3(QHttpAuthenticatorPrivate * ctx, const QByteArray 
 /*!
   Constructs an empty authentication object
 */
-QHttpAuthenticator::QHttpAuthenticator()
-    : d(nullptr)
+QHttpAuthenticator::QHttpAuthenticator() :
+    d(nullptr)
 {
 }
 
@@ -148,8 +148,8 @@ QHttpAuthenticator::~QHttpAuthenticator()
 /*!
     Constructs a copy of \a other.
 */
-QHttpAuthenticator::QHttpAuthenticator(const QHttpAuthenticator & other)
-    : d(other.d)
+QHttpAuthenticator::QHttpAuthenticator(const QHttpAuthenticator & other) :
+    d(other.d)
 {
 	if(d)
 		d->ref.ref();
@@ -348,11 +348,15 @@ bool QHttpAuthenticator::isNull() const
 	return !d;
 }
 
-QHttpAuthenticatorPrivate::QHttpAuthenticatorPrivate()
-    : ref(0), method(None), hasFailed(false), phase(Start), nonceCount(0)
+QHttpAuthenticatorPrivate::QHttpAuthenticatorPrivate() :
+    ref(0),
+    method(None),
+    hasFailed(false),
+    phase(Start),
+    nonceCount(0)
 {
 	cnonce = QCryptographicHash::hash(QByteArray::number(qrand(), 16) + QByteArray::number(qrand(), 16),
-	             QCryptographicHash::Md5)
+	    QCryptographicHash::Md5)
 	             .toHex();
 	nonceCount = 0;
 }
@@ -595,7 +599,7 @@ static QByteArray digestMd5ResponseHelper(
     const QByteArray & method,     /* method from the request */
     const QByteArray & digestUri,  /* requested URL */
     const QByteArray & hEntity     /* H(entity body) if qop="auth-int" */
-    )
+)
 {
 	QCryptographicHash hash(QCryptographicHash::Md5);
 	hash.addData(userName);
@@ -860,7 +864,12 @@ const quint8 hirespversion = 1;
 class QNtlmBuffer
 {
 public:
-	QNtlmBuffer() : len(0), maxLen(0), offset(0) {}
+	QNtlmBuffer() :
+	    len(0),
+	    maxLen(0),
+	    offset(0)
+	{
+	}
 	quint16 len;
 	quint16 maxLen;
 	quint32 offset;

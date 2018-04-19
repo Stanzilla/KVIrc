@@ -138,7 +138,7 @@ const int frame_cod[] = {
 		[/pre]
 		It is obvious that you can not set [i]Right[/i]
 		and [i]Left[/i] simultaneously - this will [b]not[/b]
-		result in an error message - it will simply not work :)
+		result in an error message - it will simply not work
 		!fn: $clear()
 		Clears the label. Equal to calling [classfnc]$setText[/classfnc]("")
 		!fn: <string> $frameStyle()

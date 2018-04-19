@@ -49,8 +49,8 @@
 
 extern RawEditorWindow * g_pRawEditorWindow;
 
-RawTreeWidgetItem::RawTreeWidgetItem(QTreeWidget * par, int idx, bool bEnabled)
-    : QTreeWidgetItem(par)
+RawTreeWidgetItem::RawTreeWidgetItem(QTreeWidget * par, int idx, bool bEnabled) :
+    QTreeWidgetItem(par)
 {
 	m_iIdx = idx;
 	QString szName;
@@ -64,8 +64,8 @@ void RawHandlerTreeWidgetItem::setName(const QString & szName)
 	setText(0, szName);
 }
 
-RawEditorWidget::RawEditorWidget(QWidget * par)
-    : QWidget(par)
+RawEditorWidget::RawEditorWidget(QWidget * par) :
+    QWidget(par)
 {
 	setObjectName("raw_event_editor");
 	QGridLayout * l = new QGridLayout(this);
@@ -153,11 +153,11 @@ void RawEditorWidget::customContextMenuRequested(const QPoint & pos)
 				m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::HandlerDisabled)),
 				    __tr2qs_ctx("&Disable Handler", "editor"), this, SLOT(toggleCurrentHandlerEnabled()));
 
-				m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Discard)),
-				    __tr2qs_ctx("Re&move Handler", "editor"), this, SLOT(removeCurrentHandler()));
+			m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Discard)),
+			    __tr2qs_ctx("Re&move Handler", "editor"), this, SLOT(removeCurrentHandler()));
 
-				m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Save)),
-			        __tr2qs_ctx("&Export Handler to...", "editor"), this, SLOT(exportCurrentHandler()));
+			m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Save)),
+			    __tr2qs_ctx("&Export Handler to...", "editor"), this, SLOT(exportCurrentHandler()));
 		}
 		else
 		{
@@ -464,8 +464,8 @@ void RawEditorWidget::exportAllEvents()
 	}
 }
 
-RawEditorWindow::RawEditorWindow()
-    : KviWindow(KviWindow::ScriptEditor, "raweditor", nullptr)
+RawEditorWindow::RawEditorWindow() :
+    KviWindow(KviWindow::ScriptEditor, "raweditor", nullptr)
 {
 	g_pRawEditorWindow = this;
 

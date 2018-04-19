@@ -307,6 +307,7 @@ public:
 	virtual void commit();
 	QString textForSearch() { return m_pLabel->text(); };
 	QWidget * widgetToHighlight() { return (QWidget *)m_pLabel; };
+
 private:
 	void setButtonFont(QFont * pOption);
 public slots:

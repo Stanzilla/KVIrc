@@ -87,8 +87,8 @@ static QPixmap * g_pDccFileTransferIcon = nullptr;
 //#warning "The events that have a KviCString data pointer should become real classes, that take care of deleting the data pointer!"
 //#warning "Otherwise, when left undispatched we will be leaking memory (event class destroyed but not the data ptr)"
 
-DccRecvThread::DccRecvThread(QObject * par, kvi_socket_t fd, KviDccRecvThreadOptions * opt)
-    : DccThread(par, fd)
+DccRecvThread::DccRecvThread(QObject * par, kvi_socket_t fd, KviDccRecvThreadOptions * opt) :
+    DccThread(par, fd)
 {
 	m_pOpt = opt;
 	m_uAverageSpeed = 0;
@@ -442,7 +442,7 @@ void DccRecvThread::run()
 					else
 					{
 						updateStats();
-// Read problem...
+						// Read problem...
 
 #ifdef COMPILE_SSL_SUPPORT
 						if(m_pSSL)
@@ -600,8 +600,8 @@ void DccRecvThread::doneGetInfo()
 	m_pMutex->unlock();
 }
 
-DccSendThread::DccSendThread(QObject * par, kvi_socket_t fd, KviDccSendThreadOptions * opt)
-    : DccThread(par, fd)
+DccSendThread::DccSendThread(QObject * par, kvi_socket_t fd, KviDccSendThreadOptions * opt) :
+    DccThread(par, fd)
 {
 	m_pOpt = opt;
 	// stats
@@ -1003,7 +1003,7 @@ void DccSendThread::run()
 								postErrorEvent(KviError::FileIOError);
 								break;
 							}
-// send it out
+							// send it out
 
 #ifdef COMPILE_SSL_SUPPORT
 							if(m_pSSL)
@@ -1185,8 +1185,8 @@ void DccSendThread::doneGetInfo()
 	m_pMutex->unlock();
 }
 
-DccFileTransfer::DccFileTransfer(DccDescriptor * dcc)
-    : KviFileTransfer()
+DccFileTransfer::DccFileTransfer(DccDescriptor * dcc) :
+    KviFileTransfer()
 {
 	init(); // ensure we're initialized
 	g_pDccFileTransfers->append(this);
@@ -2453,8 +2453,8 @@ DccThread * DccFileTransfer::getSlaveThread()
 	}
 }
 
-DccFileTransferBandwidthDialog::DccFileTransferBandwidthDialog(QWidget * pParent, DccFileTransfer * t)
-    : QDialog(pParent)
+DccFileTransferBandwidthDialog::DccFileTransferBandwidthDialog(QWidget * pParent, DccFileTransfer * t) :
+    QDialog(pParent)
 {
 	QGridLayout * g = new QGridLayout(this);
 

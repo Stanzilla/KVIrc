@@ -142,7 +142,7 @@ inline bool kvi_socket_isValid(kvi_socket_t sock)
 // kvi_socket_destroy
 // kvi_socket_close
 //
-//   Close a socket...that's all :)
+//   Close a socket...that's all
 //
 
 #define kvi_socket_close kvi_socket_destroy

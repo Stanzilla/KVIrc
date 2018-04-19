@@ -117,7 +117,7 @@ void KviApplication::setupUriAssociations(const QString & szProto)
 	SHDeleteKey(HKEY_CURRENT_USER, (LPCWSTR)tmp.c_str());
 	RegCreateKeyEx(HKEY_CURRENT_USER, (LPCWSTR)tmp.c_str(), 0, NULL, 0, KEY_WRITE, NULL, &hKey, NULL);
 	RegSetValueEx(hKey, 0, 0, REG_SZ, (LPBYTE)TEXT("URL:IRC Protocol"), 16 * 2 + 1);
-	RegSetValueEx(hKey, TEXT("URL Protocol"), 0, REG_SZ, (LPBYTE)"", 0);
+	RegSetValueEx(hKey, TEXT("URL Protocol"), 0, REG_SZ, (LPBYTE) "", 0);
 
 	tmp = QString("Software\\Classes\\" + szProto + "\\DefaultIcon").toStdWString();
 	RegCreateKeyEx(HKEY_CURRENT_USER, (LPCWSTR)tmp.c_str(), 0, NULL, 0, KEY_WRITE, NULL, &hKey, NULL);
@@ -165,7 +165,7 @@ void KviApplication::setFileAssociation(const QString & szExtension, const QStri
 	tmp = QString(szAppPath + ",%1").arg(iIconIndex).toStdWString();
 	RegSetValueEx(hKey, 0, 0, REG_SZ, (LPBYTE)tmp.c_str(), tmp.length() * 2 + 1);
 
-	if (!szActionName.isEmpty())
+	if(!szActionName.isEmpty())
 	{
 		tmp = QString("Software\\Classes\\" + szClassName + "\\Shell\\Parse").toStdWString();
 		RegCreateKeyEx(HKEY_CURRENT_USER, (LPCWSTR)tmp.c_str(), 0, 0, 0, KEY_WRITE, 0, &hKey, 0);
@@ -227,9 +227,9 @@ void KviApplication::findGlobalKvircDirectory()
 
 	m_szGlobalKvircDir = "";
 
-// DO NOT TRANSLATE THIS
-// THE TRANSLATION DIRECTORY WAS NOT FOUND YET
-// AND THE LOCALE IS NOT INITIALIZED AT ALL
+	// DO NOT TRANSLATE THIS
+	// THE TRANSLATION DIRECTORY WAS NOT FOUND YET
+	// AND THE LOCALE IS NOT INITIALIZED AT ALL
 
 #ifdef COMPILE_KDE_SUPPORT
 	KviMessageBox::warning("Unable to find the shared KVIrc directory.\n"
@@ -266,7 +266,7 @@ bool KviApplication::findLocalKvircDirectory()
 #ifdef COMPILE_KDE_SUPPORT
 	if(m_szConfigFile.isEmpty())
 	{
-		// don't do that if user supplied a config file :)
+		// don't do that if user supplied a config file
 		KConfig oKCfg("kvirc");
 		KConfigGroup oKCfgMainGroup(&oKCfg, "Main");
 
@@ -421,7 +421,6 @@ void KviApplication::setupBegin()
 		::exit(-1);
 #endif
 	}
-
 }
 
 void KviApplication::setupFinish()

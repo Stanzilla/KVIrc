@@ -84,7 +84,7 @@ namespace KviKvsParameterProcessor
 				*((kvs_hobject_t *)(pFmtArray->pContainer)) = (kvs_hobject_t) nullptr;
 				break;
 			case KVS_PT_IGNORE:
-				// ignore :)
+				// ignore
 				break;
 			default:
 				qDebug("Internal error in KviKvsParameterProcessor::setDefaultValue(): unknown parameter type %d", pFmtArray->uType);

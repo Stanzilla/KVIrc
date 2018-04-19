@@ -38,8 +38,8 @@
 // See KviPackageIOEngine.cpp for the description of the KVIrc package file
 //
 
-KviPackageReader::KviPackageReader()
-    : KviPackageIOEngine()
+KviPackageReader::KviPackageReader() :
+    KviPackageIOEngine()
 {
 }
 
@@ -165,7 +165,7 @@ bool KviPackageReader::unpackFile(KviFile * pFile, const QString & szUnpackPath)
 
 	szFileName += szPath;
 
-	// no attacks please :)
+	// no attacks please
 	szFileName.replace(QString("..\\"), QString(""));
 	szFileName.replace(QString("../"), QString(""));
 

@@ -88,6 +88,7 @@ public:
 	//KviKvsHash * variables(){ return m_pVariables; };
 	KviKvsExtendedRunTimeData * runTimeData() { return m_pRunTimeData; };
 	KviKvsVariantList * parameterList() { return m_pParameterList; };
+
 protected:
 	void setWindow(KviWindow * pWnd) { m_pWnd = pWnd; };
 };

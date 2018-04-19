@@ -55,6 +55,7 @@ public:
 	void save(const QString & filename);
 	void clear();
 	KviPointerHashTable<QString, KviSharedFileList> * sharedFileListDict() { return m_pSharedListDict; };
+
 private:
 	void doInsert(KviSharedFileList * l, KviSharedFile * o);
 private slots:

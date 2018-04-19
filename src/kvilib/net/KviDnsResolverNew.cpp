@@ -43,8 +43,8 @@ public:
 	KviPointerList<QString> * pAddressList;
 };
 
-KviDnsResolver::KviDnsResolver(QObject * pParent)
-    : QObject(pParent)
+KviDnsResolver::KviDnsResolver(QObject * pParent) :
+    QObject(pParent)
 {
 	m_pPrivateData = new KviDnsResolverPrivate;
 	m_pPrivateData->eState = Idle;

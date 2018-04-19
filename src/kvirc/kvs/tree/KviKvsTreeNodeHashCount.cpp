@@ -28,8 +28,8 @@
 #include "KviKvsObject.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeHashCount::KviKvsTreeNodeHashCount(const QChar * pLocation, KviKvsTreeNodeData * pSource)
-    : KviKvsTreeNodeIndirectData(pLocation, pSource)
+KviKvsTreeNodeHashCount::KviKvsTreeNodeHashCount(const QChar * pLocation, KviKvsTreeNodeData * pSource) :
+    KviKvsTreeNodeIndirectData(pLocation, pSource)
 {
 }
 

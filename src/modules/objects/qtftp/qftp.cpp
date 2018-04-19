@@ -89,15 +89,15 @@ public:
 
 QBasicAtomicInt QFtpCommand::idCounter = Q_BASIC_ATOMIC_INITIALIZER(1);
 
-QFtpCommand::QFtpCommand(QFtp::Command cmd, QStringList raw, const QByteArray & ba)
-    : command(cmd), rawCmds(raw), is_ba(true)
+QFtpCommand::QFtpCommand(QFtp::Command cmd, QStringList raw, const QByteArray & ba) :
+    command(cmd), rawCmds(raw), is_ba(true)
 {
 	id = idCounter.fetchAndAddRelaxed(1);
 	data.ba = new QByteArray(ba);
 }
 
-QFtpCommand::QFtpCommand(QFtp::Command cmd, QStringList raw, QIODevice * dev)
-    : command(cmd), rawCmds(raw), is_ba(false)
+QFtpCommand::QFtpCommand(QFtp::Command cmd, QStringList raw, QIODevice * dev) :
+    command(cmd), rawCmds(raw), is_ba(false)
 {
 	id = idCounter.fetchAndAddRelaxed(1);
 	data.dev = dev;
@@ -114,11 +114,12 @@ QFtpCommand::~QFtpCommand()
  * QFtpDTP implemenatation
  *
  *********************************************************************/
-QFtpDTP::QFtpDTP(QFtpPI * p, QObject * parent) : QObject(parent),
-                                                 socket(nullptr),
-                                                 listener(this),
-                                                 pi(p),
-                                                 callWriteData(false)
+QFtpDTP::QFtpDTP(QFtpPI * p, QObject * parent) :
+    QObject(parent),
+    socket(nullptr),
+    listener(this),
+    pi(p),
+    callWriteData(false)
 {
 	clearData();
 	listener.setObjectName(QLatin1String("QFtpDTP active state server"));
@@ -665,15 +666,17 @@ void QFtpDTP::clearData()
  * QFtpPI implemenatation
  *
  *********************************************************************/
-QFtpPI::QFtpPI(QObject * parent) : QObject(parent),
-                                   rawCommand(false),
-                                   transferConnectionExtended(true),
-                                   dtp(this),
-                                   commandSocket(nullptr),
-                                   state(Begin), abortState(None),
-                                   currentCmd(QString()),
-                                   waitForDtpToConnect(false),
-                                   waitForDtpToClose(false)
+QFtpPI::QFtpPI(QObject * parent) :
+    QObject(parent),
+    rawCommand(false),
+    transferConnectionExtended(true),
+    dtp(this),
+    commandSocket(nullptr),
+    state(Begin),
+    abortState(None),
+    currentCmd(QString()),
+    waitForDtpToConnect(false),
+    waitForDtpToClose(false)
 {
 	commandSocket.setObjectName(QLatin1String("QFtpPI_socket"));
 	connect(&commandSocket, SIGNAL(hostFound()),
@@ -1187,8 +1190,9 @@ class QFtpPrivate
 {
 	Q_DECLARE_PUBLIC(QFtp)
 public:
-	inline QFtpPrivate(QFtp * owner) : close_waitForStateChange(false), state(QFtp::Unconnected),
-	                                   transferMode(QFtp::Passive), error(QFtp::NoError), q_ptr(owner)
+	inline QFtpPrivate(QFtp * owner) :
+	    close_waitForStateChange(false), state(QFtp::Unconnected),
+	    transferMode(QFtp::Passive), error(QFtp::NoError), q_ptr(owner)
 	{
 	}
 
@@ -1344,8 +1348,9 @@ int QFtpPrivate::addCommand(QFtpCommand * cmd)
 /*!
     Constructs a QFtp object with the given \a parent.
 */
-QFtp::QFtp(QObject * parent)
-    : QObject(parent), d(new QFtpPrivate(this))
+QFtp::QFtp(QObject * parent) :
+    QObject(parent),
+    d(new QFtpPrivate(this))
 {
 	d->errorString = tr("Unknown error");
 

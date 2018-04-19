@@ -31,9 +31,9 @@
 #include <QWidget>
 
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
-# include <winsock2.h>
+#include <winsock2.h>
 #elif defined(COMPILE_X11_SUPPORT) && defined(COMPILE_QX11INFO_SUPPORT)
-# include "KviXlib.h" // for XEvent
+#include "KviXlib.h" // for XEvent
 #endif
 
 //////////////////////////////////////////////////////////////////////

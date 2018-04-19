@@ -176,7 +176,7 @@ KviBoolOption g_boolOptionsTable[KVI_NUM_BOOL_OPTIONS] = {
 	BOOL_OPTION("CreateIncomingQueriesAsMinimized", true, KviOption_sectFlagConnection),
 	BOOL_OPTION("AutoJoinOnInvite", false, KviOption_sectFlagConnection),
 	BOOL_OPTION("ShowServersConnectDialogOnStart", true, KviOption_sectFlagFrame),
-	BOOL_OPTION("ShowServersConnectDialogAsToplevel", true, KviOption_sectFlagFrame),  //UNUSED
+	BOOL_OPTION("ShowServersConnectDialogAsToplevel", true, KviOption_sectFlagFrame), //UNUSED
 	BOOL_OPTION("AcceptBrokenFileNameDccResumeRequests", true, KviOption_sectFlagDcc),
 	BOOL_OPTION("AutoReconnectOnUnexpectedDisconnect", true, KviOption_sectFlagFrame),
 	BOOL_OPTION("RejoinChannelsAfterReconnect", true, KviOption_sectFlagFrame),

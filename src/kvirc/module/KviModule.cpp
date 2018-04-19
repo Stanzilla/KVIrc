@@ -128,8 +128,8 @@ extern KVIRC_API KviModuleExtensionManager * g_pModuleExtensionManager;
 
 // FIXME: #warning "Move all the modules to the new locking method ?"
 
-KviModule::KviModule(QLibrary * handle, KviModuleInfo * info, const QString & name, const QString & filename)
-    : KviKvsModuleInterface()
+KviModule::KviModule(QLibrary * handle, KviModuleInfo * info, const QString & name, const QString & filename) :
+    KviKvsModuleInterface()
 {
 	m_pLibrary = handle;
 	m_pModuleInfo = info;

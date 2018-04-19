@@ -31,8 +31,8 @@
 
 #include <math.h>
 
-KviKvsTreeNodeOperation::KviKvsTreeNodeOperation(const QChar * pLocation)
-    : KviKvsTreeNodeInstruction(pLocation)
+KviKvsTreeNodeOperation::KviKvsTreeNodeOperation(const QChar * pLocation) :
+    KviKvsTreeNodeInstruction(pLocation)
 {
 }
 
@@ -60,8 +60,8 @@ void KviKvsTreeNodeOperation::dump(const char * prefix)
 	m_pTargetData->dump(tmp.toUtf8().data());
 }
 
-KviKvsTreeNodeOperationAssignment::KviKvsTreeNodeOperationAssignment(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationAssignment::KviKvsTreeNodeOperationAssignment(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -101,8 +101,8 @@ bool KviKvsTreeNodeOperationAssignment::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationDecrement::KviKvsTreeNodeOperationDecrement(const QChar * pLocation)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationDecrement::KviKvsTreeNodeOperationDecrement(const QChar * pLocation) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 }
 
@@ -151,8 +151,8 @@ bool KviKvsTreeNodeOperationDecrement::execute(KviKvsRunTimeContext * c)
 	return false;
 }
 
-KviKvsTreeNodeOperationIncrement::KviKvsTreeNodeOperationIncrement(const QChar * pLocation)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationIncrement::KviKvsTreeNodeOperationIncrement(const QChar * pLocation) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 }
 
@@ -200,8 +200,8 @@ bool KviKvsTreeNodeOperationIncrement::execute(KviKvsRunTimeContext * c)
 	return false;
 }
 
-KviKvsTreeNodeOperationSelfAnd::KviKvsTreeNodeOperationSelfAnd(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfAnd::KviKvsTreeNodeOperationSelfAnd(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -259,8 +259,8 @@ bool KviKvsTreeNodeOperationSelfAnd::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfDivision::KviKvsTreeNodeOperationSelfDivision(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfDivision::KviKvsTreeNodeOperationSelfDivision(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -346,8 +346,8 @@ bool KviKvsTreeNodeOperationSelfDivision::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfModulus::KviKvsTreeNodeOperationSelfModulus(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfModulus::KviKvsTreeNodeOperationSelfModulus(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -430,8 +430,8 @@ bool KviKvsTreeNodeOperationSelfModulus::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfMultiplication::KviKvsTreeNodeOperationSelfMultiplication(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfMultiplication::KviKvsTreeNodeOperationSelfMultiplication(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -499,8 +499,8 @@ bool KviKvsTreeNodeOperationSelfMultiplication::execute(KviKvsRunTimeContext * c
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfOr::KviKvsTreeNodeOperationSelfOr(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfOr::KviKvsTreeNodeOperationSelfOr(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -557,8 +557,8 @@ bool KviKvsTreeNodeOperationSelfOr::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfShl::KviKvsTreeNodeOperationSelfShl(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfShl::KviKvsTreeNodeOperationSelfShl(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -616,8 +616,8 @@ bool KviKvsTreeNodeOperationSelfShl::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfShr::KviKvsTreeNodeOperationSelfShr(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfShr::KviKvsTreeNodeOperationSelfShr(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -675,8 +675,8 @@ bool KviKvsTreeNodeOperationSelfShr::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfSubtraction::KviKvsTreeNodeOperationSelfSubtraction(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfSubtraction::KviKvsTreeNodeOperationSelfSubtraction(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -747,8 +747,8 @@ bool KviKvsTreeNodeOperationSelfSubtraction::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfSum::KviKvsTreeNodeOperationSelfSum(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfSum::KviKvsTreeNodeOperationSelfSum(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -820,8 +820,8 @@ bool KviKvsTreeNodeOperationSelfSum::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationSelfXor::KviKvsTreeNodeOperationSelfXor(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationSelfXor::KviKvsTreeNodeOperationSelfXor(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -879,8 +879,8 @@ bool KviKvsTreeNodeOperationSelfXor::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationStringAppend::KviKvsTreeNodeOperationStringAppend(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationStringAppend::KviKvsTreeNodeOperationStringAppend(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -922,8 +922,8 @@ bool KviKvsTreeNodeOperationStringAppend::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationArrayAppend::KviKvsTreeNodeOperationArrayAppend(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationArrayAppend::KviKvsTreeNodeOperationArrayAppend(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -1000,8 +1000,8 @@ bool KviKvsTreeNodeOperationArrayAppend::execute(KviKvsRunTimeContext * c)
 	return true;
 }
 
-KviKvsTreeNodeOperationStringAppendWithComma::KviKvsTreeNodeOperationStringAppendWithComma(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationStringAppendWithComma::KviKvsTreeNodeOperationStringAppendWithComma(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -1053,8 +1053,8 @@ bool KviKvsTreeNodeOperationStringAppendWithComma::execute(KviKvsRunTimeContext 
 	return true;
 }
 
-KviKvsTreeNodeOperationStringAppendWithSpace::KviKvsTreeNodeOperationStringAppendWithSpace(const QChar * pLocation, KviKvsTreeNodeData * pRightSide)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationStringAppendWithSpace::KviKvsTreeNodeOperationStringAppendWithSpace(const QChar * pLocation, KviKvsTreeNodeData * pRightSide) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pRightSide = pRightSide;
 	m_pRightSide->setParent(this);
@@ -1106,8 +1106,8 @@ bool KviKvsTreeNodeOperationStringAppendWithSpace::execute(KviKvsRunTimeContext 
 	return true;
 }
 
-KviKvsTreeNodeOperationStringTransliteration::KviKvsTreeNodeOperationStringTransliteration(const QChar * pLocation, KviKvsTreeNodeData * pLeft, KviKvsTreeNodeData * pRight, KviKvsTreeNodeData * pFlags)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationStringTransliteration::KviKvsTreeNodeOperationStringTransliteration(const QChar * pLocation, KviKvsTreeNodeData * pLeft, KviKvsTreeNodeData * pRight, KviKvsTreeNodeData * pFlags) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pLeft = pLeft;
 	m_pLeft->setParent(this);
@@ -1169,8 +1169,8 @@ bool KviKvsTreeNodeOperationStringTransliteration::execute(KviKvsRunTimeContext 
 	return true;
 }
 
-KviKvsTreeNodeOperationStringSubstitution::KviKvsTreeNodeOperationStringSubstitution(const QChar * pLocation, KviKvsTreeNodeData * pLeft, KviKvsTreeNodeData * pRight, KviKvsTreeNodeData * pFlags)
-    : KviKvsTreeNodeOperation(pLocation)
+KviKvsTreeNodeOperationStringSubstitution::KviKvsTreeNodeOperationStringSubstitution(const QChar * pLocation, KviKvsTreeNodeData * pLeft, KviKvsTreeNodeData * pRight, KviKvsTreeNodeData * pFlags) :
+    KviKvsTreeNodeOperation(pLocation)
 {
 	m_pLeft = pLeft;
 	m_pLeft->setParent(this);

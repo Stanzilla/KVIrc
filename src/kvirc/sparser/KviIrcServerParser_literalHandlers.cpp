@@ -700,7 +700,7 @@ void KviIrcServerParser::parseLiteralKick(KviIrcMessage * msg)
 			msg->setHaltOutput();
 		if(!KVI_OPTION_STRING(KviOption_stringOnMeKickedSound).isEmpty())
 		{
-			KviKvsVariantList soundParams{new KviKvsVariant{KVI_OPTION_STRING(KviOption_stringOnMeKickedSound)}};
+			KviKvsVariantList soundParams{ new KviKvsVariant{ KVI_OPTION_STRING(KviOption_stringOnMeKickedSound) } };
 			KviKvsScript::run("snd.play $0", nullptr, &soundParams);
 		}
 
@@ -833,8 +833,8 @@ void KviIrcServerParser::parseLiteralKick(KviIrcMessage * msg)
 	else                                                                                                                             \
 		retptr = txt, retmsgtype = type;
 #else //COMPILE_CRYPT_SUPPORT
-#define DECRYPT_IF_NEEDED(target, txt, type, type2, buffer, retptr, retmsgtype)        \
-	retptr = txt;                                                                      \
+#define DECRYPT_IF_NEEDED(target, txt, type, type2, buffer, retptr, retmsgtype) \
+	retptr = txt;                                                               \
 	retmsgtype = type;
 #endif //COMPILE_CRYPT_SUPPORT
 
@@ -855,7 +855,7 @@ void KviIrcServerParser::parseLiteralPrivmsg(KviIrcMessage * msg)
 	// update the user entry in the database right away
 	KviIrcUserDataBase * db = msg->connection()->userDataBase();
 	KviIrcUserEntry * e = db->find(szSourceNick);
-	if (e)
+	if(e)
 	{
 		e->setUser(szSourceUser);
 		e->setHost(szSourceHost);
@@ -985,9 +985,9 @@ void KviIrcServerParser::parseLiteralPrivmsg(KviIrcMessage * msg)
 
 		// "znc.in/self-message" capability: Handle a replayed message from ourselves to someone else.
 		bool bSelfMessage = IS_ME(msg, szSourceNick);
-		const QString &szOtherNick = bSelfMessage ? szTargetNick : szSourceNick;
-		const QString &szOtherUser = bSelfMessage ? szTargetUser : szSourceUser;
-		const QString &szOtherHost = bSelfMessage ? szTargetHost : szSourceHost;
+		const QString & szOtherNick = bSelfMessage ? szTargetNick : szSourceNick;
+		const QString & szOtherUser = bSelfMessage ? szTargetUser : szSourceUser;
+		const QString & szOtherHost = bSelfMessage ? szTargetHost : szSourceHost;
 
 		// A query request
 		// do we have a matching window ?
@@ -1053,7 +1053,7 @@ void KviIrcServerParser::parseLiteralPrivmsg(KviIrcMessage * msg)
 				{
 					if(!KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound).isEmpty())
 					{
-						KviKvsVariantList soundParams{new KviKvsVariant{KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound)}};
+						KviKvsVariantList soundParams{ new KviKvsVariant{ KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound) } };
 						KviKvsScript::run("snd.play $0", nullptr, &soundParams);
 					}
 				}
@@ -1124,7 +1124,7 @@ void KviIrcServerParser::parseLiteralPrivmsg(KviIrcMessage * msg)
 			// we don't have a query here!
 			if(!KVI_OPTION_STRING(KviOption_stringOnQueryMessageSound).isEmpty() && !console->hasAttention())
 			{
-				KviKvsVariantList soundParams{new KviKvsVariant{KVI_OPTION_STRING(KviOption_stringOnQueryMessageSound)}};
+				KviKvsVariantList soundParams{ new KviKvsVariant{ KVI_OPTION_STRING(KviOption_stringOnQueryMessageSound) } };
 				KviKvsScript::run("snd.play $0", console, &soundParams);
 			}
 
@@ -1246,7 +1246,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 	// update the user entry in the database right away
 	KviIrcUserDataBase * db = msg->connection()->userDataBase();
 	KviIrcUserEntry * e = db->find(szNick);
-	if (e)
+	if(e)
 	{
 		e->setUser(szUser);
 		e->setHost(szHost);
@@ -1336,9 +1336,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 				if(KVI_OPTION_BOOL(KviOption_boolServicesNoticesToActiveWindow))
 				{
 					KviWindow * aWin = console->activeWindow();
-					if(aWin && (aWin->type() == KviWindow::Channel
-					               || aWin->type() == KviWindow::Console
-					               || aWin->type() == KviWindow::Query))
+					if(aWin && (aWin->type() == KviWindow::Channel || aWin->type() == KviWindow::Console || aWin->type() == KviWindow::Query))
 						pOut = aWin;
 				}
 				pOut->output(KVI_OUT_NICKSERV, "\r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q", &szNick, &szUser, &szHost, &szMsgText);
@@ -1368,9 +1366,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 				if(KVI_OPTION_BOOL(KviOption_boolServicesNoticesToActiveWindow))
 				{
 					KviWindow * aWin = console->activeWindow();
-					if(aWin && (aWin->type() == KviWindow::Channel
-					               || aWin->type() == KviWindow::Console
-					               || aWin->type() == KviWindow::Query))
+					if(aWin && (aWin->type() == KviWindow::Channel || aWin->type() == KviWindow::Console || aWin->type() == KviWindow::Query))
 						pOut = aWin;
 				}
 				pOut->output(KVI_OUT_NICKSERV, "\r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q", &szNick, &szUser, &szHost, &szMsgText);
@@ -1394,9 +1390,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 				if(KVI_OPTION_BOOL(KviOption_boolServicesNoticesToActiveWindow))
 				{
 					KviWindow * aWin = console->activeWindow();
-					if(aWin && (aWin->type() == KviWindow::Channel
-					               || aWin->type() == KviWindow::Console
-					               || aWin->type() == KviWindow::Query))
+					if(aWin && (aWin->type() == KviWindow::Channel || aWin->type() == KviWindow::Console || aWin->type() == KviWindow::Query))
 						pOut = aWin;
 				}
 				pOut->output(KVI_OUT_CHANSERV, "\r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q", &szNick, &szUser, &szHost, &szMsgText);
@@ -1420,9 +1414,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 				if(KVI_OPTION_BOOL(KviOption_boolServicesNoticesToActiveWindow))
 				{
 					KviWindow * aWin = console->activeWindow();
-					if(aWin && (aWin->type() == KviWindow::Channel
-					               || aWin->type() == KviWindow::Console
-					               || aWin->type() == KviWindow::Query))
+					if(aWin && (aWin->type() == KviWindow::Channel || aWin->type() == KviWindow::Console || aWin->type() == KviWindow::Query))
 						pOut = aWin;
 				}
 
@@ -1495,7 +1487,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 				{
 					if(!KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound).isEmpty())
 					{
-						KviKvsVariantList soundParams{new KviKvsVariant{KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound)}};
+						KviKvsVariantList soundParams{ new KviKvsVariant{ KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound) } };
 						KviKvsScript::run("snd.play $0", nullptr, &soundParams);
 					}
 				}
@@ -1641,9 +1633,7 @@ void KviIrcServerParser::parseLiteralNotice(KviIrcMessage * msg)
 			if(KVI_OPTION_BOOL(KviOption_boolExternalMessagesToActiveWindow))
 			{
 				KviWindow * aWin = console->activeWindow();
-				if(aWin && (aWin->type() == KviWindow::Channel
-				               || aWin->type() == KviWindow::Console
-				               || aWin->type() == KviWindow::Query))
+				if(aWin && (aWin->type() == KviWindow::Channel || aWin->type() == KviWindow::Console || aWin->type() == KviWindow::Query))
 					pOut = aWin;
 			}
 
@@ -1876,7 +1866,7 @@ void KviIrcServerParser::parseLiteralInvite(KviIrcMessage * msg)
 	// update the user entry in the database right away
 	KviIrcUserDataBase * db = msg->connection()->userDataBase();
 	KviIrcUserEntry * e = db->find(szNick);
-	if (e)
+	if(e)
 	{
 		e->setUser(szUser);
 		e->setHost(szHost);
@@ -2174,46 +2164,46 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 				if(bIsMultiSingleMode)
 					iIconForCompactMode = KVI_OUT_LIMIT;
 				break;
-#define CHANUSER_MODE(modechar, chanfunc, evmeset, evmeunset, evset, evunset, icomeset, icomeunset, icoset, icounset)                     \
-	case modechar:                                                                                                                        \
-		if(msg->connection()->serverInfo()->isSupportedModeFlag(modechar))                                                                \
-		{                                                                                                                                 \
-			aParam = msg->connection()->decodeText(msg->safeParam(curParam++));                                                           \
-			bIsMe = IS_ME(msg, aParam);                                                                                                   \
-			chan->chanfunc(aParam, bSet, bIsMe);                                                                                          \
-			if(bIsMe)                                                                                                                     \
-			{                                                                                                                             \
-				if(KVS_TRIGGER_EVENT_3_HALTED(bSet ? evmeset : evmeunset, chan, szNick, szUser, szHost))                                  \
-					msg->setHaltOutput();                                                                                                 \
-				chan->updateCaption();                                                                                                    \
-			}                                                                                                                             \
-			else                                                                                                                          \
-			{                                                                                                                             \
-				if(KVS_TRIGGER_EVENT_4_HALTED(bSet ? evset : evunset, chan, szNick, szUser, szHost, aParam))                              \
-					msg->setHaltOutput();                                                                                                 \
-			}                                                                                                                             \
-			if(!(msg->haltOutput() || bShowAsCompact))                                                                                    \
-			{                                                                                                                             \
-				chan->output(bSet ? (bIsMe ? icomeset : icoset) : (bIsMe ? icomeunset : icounset),                                        \
-				    __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!n\r%Q\r"),                                                                   \
-				    &szNickBuffer, &szUser, &szHostBuffer, bSet ? '+' : '-', modechar, &aParam);                                          \
-			}                                                                                                                             \
-			if(bIsMultiSingleMode)                                                                                                        \
-				iIconForCompactMode = (bSet ? (bIsMe ? icomeset : icoset) : (bIsMe ? icomeunset : icounset));                             \
-		}                                                                                                                                 \
-		else                                                                                                                              \
-		{                                                                                                                                 \
-			chan->setChannelMode(modechar, bSet);                                                                                         \
-			if(!(msg->haltOutput() || bShowAsCompact))                                                                                    \
-			{                                                                                                                             \
-				chan->output(KVI_OUT_CHANMODE,                                                                                            \
-				    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),                                                          \
-				    &szNickBuffer, &szUser, &szHostBuffer,                                                                                \
-				    bSet ? '-' : '+', modechar, bSet ? '+' : '-', modechar);                                                              \
-			}                                                                                                                             \
-			if(bIsMultiSingleMode)                                                                                                        \
-				iIconForCompactMode = KVI_OUT_CHANMODE;                                                                                   \
-		}                                                                                                                                 \
+#define CHANUSER_MODE(modechar, chanfunc, evmeset, evmeunset, evset, evunset, icomeset, icomeunset, icoset, icounset) \
+	case modechar:                                                                                                    \
+		if(msg->connection()->serverInfo()->isSupportedModeFlag(modechar))                                            \
+		{                                                                                                             \
+			aParam = msg->connection()->decodeText(msg->safeParam(curParam++));                                       \
+			bIsMe = IS_ME(msg, aParam);                                                                               \
+			chan->chanfunc(aParam, bSet, bIsMe);                                                                      \
+			if(bIsMe)                                                                                                 \
+			{                                                                                                         \
+				if(KVS_TRIGGER_EVENT_3_HALTED(bSet ? evmeset : evmeunset, chan, szNick, szUser, szHost))              \
+					msg->setHaltOutput();                                                                             \
+				chan->updateCaption();                                                                                \
+			}                                                                                                         \
+			else                                                                                                      \
+			{                                                                                                         \
+				if(KVS_TRIGGER_EVENT_4_HALTED(bSet ? evset : evunset, chan, szNick, szUser, szHost, aParam))          \
+					msg->setHaltOutput();                                                                             \
+			}                                                                                                         \
+			if(!(msg->haltOutput() || bShowAsCompact))                                                                \
+			{                                                                                                         \
+				chan->output(bSet ? (bIsMe ? icomeset : icoset) : (bIsMe ? icomeunset : icounset),                    \
+				    __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!n\r%Q\r"),                                               \
+				    &szNickBuffer, &szUser, &szHostBuffer, bSet ? '+' : '-', modechar, &aParam);                      \
+			}                                                                                                         \
+			if(bIsMultiSingleMode)                                                                                    \
+				iIconForCompactMode = (bSet ? (bIsMe ? icomeset : icoset) : (bIsMe ? icomeunset : icounset));         \
+		}                                                                                                             \
+		else                                                                                                          \
+		{                                                                                                             \
+			chan->setChannelMode(modechar, bSet);                                                                     \
+			if(!(msg->haltOutput() || bShowAsCompact))                                                                \
+			{                                                                                                         \
+				chan->output(KVI_OUT_CHANMODE,                                                                        \
+				    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),                                      \
+				    &szNickBuffer, &szUser, &szHostBuffer,                                                            \
+				    bSet ? '-' : '+', modechar, bSet ? '+' : '-', modechar);                                          \
+			}                                                                                                         \
+			if(bIsMultiSingleMode)                                                                                    \
+				iIconForCompactMode = KVI_OUT_CHANMODE;                                                               \
+		}                                                                                                             \
 		break;
 
 				CHANUSER_MODE('o', setOp, KviEvent_OnMeOp, KviEvent_OnMeDeOp, KviEvent_OnOp, KviEvent_OnDeOp, KVI_OUT_MEOP, KVI_OUT_MEDEOP, KVI_OUT_OP, KVI_OUT_DEOP)
@@ -2239,11 +2229,11 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 					{
 						// it's a mask
 						{
-						KviIrcMask auxMask(aParam);
-						bIsMe = auxMask.matchesFixed(
-						    msg->connection()->userInfo()->nickName(),
-						    msg->connection()->userInfo()->userName(),
-						    msg->connection()->userInfo()->hostName());
+							KviIrcMask auxMask(aParam);
+							bIsMe = auxMask.matchesFixed(
+							    msg->connection()->userInfo()->nickName(),
+							    msg->connection()->userInfo()->userName(),
+							    msg->connection()->userInfo()->hostName());
 						}
 						if(bIsMe)
 						{
@@ -2373,11 +2363,11 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 		aParam = msg->connection()->decodeText(msg->safeParam(curParam++));                                                                 \
 		chan->setModeInList(*aux, aParam, bSet, msg->connection()->decodeText(msg->safePrefix()), QDateTime::currentDateTime().toTime_t()); \
 		{                                                                                                                                   \
-		KviIrcMask auxMask(aParam);                                                                                                         \
-		bIsMe = auxMask.matchesFixed(                                                                                                       \
-		    msg->connection()->userInfo()->nickName(),                                                                                      \
-		    msg->connection()->userInfo()->userName(),                                                                                      \
-		    msg->connection()->userInfo()->hostName());                                                                                     \
+			KviIrcMask auxMask(aParam);                                                                                                     \
+			bIsMe = auxMask.matchesFixed(                                                                                                   \
+			    msg->connection()->userInfo()->nickName(),                                                                                  \
+			    msg->connection()->userInfo()->userName(),                                                                                  \
+			    msg->connection()->userInfo()->hostName());                                                                                 \
 		}                                                                                                                                   \
 		if(bIsMe)                                                                                                                           \
 		{                                                                                                                                   \
@@ -2391,8 +2381,8 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 		}                                                                                                                                   \
 		if(!(msg->haltOutput() || bShowAsCompact))                                                                                          \
 		{                                                                                                                                   \
-			auto aParamEscaped = aParam;                                                                                                \
-			KviQString::escapeKvs(&aParamEscaped);                                                                                      \
+			auto aParamEscaped = aParam;                                                                                                    \
+			KviQString::escapeKvs(&aParamEscaped);                                                                                          \
 			chan->output(bSet ? (bIsMe ? icomeset : icoset) : (bIsMe ? icomeunset : icounset),                                              \
 			    __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),                                                                  \
 			    &szNickBuffer, &szUser, &szHostBuffer,                                                                                      \
@@ -2438,7 +2428,7 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 				else if(msg->connection()->serverInfo()->supportedParameterModes().contains(*aux)
 				    || (msg->connection()->serverInfo()->supportedParameterWhenSetModes().contains(*aux) && bSet))
 				{
-				/*
+					/*
 				 * Examples:
 				 * flood mode with parameter like "[5m#M4]:5", see bug #505
 				 * Channel join throttling like "4:5", see bug #731
@@ -2466,7 +2456,7 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 				}
 				else if(msg->connection()->serverInfo()->isSupportedModeFlag(*aux))
 				{
-				/*
+					/*
 				 * A custom mode prefix, like inspircd's  +y => !
 				 * We need to correctly echo it, and be sure it doesn't
 				 * get confused as a channel mode

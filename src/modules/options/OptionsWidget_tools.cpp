@@ -30,8 +30,8 @@
 
 #include <QLayout>
 
-OptionsWidget_tools::OptionsWidget_tools(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_tools::OptionsWidget_tools(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("tools_options_widget");
 	createLayout();

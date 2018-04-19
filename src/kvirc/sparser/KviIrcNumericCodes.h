@@ -167,7 +167,7 @@
 #define RPL_HELPIGN 295 /* [D] */
 //      RPL_???????      296-299
 #define RPL_NONE 300     /* [I,E,U,D] */
-#define RPL_AWAY 301     /* ":fontana.openprojects.net 301 Pragma Nick :sleep :) [I,E,U,D] # */
+#define RPL_AWAY 301     /* ":fontana.openprojects.net 301 Pragma Nick :sleep  [I,E,U,D] # */
 #define RPL_USERHOST 302 /* ":up to 5 userhost replies"                          [I,E,U,D] # */
 #define RPL_ISON 303     /* ":<list of present nicks>"                           [I,E,U,D] # */
 #define RPL_TEXT 304     /* [I,E,U,D] */

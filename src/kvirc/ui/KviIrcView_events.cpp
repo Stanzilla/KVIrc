@@ -908,7 +908,8 @@ void KviIrcView::doLinkToolTip(const QRect & rct, QString & linkCmd, QString & l
 				tip += ue + "...";
 			}
 			else
-			{	tip += tdp;
+			{
+				tip += tdp;
 				tip += __tr2qs("URL") + cln + nbspc;
 				tip += "<font color=\"#0022FF\">" + ub;
 				tip += linkText + ue;
@@ -916,7 +917,7 @@ void KviIrcView::doLinkToolTip(const QRect & rct, QString & linkCmd, QString & l
 
 			tip += "</font>" + pre;
 
-			if(KVI_OPTION_UINT(KviOption_uintUrlMouseClickNum) == 1)  // Check click count
+			if(KVI_OPTION_UINT(KviOption_uintUrlMouseClickNum) == 1) // Check click count
 				tip += __tr2qs("Click to open this link");
 			else
 			{
@@ -944,7 +945,8 @@ void KviIrcView::doLinkToolTip(const QRect & rct, QString & linkCmd, QString & l
 				tip += ue + "...";
 			}
 			else
-			{	tip += tdp;
+			{
+				tip += tdp;
 				tip += __tr2qs("Hostname") + cln + nbspc;
 				tip += "<font color=\"#0022FF\">" + ub;
 				tip += linkText + ue;
@@ -993,7 +995,8 @@ void KviIrcView::doLinkToolTip(const QRect & rct, QString & linkCmd, QString & l
 				tip += ue + "...";
 			}
 			else
-			{	tip += tdp;
+			{
+				tip += tdp;
 				tip += __tr2qs("Server URL") + cln + nbspc;
 				tip += "<font color=\"#0022FF\">" + ub;
 				tip += linkText + ue;
@@ -1017,7 +1020,7 @@ void KviIrcView::doLinkToolTip(const QRect & rct, QString & linkCmd, QString & l
 			tip += __tr2qs("Double-click to read the MOTD");
 			tip += br;
 			tip += __tr2qs("Right-click to view other options");
-			tip += enr ;
+			tip += enr;
 			tip += "</table></body></html>";
 		}
 		break;

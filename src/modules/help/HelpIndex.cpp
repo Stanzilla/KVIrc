@@ -56,7 +56,10 @@ QT_BEGIN_NAMESPACE
 struct Term
 {
 	Term() = default;
-	Term(const QString & t, int f, QVector<Document> l) : term(t), frequency(f), documents(l) {}
+	Term(const QString & t, int f, QVector<Document> l) :
+	    term(t),
+	    frequency(f),
+	    documents(l) {}
 	QString term;
 	int frequency = -1;
 	QVector<Document> documents;
@@ -77,8 +80,9 @@ QDataStream & operator<<(QDataStream & s, const Document & l)
 	return s;
 }
 
-HelpIndex::HelpIndex(const QString & dp, const QString & hp)
-    : QObject(nullptr), docPath(dp)
+HelpIndex::HelpIndex(const QString & dp, const QString & hp) :
+    QObject(nullptr),
+    docPath(dp)
 {
 	Q_UNUSED(hp);
 
@@ -92,8 +96,9 @@ HelpIndex::HelpIndex(const QString & dp, const QString & hp)
 	connect(m_pTimer, SIGNAL(timeout()), this, SLOT(filterNext()));
 }
 
-HelpIndex::HelpIndex(const QStringList & dl, const QString & hp)
-    : QObject(nullptr), docList{dl}
+HelpIndex::HelpIndex(const QStringList & dl, const QString & hp) :
+    QObject(nullptr),
+    docList{ dl }
 {
 	Q_UNUSED(hp);
 
@@ -155,9 +160,9 @@ void HelpIndex::setupDocumentList()
 	docList.clear();
 	titleList.clear();
 	QDir d(docPath);
-	QStringList filters{QLatin1String("*.html")};
+	QStringList filters{ QLatin1String("*.html") };
 	QStringList lst = d.entryList(filters);
-	for(auto&& item : lst)
+	for(auto && item : lst)
 	{
 		QString filename = QLatin1String("file:///") + docPath + QLatin1String("/") + item;
 		docList.append(filename);
@@ -372,7 +377,7 @@ QStringList HelpIndex::query(const QStringList & terms, const QStringList & term
 		for(auto minDoc_it = minDocs.begin(); minDoc_it != minDocs.end();)
 		{
 			bool found = false;
-			for(auto&& doc : docs)
+			for(auto && doc : docs)
 			{
 				if(minDoc_it->docNumber == doc.docNumber)
 				{
@@ -563,7 +568,7 @@ bool HelpIndex::searchForPattern(const QStringList & patterns, const QStringList
 
 	wordNum = 3;
 	miniDict.clear();
-	for(auto&& word : words)
+	for(auto && word : words)
 		miniDict.insert(word, new PosEntry(0));
 
 	QTextStream s(&file);
@@ -615,7 +620,7 @@ bool HelpIndex::searchForPattern(const QStringList & patterns, const QStringList
 
 	QStringList wordLst;
 	QList<uint> a;
-	for(auto&& pattern : patterns)
+	for(auto && pattern : patterns)
 	{
 		wordLst = pattern.split(QLatin1Char(' '));
 		a = miniDict[wordLst[0]]->positions;

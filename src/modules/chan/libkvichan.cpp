@@ -1206,7 +1206,7 @@ static bool chan_kvs_fnc_users(KviKvsModuleFunctionCall * c)
 	if(!ch)
 		return true;
 
-	KviUserListEntry * e = ch->userListView()->firstItem(); // Thnx Julien :)
+	KviUserListEntry * e = ch->userListView()->firstItem(); // Thnx Julien
 
 	bool bCheckMask = !szMask.isEmpty();
 	bool bOp = szFlags.contains(QChar('o'), Qt::CaseSensitive);

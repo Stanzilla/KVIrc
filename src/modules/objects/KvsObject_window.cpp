@@ -31,8 +31,8 @@
 #include "KviLocale.h"
 #include "KviMainWindow.h"
 
-KviKvsScriptWindowWindow::KviKvsScriptWindowWindow(const QString & szName)
-    : KviWindow(KviWindow::ScriptObject, szName)
+KviKvsScriptWindowWindow::KviKvsScriptWindowWindow(const QString & szName) :
+    KviWindow(KviWindow::ScriptObject, szName)
 {
 }
 

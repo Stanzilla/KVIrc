@@ -30,8 +30,8 @@
 #include <QHelpEvent>
 #include <QApplication>
 
-KviTalListWidget::KviTalListWidget(QWidget * pParent, QString name, Qt::WindowType f)
-    : QListWidget(pParent)
+KviTalListWidget::KviTalListWidget(QWidget * pParent, QString name, Qt::WindowType f) :
+    QListWidget(pParent)
 {
 	setObjectName(name);
 	setWindowFlags(f);
@@ -79,14 +79,14 @@ bool KviTalListWidget::event(QEvent * e)
 	return QListWidget::event(e);
 }
 
-KviTalListWidgetText::KviTalListWidgetText(KviTalListWidget * listbox, const QString & text)
-    : KviTalListWidgetItem(listbox)
+KviTalListWidgetText::KviTalListWidgetText(KviTalListWidget * listbox, const QString & text) :
+    KviTalListWidgetItem(listbox)
 {
 	setText(text);
 }
 
-KviTalListWidgetText::KviTalListWidgetText(const QString & text)
-    : KviTalListWidgetItem()
+KviTalListWidgetText::KviTalListWidgetText(const QString & text) :
+    KviTalListWidgetItem()
 {
 	setText(text);
 }
@@ -119,14 +119,14 @@ int KviTalListWidgetText::rtti() const
 	return RTTI;
 }
 
-KviTalListWidgetPixmap::KviTalListWidgetPixmap(KviTalListWidget * listbox, const QPixmap & pixmap)
-    : KviTalListWidgetItem(listbox)
+KviTalListWidgetPixmap::KviTalListWidgetPixmap(KviTalListWidget * listbox, const QPixmap & pixmap) :
+    KviTalListWidgetItem(listbox)
 {
 	pm = pixmap;
 }
 
-KviTalListWidgetPixmap::KviTalListWidgetPixmap(const QPixmap & pixmap)
-    : KviTalListWidgetItem()
+KviTalListWidgetPixmap::KviTalListWidgetPixmap(const QPixmap & pixmap) :
+    KviTalListWidgetItem()
 {
 	pm = pixmap;
 }
@@ -134,16 +134,16 @@ KviTalListWidgetPixmap::KviTalListWidgetPixmap(const QPixmap & pixmap)
 KviTalListWidgetPixmap::~KviTalListWidgetPixmap()
     = default;
 
-KviTalListWidgetPixmap::KviTalListWidgetPixmap(KviTalListWidget * listbox, const QPixmap & pix, const QString & text)
-    : KviTalListWidgetItem(listbox)
+KviTalListWidgetPixmap::KviTalListWidgetPixmap(KviTalListWidget * listbox, const QPixmap & pix, const QString & text) :
+    KviTalListWidgetItem(listbox)
 {
 	pm = pix;
 	setText(text);
 	setIcon(QIcon(pix));
 }
 
-KviTalListWidgetPixmap::KviTalListWidgetPixmap(const QPixmap & pix, const QString & text)
-    : KviTalListWidgetItem()
+KviTalListWidgetPixmap::KviTalListWidgetPixmap(const QPixmap & pix, const QString & text) :
+    KviTalListWidgetItem()
 {
 	pm = pix;
 	setText(text);

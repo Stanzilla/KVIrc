@@ -51,8 +51,10 @@
 
 extern EventEditorWindow * g_pEventEditorWindow;
 
-EventEditorEventTreeWidgetItem::EventEditorEventTreeWidgetItem(QTreeWidget * par, unsigned int uEvIdx, const QString & name, const QString & params)
-    : QTreeWidgetItem(par), m_uEventIdx(uEvIdx), m_szParams(params)
+EventEditorEventTreeWidgetItem::EventEditorEventTreeWidgetItem(QTreeWidget * par, unsigned int uEvIdx, const QString & name, const QString & params) :
+    QTreeWidgetItem(par),
+    m_uEventIdx(uEvIdx),
+    m_szParams(params)
 {
 	setName(name);
 }
@@ -63,8 +65,9 @@ void EventEditorEventTreeWidgetItem::setName(const QString & szName)
 	setText(0, m_szName);
 }
 
-EventEditorHandlerTreeWidgetItem::EventEditorHandlerTreeWidgetItem(QTreeWidgetItem * par, const QString & name, const QString & buffer, bool bEnabled)
-    : QTreeWidgetItem(par), m_szBuffer(buffer)
+EventEditorHandlerTreeWidgetItem::EventEditorHandlerTreeWidgetItem(QTreeWidgetItem * par, const QString & name, const QString & buffer, bool bEnabled) :
+    QTreeWidgetItem(par),
+    m_szBuffer(buffer)
 {
 	m_cPos = 0;
 	setEnabled(bEnabled); //this updates the icon too
@@ -83,8 +86,8 @@ void EventEditorHandlerTreeWidgetItem::setEnabled(const bool bEnabled)
 	setIcon(0, QIcon(*(g_pIconManager->getSmallIcon(m_bEnabled ? KviIconManager::Handler : KviIconManager::HandlerDisabled))));
 }
 
-EventEditor::EventEditor(QWidget * par)
-    : QWidget(par)
+EventEditor::EventEditor(QWidget * par) :
+    QWidget(par)
 {
 	setObjectName("event_editor");
 
@@ -180,8 +183,8 @@ void EventEditor::eventHandlerDisabled(const QString & szHandler)
 	qDebug("Handler %s of event %s : disabled", szHandlerName.toUtf8().data(), szEventName.toUtf8().data());
 
 	QTreeWidgetItem * pSelectedItem = nullptr;
-	QList <QTreeWidgetItem *> itemList = m_pTreeWidget->selectedItems();
-	if (!itemList.isEmpty())
+	QList<QTreeWidgetItem *> itemList = m_pTreeWidget->selectedItems();
+	if(!itemList.isEmpty())
 	{
 		pSelectedItem = itemList.first();
 	}
@@ -196,7 +199,7 @@ void EventEditor::eventHandlerDisabled(const QString & szHandler)
 			if(KviQString::equalCI(szHandlerName, ((EventEditorHandlerTreeWidgetItem *)pItem->child(j))->name()))
 			{
 				((EventEditorHandlerTreeWidgetItem *)pItem->child(j))->setEnabled(false);
-				if (pItem->child(j) == pSelectedItem)
+				if(pItem->child(j) == pSelectedItem)
 					m_pIsEnabled->setChecked(false);
 				return;
 			}
@@ -204,8 +207,8 @@ void EventEditor::eventHandlerDisabled(const QString & szHandler)
 	}
 }
 
-EventEditorTreeWidget::EventEditorTreeWidget(QWidget * par)
-    : QTreeWidget(par)
+EventEditorTreeWidget::EventEditorTreeWidget(QWidget * par) :
+    QTreeWidget(par)
 {
 	setColumnCount(1);
 	setHeaderLabel(__tr2qs_ctx("Event", "editor"));
@@ -554,8 +557,8 @@ void EventEditor::exportAllEvents()
 	}
 }
 
-EventEditorWindow::EventEditorWindow()
-    : KviWindow(KviWindow::ScriptEditor, "eventeditor", nullptr)
+EventEditorWindow::EventEditorWindow() :
+    KviWindow(KviWindow::ScriptEditor, "eventeditor", nullptr)
 {
 	g_pEventEditorWindow = this;
 

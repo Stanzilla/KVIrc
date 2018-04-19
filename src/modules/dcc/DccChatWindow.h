@@ -75,6 +75,7 @@ public:
 	DccChatWindow(DccDescriptor * dcc, const char * name);
 	~DccChatWindow();
 	QFrame * buttonContainer() { return (QFrame *)m_pButtonContainer; };
+
 protected:
 	DccChatThread * m_pSlaveThread;
 	QString m_szTarget;

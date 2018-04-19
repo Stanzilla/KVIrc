@@ -32,8 +32,8 @@
 
 #include <QString>
 
-KviScriptUserButton::KviScriptUserButton(QWidget * par, const char * name)
-    : QToolButton(par)
+KviScriptUserButton::KviScriptUserButton(QWidget * par, const char * name) :
+    QToolButton(par)
 {
 	m_pScript = nullptr;
 	setObjectName(name);
@@ -73,8 +73,8 @@ void KviScriptUserButton::btnClicked()
 	m_pScript->run(pWnd, &vList, nullptr, KviKvsScript::PreserveParams);
 }
 
-KviWindowScriptButton::KviWindowScriptButton(QWidget * p, KviWindow * wnd, const char * name)
-    : KviScriptUserButton(p, name)
+KviWindowScriptButton::KviWindowScriptButton(QWidget * p, KviWindow * wnd, const char * name) :
+    KviScriptUserButton(p, name)
 {
 	m_pWnd = wnd;
 }

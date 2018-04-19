@@ -149,12 +149,11 @@ void KviIrcServerParser::parseNumeric004(KviIrcMessage * msg)
 	{
 		if(!_OUTPUT_QUIET)
 		{
-			msg->console()->output(KVI_OUT_SYSTEMWARNING, __tr2qs(
-			                                                  "One or more standard mode flags are missing in the server available modes.\n"
-			                                                  "This is caused either by a non RFC1459-compliant IRC daemon or a broken server reply.\n"
-			                                                  "Server umodes seem to be '%s' and channel modes seem to be '%s'.\n"
-			                                                  "Ignoring this reply and assuming that the basic set of modes is available.\n"
-			                                                  "If you have strange problems, try changing the server."),
+			msg->console()->output(KVI_OUT_SYSTEMWARNING, __tr2qs("One or more standard mode flags are missing in the server available modes.\n"
+			                                                      "This is caused either by a non RFC1459-compliant IRC daemon or a broken server reply.\n"
+			                                                      "Server umodes seem to be '%s' and channel modes seem to be '%s'.\n"
+			                                                      "Ignoring this reply and assuming that the basic set of modes is available.\n"
+			                                                      "If you have strange problems, try changing the server."),
 			    umodes.ptr(), chanmodes.ptr());
 		}
 		umodes = "oiws";         // standard support
@@ -331,7 +330,6 @@ void KviIrcServerParser::parseNumeric005(KviIrcMessage * msg)
 				msg->connection()->serverInfo()->setSupportsCodePages(true);
 				if((!_OUTPUT_MUTE) && (!msg->haltOutput()) && KVI_OPTION_BOOL(KviOption_boolShowExtendedServerInfo))
 					msg->console()->outputNoFmt(KVI_OUT_SERVERINFO, __tr2qs("This server supports the CODEPAGE command, it will be used"));
-
 			}
 			else if(kvi_strEqualCIN("CHANMODES=", p, 10))
 			{
@@ -367,7 +365,6 @@ void KviIrcServerParser::parseNumeric005(KviIrcMessage * msg)
 
 				if((!_OUTPUT_MUTE) && (!msg->haltOutput()) && KVI_OPTION_BOOL(KviOption_boolShowExtendedServerInfo))
 					msg->console()->outputNoFmt(KVI_OUT_SERVERINFO, __tr2qs("This server supports the CODEPAGE command, it will be used"));
-
 			}
 			else if(kvi_strEqualCIN("WHOX", p, 4))
 			{
@@ -2053,7 +2050,8 @@ void KviIrcServerParser::parseNumericChanUrl(KviIrcMessage * msg)
 {
 	// 328: RPL_CHANURL
 	// :prefix 328 target <channel> :<url>
-	if(msg->haltOutput()) return;
+	if(msg->haltOutput())
+		return;
 
 	QString szChan = msg->connection()->decodeText(msg->safeParam(1));
 	KviChannelWindow * chan = msg->connection()->findChannel(szChan);

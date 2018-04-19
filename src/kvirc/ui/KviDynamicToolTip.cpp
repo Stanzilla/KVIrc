@@ -24,8 +24,8 @@
 
 #include "KviDynamicToolTip.h"
 
-KviDynamicToolTipHelper::KviDynamicToolTipHelper(QWidget * parent, KviDynamicToolTip * parToolTip)
-    : KviTalToolTip(parent)
+KviDynamicToolTipHelper::KviDynamicToolTipHelper(QWidget * parent, KviDynamicToolTip * parToolTip) :
+    KviTalToolTip(parent)
 {
 	m_pParentToolTip = parToolTip;
 }
@@ -38,8 +38,8 @@ void KviDynamicToolTipHelper::maybeTip(const QPoint & pnt)
 	m_pParentToolTip->maybeTip(pnt);
 }
 
-KviDynamicToolTip::KviDynamicToolTip(QWidget * parent, const char * name)
-    : QObject(parent)
+KviDynamicToolTip::KviDynamicToolTip(QWidget * parent, const char * name) :
+    QObject(parent)
 {
 	setObjectName(name);
 	m_pHelper = new KviDynamicToolTipHelper(parent, this);

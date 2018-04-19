@@ -26,16 +26,16 @@
 
 #if defined(COMPILE_KDE4_SUPPORT)
 
-KviTalFileDialog::KviTalFileDialog(const QString & szDirName, const QString & szFilter, QWidget * pParent, const char *, bool)
-    : KFileDialog(KUrl(szDirName), szFilter, pParent)
+KviTalFileDialog::KviTalFileDialog(const QString & szDirName, const QString & szFilter, QWidget * pParent, const char *, bool) :
+    KFileDialog(KUrl(szDirName), szFilter, pParent)
 {
 	//clearWFlags(WDestructiveClose);
 }
 
 #else //!defined(COMPILE_KDE4_SUPPORT))
 
-KviTalFileDialog::KviTalFileDialog(const QString & szDirName, const QString & szFilter, QWidget * pParent, const char *, bool bModal)
-    : QFileDialog(pParent, "", szDirName, szFilter)
+KviTalFileDialog::KviTalFileDialog(const QString & szDirName, const QString & szFilter, QWidget * pParent, const char *, bool bModal) :
+    QFileDialog(pParent, "", szDirName, szFilter)
 {
 	setModal(bModal);
 }

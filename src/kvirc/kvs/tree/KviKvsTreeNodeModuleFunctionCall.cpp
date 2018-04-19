@@ -30,8 +30,8 @@
 #include "KviKvsModuleInterface.h"
 #include "KviKvsRunTimeContext.h"
 
-KviKvsTreeNodeModuleFunctionCall::KviKvsTreeNodeModuleFunctionCall(const QChar * pLocation, const QString & szModuleName, const QString & szFncName, KviKvsTreeNodeDataList * pParams)
-    : KviKvsTreeNodeFunctionCall(pLocation, szFncName, pParams)
+KviKvsTreeNodeModuleFunctionCall::KviKvsTreeNodeModuleFunctionCall(const QChar * pLocation, const QString & szModuleName, const QString & szFncName, KviKvsTreeNodeDataList * pParams) :
+    KviKvsTreeNodeFunctionCall(pLocation, szFncName, pParams)
 {
 	m_szModuleName = szModuleName;
 }

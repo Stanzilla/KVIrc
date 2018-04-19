@@ -69,8 +69,8 @@ extern KviTextIconWindow * g_pTextIconWindow;
 extern KviHistoryWindowWidget * g_pHistoryWindow;
 extern QMenu * g_pInputPopup;
 
-KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
-    : QWidget(pPar)
+KviInput::KviInput(KviWindow * pPar, KviUserListView * pView) :
+    QWidget(pPar)
 {
 	setObjectName("input_widget");
 	m_pLayout = new QGridLayout(this);
@@ -250,7 +250,8 @@ void KviInput::keyPressEvent(QKeyEvent * e)
 									                        "pasting and sending a really large, potentially unedited message from your clipboard.<br><br>"
 									                        "Some IRC servers may also consider %1 lines of text a flood, "
 									                        "in which case you will be disconnected from said server.<br><br>"
-									                        "Do you still want the message to be sent?").arg(nLines));
+									                        "Do you still want the message to be sent?")
+									                    .arg(nLines));
 
 									pMsgBox.setWindowTitle(__tr2qs("Confirm Sending a Large Message - KVIrc"));
 									pMsgBox.setIcon(QMessageBox::Question);
@@ -435,7 +436,7 @@ void KviInput::applyOptions()
 
 void KviInput::setFocusProxy(QWidget *)
 {
-}/* do nothing */
+} /* do nothing */
 
 QString KviInput::text()
 {
@@ -482,7 +483,7 @@ void KviInput::toggleMultiLine()
 		by typing [i]/me is happy \;)[/i]. The user friendly mode is good for everyday chatting
 		and for novice users while the KVS mode is for experts that know that minimum about
 		scripting languages. Please note that in the user-friendly mode you're not allowed
-		to type multiple commands at once :).
+		to type multiple commands at once .
 		[br]
 		Also look at the [doc:keyboard]keyboard shortcuts[/doc] reference.[br]
 		If you drop a file on this widget, a <a href="parse.kvihelp">/PARSE &lt;filename&gt;</a> will be executed.[br]
@@ -490,7 +491,7 @@ void KviInput::toggleMultiLine()
 		For example, if you choose to substitute [b]afaik[/b] with [b]A[/b]s [b]f[/b]ar [b]a[/b]s [b]I[/b] [b]k[/b]now,[br]
 		when you will type [b]afaik[/b] somewhere in the command line, and then
 		press Space or Return, that word will be replaced with [i]As far as I know[/i].[br]
-		Experiment with it :)[br]
+		Experiment with it [br]
 		The Tab key activates the completion of the current word.[br]
 		If a word is prefixed with a [b]/[/b], it is treated as a command to be completed,
 		if it begins with [b]$[/b], it is treated as a function or identifier to be completed,
@@ -504,6 +505,6 @@ void KviInput::toggleMultiLine()
 		[example]
 			$sel&lt;Tab;&gt; will find multiple matches and produce $selected
 		[/example]
-		Experiment with that too :)
+		Experiment with that too
 		[br]
 */

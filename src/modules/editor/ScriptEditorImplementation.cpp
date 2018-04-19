@@ -91,8 +91,8 @@ static QFont g_fntNormal(KVI_SCRIPTEDITOR_DEFAULT_FONT, KVI_SCRIPTEDITOR_DEFAULT
 static bool bSemaphore = false;
 static bool bCompleterReady = false;
 
-ScriptEditorWidget::ScriptEditorWidget(QWidget * pParent)
-    : QTextEdit(pParent)
+ScriptEditorWidget::ScriptEditorWidget(QWidget * pParent) :
+    QTextEdit(pParent)
 {
 	m_pSyntaxHighlighter = nullptr;
 	setTabStopWidth(48);
@@ -453,8 +453,8 @@ bool ScriptEditorWidget::contextSensitiveHelp() const
 	return true;
 }
 
-ScriptEditorWidgetColorOptions::ScriptEditorWidgetColorOptions(QWidget * pParent)
-    : QDialog(pParent)
+ScriptEditorWidgetColorOptions::ScriptEditorWidgetColorOptions(QWidget * pParent) :
+    QDialog(pParent)
 {
 	setWindowTitle(__tr2qs_ctx("Editor Configuration - KVIrc", "editor"));
 
@@ -505,8 +505,9 @@ void ScriptEditorWidgetColorOptions::okClicked()
 	accept();
 }
 
-ScriptEditorSyntaxHighlighter::ScriptEditorSyntaxHighlighter(ScriptEditorWidget * pWidget)
-    : QSyntaxHighlighter(pWidget), m_pTextEdit(pWidget)
+ScriptEditorSyntaxHighlighter::ScriptEditorSyntaxHighlighter(ScriptEditorWidget * pWidget) :
+    QSyntaxHighlighter(pWidget),
+    m_pTextEdit(pWidget)
 {
 	// code adpated from QT4 example
 
@@ -701,8 +702,8 @@ void ScriptEditorSyntaxHighlighter::highlightBlock(const QString & szText)
 	}
 }
 
-ScriptEditorImplementation::ScriptEditorImplementation(QWidget * par)
-    : KviScriptEditor(par)
+ScriptEditorImplementation::ScriptEditorImplementation(QWidget * par) :
+    KviScriptEditor(par)
 {
 	m_pOptionsDialog = nullptr;
 	if(g_pScriptEditorWindowList.empty())
@@ -986,8 +987,8 @@ void ScriptEditorImplementation::optionsDialogFinished(int iResult)
 	}
 }
 
-ScriptEditorReplaceDialog::ScriptEditorReplaceDialog(QWidget * pParent, const QString & szName)
-    : QDialog(pParent)
+ScriptEditorReplaceDialog::ScriptEditorReplaceDialog(QWidget * pParent, const QString & szName) :
+    QDialog(pParent)
 {
 	setObjectName(szName);
 	setWindowTitle(__tr2qs("Find and Replace - KVIrc"));

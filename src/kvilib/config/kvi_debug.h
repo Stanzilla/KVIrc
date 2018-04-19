@@ -66,21 +66,21 @@
 
 #ifdef COMPILE_DEBUG_MODE
 
-#define KVI_ASSERT(condition)                                                                                       \
-	do                                                                                                              \
-	{                                                                                                               \
-		if(!(condition))                                                                                            \
-			qFatal("[ASSERT FAILED] (" #condition ") in %s at %s:%u", KVI_PRETTY_FUNCTION, __FILE__, __LINE__);     \
+#define KVI_ASSERT(condition)                                                                                   \
+	do                                                                                                          \
+	{                                                                                                           \
+		if(!(condition))                                                                                        \
+			qFatal("[ASSERT FAILED] (" #condition ") in %s at %s:%u", KVI_PRETTY_FUNCTION, __FILE__, __LINE__); \
 	} while(0)
 
-#define KVI_ASSERT_MSG(condition, message)                                                                          \
-	do                                                                                                              \
-	{                                                                                                               \
-		if(!(condition))                                                                                            \
-		{                                                                                                           \
-			qFatal("[ASSERT FAILED] (" #condition ") in %s at %s:%u", KVI_PRETTY_FUNCTION, __FILE__, __LINE__);     \
-			qFatal("[ASSERT FAILED] " message);                                                                     \
-		}                                                                                                           \
+#define KVI_ASSERT_MSG(condition, message)                                                                      \
+	do                                                                                                          \
+	{                                                                                                           \
+		if(!(condition))                                                                                        \
+		{                                                                                                       \
+			qFatal("[ASSERT FAILED] (" #condition ") in %s at %s:%u", KVI_PRETTY_FUNCTION, __FILE__, __LINE__); \
+			qFatal("[ASSERT FAILED] " message);                                                                 \
+		}                                                                                                       \
 	} while(0)
 
 #include "KviDebugContext.h"
@@ -134,13 +134,13 @@
 
 #else //!COMPILE_DEBUG_MODE
 
-#define KVI_ASSERT(condition)     \
-	do                            \
-	{                             \
+#define KVI_ASSERT(condition) \
+	do                        \
+	{                         \
 	} while(0)
-#define KVI_ASSERT_MSG(condition, message)         \
-	do                                             \
-	{                                              \
+#define KVI_ASSERT_MSG(condition, message) \
+	do                                     \
+	{                                      \
 	} while(0)
 
 #define KVI_TRACE_FUNCTION \

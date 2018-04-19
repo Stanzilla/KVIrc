@@ -56,8 +56,8 @@ public:
 	unsigned short uPort;
 };
 
-KviHttpRequest::KviHttpRequest()
-    : QObject()
+KviHttpRequest::KviHttpRequest() :
+    QObject()
 {
 	m_p = new KviHttpRequestPrivate();
 	m_p->pSocket = nullptr;
@@ -686,7 +686,7 @@ bool KviHttpRequest::processHeader(KviCString & szHeader)
 	if(
 	    (uStatus != 200) && // OK
 	    (uStatus != 206)    // Partial content
-	    )
+	)
 	{
 		// This is not "OK" and not "Partial content"
 		// Error, redirect or something confusing
@@ -872,7 +872,7 @@ void KviHttpRequest::processData(KviDataBuffer * data)
 		// of a hexadecimal length, an optional bullshit and a single CRLF
 		// The transfer terminates when we read a last chunk of size 0
 		// that may be followed by optional headers...
-		// This sux :)
+		// This sux
 		while(m_p->pBuffer->size() > 0) // <-- note that we may exit from this loop also for other conditions (there is a goto below)
 		{
 			// we process chunks of parts of chunks at a time.

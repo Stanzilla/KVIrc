@@ -26,8 +26,8 @@
 #include "KviKvsTreeNodeDataList.h"
 #include "KviKvsScript.h"
 
-KviKvsTreeNodeCallbackCommand::KviKvsTreeNodeCallbackCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params, KviKvsScript * pCallback)
-    : KviKvsTreeNodeCommandWithParameters(pLocation, szCmdName, params)
+KviKvsTreeNodeCallbackCommand::KviKvsTreeNodeCallbackCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params, KviKvsScript * pCallback) :
+    KviKvsTreeNodeCommandWithParameters(pLocation, szCmdName, params)
 {
 	m_pCallback = pCallback;
 }

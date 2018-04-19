@@ -63,8 +63,9 @@ ChannelTreeWidgetItemData::ChannelTreeWidgetItemData(const QString & szChan, con
 ChannelTreeWidgetItemData::~ChannelTreeWidgetItemData()
     = default;
 
-ChannelTreeWidgetItem::ChannelTreeWidgetItem(ChannelTreeWidgetItemData * pData)
-    : QTreeWidgetItem(), m_pData(pData)
+ChannelTreeWidgetItem::ChannelTreeWidgetItem(ChannelTreeWidgetItemData * pData) :
+    QTreeWidgetItem(),
+    m_pData(pData)
 {
 	setToolTip(0, KviQString::toHtmlEscaped(m_pData->m_szChan));
 	setToolTip(1, KviQString::toHtmlEscaped(m_pData->m_szUsers));
@@ -94,8 +95,8 @@ bool ChannelTreeWidgetItem::operator<(const QTreeWidgetItem & other) const
 	}
 }
 
-ChannelTreeWidgetItemDelegate::ChannelTreeWidgetItemDelegate(QTreeWidget * pWidget)
-    : QItemDelegate(pWidget)
+ChannelTreeWidgetItemDelegate::ChannelTreeWidgetItemDelegate(QTreeWidget * pWidget) :
+    QItemDelegate(pWidget)
 {
 }
 
@@ -166,8 +167,9 @@ void ChannelTreeWidgetItemDelegate::paint(QPainter * p, const QStyleOptionViewIt
 	}
 }
 
-ListWindow::ListWindow(KviConsoleWindow * lpConsole)
-    : KviWindow(KviWindow::List, "list", lpConsole), KviExternalServerDataParser()
+ListWindow::ListWindow(KviConsoleWindow * lpConsole) :
+    KviWindow(KviWindow::List, "list", lpConsole),
+    KviExternalServerDataParser()
 {
 	g_pListWindowList->append(this);
 

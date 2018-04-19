@@ -54,8 +54,8 @@ extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 
 static KviPointerList<KviToolBarGraphicalApplet> * g_pToolBarGraphicalAppletList = nullptr;
 
-KviToolBarGraphicalApplet::KviToolBarGraphicalApplet(QWidget * par, const char * name)
-    : QWidget(par)
+KviToolBarGraphicalApplet::KviToolBarGraphicalApplet(QWidget * par, const char * name) :
+    QWidget(par)
 {
 	setObjectName(name);
 	if(!g_pToolBarGraphicalAppletList)
@@ -194,8 +194,8 @@ void KviToolBarGraphicalApplet::drawContents(QPainter *)
 //      nickname, user mode and the graphical indication of the context
 //
 
-KviIrcContextDisplay::KviIrcContextDisplay(QWidget * par, const char * name)
-    : KviToolBarGraphicalApplet(par, name)
+KviIrcContextDisplay::KviIrcContextDisplay(QWidget * par, const char * name) :
+    KviToolBarGraphicalApplet(par, name)
 {
 	KviDynamicToolTip * tip = new KviDynamicToolTip(this);
 	connect(tip, SIGNAL(tipRequest(KviDynamicToolTip *, const QPoint &)), this, SLOT(tipRequest(KviDynamicToolTip *, const QPoint &)));
@@ -255,7 +255,8 @@ void KviIrcContextDisplay::tipRequest(KviDynamicToolTip * tip, const QPoint &)
 			else if(ic)
 			{
 				txt += sbr;
-				txt += __tr2qs("Using server") + ":" + space;;
+				txt += __tr2qs("Using server") + ":" + space;
+				;
 				txt += ic->currentServerName();
 				txt += ebr;
 
@@ -315,7 +316,7 @@ void KviIrcContextDisplay::tipRequest(KviDynamicToolTip * tip, const QPoint &)
 	}
 	else
 	{
-		txt =  sbr;
+		txt = sbr;
 		txt += __tr2qs("No IRC context");
 		txt += ebr;
 	}
@@ -358,11 +359,11 @@ void KviIrcContextDisplay::drawContents(QPainter * p)
 				else if(ic->userInfo()->userMode().isEmpty())
 					nick += ic->currentNickName();
 
-					if(ic->userInfo()->isAway())
-					{
-						nick += space + sprtr + space;
-						nick += __tr2qs("is away");
-					}
+				if(ic->userInfo()->isAway())
+				{
+					nick += space + sprtr + space;
+					nick += __tr2qs("is away");
+				}
 
 				else
 				{
@@ -373,7 +374,7 @@ void KviIrcContextDisplay::drawContents(QPainter * p)
 						nick += space + sprtr;
 					}
 				}
-				serv =  __tr2qs("Using server");
+				serv = __tr2qs("Using server");
 				serv += cln + space;
 				serv += ic->currentServerName();
 				if(ic->lagMeter() && (KVI_OPTION_BOOL(KviOption_boolShowLagOnContextDisplay)))

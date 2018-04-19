@@ -98,7 +98,7 @@
 		and match it in the registered masks; so in the example above, you will be notified if
 		any user that matches Pragma!*@*.it gets online; (but you will [b]not[/b] be notified if
 		(for example) Pragma!someuser@somehost.com gets online).[br]
-		So what's the point in including a stupid method? :) Well... the intelligent
+		So what's the point in including a stupid method? Well... the intelligent
 		method [i]eats[/i] some of your IRC bandwidth; it has to send USERHOST messages
 		for every group of 5 users in the notify list. If you have a lot of users
 		in the notify list, it might become slow and eventually cause a
@@ -117,8 +117,8 @@
 
 // Basic NotifyListManager: this does completely nothing
 
-KviNotifyListManager::KviNotifyListManager(KviIrcConnection * pConnection)
-    : QObject()
+KviNotifyListManager::KviNotifyListManager(KviIrcConnection * pConnection) :
+    QObject()
 {
 	setObjectName("notify_list_manager");
 	m_pConnection = pConnection;
@@ -316,8 +316,8 @@ void KviNotifyListManager::notifyOffLine(const QString & szNick, const QString &
 //                                                                           sendUserhost() - - - - - - - - > handleUserhost()
 //
 
-KviIsOnNotifyListManager::KviIsOnNotifyListManager(KviIrcConnection * pConnection)
-    : KviNotifyListManager(pConnection)
+KviIsOnNotifyListManager::KviIsOnNotifyListManager(KviIrcConnection * pConnection) :
+    KviNotifyListManager(pConnection)
 {
 	connect(&m_pDelayedNotifyTimer, SIGNAL(timeout()), this, SLOT(newNotifySession()));
 	connect(&m_pDelayedIsOnTimer, SIGNAL(timeout()), this, SLOT(newIsOnSession()));
@@ -907,8 +907,8 @@ void KviIsOnNotifyListManager::stop()
 // Stupid notify list manager
 //
 
-KviStupidNotifyListManager::KviStupidNotifyListManager(KviIrcConnection * pConnection)
-    : KviNotifyListManager(pConnection)
+KviStupidNotifyListManager::KviStupidNotifyListManager(KviIrcConnection * pConnection) :
+    KviNotifyListManager(pConnection)
 {
 	m_iRestartTimer = 0;
 }
@@ -1070,8 +1070,8 @@ void KviStupidNotifyListManager::buildNickList()
 // Watch notify list manager
 //
 
-KviWatchNotifyListManager::KviWatchNotifyListManager(KviIrcConnection * pConnection)
-    : KviNotifyListManager(pConnection)
+KviWatchNotifyListManager::KviWatchNotifyListManager(KviIrcConnection * pConnection) :
+    KviNotifyListManager(pConnection)
 {
 }
 

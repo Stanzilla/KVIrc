@@ -2,7 +2,7 @@
 #
 #   A script for retrieving the latest KVIrc build configuration
 #   Mainly used for building plugins out of the source tree
-#   The idea is "stolen" from the gtk-config and xmms-config scripts :)
+#   The idea is "stolen" from the gtk-config and xmms-config scripts
 #
 #
 #   09-04-2000 Szymon Stefanek (Initial release)

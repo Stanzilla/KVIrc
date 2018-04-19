@@ -26,8 +26,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeExtendedScopeVariable::KviKvsTreeNodeExtendedScopeVariable(const QChar * pLocation, const QString & szIdentifier)
-    : KviKvsTreeNodeVariable(pLocation, szIdentifier)
+KviKvsTreeNodeExtendedScopeVariable::KviKvsTreeNodeExtendedScopeVariable(const QChar * pLocation, const QString & szIdentifier) :
+    KviKvsTreeNodeVariable(pLocation, szIdentifier)
 {
 }
 

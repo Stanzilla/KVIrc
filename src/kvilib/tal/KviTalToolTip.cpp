@@ -27,8 +27,8 @@
 #include <QEvent>
 #include <QHelpEvent>
 
-KviTalToolTipHelper::KviTalToolTipHelper(KviTalToolTip * pToolTip, QWidget * pWidget)
-    : QObject(pWidget)
+KviTalToolTipHelper::KviTalToolTipHelper(KviTalToolTip * pToolTip, QWidget * pWidget) :
+    QObject(pWidget)
 {
 	m_pToolTip = pToolTip;
 	pWidget->installEventFilter(this);

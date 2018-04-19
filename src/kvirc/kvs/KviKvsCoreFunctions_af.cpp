@@ -595,7 +595,7 @@ namespace KviKvsCoreFunctions
 			KviConsoleWindow * cns = g_pApp->findConsole(uContextId);
 			if(cns && cns->connection())
 				wnd = cns->connection()->findChannel(szName);
-			else if (!cns)
+			else if(!cns)
 				KVSCF_pContext->warning(__tr2qs_ctx("No such IRC context (%u)", "kvs"), uContextId);
 		}
 		else if(KVSCF_pParams->count() == 1)
@@ -1238,7 +1238,7 @@ namespace KviKvsCoreFunctions
 		else
 		{
 			KviKvsArray * a = new KviKvsArray();
-			for(auto&& f : feature_list)
+			for(auto && f : feature_list)
 				a->append(new KviKvsVariant(f));
 			KVSCF_pRetBuffer->setArray(a);
 		}

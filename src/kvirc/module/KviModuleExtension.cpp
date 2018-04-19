@@ -240,8 +240,8 @@ KviModuleExtension * KviModuleExtensionManager::allocateExtension(const KviCStri
 	return nullptr;
 }
 
-KviModuleExtension::KviModuleExtension(KviModuleExtensionDescriptor * d)
-    : KviHeapObject()
+KviModuleExtension::KviModuleExtension(KviModuleExtensionDescriptor * d) :
+    KviHeapObject()
 {
 	m_pDescriptor = d;
 	m_pDescriptor->registerObject(this);

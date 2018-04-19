@@ -196,8 +196,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "and restart winamp.",
         "mediaplayer"))
 
-KviWinampInterface::KviWinampInterface()
-    : MpInterface()
+KviWinampInterface::KviWinampInterface() :
+    MpInterface()
 {
 }
 

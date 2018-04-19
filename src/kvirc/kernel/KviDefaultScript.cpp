@@ -43,8 +43,8 @@
 KviDefaultScriptManager * KviDefaultScriptManager::m_pSelf = nullptr;
 unsigned int KviDefaultScriptManager::m_uCount = 0;
 
-KviDefaultScriptManager::KviDefaultScriptManager()
-    : QObject()
+KviDefaultScriptManager::KviDefaultScriptManager() :
+    QObject()
 {
 	// Check if versions' file exists in personal settings
 	QString szLocal;
@@ -386,8 +386,8 @@ void KviDefaultScriptManager::saveInternal(KviConfigurationFile * pCfg)
 	pCfg->writeEntry(szTmp, m_szToolbar);
 }
 
-KviDefaultScriptDialog::KviDefaultScriptDialog()
-    : QDialog()
+KviDefaultScriptDialog::KviDefaultScriptDialog() :
+    QDialog()
 {
 	setObjectName("restore_default_script");
 	setWindowTitle(__tr2qs("Restore Default - KVIrc"));

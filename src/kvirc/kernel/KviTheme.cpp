@@ -39,8 +39,8 @@
 
 #define QIMAGE_SCALE_MIN Qt::KeepAspectRatio
 
-KviThemeInfo::KviThemeInfo()
-    : KviHeapObject()
+KviThemeInfo::KviThemeInfo() :
+    KviHeapObject()
 {
 }
 

@@ -388,7 +388,7 @@ void KviApplication::getChannelDumpLogFileName(QString & szStr)
 		uLogN++;
 		if(uLogN > 9999)
 		{
-			// Time to clear logs! :)
+			// Time to clear logs!
 			szPrefix += "x";
 			uLogN = 0;
 		}
@@ -699,6 +699,6 @@ bool KviApplication::getReadOnlyConfigPath(QString & buffer, const char * config
 		}
 		else
 			buffer = tmp; // get the defaults this time
-	}                             // else file exists...
+	}                     // else file exists...
 	return true;
 }

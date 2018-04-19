@@ -65,6 +65,7 @@ public:
 	    unsigned int uFlags,
 	    const QString & szKeySequence = QString());
 	void suicide() { delete this; };
+
 protected:
 	QString m_szCategory;
 	KviKvsScript * m_pDescriptionScript;

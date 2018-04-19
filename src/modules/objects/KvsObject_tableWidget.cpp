@@ -862,8 +862,8 @@ bool KvsObject_tableWidget::paint(QPainter * p, const QStyleOptionViewItem & opt
 	return oReturnBuffer.asBoolean();
 }
 
-KviCellItemDelegate::KviCellItemDelegate(QAbstractItemView * pWidget, KvsObject_tableWidget * parent)
-    : QItemDelegate(pWidget), m_pParentScript(parent)
+KviCellItemDelegate::KviCellItemDelegate(QAbstractItemView * pWidget, KvsObject_tableWidget * parent) :
+    QItemDelegate(pWidget), m_pParentScript(parent)
 {
 }
 

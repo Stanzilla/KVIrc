@@ -409,7 +409,7 @@ bool kvi_matchWildExprCS(const char *m1,const char *m2)
 bool kvi_matchWildExprWithTerminator(const char * m1, const char * m2, char terminator,
     const char ** r1, const char ** r2)
 {
-//Matches two regular expressions containging wildcards
+	//Matches two regular expressions containging wildcards
 
 #define NOT_AT_END(__str) (*__str && (*__str != terminator))
 
@@ -1062,7 +1062,7 @@ KviCString::KviCString(KviFormatConstructorTag, const char * fmt, ...)
 	}
 	//done...
 	//now m_len is the length of the written string not including the terminator...
-	//perfect! :)
+	//perfect!
 	m_ptr = (char *)KviMemory::reallocate(m_ptr, m_len + 1);
 }
 
@@ -1383,7 +1383,7 @@ int KviCString::base64ToBuffer(char ** buffer, bool)
 			else
 			{
 				// Single padding, two digits here
-				*auxBuf++ = (char)((aux1 << 2) | (aux2 >> 4)); // >> 4 is a shr, not a ror! :)
+				*auxBuf++ = (char)((aux1 << 2) | (aux2 >> 4)); // >> 4 is a shr, not a ror!
 				*auxBuf++ = (char)((aux2 << 4) | (aux3 >> 2));
 				newLen -= 1;
 			}
@@ -1534,7 +1534,7 @@ void KviCString::append(KviFormatConstructorTag, const char * fmt, ...)
 	m_len += auxLen;
 	//done...
 	//now m_len is the length of the written string not including the terminator...
-	//perfect! :)
+	//perfect!
 	m_ptr = (char *)KviMemory::reallocate(m_ptr, m_len + 1);
 }
 
@@ -2254,8 +2254,8 @@ KviCString & KviCString::setNum(long num)
 		bNegative = true;
 		num = -num; //need to have it positive
 		if(num < 0)
-		{	// 2^31 exception
-			// We need to avoid absurd responses like ".(./),." :)
+		{ // 2^31 exception
+			// We need to avoid absurd responses like ".(./),."
 			num = 0; // we get a negative zero here...it is still an exception
 		}
 	}
@@ -2739,7 +2739,7 @@ KviCString & KviCString::vsprintf(const char * fmt, kvi_va_list list)
 	}
 	//done...
 	//now m_len is the length of the written string not including the terminator...
-	//perfect! :)
+	//perfect!
 	m_ptr = (char *)KviMemory::reallocate(m_ptr, m_len + 1);
 	kvi_va_end(save);
 	return (*this);
@@ -2773,7 +2773,7 @@ KviCString & KviCString::sprintf(const char * fmt, ...)
 	}
 	//done...
 	//now m_len is the length of the written string not including the terminator...
-	//perfect! :)
+	//perfect!
 	m_ptr = (char *)KviMemory::reallocate(m_ptr, m_len + 1);
 	return (*this);
 }

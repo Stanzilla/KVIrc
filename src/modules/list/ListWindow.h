@@ -89,7 +89,8 @@ class ChannelTreeWidget : public KviThemedTreeWidget
 	friend class ChannelTreeWidgetItemData;
 	Q_OBJECT
 public:
-	ChannelTreeWidget(QWidget * par, KviWindow * pWindow, const char * name) : KviThemedTreeWidget(par, pWindow, name){};
+	ChannelTreeWidget(QWidget * par, KviWindow * pWindow, const char * name) :
+	    KviThemedTreeWidget(par, pWindow, name){};
 	~ChannelTreeWidget(){};
 	ChannelTreeWidgetItem * itemFromIndex(const QModelIndex & index) const { return (ChannelTreeWidgetItem *)KviThemedTreeWidget::itemFromIndex(index); };
 };

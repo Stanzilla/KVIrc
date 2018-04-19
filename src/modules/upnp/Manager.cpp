@@ -46,8 +46,8 @@ namespace UPnP
 	Manager * Manager::m_pInstance(nullptr);
 
 	// The constructor
-	Manager::Manager()
-	    : m_pActiveIgdControlPoint(nullptr), m_bBroadcastFailed(false), m_bBroadcastFoundIt(false), m_pSsdpConnection(nullptr), m_pSsdpTimer(nullptr)
+	Manager::Manager() :
+	    m_pActiveIgdControlPoint(nullptr), m_bBroadcastFailed(false), m_bBroadcastFoundIt(false), m_pSsdpConnection(nullptr), m_pSsdpTimer(nullptr)
 	{
 	}
 

@@ -58,8 +58,8 @@ class TermWindow : public QObject
 {
 	Q_OBJECT
 public:
-	TermWindow()
-	    : QObject()
+	TermWindow() :
+	    QObject()
 	{
 	}
 };

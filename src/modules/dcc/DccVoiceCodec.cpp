@@ -58,8 +58,8 @@ const char * DccVoiceCodec::name()
 	return m_szName.ptr();
 }
 
-DccVoiceNullCodec::DccVoiceNullCodec()
-    : DccVoiceCodec()
+DccVoiceNullCodec::DccVoiceNullCodec() :
+    DccVoiceCodec()
 {
 	m_szName = "null (no compression)";
 }
@@ -128,8 +128,8 @@ const char * DccVideoCodec::name()
 	return m_szName.ptr();
 }
 
-DccVideoSJpegCodec::DccVideoSJpegCodec()
-    : DccVideoCodec()
+DccVideoSJpegCodec::DccVideoSJpegCodec() :
+    DccVideoCodec()
 {
 	m_szName = "sjpeg";
 }
@@ -261,8 +261,8 @@ int DccVideoSJpegCodec::decodedFrameSize()
 }
 
 #ifndef COMPILE_DISABLE_OGG_THEORA
-DccVideoTheoraCodec::DccVideoTheoraCodec()
-    : DccVideoCodec()
+DccVideoTheoraCodec::DccVideoTheoraCodec() :
+    DccVideoCodec()
 {
 	m_szName = "theora";
 	m_pEncoder = 0;

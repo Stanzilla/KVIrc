@@ -50,7 +50,8 @@ public:
 	* \brief Constructs the server reconnect info object
 	* \return KviIrcServerReconnectInfo
 	*/
-	KviIrcServerReconnectInfo() : m_bIsAway(false) {};
+	KviIrcServerReconnectInfo() :
+	    m_bIsAway(false){};
 
 public:
 	QString m_szNick;

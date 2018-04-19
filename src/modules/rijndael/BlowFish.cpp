@@ -306,7 +306,8 @@ const unsigned int BlowFish::scm_auiInitS[4][256] = {
 };
 
 //Constructor - Initialize the P and S boxes for a given Key
-BlowFish::BlowFish(unsigned char * ucKey, unsigned int keysize, const SBlock & roChain) : m_oChain0(roChain), m_oChain(roChain)
+BlowFish::BlowFish(unsigned char * ucKey, unsigned int keysize, const SBlock & roChain) :
+    m_oChain0(roChain), m_oChain(roChain)
 {
 	if(keysize < 1)
 		//	throw exception("Incorrect key length");

@@ -162,8 +162,8 @@ void KviThreadManager::globalDestroy()
 	g_pThreadManager = nullptr;
 }
 
-KviThreadManager::KviThreadManager()
-    : QObject()
+KviThreadManager::KviThreadManager() :
+    QObject()
 {
 	if(g_pThreadManager)
 		qDebug("Hey... what are ya doing?");
@@ -247,7 +247,7 @@ KviThreadManager::~KviThreadManager()
 	delete m_pThreadList;
 	m_pThreadList = nullptr;
 
-	// byez :)
+	// byez
 }
 
 void KviThreadManager::killPendingEvents(QObject * receiver)
@@ -320,9 +320,9 @@ void KviThreadManager::postSlaveEvent(QObject * o, QEvent * e)
 
 		m_pMutex->unlock();
 
-// WARNING : This will fail if for some reason
-// the master thread gets here! It will wait indefinitely for itself
-// if(pthread_self() != m_hMasterThread) ... ????
+		// WARNING : This will fail if for some reason
+		// the master thread gets here! It will wait indefinitely for itself
+		// if(pthread_self() != m_hMasterThread) ... ????
 
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 		::Sleep(1); // 1ms
@@ -366,7 +366,7 @@ void KviThreadManager::eventsPending(int fd)
 	int readed = read(fd, buf, 10);
 
 	m_pMutex->lock();
-	// welcome to the critical section :)
+	// welcome to the critical section
 
 	// grab the first event in the queue
 	while(KviThreadPendingEvent * ev = m_pEventQueue->first())
@@ -381,7 +381,7 @@ void KviThreadManager::eventsPending(int fd)
 		// jump out of the loop if we have been destroyed
 		if(!g_pThreadManager)
 			return;
-		// ufff... we're still alive :)))
+		// ufff... we're still alive ))
 
 		// regrab the event queue
 		m_pMutex->lock();
@@ -517,7 +517,7 @@ void KviThread::wait()
 	//qDebug(">> KviThread::wait() (this=%d)",this);
 	while(isStartingUp())
 		usleep(500); // sleep 500 microseconds
-	                 //	qDebug("!! KviThread::wait() (this=%d)",this);
+		             //	qDebug("!! KviThread::wait() (this=%d)",this);
 	g_pThreadManager->threadEnteredWaitState();
 	while(isRunning())
 	{
@@ -584,8 +584,8 @@ void KviThread::postEvent(QObject * o, QEvent * e)
 	g_pThreadManager->postSlaveEvent(o, e);
 }
 
-KviSensitiveThread::KviSensitiveThread()
-    : KviThread()
+KviSensitiveThread::KviSensitiveThread() :
+    KviThread()
 {
 	m_pLocalEventQueueMutex = new KviMutex();
 	m_pLocalEventQueue = new KviPointerList<KviThreadEvent>;

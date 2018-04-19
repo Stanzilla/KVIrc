@@ -35,6 +35,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_colorDialog)
 public:
 	QWidget * widget() { return (QWidget *)object(); }
+
 protected:
 	virtual bool init(KviKvsRunTimeContext * pContext, KviKvsVariantList * pParams);
 	bool setCurrentColor(KviKvsObjectFunctionCall * c);

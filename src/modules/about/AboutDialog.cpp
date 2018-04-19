@@ -73,8 +73,8 @@ extern AboutDialog * g_pAboutDialog;
 
 #include "abouttext.inc"
 
-AboutDialog::AboutDialog()
-    : KviTalTabDialog(nullptr)
+AboutDialog::AboutDialog() :
+    KviTalTabDialog(nullptr)
 {
 	setWindowTitle(__tr2qs_ctx("About KVIrc", "about"));
 	setOkButton(__tr2qs_ctx("Close", "about"));

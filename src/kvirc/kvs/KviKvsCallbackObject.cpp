@@ -26,8 +26,8 @@
 #include "KviConsoleWindow.h"
 #include "KviApplication.h"
 
-KviKvsCallbackObject::KviKvsCallbackObject(const QString & szCallbackName, KviWindow * pTargetWindow, const QString & szCallbackCode, KviKvsVariantList * pMagicParams, unsigned int uFlags)
-    : KviHeapObject()
+KviKvsCallbackObject::KviKvsCallbackObject(const QString & szCallbackName, KviWindow * pTargetWindow, const QString & szCallbackCode, KviKvsVariantList * pMagicParams, unsigned int uFlags) :
+    KviHeapObject()
 {
 	m_uFlags = uFlags;
 	m_pTargetWindow = pTargetWindow;

@@ -50,6 +50,7 @@ protected:
 
 public:
 	KviCustomToolBarDescriptor * descriptor() { return m_pDescriptor; };
+
 protected:
 	virtual void dragEnterEvent(QDragEnterEvent * e);
 	virtual void dragMoveEvent(QDragMoveEvent * e);

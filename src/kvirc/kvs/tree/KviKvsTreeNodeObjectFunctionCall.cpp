@@ -24,8 +24,8 @@
 
 #include "KviKvsTreeNodeObjectFunctionCall.h"
 
-KviKvsTreeNodeObjectFunctionCall::KviKvsTreeNodeObjectFunctionCall(const QChar * pLocation, const QString & szFncName, KviKvsTreeNodeDataList * pParams)
-    : KviKvsTreeNodeFunctionCall(pLocation, szFncName, pParams)
+KviKvsTreeNodeObjectFunctionCall::KviKvsTreeNodeObjectFunctionCall(const QChar * pLocation, const QString & szFncName, KviKvsTreeNodeDataList * pParams) :
+    KviKvsTreeNodeFunctionCall(pLocation, szFncName, pParams)
 {
 }
 

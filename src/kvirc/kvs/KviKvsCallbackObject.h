@@ -68,7 +68,7 @@ public:
 	    const QString & szCallbackCode,   // the callback code (may be empty!)
 	    KviKvsVariantList * pMagicParams, // magic parameters that should be passed to the callback (this class makes a copy of them)
 	    unsigned int uFlags = 0           // a combination of CallbackFlags
-	    );
+	);
 	virtual ~KviKvsCallbackObject();
 
 protected:

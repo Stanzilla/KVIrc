@@ -49,8 +49,8 @@
 
 static KviPointerList<KviCryptEngine> * g_pEngineList = nullptr;
 
-KviRot13Engine::KviRot13Engine()
-    : KviCryptEngine()
+KviRot13Engine::KviRot13Engine() :
+    KviCryptEngine()
 {
 	g_pEngineList->append(this);
 }

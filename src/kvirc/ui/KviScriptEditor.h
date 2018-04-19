@@ -45,7 +45,8 @@ class KVIRC_API KviScriptEditor : public QWidget
 {
 	Q_OBJECT
 protected:
-	KviScriptEditor(QWidget * par) : QWidget(par){};
+	KviScriptEditor(QWidget * par) :
+	    QWidget(par){};
 
 public:
 	virtual void setText(const char * txt) { setText(QByteArray(txt)); };

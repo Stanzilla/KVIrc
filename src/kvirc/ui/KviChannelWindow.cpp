@@ -73,8 +73,8 @@
 // FIXME: #warning "+a Anonymous channel mode!"
 // FIXME: #warning "OnChannelFlood event...."
 
-KviChannelWindow::KviChannelWindow(KviConsoleWindow * lpConsole, const QString & szName)
-    : KviWindow(KviWindow::Channel, szName, lpConsole)
+KviChannelWindow::KviChannelWindow(KviConsoleWindow * lpConsole, const QString & szName) :
+    KviWindow(KviWindow::Channel, szName, lpConsole)
 {
 	// Init some member variables
 	m_pInput = nullptr;
@@ -904,7 +904,6 @@ void KviChannelWindow::getWindowListTipText(QString & szBuffer)
 	QString szOp = __tr2qs("operator");
 	QString szOps = __tr2qs("operators");
 
-
 	szBuffer += szHtmlTab;
 	szBuffer += szHtmlBold;
 
@@ -949,10 +948,8 @@ void KviChannelWindow::getWindowListTipText(QString & szBuffer)
 
 	szBuffer += p9;
 
-
 	szBuffer += szRowEnd;
 	szBuffer += szRowStart;
-
 
 	if(s.uIrcOp > 0)
 	{
@@ -1726,7 +1723,7 @@ void KviChannelWindow::getChannelActivityStats(KviChannelActivityStats * pStats)
 	pStats->lTalkingUsers.clear();
 	pStats->lWereTalkingUsers.clear();
 
-	for(unsigned i = m_lActionHistory.count(); i-- > 0; )
+	for(unsigned i = m_lActionHistory.count(); i-- > 0;)
 	{
 		pAction = m_lActionHistory[i];
 
@@ -1948,7 +1945,8 @@ void KviChannelWindow::internalMask(const QString & szMask, bool bAdd, const QSt
 	else
 	{
 		auto iter = pList.begin();
-		for(; iter != pList.end() && !KviQString::equalCI((*iter)->szMask, szMask); ++iter);
+		for(; iter != pList.end() && !KviQString::equalCI((*iter)->szMask, szMask); ++iter)
+			;
 
 		if(iter != pList.end())
 		{
@@ -2004,7 +2002,7 @@ void KviChannelWindow::updateModeLabel()
 	}
 
 	szTip += enr + snr + "<hr>";
-	szTip +=  __tr2qs("Double-click to edit...");
+	szTip += __tr2qs("Double-click to edit...");
 	szTip += enr;
 	szTip += "</table></body></html>";
 
@@ -2066,7 +2064,7 @@ void KviChannelWindow::checkChannelSync()
 KviIrcView * KviChannelWindow::lastClickedView() const
 {
 	if(m_pMessageView && m_pIrcView && m_pMessageView->lastMouseClickTime() >= m_pIrcView->lastMouseClickTime())
-			return m_pMessageView;
+		return m_pMessageView;
 
 	return m_pIrcView;
 }

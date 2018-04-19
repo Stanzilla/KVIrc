@@ -96,7 +96,9 @@ public:
 	EventLoopTimerRef mTimerRef;
 	int mSecondsIdle;
 
-	Private() : mTimerRef(0), mSecondsIdle(0) {}
+	Private() :
+	    mTimerRef(0),
+	    mSecondsIdle(0) {}
 
 	static pascal void IdleTimerAction(EventLoopTimerRef, EventLoopIdleTimerMessage inState, void * inUserData);
 };

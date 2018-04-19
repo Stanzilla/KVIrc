@@ -180,6 +180,7 @@ public:
 	// set the  shuffle bool value
 	virtual bool setShuffle(bool & bVal);
 	void setLastError(const QString & szLastError) { m_szLastError = szLastError; };
+
 protected:
 	void notImplemented();
 	QString getLocalFile();
@@ -215,32 +216,31 @@ public:
 		virtual MpInterface * instance();                            \
 	};
 
-#define MP_IMPLEMENT_DESCRIPTOR(_interfaceclass, _name, _description) \
-	_interfaceclass##Descriptor::_interfaceclass##Descriptor()        \
-	    : MpInterfaceDescriptor()                                     \
-	{                                                                 \
-		m_pInstance = 0;                                              \
-		m_szName = _name;                                             \
-		m_szDescription = _description;                               \
-	}                                                                 \
-	_interfaceclass##Descriptor::~_interfaceclass##Descriptor()       \
-	{                                                                 \
-		if(m_pInstance)                                               \
-			delete m_pInstance;                                       \
-	}                                                                 \
-	const QString & _interfaceclass##Descriptor::name()               \
-	{                                                                 \
-		return m_szName;                                              \
-	}                                                                 \
-	const QString & _interfaceclass##Descriptor::description()        \
-	{                                                                 \
-		return m_szDescription;                                       \
-	}                                                                 \
-	MpInterface * _interfaceclass##Descriptor::instance()             \
-	{                                                                 \
-		if(!m_pInstance)                                              \
-			m_pInstance = new _interfaceclass();                      \
-		return m_pInstance;                                           \
+#define MP_IMPLEMENT_DESCRIPTOR(_interfaceclass, _name, _description)                    \
+	_interfaceclass##Descriptor::_interfaceclass##Descriptor() : MpInterfaceDescriptor() \
+	{                                                                                    \
+		m_pInstance = 0;                                                                 \
+		m_szName = _name;                                                                \
+		m_szDescription = _description;                                                  \
+	}                                                                                    \
+	_interfaceclass##Descriptor::~_interfaceclass##Descriptor()                          \
+	{                                                                                    \
+		if(m_pInstance)                                                                  \
+			delete m_pInstance;                                                          \
+	}                                                                                    \
+	const QString & _interfaceclass##Descriptor::name()                                  \
+	{                                                                                    \
+		return m_szName;                                                                 \
+	}                                                                                    \
+	const QString & _interfaceclass##Descriptor::description()                           \
+	{                                                                                    \
+		return m_szDescription;                                                          \
+	}                                                                                    \
+	MpInterface * _interfaceclass##Descriptor::instance()                                \
+	{                                                                                    \
+		if(!m_pInstance)                                                                 \
+			m_pInstance = new _interfaceclass();                                         \
+		return m_pInstance;                                                              \
 	}
 
 #define MP_CREATE_DESCRIPTOR(_interfaceclass) \

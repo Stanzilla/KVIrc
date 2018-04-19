@@ -57,13 +57,14 @@ static KviTextIconAssocEntry default_associations[] = {
 
 KVIRC_API KviTextIconManager * g_pTextIconManager = nullptr;
 
-KviTextIcon::KviTextIcon(KviIconManager::SmallIcon eIcon)
-    : m_eIcon(eIcon)
+KviTextIcon::KviTextIcon(KviIconManager::SmallIcon eIcon) :
+    m_eIcon(eIcon)
 {
 }
 
-KviTextIcon::KviTextIcon(const QString & szFile)
-    : m_eIcon(KviIconManager::None), m_szFileName(szFile)
+KviTextIcon::KviTextIcon(const QString & szFile) :
+    m_eIcon(KviIconManager::None),
+    m_szFileName(szFile)
 {
 	QString szRetPath;
 
@@ -138,8 +139,8 @@ QPixmap * KviTextIcon::pixmap()
 	return g_pIconManager->getPixmap(m_szFileName);
 }
 
-KviTextIconManager::KviTextIconManager()
-    : QObject()
+KviTextIconManager::KviTextIconManager() :
+    QObject()
 {
 	m_pTextIconDict = new KviPointerHashTable<QString, KviTextIcon>(47, false);
 	m_pTextIconDict->setAutoDelete(true);

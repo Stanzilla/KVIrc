@@ -53,8 +53,8 @@ const int align_cod[] = {
 
 #define align_num (sizeof(align_tbl) / sizeof(align_tbl[0]))
 
-KviTalHBox::KviTalHBox(QWidget * pParent, char * pcName)
-    : QWidget(pParent)
+KviTalHBox::KviTalHBox(QWidget * pParent, char * pcName) :
+    QWidget(pParent)
 {
 	setObjectName(pcName);
 

@@ -58,8 +58,9 @@ void DccDialog::forgetDescriptor()
 	m_pDescriptor = nullptr;
 }
 
-DccAcceptDialog::DccAcceptDialog(DccBroker * br, DccDescriptor * dcc, const QString & text, const QString & capt)
-    : QWidget(nullptr), DccDialog(br, dcc)
+DccAcceptDialog::DccAcceptDialog(DccBroker * br, DccDescriptor * dcc, const QString & text, const QString & capt) :
+    QWidget(nullptr),
+    DccDialog(br, dcc)
 {
 	setObjectName("dcc_accept_box");
 	//QVBoxLayout * vb = new QVBoxLayout(this,4,4);
@@ -124,12 +125,13 @@ void DccAcceptDialog::showEvent(QShowEvent * e)
 	if(iScreen < 0)
 		iScreen = g_pApp->desktop()->primaryScreen();
 	QRect rect = g_pApp->desktop()->screenGeometry(iScreen);
-	move(rect.x() + ((rect.width() - width()) / 2),rect.y() + ((rect.height() - height()) / 2));
+	move(rect.x() + ((rect.width() - width()) / 2), rect.y() + ((rect.height() - height()) / 2));
 	QWidget::showEvent(e);
 }
 
-DccRenameDialog::DccRenameDialog(DccBroker * br, DccDescriptor * dcc, const QString & text, bool bDisableResume)
-    : QWidget(nullptr), DccDialog(br, dcc)
+DccRenameDialog::DccRenameDialog(DccBroker * br, DccDescriptor * dcc, const QString & text, bool bDisableResume) :
+    QWidget(nullptr),
+    DccDialog(br, dcc)
 {
 	setObjectName("dcc_rename_box");
 	//QVBoxLayout * vb = new QVBoxLayout(this,4,4);
@@ -190,7 +192,7 @@ void DccRenameDialog::showEvent(QShowEvent * e)
 	if(iScreen < 0)
 		iScreen = g_pApp->desktop()->primaryScreen();
 	QRect rect = g_pApp->desktop()->screenGeometry(iScreen);
-	move(rect.x() + ((rect.width() - width()) / 2),rect.y() + ((rect.height() - height()) / 2));
+	move(rect.x() + ((rect.width() - width()) / 2), rect.y() + ((rect.height() - height()) / 2));
 	QWidget::showEvent(e);
 }
 

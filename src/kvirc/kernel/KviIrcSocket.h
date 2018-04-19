@@ -111,15 +111,15 @@ protected:
 	KviIrcLink * m_pLink;
 	KviConsoleWindow * m_pConsole;
 	kvi_socket_t m_sock = KVI_INVALID_SOCKET; // socket
-	SocketState m_state = Idle;            // current socket state
-	QSocketNotifier * m_pWsn = nullptr;    // read socket notifier
-	QSocketNotifier * m_pRsn = nullptr;    // write socket notifier
-	KviIrcServer * m_pIrcServer = nullptr; // current server data
-	KviProxy * m_pProxy = nullptr;         // current proxy data
-	QTimer * m_pTimeoutTimer = nullptr;    // timeout for connect()
-	unsigned int m_uReadBytes = 0;         // total read bytes per session
-	unsigned int m_uSentBytes = 0;         // total sent bytes per session
-	unsigned int m_uSentPackets = 0;       // total packets sent per session
+	SocketState m_state = Idle;               // current socket state
+	QSocketNotifier * m_pWsn = nullptr;       // read socket notifier
+	QSocketNotifier * m_pRsn = nullptr;       // write socket notifier
+	KviIrcServer * m_pIrcServer = nullptr;    // current server data
+	KviProxy * m_pProxy = nullptr;            // current proxy data
+	QTimer * m_pTimeoutTimer = nullptr;       // timeout for connect()
+	unsigned int m_uReadBytes = 0;            // total read bytes per session
+	unsigned int m_uSentBytes = 0;            // total sent bytes per session
+	unsigned int m_uSentPackets = 0;          // total packets sent per session
 	KviError::Code m_eLastError = KviError::Success;
 	KviIrcSocketMsgEntry * m_pSendQueueHead = nullptr; // data queue
 	KviIrcSocketMsgEntry * m_pSendQueueTail = nullptr;
@@ -160,7 +160,7 @@ public:
 	*/
 	unsigned int id() const { return m_uId; }
 
-/**
+	/**
 	* \brief Returns true if the socket is a Secure Socket Layer (SSL)
 	* \return bool
 	*/
@@ -440,7 +440,7 @@ protected:
 
 	/**
 	* \brief Sets the state of the socket
-	* \param state The state :)
+	* \param state The state
 	* \return void
 	*/
 	virtual void setState(SocketState state);
@@ -448,49 +448,49 @@ protected:
 private:
 	/**
 	* \brief Outputs a SSL message
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputSSLMessage(const QString & szMsg);
 
 	/**
 	* \brief Outputs a SSL error
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputSSLError(const QString & szMsg);
 
 	/**
 	* \brief Outputs a proxy message
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputProxyMessage(const QString & szMsg);
 
 	/**
 	* \brief Outputs a proxy error
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputProxyError(const QString & szMsg);
 
 	/**
 	* \brief Outputs a socket message
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputSocketMessage(const QString & szMsg);
 
 	/**
 	* \brief Outputs a socket warning
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputSocketWarning(const QString & szMsg);
 
 	/**
 	* \brief Outputs a socket error
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	void outputSocketError(const QString & szMsg);

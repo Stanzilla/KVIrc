@@ -75,7 +75,7 @@ static KviModule * g_pPythonCoreModule = nullptr;
 		has been found at build time.[br]
 		The Python support is very similar to the Perl support present
 		since 3.x, so if you have used Perl from KVIrc before you'll
-		find the API is almost the same.. otherwise read on :)
+		find the API is almost the same.. otherwise read on
 		[big]Using Python from KVS[/big]
 		Using Python from KVIrc is really easy - just enclose
 		your Python code snippet inside [cmd]python.begin[/cmd] and [cmd]python.end[/cmd].
@@ -97,7 +97,7 @@ static KviModule * g_pPythonCoreModule = nullptr;
 		and [cmd]python.end[/cmd]. This means that you can write Python code
 		in the commandline, in the aliases, the event handlers, popups... anywhere.[br]
 		If you have already encountered KVIrc's [cmd]eval[/cmd] command
-		then you probably also know how to execute a Python code snippet from a file :)
+		then you probably also know how to execute a Python code snippet from a file
 		[big]Using KVS from python[/big]
 		KVIrc exports several commands to the Python namespace
 		that allow you to invoke KVIrc's functions from inside the Python code snippet.[br]
@@ -289,7 +289,7 @@ static KviModule * g_pPythonCoreModule = nullptr;
 		support with [fnc]python.isAvailable[/fnc] and to embed Python code snippets
 		in KVS even if the support is missing - the snippets will be just skipped.[br]
 		[br]
-		Happy Python hacking :)[br]
+		Happy Python hacking [br]
 */
 
 /*

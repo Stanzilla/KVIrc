@@ -119,6 +119,7 @@ public:
 		return 0;
 	};
 	inline State state() const { return m_eState; };
+
 protected:
 	void showEvent(QShowEvent * e) override;
 	void hideEvent(QHideEvent * e) override;

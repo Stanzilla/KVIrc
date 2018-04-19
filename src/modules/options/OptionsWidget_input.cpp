@@ -29,8 +29,8 @@
 
 #include <QLayout>
 
-OptionsWidget_inputLook::OptionsWidget_inputLook(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_inputLook::OptionsWidget_inputLook(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("inputlook_options_widget");
 	createLayout();
@@ -131,8 +131,8 @@ void OptionsWidget_inputLook::commit()
 	KviOptionsWidget::commit();
 }
 
-OptionsWidget_inputFeatures::OptionsWidget_inputFeatures(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_inputFeatures::OptionsWidget_inputFeatures(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ircviewfeatures_options_widget");
 	createLayout();

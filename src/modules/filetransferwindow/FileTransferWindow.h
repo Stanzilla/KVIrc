@@ -53,6 +53,7 @@ public:
 	~FileTransferWidget(){};
 	void paintEvent(QPaintEvent * event);
 	int dummyRead() const { return 0; };
+
 protected:
 	void mousePressEvent(QMouseEvent * e);
 	void mouseDoubleClickEvent(QMouseEvent * e);
@@ -81,8 +82,8 @@ class FileTransferItemDelegate : public KviTalIconAndRichTextItemDelegate
 {
 	Q_OBJECT
 public:
-	FileTransferItemDelegate(QAbstractItemView * pWidget = 0)
-	    : KviTalIconAndRichTextItemDelegate(pWidget){};
+	FileTransferItemDelegate(QAbstractItemView * pWidget = 0) :
+	    KviTalIconAndRichTextItemDelegate(pWidget){};
 	~FileTransferItemDelegate(){};
 	QSize sizeHint(const QStyleOptionViewItem & option, const QModelIndex & index) const;
 	void paint(QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index) const;
@@ -101,7 +102,7 @@ public:
 #if 0
 			KviModuleExtensionDescriptor * d
 #endif
-	    );
+	);
 	~FileTransferWindow();
 
 protected:

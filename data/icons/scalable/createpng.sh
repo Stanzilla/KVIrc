@@ -21,4 +21,4 @@ for size in 16 32 48 64 128; do
 	done
 done
 
-echo "Done :)"
+echo "Done"

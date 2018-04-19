@@ -89,7 +89,7 @@ public:
 
 	/**
 	* \brief Sets the file mode
-	* \param m The mode :)
+	* \param m The mode
 	* \return void
 	*/
 	void setFileMode(FileMode m);

@@ -51,8 +51,8 @@ class ChannelsJoinDialogTreeWidget : public QTreeWidget
 {
 	Q_OBJECT
 public:
-	ChannelsJoinDialogTreeWidget(QWidget * par)
-	    : QTreeWidget(par){};
+	ChannelsJoinDialogTreeWidget(QWidget * par) :
+	    QTreeWidget(par){};
 
 	~ChannelsJoinDialogTreeWidget()
 	{

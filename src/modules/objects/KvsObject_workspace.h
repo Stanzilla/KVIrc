@@ -34,6 +34,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_workspace)
 public:
 	QWidget * widget() { return (QWidget *)object(); };
+
 protected:
 	QHash<kvs_hobject_t, QMdiSubWindow *> * pWidgetDict;
 	virtual bool init(KviKvsRunTimeContext * pContext, KviKvsVariantList * pParams);

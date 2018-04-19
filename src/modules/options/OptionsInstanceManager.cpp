@@ -650,8 +650,8 @@ static const char * g_szClassName_OptionsWidget_windowListTreeFeatures = "Option
 static const char * g_szName_OptionsWidget_windowListClassic = KVI_OPTIONS_WIDGET_NAME_OptionsWidget_windowListClassic;
 static const char * g_szClassName_OptionsWidget_windowListClassic = "OptionsWidget_windowListClassic";
 
-OptionsInstanceManager::OptionsInstanceManager()
-    : QObject(nullptr)
+OptionsInstanceManager::OptionsInstanceManager() :
+    QObject(nullptr)
 {
 
 	//qDebug("Instantiating");

@@ -75,7 +75,7 @@ KVIMODULEEXPORTFUNC void setup_finish()
 		// then probably the user hasn't even edited them.
 		if(KVI_OPTION_STRING(KviOption_stringQuitMessage).indexOf("KVIrc", 0, Qt::CaseInsensitive) != -1)
 			KVI_OPTION_STRING(KviOption_stringQuitMessage) = KVI_DEFAULT_QUIT_MESSAGE;
-		// We deserve to change the user's part message in something nice :)
+		// We deserve to change the user's part message in something nice
 		KVI_OPTION_STRING(KviOption_stringPartMessage) = KVI_DEFAULT_PART_MESSAGE;
 
 		// FIXME: Should we also change these ?

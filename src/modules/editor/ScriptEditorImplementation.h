@@ -177,6 +177,7 @@ public:
 	void setCursorPosition(int iPos) override;
 	int cursor() { return m_lastCursorPos; };
 	QLineEdit * findLineEdit() { return m_pFindLineEdit; };
+
 private:
 	void focusInEvent(QFocusEvent * e) override;
 	void loadOptions();

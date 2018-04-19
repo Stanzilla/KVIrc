@@ -48,8 +48,8 @@ extern KviPointerList<HelpWindow> * g_pHelpWindowList;
 extern KviPointerList<HelpWidget> * g_pHelpWidgetList;
 
 //bool g_bIndexingDone = false;
-HelpWindow::HelpWindow(const char * name)
-    : KviWindow(KviWindow::Help, name)
+HelpWindow::HelpWindow(const char * name) :
+    KviWindow(KviWindow::Help, name)
 {
 	g_pHelpWindowList->append(this);
 	m_pSplitter = new KviTalSplitter(Qt::Horizontal, this);

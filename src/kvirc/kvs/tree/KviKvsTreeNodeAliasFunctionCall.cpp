@@ -27,8 +27,8 @@
 #include "KviKvsAliasManager.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeAliasFunctionCall::KviKvsTreeNodeAliasFunctionCall(const QChar * pLocation, const QString & szAliasName, KviKvsTreeNodeDataList * pParams)
-    : KviKvsTreeNodeFunctionCall(pLocation, szAliasName, pParams)
+KviKvsTreeNodeAliasFunctionCall::KviKvsTreeNodeAliasFunctionCall(const QChar * pLocation, const QString & szAliasName, KviKvsTreeNodeDataList * pParams) :
+    KviKvsTreeNodeFunctionCall(pLocation, szAliasName, pParams)
 {
 }
 

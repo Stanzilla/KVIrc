@@ -65,8 +65,22 @@
 
 // Intel ADPCM step variation table */
 static int indexTable[16] = {
-	-1, -1, -1, -1, 2, 4, 6, 8,
-	-1, -1, -1, -1, 2, 4, 6, 8,
+	-1,
+	-1,
+	-1,
+	-1,
+	2,
+	4,
+	6,
+	8,
+	-1,
+	-1,
+	-1,
+	-1,
+	2,
+	4,
+	6,
+	8,
 };
 
 static int stepsizeTable[89] = {
@@ -255,8 +269,8 @@ void ADPCM_uncompress(char indata[], short outdata[], int len, ADPCM_state * sta
 	state->index = index;
 }
 
-DccVoiceAdpcmCodec::DccVoiceAdpcmCodec()
-    : DccVoiceCodec()
+DccVoiceAdpcmCodec::DccVoiceAdpcmCodec() :
+    DccVoiceCodec()
 {
 	m_pEncodeState = new ADPCM_state;
 	m_pEncodeState->index = 0;

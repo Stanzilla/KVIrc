@@ -494,7 +494,7 @@ public:
 	/**
 	* \brief Prepends the user flag to the nickname
 	* \param szNick The nickname of the user
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	void prependUserFlag(const QString & szNick, QString & szBuffer) { m_pUserListView->prependUserFlag(szNick, szBuffer); };
@@ -761,14 +761,14 @@ public:
 	/**
 	* \brief Outputs a message to the channel window
 	* \param iMsgType The type of the message
-	* \param szMsg The message :)
+	* \param szMsg The message
 	* \return void
 	*/
 	virtual void outputMessage(int iMsgType, const QString & szMsg, const QDateTime & datetime = QDateTime());
 
 	/**
 	* \brief Called when we send a message
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \param bUserFeedback Whether to display the echo feedback to the user
 	* \return void
 	*/
@@ -776,7 +776,7 @@ public:
 
 	/**
 	* \brief Called when we perform an action
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	void ownAction(const QString & szBuffer);
@@ -797,14 +797,14 @@ public:
 
 	/**
 	* \brief Fills szBuffer with all set channel modes, but without any parameters (eg: lkmi)
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	void getChannelModeString(QString & szBuffer);
 
 	/**
 	* \brief Fills szBuffer with all set channel modes and any parameters (eg: mi l:10 k:password)
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	QString getChannelModeStringWithEmbeddedParams();
@@ -1000,7 +1000,7 @@ protected:
 
 	/**
 	* \brief Preprocess message stripping control bytes
-	* \param szMessage The message :)
+	* \param szMessage The message
 	* \return void
 	*/
 	virtual void preprocessMessage(QString & szMessage);
@@ -1040,7 +1040,7 @@ private slots:
 
 	/**
 	* \brief Called when we select the topic
-	* \param szTopic The topic :)
+	* \param szTopic The topic
 	* \return void
 	*/
 	void topicSelected(const QString & szTopic);

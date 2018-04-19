@@ -370,7 +370,7 @@ bool KviRegisteredUserDataBase::removeMaskByPointer(KviIrcMask * mask)
 				return true;
 			}
 		}
-		// not found ...opz :)
+		// not found ...opz
 	}
 	else
 	{

@@ -58,9 +58,9 @@ KviKvsCallbackMessageBox::KviKvsCallbackMessageBox(
     const QString & szButton2,
     const QString & szCode,
     KviKvsVariantList * pMagicParams,
-    KviWindow * pWindow, bool modal)
-    : QMessageBox(nullptr),
-      KviKvsCallbackObject("dialog.message", pWindow, szCode, pMagicParams, 0)
+    KviWindow * pWindow, bool modal) :
+    QMessageBox(nullptr),
+    KviKvsCallbackObject("dialog.message", pWindow, szCode, pMagicParams, 0)
 {
 	setObjectName("dialog_message");
 	setWindowTitle(szCaption);
@@ -244,8 +244,9 @@ KviKvsCallbackTextInput::KviKvsCallbackTextInput(
     const QString & szButton2,
     const QString & szCode,
     KviKvsVariantList * pMagicParams,
-    KviWindow * pWindow, bool modal)
-    : QDialog(), KviKvsCallbackObject("dialog.textinput", pWindow, szCode, pMagicParams, 0)
+    KviWindow * pWindow, bool modal) :
+    QDialog(),
+    KviKvsCallbackObject("dialog.textinput", pWindow, szCode, pMagicParams, 0)
 {
 	setObjectName("dialog_textinput");
 	g_pDialogModuleDialogList->append(this);
@@ -557,14 +558,13 @@ KviKvsCallbackFileDialog::KviKvsCallbackFileDialog(
     const QString & szFilter,
     const QString & szCode,
     KviKvsVariantList * pMagicParams,
-    KviWindow * pWindow, bool modal)
-    : KviFileDialog(
-          szInitialSelection,
-          szFilter,
-          nullptr, // parent
-          nullptr,
-          modal),
-      KviKvsCallbackObject("dialog.file", pWindow, szCode, pMagicParams, 0)
+    KviWindow * pWindow, bool modal) :
+    KviFileDialog(szInitialSelection,
+        szFilter,
+        nullptr, // parent
+        nullptr,
+        modal),
+    KviKvsCallbackObject("dialog.file", pWindow, szCode, pMagicParams, 0)
 {
 	g_pDialogModuleDialogList->append(this);
 	setWindowTitle(szCaption);
@@ -703,8 +703,9 @@ KviKvsCallbackImageDialog::KviKvsCallbackImageDialog(
     int iMaxSize,
     const QString & szCode,
     KviKvsVariantList * pMagicParams,
-    KviWindow * pWindow, bool modal)
-    : KviImageDialog(nullptr, szCaption, iType, 0, szInitialSelection, iMaxSize, modal), KviKvsCallbackObject("dialog.image", pWindow, szCode, pMagicParams, 0)
+    KviWindow * pWindow, bool modal) :
+    KviImageDialog(nullptr, szCaption, iType, 0, szInitialSelection, iMaxSize, modal),
+    KviKvsCallbackObject("dialog.image", pWindow, szCode, pMagicParams, 0)
 {
 	g_pDialogModuleDialogList->append(this);
 	setObjectName("dialog_image");
@@ -887,7 +888,7 @@ static bool dialog_kvs_fnc_yesno(KviKvsModuleFunctionCall * c)
 		in an object signal handler and when returning discover that this object has been deleted!
 		(The example refers to a simple object, but think about a complex hierarchy of objects
 		where one random gets deleted...).[br]
-		This is why the dialogs in KVIrc are non-blocking :)[br]
+		This is why the dialogs in KVIrc are non-blocking [br]
 		That's REAL programming.
 */
 

@@ -72,8 +72,8 @@ void kvi_gsm_codec_done()
 	}
 }
 
-DccVoiceGsmCodec::DccVoiceGsmCodec()
-    : DccVoiceCodec()
+DccVoiceGsmCodec::DccVoiceGsmCodec() :
+    DccVoiceCodec()
 {
 	m_pEncodeState = gsm_session_create();
 	m_pDecodeState = gsm_session_create();

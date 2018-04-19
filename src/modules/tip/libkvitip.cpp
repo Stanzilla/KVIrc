@@ -39,8 +39,8 @@
 
 TipWindow * g_pTipWindow = nullptr;
 
-TipFrame::TipFrame(QWidget * par)
-    : QFrame(par)
+TipFrame::TipFrame(QWidget * par) :
+    QFrame(par)
 {
 	QString buffer;
 	m_pLabel1 = new QLabel(this);

@@ -74,18 +74,18 @@ public:
 
 protected:
 	// subwindows
-	QSplitter * m_pSplitter;                                       // the frame is split vertically and thus can host widgets
-	KviMenuBar * m_pMenuBar;                                       // the main menu bar
-	KviWindowStack * m_pWindowStack;                               // the mdi manager widget (child of the splitter)
+	QSplitter * m_pSplitter;                                           // the frame is split vertically and thus can host widgets
+	KviMenuBar * m_pMenuBar;                                           // the main menu bar
+	KviWindowStack * m_pWindowStack;                                   // the mdi manager widget (child of the splitter)
 	std::unordered_set<KviMexToolBar *> m_pModuleExtensionToolBarList; // the module extension toolbars
-	KviWindowListBase * m_pWindowList;                             // the WindowList
+	KviWindowListBase * m_pWindowList;                                 // the WindowList
 	KviStatusBar * m_pStatusBar;
 	// the mdi workspace child windows
-	std::list<KviWindow *> m_WinList;             // the main list of windows
-	KviIrcContext * m_pActiveContext;             // the context of the m_pActiveWindow
+	std::list<KviWindow *> m_WinList; // the main list of windows
+	KviIrcContext * m_pActiveContext; // the context of the m_pActiveWindow
 	// other
-	KviTrayIcon * m_pTrayIcon;                    // the frame's dock extension: this should be prolly moved ?
-	std::vector<QShortcut *> m_pAccellerators;    // global application accellerators
+	KviTrayIcon * m_pTrayIcon;                 // the frame's dock extension: this should be prolly moved ?
+	std::vector<QShortcut *> m_pAccellerators; // global application accellerators
 public:
 	// the mdi manager: handles mdi children
 	KviWindowStack * windowStack() { return m_pWindowStack; };

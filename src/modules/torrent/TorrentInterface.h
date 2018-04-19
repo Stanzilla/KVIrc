@@ -132,31 +132,30 @@ public:
 		virtual TorrentInterface * instance();                            \
 	};
 
-#define TORR_IMPLEMENT_DESCRIPTOR(_interfaceclass, _name, _description) \
-	_interfaceclass##Descriptor::_interfaceclass##Descriptor()          \
-	    : TorrentInterfaceDescriptor()                                  \
-	{                                                                   \
-		m_pInstance = 0;                                                \
-		m_szName = _name;                                               \
-		m_szDescription = _description;                                 \
-	}                                                                   \
-	_interfaceclass##Descriptor::~_interfaceclass##Descriptor()         \
-	{                                                                   \
-		delete m_pInstance;                                             \
-	}                                                                   \
-	const QString & _interfaceclass##Descriptor::name()                 \
-	{                                                                   \
-		return m_szName;                                                \
-	}                                                                   \
-	const QString & _interfaceclass##Descriptor::description()          \
-	{                                                                   \
-		return m_szDescription;                                         \
-	}                                                                   \
-	TorrentInterface * _interfaceclass##Descriptor::instance()          \
-	{                                                                   \
-		if(!m_pInstance)                                                \
-			m_pInstance = new _interfaceclass();                        \
-		return m_pInstance;                                             \
+#define TORR_IMPLEMENT_DESCRIPTOR(_interfaceclass, _name, _description)                       \
+	_interfaceclass##Descriptor::_interfaceclass##Descriptor() : TorrentInterfaceDescriptor() \
+	{                                                                                         \
+		m_pInstance = 0;                                                                      \
+		m_szName = _name;                                                                     \
+		m_szDescription = _description;                                                       \
+	}                                                                                         \
+	_interfaceclass##Descriptor::~_interfaceclass##Descriptor()                               \
+	{                                                                                         \
+		delete m_pInstance;                                                                   \
+	}                                                                                         \
+	const QString & _interfaceclass##Descriptor::name()                                       \
+	{                                                                                         \
+		return m_szName;                                                                      \
+	}                                                                                         \
+	const QString & _interfaceclass##Descriptor::description()                                \
+	{                                                                                         \
+		return m_szDescription;                                                               \
+	}                                                                                         \
+	TorrentInterface * _interfaceclass##Descriptor::instance()                                \
+	{                                                                                         \
+		if(!m_pInstance)                                                                      \
+			m_pInstance = new _interfaceclass();                                              \
+		return m_pInstance;                                                                   \
 	}
 
 #endif // _TC_INTERFACE_H_

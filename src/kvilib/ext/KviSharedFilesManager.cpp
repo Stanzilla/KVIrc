@@ -77,8 +77,8 @@
 		Please don't send complaints if someone steals your /etc/passwd : it is because you have permitted that.[br]
 */
 
-KviSharedFilesManager::KviSharedFilesManager()
-    : QObject()
+KviSharedFilesManager::KviSharedFilesManager() :
+    QObject()
 {
 	m_pSharedListDict = new KviPointerHashTable<QString, KviSharedFileList>();
 	m_pSharedListDict->setAutoDelete(true);

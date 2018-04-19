@@ -167,7 +167,7 @@ private:
 	KviIrcUserDataBase * m_pUserDataBase; // owned, never null
 
 	KviNotifyListManager * m_pNotifyListManager = nullptr; // owned, see restartNotifyList()
-	QTimer * m_pNotifyListTimer = nullptr;       // delayed startup timer for the notify lists
+	QTimer * m_pNotifyListTimer = nullptr;                 // delayed startup timer for the notify lists
 
 	KviLagMeter * m_pLagMeter = nullptr; // owned, may be null (when not running)
 
@@ -625,7 +625,7 @@ public:
 	/**
 	* Clears the underlying output queue.
 	* Exposed basically for /context.clearQueue
-	* You shouldn't need it for any other reason :)
+	* You shouldn't need it for any other reason
 	*/
 	void clearOutputQueue(bool bPrivateMessagesOnly);
 
@@ -641,7 +641,7 @@ public:
 	* It's called by KviIrcLink OR KviMexLinkFilter when a message is arriving
 	* from the server. Needs to be public because subclasses of
 	* KviMexLinkFilter may call it.
-	* \param pcMessage The message :)
+	* \param pcMessage The message
 	* \return void
 	*/
 	void incomingMessage(const char * pcMessage);
@@ -651,7 +651,7 @@ public:
 	*
 	* It's called by KviIrcDataStreamMonitor subclasses when they want to
 	* inject some message without getting it filtered again
-	* \param pcMessage The message :)
+	* \param pcMessage The message
 	* \return void
 	*/
 	void incomingMessageNoFilter(const char * pcMessage);
@@ -877,7 +877,7 @@ protected:
 
 	/**
 	* \brief Called when MODE is received for each mode character
-	* \param cMode The mode flag :)
+	* \param cMode The mode flag
 	* \param bSet Whether to set the mode
 	* \return bool
 	*/
@@ -996,14 +996,14 @@ signals:
 
 	/**
 	* \brief Emitted when we register a channel
-	* \param pChan The channel :)
+	* \param pChan The channel
 	* \return void
 	*/
 	void channelRegistered(KviChannelWindow * pChan);
 
 	/**
 	* \brief Emitted when we unregister a channel
-	* \param pChan The channel :)
+	* \param pChan The channel
 	* \return void
 	*/
 	void channelUnregistered(KviChannelWindow * pChan);

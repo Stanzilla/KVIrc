@@ -244,7 +244,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 			This means that you can set up 33 [i]quick[/i] aliases... that's really more than
 			a user can remember.[br]
 			Note: this event won't be called for keys already bound to actions.
-			If you need more keys, mail me, I'll see what I can do :)[br]
+			If you need more keys, mail me, I'll see what I can do [br]
 	*/
 
 	EVENT("OnAccelKeyPressed",
@@ -847,7 +847,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 		@description:
 			This event is triggered when the user clicks the channel
 			text view with the right mouse button. It is a good place
-			to activate a [cmd]popup[/cmd] menu :)
+			to activate a [cmd]popup[/cmd] menu
 		@seealso:
 			[event:ondccchatpopuprequest]OnDCCChatPopupRequest[/event],
 			[event:onconsolepopuprequest]OnConsolePopupRequest[/event],
@@ -871,7 +871,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 		@description:
 			This event is triggered when the user clicks the console
 			text view with the right mouse button. It is a good place
-			to activate a [cmd]popup[/cmd] menu :)
+			to activate a [cmd]popup[/cmd] menu
 		@seealso:
 			[event:ondccchatpopuprequest]OnDCCChatPopupRequest[/event],
 			[event:onchannelpopuprequest]OnChannelPopupRequest[/event],
@@ -895,7 +895,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 		@description:
 			This event is triggered when the user clicks the query
 			text view with the right mouse button. It is a good place
-			to activate a [cmd]popup[/cmd] menu :)
+			to activate a [cmd]popup[/cmd] menu
 		@seealso:
 			[event:ondccchatpopuprequest]OnDCCChatPopupRequest[/event],
 			[event:onconsolepopuprequest]OnConsolePopupRequest[/event],
@@ -1173,7 +1173,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 		@description:
 			This event is triggered when the user clicks the DCC chat
 			text view with the right mouse button. It is a good place
-			to activate a [cmd]popup[/cmd] menu :)
+			to activate a [cmd]popup[/cmd] menu
 			You can retrieve the session information by calling the [module:dcc]dcc[/module].*
 			module functions and by passing the DCC session ID parameter.
 		@seealso:
@@ -1296,7 +1296,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 			For normal channel notices $2 parameter will only a channel name.
 			For channel op or channel voice notices it will contain also the leading '@' or '+' flag.
 			Please note that this convention is different from the one used in [event:onchannelprivmsg]OnChannelMessage[/event]:
-			the incompatibility is here for historical reasons: it is not a big deal so we're not fighting it :)
+			the incompatibility is here for historical reasons: it is not a big deal so we're not fighting it
 			$3 will be [b]1[/b] if the message was encrypted and [b]0[/b] otherwise.
 			$4 is a hash of the current message tags, if available.
 		@seealso:
@@ -3858,7 +3858,7 @@ KviKvsEvent KviKvsEventManager::m_appEventTable[KVI_KVS_NUM_APP_EVENTS] = {
 			Visible name is the link text (as it shown by user).
 			Command name is set if the visible name differs with the actual link target  (e.g. probably contains mIRC colors). It is equal to the actual target name.
 			This event is triggered when a user has double clicked on a text view and has not hit any link.[br]
-			I have no idea what you can do in this event, maybe some sort of channel-central dialog? :)
+			I have no idea what you can do in this event, maybe some sort of channel-central dialog?
 	*/
 
 	EVENT("OnTextViewDoubleClicked", ""),

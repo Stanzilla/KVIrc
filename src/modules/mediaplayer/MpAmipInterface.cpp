@@ -112,8 +112,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "install AMIP plugin for your player.",
         "mediaplayer"))
 
-MpAmipInterface::MpAmipInterface()
-    : MpInterface()
+MpAmipInterface::MpAmipInterface() :
+    MpInterface()
 {
 	if(!amip_dll)
 	{

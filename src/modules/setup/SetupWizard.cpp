@@ -71,8 +71,8 @@ extern QString szMircIni;
 #define KVI_LOCAL_KVIRC_SUBDIRECTORY_NAME ".config/KVIrc"
 #endif
 
-SetupPage::SetupPage(SetupWizard * w)
-    : QWidget(w)
+SetupPage::SetupPage(SetupWizard * w) :
+    QWidget(w)
 {
 	QGridLayout * g = new QGridLayout(this);
 
@@ -128,8 +128,8 @@ SetupPage::SetupPage(SetupWizard * w)
 SetupPage::~SetupPage()
     = default;
 
-SetupWizard::SetupWizard()
-    : KviTalWizard(nullptr)
+SetupWizard::SetupWizard() :
+    KviTalWizard(nullptr)
 {
 	setWindowTitle(__tr2qs("Setup Wizard - KVIrc"));
 
@@ -156,7 +156,7 @@ SetupWizard::SetupWizard()
 
 	// here we go...
 	QString szText = __tr2qs("<p>"
-	                         "<h2>Welcome :)</h2>"
+	                         "<h2>Welcome </h2>"
 	                         "This is your first time running this version of KVIrc.<br>"
 	                         "This wizard will guide you through the few steps "
 	                         "required to complete the setup.<br><br>"
@@ -172,9 +172,9 @@ SetupWizard::SetupWizard()
 	setBackEnabled(m_pWelcome, false);
 	setHelpEnabled(m_pWelcome, false);
 
-//
-// License
-//
+	//
+	// License
+	//
 
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW) //it have been already shown by installer
 	SetupPage * m_pLicense = new SetupPage(this);
@@ -779,7 +779,7 @@ void SetupWizard::chooseIncomingPath()
 void SetupWizard::makeLink()
 {
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
-	// Let's make a link on the desktop :)
+	// Let's make a link on the desktop
 	// You need this horrible snippet of code to create a shortcut!!!!
 	//
 	// you have to:
@@ -824,7 +824,7 @@ void SetupWizard::makeLink()
 	// Fiddle with an obscure shell interface
 	IShellLink * psl;
 
-	// Get a pointer to the IShellLink interface: this is kinda ugly :)
+	// Get a pointer to the IShellLink interface: this is kinda ugly
 	if(CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER,
 	       IID_IShellLink, (void **)&psl)
 	    == S_OK)

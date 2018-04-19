@@ -30,8 +30,8 @@
 
 #include <QRegExp>
 
-KviKvsTreeNodeSpecialCommandSwitchLabel::KviKvsTreeNodeSpecialCommandSwitchLabel(const QChar * pLocation)
-    : KviKvsTreeNode(pLocation)
+KviKvsTreeNodeSpecialCommandSwitchLabel::KviKvsTreeNodeSpecialCommandSwitchLabel(const QChar * pLocation) :
+    KviKvsTreeNode(pLocation)
 {
 	m_pParameter = nullptr;
 	m_pInstruction = nullptr;
@@ -64,8 +64,8 @@ void KviKvsTreeNodeSpecialCommandSwitchLabel::setInstruction(KviKvsTreeNodeInstr
 		m_pInstruction->setParent(this);
 }
 
-KviKvsTreeNodeSpecialCommandSwitchLabelCase::KviKvsTreeNodeSpecialCommandSwitchLabelCase(const QChar * pLocation)
-    : KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
+KviKvsTreeNodeSpecialCommandSwitchLabelCase::KviKvsTreeNodeSpecialCommandSwitchLabelCase(const QChar * pLocation) :
+    KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
 {
 }
 
@@ -158,8 +158,8 @@ bool KviKvsTreeNodeSpecialCommandSwitchLabelCase::execute(KviKvsRunTimeContext *
 	return true;
 }
 
-KviKvsTreeNodeSpecialCommandSwitchLabelMatch::KviKvsTreeNodeSpecialCommandSwitchLabelMatch(const QChar * pLocation)
-    : KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
+KviKvsTreeNodeSpecialCommandSwitchLabelMatch::KviKvsTreeNodeSpecialCommandSwitchLabelMatch(const QChar * pLocation) :
+    KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
 {
 }
 
@@ -217,8 +217,8 @@ bool KviKvsTreeNodeSpecialCommandSwitchLabelMatch::execute(KviKvsRunTimeContext 
 	return true;
 }
 
-KviKvsTreeNodeSpecialCommandSwitchLabelRegexp::KviKvsTreeNodeSpecialCommandSwitchLabelRegexp(const QChar * pLocation)
-    : KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
+KviKvsTreeNodeSpecialCommandSwitchLabelRegexp::KviKvsTreeNodeSpecialCommandSwitchLabelRegexp(const QChar * pLocation) :
+    KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
 {
 }
 
@@ -276,8 +276,8 @@ bool KviKvsTreeNodeSpecialCommandSwitchLabelRegexp::execute(KviKvsRunTimeContext
 	return true;
 }
 
-KviKvsTreeNodeSpecialCommandSwitchLabelDefault::KviKvsTreeNodeSpecialCommandSwitchLabelDefault(const QChar * pLocation)
-    : KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
+KviKvsTreeNodeSpecialCommandSwitchLabelDefault::KviKvsTreeNodeSpecialCommandSwitchLabelDefault(const QChar * pLocation) :
+    KviKvsTreeNodeSpecialCommandSwitchLabel(pLocation)
 {
 }
 
@@ -315,8 +315,8 @@ bool KviKvsTreeNodeSpecialCommandSwitchLabelDefault::execute(KviKvsRunTimeContex
 	return true;
 }
 
-KviKvsTreeNodeSpecialCommandSwitch::KviKvsTreeNodeSpecialCommandSwitch(const QChar * pLocation, KviKvsTreeNodeExpression * e)
-    : KviKvsTreeNodeSpecialCommand(pLocation, "switch")
+KviKvsTreeNodeSpecialCommandSwitch::KviKvsTreeNodeSpecialCommandSwitch(const QChar * pLocation, KviKvsTreeNodeExpression * e) :
+    KviKvsTreeNodeSpecialCommand(pLocation, "switch")
 {
 	m_pExpression = e;
 	m_pExpression->setParent(this);

@@ -26,8 +26,8 @@
 
 #include <QChildEvent>
 
-KviTalGroupBox::KviTalGroupBox(QWidget * pParent, char * pcName)
-    : QGroupBox(pParent)
+KviTalGroupBox::KviTalGroupBox(QWidget * pParent, char * pcName) :
+    QGroupBox(pParent)
 {
 	setObjectName(pcName);
 	m_pLayout = new QHBoxLayout(this);
@@ -37,20 +37,20 @@ KviTalGroupBox::KviTalGroupBox(QWidget * pParent, char * pcName)
 	QGroupBox::setLayout(m_pLayout);
 }
 
-KviTalGroupBox::KviTalGroupBox(QWidget * pParent)
-    : QGroupBox(pParent)
+KviTalGroupBox::KviTalGroupBox(QWidget * pParent) :
+    QGroupBox(pParent)
 {
 	m_pLayout = nullptr;
 }
 
-KviTalGroupBox::KviTalGroupBox(const QString & szTitle, QWidget * pParent)
-    : QGroupBox(szTitle, pParent)
+KviTalGroupBox::KviTalGroupBox(const QString & szTitle, QWidget * pParent) :
+    QGroupBox(szTitle, pParent)
 {
 	m_pLayout = nullptr;
 }
 
-KviTalGroupBox::KviTalGroupBox(Qt::Orientation orientation, QWidget * pParent)
-    : QGroupBox(pParent)
+KviTalGroupBox::KviTalGroupBox(Qt::Orientation orientation, QWidget * pParent) :
+    QGroupBox(pParent)
 {
 	if(orientation == Qt::Vertical)
 		m_pLayout = new QHBoxLayout(this);
@@ -62,8 +62,8 @@ KviTalGroupBox::KviTalGroupBox(Qt::Orientation orientation, QWidget * pParent)
 	QGroupBox::setLayout(m_pLayout);
 }
 
-KviTalGroupBox::KviTalGroupBox(Qt::Orientation orientation, const QString & szTitle, QWidget * pParent)
-    : QGroupBox(szTitle, pParent)
+KviTalGroupBox::KviTalGroupBox(Qt::Orientation orientation, const QString & szTitle, QWidget * pParent) :
+    QGroupBox(szTitle, pParent)
 {
 	mOrientation = orientation;
 	if(orientation == Qt::Vertical)

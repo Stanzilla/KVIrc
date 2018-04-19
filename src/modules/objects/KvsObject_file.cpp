@@ -537,7 +537,6 @@ KVSO_CLASS_FUNCTION(file, writeBlock)
 				const char * pData = ((KvsObject_memoryBuffer *)pObject)->pBuffer()->data();
 				int rlen = m_pFile->write(pData, uLen);
 				c->returnValue()->setInteger(rlen);
-
 			}
 			else
 			{

@@ -64,7 +64,7 @@ public:
 	{
 		ForceMinimumSize = 1
 	};
-	int iFlags;         // da flags :)
+	int iFlags;         // da flags
 	int iDefaultButton; // the button to use when Enter is pressed (1,2 or 3)
 	int iCancelButton;  // the button to use when Esc is pressed (1,2 or 3)
 	QString szHtmlText; // Shouldn't be empty :D
@@ -90,8 +90,9 @@ public:
 class KviTextBrowser : public QTextBrowser
 {
 public:
-	KviTextBrowser(QWidget * par, KviHtmlDialogData * ht)
-	    : QTextBrowser(par), m_pHt(ht){};
+	KviTextBrowser(QWidget * par, KviHtmlDialogData * ht) :
+	    QTextBrowser(par),
+	    m_pHt(ht){};
 	~KviTextBrowser(){};
 	virtual QVariant loadResource(int type, const QUrl & name)
 	{

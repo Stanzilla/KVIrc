@@ -64,7 +64,7 @@ extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 // KviApplication.cpp (loaded and destroyed by KviIconManager)
 extern QPixmap * g_pUserChanStatePixmap;
 
-// Yet another really complex widget :)
+// Yet another really complex widget
 
 #define KVI_USERLIST_BORDER_WIDTH 2
 #define KVI_USERLIST_ICON_WIDTH 16
@@ -73,8 +73,8 @@ extern QPixmap * g_pUserChanStatePixmap;
 
 // FIXME: #warning "We want to be able to navigate the list with the keyboard!"
 
-KviUserListToolTip::KviUserListToolTip(KviUserListView * pView, KviUserListViewArea * pArea)
-    : KviTalToolTip(pArea)
+KviUserListToolTip::KviUserListToolTip(KviUserListView * pView, KviUserListViewArea * pArea) :
+    KviTalToolTip(pArea)
 {
 	m_pListView = pView;
 }
@@ -87,8 +87,8 @@ void KviUserListToolTip::maybeTip(const QPoint & pnt)
 	m_pListView->maybeTip(this, pnt);
 }
 
-KviUserListEntry::KviUserListEntry(KviUserListView * pParent, const QString & szNick, KviIrcUserEntry * pEntry, short int iFlags, bool bJoinTimeUnknown)
-    : QObject()
+KviUserListEntry::KviUserListEntry(KviUserListView * pParent, const QString & szNick, KviIrcUserEntry * pEntry, short int iFlags, bool bJoinTimeUnknown) :
+    QObject()
 {
 	m_pListView = pParent;
 	m_szNick = szNick;
@@ -215,8 +215,8 @@ void KviUserListEntry::recalcSize()
 	m_iHeight += 3;
 }
 
-KviUserListView::KviUserListView(QWidget * pParent, KviWindowToolPageButton * pButton, KviIrcUserDataBase * pDb, KviWindow * pWnd, int iDictSize, const QString & szTextLabel, const char * pName)
-    : KviWindowToolWidget(pParent, pButton)
+KviUserListView::KviUserListView(QWidget * pParent, KviWindowToolPageButton * pButton, KviIrcUserDataBase * pDb, KviWindow * pWnd, int iDictSize, const QString & szTextLabel, const char * pName) :
+    KviWindowToolWidget(pParent, pButton)
 {
 	setObjectName(pName);
 
@@ -617,7 +617,7 @@ bool KviUserListView::completeNickStandard(const QString & szBegin, const QStrin
 
 void KviUserListView::insertUserEntry(const QString & szNnick, KviUserListEntry * pUserEntry)
 {
-	// Complex insertion task :)
+	// Complex insertion task
 	m_pEntryDict->insert(szNnick, pUserEntry);
 	m_iTotalHeight += pUserEntry->m_iHeight;
 
@@ -744,16 +744,14 @@ void KviUserListView::insertUserEntry(const QString & szNnick, KviUserListEntry 
 									pEntry = pEntry->m_pNext;
 								}
 							} // else is userop, ops, halfops, and voiced are skipped
-						}         // else it is voiced, ops and halfops are skipped
-					}                 // else it is halfop,  ops are skipped
-				}                         // else it is op, chan admins are skipped
-			}                                 // else it is chan admin, chan owners are skipped
-		}                                         // else it is chan owner, so nothing to skip: they are first in the list
+						}     // else it is voiced, ops and halfops are skipped
+					}         // else it is halfop,  ops are skipped
+				}             // else it is op, chan admins are skipped
+			}                 // else it is chan admin, chan owners are skipped
+		}                     // else it is chan owner, so nothing to skip: they are first in the list
 
 		// now strcmp within the current user-flag group...
-		while(pEntry && (KviQString::cmpCI(pEntry->m_szNick, pUserEntry->m_szNick,
-		                     KVI_OPTION_BOOL(KviOption_boolPlaceNickWithNonAlphaCharsAtEnd))
-		                    < 0)
+		while(pEntry && (KviQString::cmpCI(pEntry->m_szNick, pUserEntry->m_szNick, KVI_OPTION_BOOL(KviOption_boolPlaceNickWithNonAlphaCharsAtEnd)) < 0)
 		    && ((pEntry->m_iFlags & iFlag) || (iFlag == 0)))
 		{
 			if(pEntry == m_pTopItem)
@@ -1726,8 +1724,8 @@ void KviUserListView::maybeTip(KviUserListToolTip * pTip, const QPoint & pnt)
 	}
 }
 
-KviUserListViewArea::KviUserListViewArea(KviUserListView * pPar)
-    : QWidget(pPar)
+KviUserListViewArea::KviUserListViewArea(KviUserListView * pPar) :
+    QWidget(pPar)
 {
 	m_pListView = pPar;
 	setAutoFillBackground(false);

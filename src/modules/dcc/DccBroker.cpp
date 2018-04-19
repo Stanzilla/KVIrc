@@ -59,8 +59,8 @@ extern KVIRC_API KviSharedFilesManager * g_pSharedFilesManager;
 
 //#warning "The broker might lookup the remote host name"
 
-DccBroker::DccBroker()
-    : QObject(nullptr)
+DccBroker::DccBroker() :
+    QObject(nullptr)
 {
 	setObjectName("dcc_broker");
 	DccFileTransfer::init();
@@ -228,7 +228,7 @@ void DccBroker::rsendExecute(DccDescriptor * dcc)
 	dcc->szFileName = QFileInfo(dcc->szFileName).fileName();
 
 	QString fName = dcc->szFileName;
-	fName.replace(' ', "\\040"); // be cool :)
+	fName.replace(' ', "\\040"); // be cool
 
 	QString szTag;
 	if(dcc->isZeroPortRequest())
@@ -290,9 +290,9 @@ void DccBroker::handleChatRequest(DccDescriptor * dcc)
 		// FIXME: better message ? Secure Direct Client Connection...eventually
 		// need confirmation
 		QString tmp = __tr2qs_ctx(
-		                  "<b>%1 [%2@%3]</b> requests a "
-		                  "<b>Direct Client Connection</b> in <b>%4</b> mode.<br>",
-		                  "dcc")
+		    "<b>%1 [%2@%3]</b> requests a "
+		    "<b>Direct Client Connection</b> in <b>%4</b> mode.<br>",
+		    "dcc")
 		                  .arg(dcc->szNick, dcc->szUser, dcc->szHost, dcc->szType);
 
 #ifdef COMPILE_SSL_SUPPORT
@@ -308,7 +308,7 @@ void DccBroker::handleChatRequest(DccDescriptor * dcc)
 		else
 		{
 			tmp += __tr2qs_ctx(
-			           "The connection target will be host <b>%1</b> on port <b>%2</b><br>", "dcc")
+			    "The connection target will be host <b>%1</b> on port <b>%2</b><br>", "dcc")
 			           .arg(dcc->szIp, dcc->szPort);
 		}
 
@@ -363,10 +363,10 @@ void DccBroker::activeVoiceManage(DccDescriptor * dcc)
 	{
 		// need confirmation
 		QString tmp = __tr2qs_ctx(
-		                  "<b>%1 [%2@%3]</b> requests a<br>"
-		                  "<b>Direct Client Connection</b> in <b>VOICE</b> mode.<br>"
-		                  "The connection target will be host <b>%4</b> on port <b>%5</b><br>",
-		                  "dcc")
+		    "<b>%1 [%2@%3]</b> requests a<br>"
+		    "<b>Direct Client Connection</b> in <b>VOICE</b> mode.<br>"
+		    "The connection target will be host <b>%4</b> on port <b>%5</b><br>",
+		    "dcc")
 		                  .arg(dcc->szNick, dcc->szUser, dcc->szHost, dcc->szIp, dcc->szPort);
 
 		DccAcceptDialog * box = new DccAcceptDialog(this, dcc, tmp, __tr2qs_ctx("DCC VOICE request", "dcc"));
@@ -413,7 +413,7 @@ void DccBroker::passiveVoiceExecute(DccDescriptor * dcc)
 {
 	KviCString tmp(KviCString::Format, "DCC: voice %s@%s:%s", dcc->szNick.toUtf8().data(), dcc->szIp.toUtf8().data(), dcc->szPort.toUtf8().data());
 	DccVoiceWindow * v = new DccVoiceWindow(dcc, tmp.ptr());
-	//#warning "Create minimized dcc voice ?... or maybe it's too much ? :)"
+	//#warning "Create minimized dcc voice ?... or maybe it's too much ? "
 	bool bMinimized = dcc->bOverrideMinimize ? dcc->bShowMinimized : KVI_OPTION_BOOL(KviOption_boolCreateMinimizedDccChat);
 	g_pMainWindow->addWindow(v, !bMinimized);
 	m_pDccWindowList->append(v);
@@ -430,10 +430,10 @@ void DccBroker::activeVideoManage(DccDescriptor * dcc)
 	{
 		// need confirmation
 		QString tmp = __tr2qs_ctx(
-		                  "<b>%1 [%2@%3]</b> requests a<br>"
-		                  "<b>Direct Client Connection</b> in <b>VIDEO</b> mode.<br>"
-		                  "The connection target will be host <b>%4</b> on port <b>%5</b><br>",
-		                  "dcc")
+		    "<b>%1 [%2@%3]</b> requests a<br>"
+		    "<b>Direct Client Connection</b> in <b>VIDEO</b> mode.<br>"
+		    "The connection target will be host <b>%4</b> on port <b>%5</b><br>",
+		    "dcc")
 		                  .arg(dcc->szNick, dcc->szUser, dcc->szHost, dcc->szIp, dcc->szPort);
 
 		DccAcceptDialog * box = new DccAcceptDialog(this, dcc, tmp, __tr2qs_ctx("DCC VIDEO request", "dcc"));
@@ -485,7 +485,7 @@ void DccBroker::passiveVideoExecute(DccDescriptor * dcc)
 {
 	KviCString tmp(KviCString::Format, "DCC: video %s@%s:%s", dcc->szNick.toUtf8().data(), dcc->szIp.toUtf8().data(), dcc->szPort.toUtf8().data());
 	DccVideoWindow * v = new DccVideoWindow(dcc, tmp.ptr());
-	//#warning "Create minimized dcc video ?... or maybe it's too much ? :)"
+	//#warning "Create minimized dcc video ?... or maybe it's too much ? "
 	bool bMinimized = dcc->bOverrideMinimize ? dcc->bShowMinimized : KVI_OPTION_BOOL(KviOption_boolCreateMinimizedDccChat);
 	g_pMainWindow->addWindow(v, !bMinimized);
 	m_pDccWindowList->append(v);
@@ -506,10 +506,10 @@ void DccBroker::activeCanvasManage(DccDescriptor * dcc)
 	{
 		// need confirmation
 		QString tmp = __tr2qs_ctx(
-		                  "<b>%1 [%2@%3]</b> requests a<br>"
-		                  "<b>Direct Client Connection</b> in <b>CANVAS</b> mode.<br>"
-		                  "The connection target will be host <b>%4</b> on port <b>%5</b><br>",
-		                  "dcc")
+		    "<b>%1 [%2@%3]</b> requests a<br>"
+		    "<b>Direct Client Connection</b> in <b>CANVAS</b> mode.<br>"
+		    "The connection target will be host <b>%4</b> on port <b>%5</b><br>",
+		    "dcc")
 		                  .arg(dcc->szNick, dcc->szUser, dcc->szHost, dcc->szIp, dcc->szPort);
 
 		DccAcceptDialog * box = new DccAcceptDialog(this, dcc, tmp, __tr2qs_ctx("DCC CANVAS request", "dcc"));
@@ -600,12 +600,12 @@ void DccBroker::recvFileManage(DccDescriptor * dcc)
 		{
 			// Normal active send: we will be connecting
 			tmp = __tr2qs_ctx(
-			          "<b>%1 [%2@%3]</b> "
-			          "wants to send you the file "
-			          "'<b>%4</b>', "
-			          "<b>%5</b> large.<br>"
-			          "The connection target will be host <b>%6</b> on port <b>%7</b><br>",
-			          "dcc")
+			    "<b>%1 [%2@%3]</b> "
+			    "wants to send you the file "
+			    "'<b>%4</b>', "
+			    "<b>%5</b> large.<br>"
+			    "The connection target will be host <b>%6</b> on port <b>%7</b><br>",
+			    "dcc")
 			          .arg(dcc->szNick, dcc->szUser, dcc->szHost, dcc->szFileName)
 			          .arg(KviQString::makeSizeReadable(dcc->szFileSize.toULongLong()))
 			          .arg(dcc->szIp, dcc->szPort);
@@ -614,12 +614,12 @@ void DccBroker::recvFileManage(DccDescriptor * dcc)
 		{
 			// passive: we will be listening!
 			tmp = __tr2qs_ctx(
-			          "<b>%1 [%2@%3]</b> "
-			          "wants to send you the file "
-			          "'<b>%4</b>', "
-			          "<b>%5</b> large.<br>"
-			          "You will be the passive side of the connection.<br>",
-			          "dcc")
+			    "<b>%1 [%2@%3]</b> "
+			    "wants to send you the file "
+			    "'<b>%4</b>', "
+			    "<b>%5</b> large.<br>"
+			    "You will be the passive side of the connection.<br>",
+			    "dcc")
 			          .arg(dcc->szNick, dcc->szUser, dcc->szHost, dcc->szFileName)
 			          .arg(KviQString::makeSizeReadable(dcc->szFileSize.toULongLong()));
 		}
@@ -787,16 +787,16 @@ void DccBroker::renameOverwriteResume(DccDialog * box, DccDescriptor * dcc)
 			if(
 			    (!bOk) ||                          // remote size is unknown
 			    (iRemoteSize > (quint64)fi.size()) // or it is larger than the actual size on disk
-			    )
+			)
 			{
 				tmp = __tr2qs_ctx(
-				          "The file '<b>%1</b>' already exists "
-				          "and is <b>%2</b> large.<br>"
-				          "Do you wish to<br>"
-				          "<b>auto-rename</b> the new file,<br>"
-				          "<b>overwrite</b> the existing file, or<br> "
-				          "<b>resume</b> an incomplete download?",
-				          "dcc")
+				    "The file '<b>%1</b>' already exists "
+				    "and is <b>%2</b> large.<br>"
+				    "Do you wish to<br>"
+				    "<b>auto-rename</b> the new file,<br>"
+				    "<b>overwrite</b> the existing file, or<br> "
+				    "<b>resume</b> an incomplete download?",
+				    "dcc")
 				          .arg(dcc->szLocalFileName)
 				          .arg(KviQString::makeSizeReadable(fi.size()));
 			}
@@ -805,12 +805,12 @@ void DccBroker::renameOverwriteResume(DccDialog * box, DccDescriptor * dcc)
 				bDisableResume = true;
 				// the file on disk is larger or equal to the remote one
 				tmp = __tr2qs_ctx(
-				          "The file '<b>%1</b>' already exists "
-				          "and is larger than the offered one.<br>"
-				          "Do you wish to<br>"
-				          "<b>auto-rename</b> the new file, or<br>"
-				          "<b>overwrite</b> the existing file?",
-				          "dcc")
+				    "The file '<b>%1</b>' already exists "
+				    "and is larger than the offered one.<br>"
+				    "Do you wish to<br>"
+				    "<b>auto-rename</b> the new file, or<br>"
+				    "<b>overwrite</b> the existing file?",
+				    "dcc")
 				          .arg(dcc->szLocalFileName);
 			}
 
@@ -831,7 +831,7 @@ void DccBroker::renameOverwriteResume(DccDialog * box, DccDescriptor * dcc)
 		    KVI_OPTION_BOOL(KviOption_boolAutoResumeDccSendWhenAutoAccepted) && (bOk) && // only if the remote size is really known
 		    (iRemoteSize > (quint64)fi.size()) &&                                        // only if the remote size is larger than the local size
 		    (!DccFileTransfer::nonFailedTransferWithLocalFileName(dcc->szLocalFileName)) // only if there is no transfer with this local file name yet
-		    )
+		)
 		{
 			// yep, auto resume...
 			dcc->bResume = true;

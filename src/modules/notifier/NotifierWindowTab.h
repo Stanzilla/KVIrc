@@ -95,6 +95,7 @@ public:
 	* \return KviWindow *
 	*/
 	inline KviWindow * wnd() const { return m_pWnd; }
+
 protected:
 	void mouseDoubleClickEvent(QMouseEvent * e) override;
 	void resizeEvent(QResizeEvent * e) override;

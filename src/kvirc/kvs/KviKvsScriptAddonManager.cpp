@@ -40,15 +40,17 @@ KviKvsScriptAddon::KviKvsScriptAddon(
     const QString & szVisibleNameCode,
     const QString & szDescriptionCode,
     const QString & szUninstallCallbackCode,
-    const QString & szIconId) : KviHeapObject(), m_szName(szName), m_szVersion(szVersion), m_szIconId(szIconId)
+    const QString & szIconId) :
+    KviHeapObject(),
+    m_szName(szName), m_szVersion(szVersion), m_szIconId(szIconId)
 {
 	allocateScripts(szVisibleNameCode, szDescriptionCode, szUninstallCallbackCode);
 	m_pConfigureCallback = nullptr;
 	m_pHelpCallback = nullptr;
 }
 
-KviKvsScriptAddon::KviKvsScriptAddon(const KviKvsScriptAddon & a)
-    : KviHeapObject()
+KviKvsScriptAddon::KviKvsScriptAddon(const KviKvsScriptAddon & a) :
+    KviHeapObject()
 {
 	m_szName = a.m_szName;
 	m_szVersion = a.m_szVersion;
@@ -60,8 +62,8 @@ KviKvsScriptAddon::KviKvsScriptAddon(const KviKvsScriptAddon & a)
 	setHelpCallback(a.m_pHelpCallback ? a.m_pHelpCallback->code() : QString());
 }
 
-KviKvsScriptAddon::KviKvsScriptAddon()
-    : KviHeapObject()
+KviKvsScriptAddon::KviKvsScriptAddon() :
+    KviHeapObject()
 {
 	m_pVisibleNameScript = nullptr;
 	m_pDescriptionScript = nullptr;

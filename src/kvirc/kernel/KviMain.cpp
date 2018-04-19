@@ -374,7 +374,7 @@ int main(int argc, char ** argv)
 	    ki18n("???"),                           // *some other text* ????
 	    "http://www.kvirc.net",                 // homepage
 	    "https://github.com/kvirc/KVIrc/issues" // bug address
-	    );
+	);
 
 	//fake argc/argv initialization: kde will use argv[0] as out appName in some dialogs
 	// (eg: kdebase/workspace/kwin/killer/killer.cpp)
@@ -391,7 +391,7 @@ int main(int argc, char ** argv)
 	    "???",                                  // *some other text* ????
 	    "http://www.kvirc.net",                 // homepage
 	    "https://github.com/kvirc/KVIrc/issues" // bug address
-	    );
+	);
 #endif //!COMPILE_KDE4_SUPPORT
 #endif
 
@@ -425,7 +425,7 @@ int main(int argc, char ** argv)
 		szRemoteCommand.append(a.szExecRemoteCommand);
 	}
 
-/*
+	/*
 		FIXME: There is a race condition in the IPC mechanism.
 			If one starts two instances of kvirc one immediately after another
 			then both instances may run through kvi_sendIpcMessage
@@ -486,7 +486,6 @@ int main(int argc, char ** argv)
 
 	// YEAH!
 	int iRetVal = pTheApp->exec();
-	// :)
 
 	delete pTheApp;
 

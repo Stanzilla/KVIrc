@@ -43,8 +43,8 @@
 //       rootname.separatorX : child separators
 //       rootname.labelX : child labels
 
-KviKvsPopupMenuItem::KviKvsPopupMenuItem(Type t, const QString & szItemName, const QString & szCondition)
-    : m_szItemName{szItemName}, m_eType{t}
+KviKvsPopupMenuItem::KviKvsPopupMenuItem(Type t, const QString & szItemName, const QString & szCondition) :
+    m_szItemName{ szItemName }, m_eType{ t }
 {
 	if(!szCondition.isEmpty())
 	{
@@ -53,8 +53,8 @@ KviKvsPopupMenuItem::KviKvsPopupMenuItem(Type t, const QString & szItemName, con
 	}
 }
 
-KviKvsPopupMenuItem::KviKvsPopupMenuItem(Type t, const QString & szItemName, const KviKvsScript * pCondition)
-    : m_szItemName{szItemName}, m_eType{t}
+KviKvsPopupMenuItem::KviKvsPopupMenuItem(Type t, const QString & szItemName, const KviKvsScript * pCondition) :
+    m_szItemName{ szItemName }, m_eType{ t }
 {
 	if(pCondition)
 		m_pKvsCondition = new KviKvsScript(*pCondition);
@@ -104,13 +104,13 @@ bool KviKvsPopupMenuItem::evaluateCondition(KviKvsPopupMenuTopLevelData * pData)
 	return vRet.asBoolean();
 }
 
-KviKvsPopupMenuItemSeparator::KviKvsPopupMenuItemSeparator(const QString & szItemName, const QString & szCondition)
-    : KviKvsPopupMenuItem(KviKvsPopupMenuItem::Separator, szItemName, szCondition)
+KviKvsPopupMenuItemSeparator::KviKvsPopupMenuItemSeparator(const QString & szItemName, const QString & szCondition) :
+    KviKvsPopupMenuItem(KviKvsPopupMenuItem::Separator, szItemName, szCondition)
 {
 }
 
-KviKvsPopupMenuItemSeparator::KviKvsPopupMenuItemSeparator(const QString & szItemName, const KviKvsScript * pCondition)
-    : KviKvsPopupMenuItem(KviKvsPopupMenuItem::Separator, szItemName, pCondition)
+KviKvsPopupMenuItemSeparator::KviKvsPopupMenuItemSeparator(const QString & szItemName, const KviKvsScript * pCondition) :
+    KviKvsPopupMenuItem(KviKvsPopupMenuItem::Separator, szItemName, pCondition)
 {
 }
 
@@ -129,8 +129,8 @@ KviKvsPopupMenuItem * KviKvsPopupMenuItemSeparator::clone() const
 	return new KviKvsPopupMenuItemSeparator(m_szItemName, m_pKvsCondition);
 }
 
-KviKvsPopupMenuItemWithTextAndIcon::KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Type t, const QString & szItemName, const QString & szText, const QString & szIcon, const QString & szCondition)
-    : KviKvsPopupMenuItem(t, szItemName, szCondition)
+KviKvsPopupMenuItemWithTextAndIcon::KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Type t, const QString & szItemName, const QString & szText, const QString & szIcon, const QString & szCondition) :
+    KviKvsPopupMenuItem(t, szItemName, szCondition)
 {
 	QString szName = QStringLiteral("text callback for ") + szItemName;
 	m_pKvsText = new KviKvsScript(szName, szText, KviKvsScript::Parameter);
@@ -142,8 +142,8 @@ KviKvsPopupMenuItemWithTextAndIcon::KviKvsPopupMenuItemWithTextAndIcon(KviKvsPop
 	}
 }
 
-KviKvsPopupMenuItemWithTextAndIcon::KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Type t, const QString & szItemName, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition)
-    : KviKvsPopupMenuItem(t, szItemName, pCondition)
+KviKvsPopupMenuItemWithTextAndIcon::KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Type t, const QString & szItemName, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition) :
+    KviKvsPopupMenuItem(t, szItemName, pCondition)
 {
 	if(pText)
 		m_pKvsText = new KviKvsScript(*pText);
@@ -223,8 +223,8 @@ QString KviKvsPopupMenuItemWithTextAndIcon::evaluateText(KviKvsPopupMenuTopLevel
 	return szRet;
 }
 
-KviKvsPopupMenuItemLabelHelper::KviKvsPopupMenuItemLabelHelper(KviKvsPopupMenuItemLabel * pItem)
-    : QObject(), m_pItem{pItem}
+KviKvsPopupMenuItemLabelHelper::KviKvsPopupMenuItemLabelHelper(KviKvsPopupMenuItemLabel * pItem) :
+    QObject(), m_pItem{ pItem }
 {
 }
 
@@ -236,14 +236,14 @@ void KviKvsPopupMenuItemLabelHelper::labelDestroyed()
 	m_pItem->labelDestroyed();
 }
 
-KviKvsPopupMenuItemLabel::KviKvsPopupMenuItemLabel(const QString & szItemName, const QString & szText, const QString & szIcon, const QString & szCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Label, szItemName, szText, szIcon, szCondition)
+KviKvsPopupMenuItemLabel::KviKvsPopupMenuItemLabel(const QString & szItemName, const QString & szText, const QString & szIcon, const QString & szCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Label, szItemName, szText, szIcon, szCondition)
 {
 	m_pSignalRelay = new KviKvsPopupMenuItemLabelHelper(this);
 }
 
-KviKvsPopupMenuItemLabel::KviKvsPopupMenuItemLabel(const QString & szItemName, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Label, szItemName, pText, pIcon, pCondition)
+KviKvsPopupMenuItemLabel::KviKvsPopupMenuItemLabel(const QString & szItemName, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Label, szItemName, pText, pIcon, pCondition)
 {
 	m_pSignalRelay = new KviKvsPopupMenuItemLabelHelper(this);
 }
@@ -307,15 +307,15 @@ void KviKvsPopupMenuItemLabel::fill(KviKvsPopupMenu * pMenu, KviKvsPopupMenuTopL
 	pMenu->addAction(pAction);
 }
 
-KviKvsPopupMenuItemItem::KviKvsPopupMenuItemItem(const QString & szItemName, const QString & szCode, const QString & szText, const QString & szIcon, const QString & szCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Item, szItemName, szText, szIcon, szCondition)
+KviKvsPopupMenuItemItem::KviKvsPopupMenuItemItem(const QString & szItemName, const QString & szCode, const QString & szText, const QString & szIcon, const QString & szCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Item, szItemName, szText, szIcon, szCondition)
 {
 	QString szName = QStringLiteral("click callback for ") + szItemName;
 	m_pKvsCode = new KviKvsScript(szName, szCode);
 }
 
-KviKvsPopupMenuItemItem::KviKvsPopupMenuItemItem(const QString & szItemName, const KviKvsScript * pCode, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Item, szItemName, pText, pIcon, pCondition)
+KviKvsPopupMenuItemItem::KviKvsPopupMenuItemItem(const QString & szItemName, const KviKvsScript * pCode, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Item, szItemName, pText, pIcon, pCondition)
 {
 	m_pKvsCode = new KviKvsScript(*pCode);
 }
@@ -349,13 +349,13 @@ KviKvsScript * KviKvsPopupMenuItemItem::kvsCode() const
 	return m_pKvsCode;
 }
 
-KviKvsPopupMenuItemMenu::KviKvsPopupMenuItemMenu(const QString & szItemName, KviKvsPopupMenu * pMenu, const QString & szText, const QString & szIcon, const QString & szCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Menu, szItemName, szText, szIcon, szCondition), m_pMenu{pMenu}
+KviKvsPopupMenuItemMenu::KviKvsPopupMenuItemMenu(const QString & szItemName, KviKvsPopupMenu * pMenu, const QString & szText, const QString & szIcon, const QString & szCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Menu, szItemName, szText, szIcon, szCondition), m_pMenu{ pMenu }
 {
 }
 
-KviKvsPopupMenuItemMenu::KviKvsPopupMenuItemMenu(const QString & szItemName, KviKvsPopupMenu * pMenu, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Menu, szItemName, pText, pIcon, pCondition), m_pMenu{pMenu}
+KviKvsPopupMenuItemMenu::KviKvsPopupMenuItemMenu(const QString & szItemName, KviKvsPopupMenu * pMenu, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::Menu, szItemName, pText, pIcon, pCondition), m_pMenu{ pMenu }
 {
 }
 
@@ -392,8 +392,8 @@ void KviKvsPopupMenuItemMenu::clear()
 	m_pMenu->clearMenuContents();
 }
 
-KviKvsPopupMenuItemExtMenu::KviKvsPopupMenuItemExtMenu(const QString & szItemName, const QString & szMenuName, const QString & szText, const QString & szIcon, const QString & szCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::ExtMenu, szItemName, szText, szIcon, szCondition), m_szMenuName{szMenuName}
+KviKvsPopupMenuItemExtMenu::KviKvsPopupMenuItemExtMenu(const QString & szItemName, const QString & szMenuName, const QString & szText, const QString & szIcon, const QString & szCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::ExtMenu, szItemName, szText, szIcon, szCondition), m_szMenuName{ szMenuName }
 {
 	if(m_szMenuName[0] == '"' && m_szMenuName[m_szMenuName.length() - 1] == '"')
 	{
@@ -402,8 +402,8 @@ KviKvsPopupMenuItemExtMenu::KviKvsPopupMenuItemExtMenu(const QString & szItemNam
 	}
 }
 
-KviKvsPopupMenuItemExtMenu::KviKvsPopupMenuItemExtMenu(const QString & szItemName, const QString & szMenuName, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition)
-    : KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::ExtMenu, szItemName, pText, pIcon, pCondition), m_szMenuName{szMenuName}
+KviKvsPopupMenuItemExtMenu::KviKvsPopupMenuItemExtMenu(const QString & szItemName, const QString & szMenuName, const KviKvsScript * pText, const KviKvsScript * pIcon, const KviKvsScript * pCondition) :
+    KviKvsPopupMenuItemWithTextAndIcon(KviKvsPopupMenuItem::ExtMenu, szItemName, pText, pIcon, pCondition), m_szMenuName{ szMenuName }
 {
 	if(m_szMenuName[0] == '"' && m_szMenuName[m_szMenuName.length() - 1] == '"')
 	{
@@ -464,8 +464,8 @@ void KviKvsPopupMenuItemExtMenu::fill(KviKvsPopupMenu * pMenu, KviKvsPopupMenuTo
 		pData->window()->output(KVI_OUT_PARSERWARNING, __tr2qs_ctx("Can't find the external popup '%Q': ignoring", "kvs"), &m_szMenuName);
 }
 
-KviKvsPopupMenuTopLevelData::KviKvsPopupMenuTopLevelData(KviKvsVariantList * pParameters, KviWindow * pWindow)
-    : m_pParameters{pParameters}, m_pWindow{pWindow}
+KviKvsPopupMenuTopLevelData::KviKvsPopupMenuTopLevelData(KviKvsVariantList * pParameters, KviWindow * pWindow) :
+    m_pParameters{ pParameters }, m_pWindow{ pWindow }
 {
 	m_pExtendedRunTimeData = new KviKvsExtendedRunTimeData(new KviKvsHash(), true);
 }
@@ -476,8 +476,8 @@ KviKvsPopupMenuTopLevelData::~KviKvsPopupMenuTopLevelData()
 	delete m_pParameters;
 }
 
-KviKvsPopupMenu::KviKvsPopupMenu(const QString & szName)
-    : QMenu(szName, nullptr), m_szName{szName}
+KviKvsPopupMenu::KviKvsPopupMenu(const QString & szName) :
+    QMenu(szName, nullptr), m_szName{ szName }
 {
 	m_pItemList = new KviPointerList<KviKvsPopupMenuItem>;
 	m_pItemList->setAutoDelete(true);

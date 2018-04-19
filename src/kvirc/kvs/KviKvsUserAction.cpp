@@ -40,18 +40,18 @@ KviKvsUserAction::KviKvsUserAction(QObject * pParent,
     const QString & szBigIconId,
     const QString & szSmallIconId,
     unsigned int uFlags,
-    const QString & szKeySequence)
-    : KviKvsAction(
-          pParent,
-          szName,
-          szScriptCode,
-          szVisibleNameCode,
-          szDescriptionCode,
-          nullptr,
-          szBigIconId,
-          szSmallIconId,
-          uFlags,
-          szKeySequence)
+    const QString & szKeySequence) :
+    KviKvsAction(
+        pParent,
+        szName,
+        szScriptCode,
+        szVisibleNameCode,
+        szDescriptionCode,
+        nullptr,
+        szBigIconId,
+        szSmallIconId,
+        uFlags,
+        szKeySequence)
 {
 	QString szKvsName = "action::";
 	szKvsName += szName;
@@ -68,8 +68,8 @@ KviKvsUserAction::KviKvsUserAction(QObject * pParent,
 	m_pCategory = KviActionManager::instance()->category(szCategory);
 }
 
-KviKvsUserAction::KviKvsUserAction(QObject * pParent)
-    : KviKvsAction(pParent, QString(), QString(), QString(), QString(), nullptr, QString(), QString())
+KviKvsUserAction::KviKvsUserAction(QObject * pParent) :
+    KviKvsAction(pParent, QString(), QString(), QString(), QString(), nullptr, QString(), QString())
 {
 	// needs loading!
 	m_pDescriptionScript = nullptr;

@@ -36,7 +36,8 @@ class QString;
 class KVILIB_API KviProxyDataBase
 {
 public:
-	KviProxyDataBase() : m_pCurrentProxy() {};
+	KviProxyDataBase() :
+	    m_pCurrentProxy(){};
 	KviProxyDataBase(const KviProxyDataBase &) = delete;
 	KviProxyDataBase & operator=(const KviProxyDataBase &) = delete;
 

@@ -75,8 +75,8 @@
 
 extern RegisteredUsersDialog * g_pRegisteredUsersDialog;
 
-KviRegisteredUsersListView::KviRegisteredUsersListView(QWidget * par)
-    : QTreeWidget(par)
+KviRegisteredUsersListView::KviRegisteredUsersListView(QWidget * par) :
+    QTreeWidget(par)
 {
 	setColumnCount(2);
 
@@ -97,7 +97,8 @@ KviRegisteredUsersListView::KviRegisteredUsersListView(QWidget * par)
 	                       "KVIrc can automatically recognize and associate properties to them.<br>"
 	                       "Use the buttons on the right to add, edit and remove entries. "
 	                       "The \"notify\" column allows you to quickly add users to the notify list. "
-	                       "Notify list fine-tuning can be performed by editing the entry properties.", "register"));
+	                       "Notify list fine-tuning can be performed by editing the entry properties.",
+	    "register"));
 }
 
 void KviRegisteredUsersListView::mousePressEvent(QMouseEvent * e)
@@ -111,8 +112,8 @@ void KviRegisteredUsersListView::mousePressEvent(QMouseEvent * e)
 	QTreeWidget::mousePressEvent(e);
 }
 
-RegisteredUsersDialogItem::RegisteredUsersDialogItem(QTreeWidgetItem * par, KviRegisteredUser * u)
-    : RegisteredUsersDialogItemBase(User, par), m_pUser(u)
+RegisteredUsersDialogItem::RegisteredUsersDialogItem(QTreeWidgetItem * par, KviRegisteredUser * u) :
+    RegisteredUsersDialogItemBase(User, par), m_pUser(u)
 {
 	QString szTmp;
 	QString t = "<b>";
@@ -223,8 +224,8 @@ QSize RegisteredUsersDialogItemDelegate::sizeHint(const QStyleOptionViewItem & o
 	}
 }
 
-RegisteredUsersDialog::RegisteredUsersDialog(QWidget * par)
-    : QWidget(par)
+RegisteredUsersDialog::RegisteredUsersDialog(QWidget * par) :
+    QWidget(par)
 {
 	g_pRegisteredUsersDialog = this;
 
@@ -799,7 +800,7 @@ void RegisteredUsersDialog::exportClicked()
 			QString avatar;
 			if(u->getProperty("avatar", avatar))
 			{
-				std::unique_ptr<KviAvatar> av{g_pIconManager->getAvatar(QString(), avatar)};
+				std::unique_ptr<KviAvatar> av{ g_pIconManager->getAvatar(QString(), avatar) };
 				if(av)
 				{
 					if(!av->pixmap()->isNull())

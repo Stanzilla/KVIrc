@@ -77,6 +77,7 @@ public:
 	const QString & preloadModule() { return m_szPreloadModule; };
 	int id() { return m_iId; };
 	QPixmap * icon() { return m_pIcon; };
+
 protected:
 	KviStatusBarApplet * create(KviStatusBar * pBar);
 	void registerApplet(KviStatusBarApplet * a);
@@ -102,6 +103,7 @@ public:
 	KviStatusBarAppletDescriptor * descriptor() { return m_pDescriptor; };
 	inline void setIndex(int i) { mIndex = i; };
 	inline int index() const { return mIndex; };
+
 protected:
 	virtual void fillContextPopup(QMenu *){};
 	virtual void loadState(const char *, KviConfigurationFile *){};

@@ -28,8 +28,8 @@
 #include "KviKvsVariant.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeHashReferenceAssert::KviKvsTreeNodeHashReferenceAssert(const QChar * pLocation, KviKvsTreeNodeData * pSource)
-    : KviKvsTreeNodeIndirectData(pLocation, pSource)
+KviKvsTreeNodeHashReferenceAssert::KviKvsTreeNodeHashReferenceAssert(const QChar * pLocation, KviKvsTreeNodeData * pSource) :
+    KviKvsTreeNodeIndirectData(pLocation, pSource)
 {
 }
 

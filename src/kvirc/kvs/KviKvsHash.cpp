@@ -58,7 +58,7 @@ KviKvsHash::~KviKvsHash()
 // module and then later delete the KviKvsHash (or just cause the destruction
 // of the internal KviPointerList in some way) you'll end up calling the
 // destructor via _vtable. The _vtable will no longer be there and you'll
-// be dead :)
+// be dead
 //
 // It took me a whole day to figure this out.
 //

@@ -60,8 +60,8 @@
 #include <KStatusBar>
 #endif
 
-KviKvsWidget::KviKvsWidget(KvsObject_widget * object, QWidget * par)
-    : QWidget(par), m_pObject(object)
+KviKvsWidget::KviKvsWidget(KvsObject_widget * object, QWidget * par) :
+    QWidget(par), m_pObject(object)
 {
 }
 

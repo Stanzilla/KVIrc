@@ -58,8 +58,8 @@ extern KviPointerHashTable<QString, OptionsDialog> * g_pOptionsDialogDict;
 extern KVIRC_API KviApplication * g_pApp;
 extern OptionsInstanceManager * g_pOptionsInstanceManager;
 
-OptionsDialogFrontWidget::OptionsDialogFrontWidget(QWidget * parent, const QString & szText)
-    : KviOptionsWidget(parent)
+OptionsDialogFrontWidget::OptionsDialogFrontWidget(QWidget * parent, const QString & szText) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("general_options_front_widget");
 	createLayout();
@@ -72,8 +72,8 @@ OptionsDialogFrontWidget::OptionsDialogFrontWidget(QWidget * parent, const QStri
 OptionsDialogFrontWidget::~OptionsDialogFrontWidget()
     = default;
 
-OptionsDialogTreeWidgetItem::OptionsDialogTreeWidgetItem(QTreeWidget * parent, OptionsWidgetInstanceEntry * e)
-    : QTreeWidgetItem()
+OptionsDialogTreeWidgetItem::OptionsDialogTreeWidgetItem(QTreeWidget * parent, OptionsWidgetInstanceEntry * e) :
+    QTreeWidgetItem()
 {
 	m_pInstanceEntry = e;
 	m_pOptionsWidget = nullptr;
@@ -82,8 +82,8 @@ OptionsDialogTreeWidgetItem::OptionsDialogTreeWidgetItem(QTreeWidget * parent, O
 	parent->insertTopLevelItem(0, this);
 }
 
-OptionsDialogTreeWidgetItem::OptionsDialogTreeWidgetItem(QTreeWidgetItem * parent, OptionsWidgetInstanceEntry * e)
-    : QTreeWidgetItem()
+OptionsDialogTreeWidgetItem::OptionsDialogTreeWidgetItem(QTreeWidgetItem * parent, OptionsWidgetInstanceEntry * e) :
+    QTreeWidgetItem()
 {
 	m_pInstanceEntry = e;
 	m_pOptionsWidget = nullptr;
@@ -95,8 +95,8 @@ OptionsDialogTreeWidgetItem::OptionsDialogTreeWidgetItem(QTreeWidgetItem * paren
 OptionsDialogTreeWidgetItem::~OptionsDialogTreeWidgetItem()
     = default;
 
-OptionsDialog::OptionsDialog(QWidget * par, const QString & szGroup, bool bModal)
-    : QDialog(par)
+OptionsDialog::OptionsDialog(QWidget * par, const QString & szGroup, bool bModal) :
+    QDialog(par)
 {
 	setObjectName("general_options_dialog");
 
@@ -409,7 +409,7 @@ bool OptionsDialog::recursiveSearch(OptionsDialogTreeWidgetItem * pItem, const Q
 			bFoundSomethingHere = true;
 	}
 
-	if (!bCleaningUp)
+	if(!bCleaningUp)
 	{
 		QStringList szInstanceKeywords = pItem->m_pInstanceEntry->szKeywords.split(QChar(','));
 		// debug all the "search keywords" for each entry in the options tree
@@ -475,8 +475,9 @@ void OptionsDialog::clearSearch()
 	m_pTreeWidget->setUpdatesEnabled(false);
 
 	QTreeWidgetItemIterator it(m_pTreeWidget);
-	while (*it) {
-		recursiveSearch(((OptionsDialogTreeWidgetItem *)* it), QStringList());
+	while(*it)
+	{
+		recursiveSearch(((OptionsDialogTreeWidgetItem *)*it), QStringList());
 		++it;
 	}
 

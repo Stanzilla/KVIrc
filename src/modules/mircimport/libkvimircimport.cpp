@@ -44,8 +44,8 @@
 KviMircServersIniImport * g_pMircServersIniImport = nullptr;
 KviRemoteMircServersIniImport * g_pRemoteMircServersIniImport = nullptr;
 
-KviMircServersIniImport::KviMircServersIniImport(KviModuleExtensionDescriptor * d)
-    : KviMexServerImport(d)
+KviMircServersIniImport::KviMircServersIniImport(KviModuleExtensionDescriptor * d) :
+    KviMexServerImport(d)
 {
 }
 
@@ -143,8 +143,8 @@ void KviMircServersIniImport::die()
 
 #define KVI_WWWMIRCCOUK_SERVERSINI "http://www.mirc.co.uk/servers.ini"
 
-KviRemoteMircServerImportWizard::KviRemoteMircServerImportWizard(KviRemoteMircServersIniImport * f)
-    : KviTalWizard(nullptr)
+KviRemoteMircServerImportWizard::KviRemoteMircServerImportWizard(KviRemoteMircServersIniImport * f) :
+    KviTalWizard(nullptr)
 {
 	QString capt = __tr2qs("Remote mIRC servers.ini - Import Wizard");
 	setWindowTitle(capt);
@@ -273,8 +273,8 @@ void KviRemoteMircServerImportWizard::getListTerminated(bool bSuccess)
 	finishButton()->setEnabled(true);
 }
 
-KviRemoteMircServersIniImport::KviRemoteMircServersIniImport(KviModuleExtensionDescriptor * d)
-    : KviMircServersIniImport(d)
+KviRemoteMircServersIniImport::KviRemoteMircServersIniImport(KviModuleExtensionDescriptor * d) :
+    KviMircServersIniImport(d)
 {
 	m_pWizard = nullptr;
 }

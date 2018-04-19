@@ -91,8 +91,8 @@ extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 extern KviConfigurationFile * g_pWinPropertiesConfig;
 KVIRC_API KviMainWindow * g_pMainWindow = nullptr; // the one and only frame object
 
-KviMainWindow::KviMainWindow(QWidget * pParent)
-    : KviTalMainWindow(pParent, "kvirc_frame")
+KviMainWindow::KviMainWindow(QWidget * pParent) :
+    KviTalMainWindow(pParent, "kvirc_frame")
 {
 	g_pMainWindow = this;
 	setAttribute(Qt::WA_DeleteOnClose);
@@ -348,9 +348,8 @@ void KviMainWindow::freeAccelleratorKeySequence(QString & key)
 		if(pS->key() == kS)
 		{
 			m_pAccellerators.erase(
-				std::remove(m_pAccellerators.begin(), m_pAccellerators.end(), pS),
-				m_pAccellerators.end()
-			);
+			    std::remove(m_pAccellerators.begin(), m_pAccellerators.end(), pS),
+			    m_pAccellerators.end());
 			return;
 		}
 	}
@@ -460,7 +459,7 @@ void KviMainWindow::closeWindow(KviWindow * wnd)
 
 	// forget it...
 	const auto iter = std::find(m_WinList.begin(), m_WinList.end(), wnd);
-	if (iter != m_WinList.end())
+	if(iter != m_WinList.end())
 		m_WinList.erase(iter);
 
 #if 0
@@ -830,7 +829,7 @@ void KviMainWindow::changeEvent(QEvent * e)
 		// It will then reset its highlight state
 		// and hopefully make the dock widget work correctly
 		// in this case.
-		// This will also trigger the OnWindowActivated event :)
+		// This will also trigger the OnWindowActivated event
 		if(isActiveWindow())
 		{
 			if(g_pActiveWindow)
@@ -1026,7 +1025,8 @@ void KviMainWindow::toggleMenuBar()
 			QMessageBox pMsgBox;
 			QCheckBox cb(__tr2qs("Do not show this message again"));
 			pMsgBox.setText(__tr2qs("This will hide the menu bar completely. "
-			                        "You can show it again by pressing %1.").arg(QString(KVI_SHORTCUTS_TOGGLE_MENU_BAR)));
+			                        "You can show it again by pressing %1.")
+			                    .arg(QString(KVI_SHORTCUTS_TOGGLE_MENU_BAR)));
 			pMsgBox.setWindowTitle(__tr2qs("Hide Menu Bar - KVIrc"));
 			pMsgBox.setIcon(QMessageBox::Icon::Information);
 			pMsgBox.addButton(QMessageBox::Ok);

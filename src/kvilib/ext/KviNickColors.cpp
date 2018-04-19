@@ -53,7 +53,7 @@ namespace KviNickColors
 	};
 	static const int g_numNickColorsNoBg = 8;
 	static const char * g_nickColorsNoBg[g_numNickColorsNoBg] = {
-		"2", "3", "4", "5", "6", "7", "10", "12"                                 //8
+		"2", "3", "4", "5", "6", "7", "10", "12" //8
 	};
 
 	int getSmartColorForNick(QString * szNick)

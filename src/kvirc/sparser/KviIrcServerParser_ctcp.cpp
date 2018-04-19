@@ -149,7 +149,7 @@ extern KVIRC_API KviCtcpPageDialog * g_pCtcpPageDialog;
 		messages or the ones including special parameters. Some machines might
 		allow <0x01> in filenames... well, a file with <0x01> in its name has something
 		broken inside, or the creator is a sort of [i]hacker[/i] (so he also
-		knows how to rename a file...) :).[br]
+		knows how to rename a file...) .[br]
 		Anyway, let's be pedantic, and define this quoting method.
 		Let's use the most intuitive method, adopted all around the world:[br]
 		The backslash character ('\') as escape.[br]
@@ -542,7 +542,7 @@ const char * KviIrcServerParser::decodeCtcpEscape(const char * msg_ptr, KviCStri
 				c = ((c << 3) + (*msg_ptr - '0'));
 				msg_ptr++;
 			} // else broken message, but let's be flexible
-		}         // else it is broken, but let's be flexible
+		}     // else it is broken, but let's be flexible
 		buffer.append(c);
 		return msg_ptr;
 	}
@@ -814,9 +814,9 @@ void KviIrcServerParser::parseCtcpRequest(KviCtcpMessage * msg)
 
 	bool bAction = KviQString::equalCI(msg->szTag, "ACTION");
 
-	if (!bAction)
+	if(!bAction)
 	{
-		if (IS_ME(msg->msg, msg->pSource->nick()) && !IS_ME(msg->msg, msg->szTarget))
+		if(IS_ME(msg->msg, msg->pSource->nick()) && !IS_ME(msg->msg, msg->szTarget))
 		{
 			// "znc.in/self-message" capability: Handle a replayed message from ourselves to someone else.
 			return;
@@ -1427,42 +1427,42 @@ void KviIrcServerParser::parseCtcpRequestPage(KviCtcpMessage * msg)
 }
 
 #ifdef COMPILE_CRYPT_SUPPORT
-#define DECRYPT_IF_NEEDED(target, txt, type, type2, buffer, retptr, retmsgtype)        \
-	if(KviCryptSessionInfo * cinf = target->cryptSessionInfo())                    \
-	{                                                                              \
-		if(cinf->m_bDoDecrypt)                                                 \
-		{                                                                      \
-			switch(cinf->m_pEngine->decrypt(txt, buffer))                  \
-			{                                                              \
-				case KviCryptEngine::DecryptOkWasEncrypted:            \
-					retptr = buffer.ptr();                         \
-					retmsgtype = type2;                            \
-					break;                                         \
-				case KviCryptEngine::DecryptOkWasPlainText:            \
-				case KviCryptEngine::DecryptOkWasEncoded:              \
-					retptr = buffer.ptr();                         \
-					retmsgtype = type;                             \
-					break;                                         \
-				default: /* also case KviCryptEngine::DecryptError: */ \
-				{                                                      \
-					QString szEngineError = cinf->m_pEngine->lastError(); \
-					target->output(KVI_OUT_SYSTEMERROR,            \
+#define DECRYPT_IF_NEEDED(target, txt, type, type2, buffer, retptr, retmsgtype)                                                     \
+	if(KviCryptSessionInfo * cinf = target->cryptSessionInfo())                                                                     \
+	{                                                                                                                               \
+		if(cinf->m_bDoDecrypt)                                                                                                      \
+		{                                                                                                                           \
+			switch(cinf->m_pEngine->decrypt(txt, buffer))                                                                           \
+			{                                                                                                                       \
+				case KviCryptEngine::DecryptOkWasEncrypted:                                                                         \
+					retptr = buffer.ptr();                                                                                          \
+					retmsgtype = type2;                                                                                             \
+					break;                                                                                                          \
+				case KviCryptEngine::DecryptOkWasPlainText:                                                                         \
+				case KviCryptEngine::DecryptOkWasEncoded:                                                                           \
+					retptr = buffer.ptr();                                                                                          \
+					retmsgtype = type;                                                                                              \
+					break;                                                                                                          \
+				default: /* also case KviCryptEngine::DecryptError: */                                                              \
+				{                                                                                                                   \
+					QString szEngineError = cinf->m_pEngine->lastError();                                                           \
+					target->output(KVI_OUT_SYSTEMERROR,                                                                             \
 					    __tr2qs("The following message appears to be encrypted but the encryption engine failed to decode it: %Q"), \
-					    &szEngineError);                           \
-					retptr = txt + 1;                              \
-					retmsgtype = type;                             \
-				}                                                      \
-				break;                                                 \
-			}                                                              \
-		}                                                                      \
-		else                                                                   \
-			retptr = txt, retmsgtype = type;                               \
-	}                                                                              \
-	else                                                                           \
+					    &szEngineError);                                                                                            \
+					retptr = txt + 1;                                                                                               \
+					retmsgtype = type;                                                                                              \
+				}                                                                                                                   \
+				break;                                                                                                              \
+			}                                                                                                                       \
+		}                                                                                                                           \
+		else                                                                                                                        \
+			retptr = txt, retmsgtype = type;                                                                                        \
+	}                                                                                                                               \
+	else                                                                                                                            \
 		retptr = txt, retmsgtype = type;
 #else //COMPILE_CRYPT_SUPPORT
 #define DECRYPT_IF_NEEDED(target, txt, type, type2, buffer, retptr, retmsgtype) \
-	retptr = txt;                                                           \
+	retptr = txt;                                                               \
 	retmsgtype = type;
 #endif //COMPILE_CRYPT_SUPPORT
 
@@ -1481,9 +1481,9 @@ void KviIrcServerParser::parseCtcpRequestAction(KviCtcpMessage * msg)
 	QString szTargetNick, szTargetUser, szTargetHost;
 	msg->msg->decodeAndSplitMask(msg->szTarget.toLatin1().data(), szTargetNick, szTargetUser, szTargetHost);
 	QString szWindow = bIsChannel || bSelfMessage ? szTargetNick : msg->pSource->nick();
-	const QString &szOtherNick = bSelfMessage ? szTargetNick : msg->pSource->nick();
-	const QString &szOtherUser = bSelfMessage ? szTargetUser : msg->pSource->user();
-	const QString &szOtherHost = bSelfMessage ? szTargetHost : msg->pSource->host();
+	const QString & szOtherNick = bSelfMessage ? szTargetNick : msg->pSource->nick();
+	const QString & szOtherUser = bSelfMessage ? szTargetUser : msg->pSource->user();
+	const QString & szOtherHost = bSelfMessage ? szTargetHost : msg->pSource->host();
 
 	QString szData;
 
@@ -1533,7 +1533,7 @@ void KviIrcServerParser::parseCtcpRequestAction(KviCtcpMessage * msg)
 				}
 				if(!KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound).isEmpty())
 				{
-					KviKvsVariantList soundParams{new KviKvsVariant{KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound)}};
+					KviKvsVariantList soundParams{ new KviKvsVariant{ KVI_OPTION_STRING(KviOption_stringOnNewQueryOpenedSound) } };
 					KviKvsScript::run("snd.play $0", nullptr, &soundParams);
 				}
 			}

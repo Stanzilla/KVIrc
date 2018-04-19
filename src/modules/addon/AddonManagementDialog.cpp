@@ -63,8 +63,8 @@
 AddonManagementDialog * AddonManagementDialog::m_pInstance = nullptr;
 extern QRect g_rectManagementDialogGeometry;
 
-AddonListViewItem::AddonListViewItem(KviTalListWidget * v, KviKvsScriptAddon * a)
-    : KviTalListWidgetItem(v)
+AddonListViewItem::AddonListViewItem(KviTalListWidget * v, KviKvsScriptAddon * a) :
+    KviTalListWidgetItem(v)
 {
 	m_pAddon = new KviKvsScriptAddon(*a);
 	m_pListWidget = v;
@@ -91,8 +91,8 @@ AddonListViewItem::~AddonListViewItem()
 	delete m_pAddon;
 }
 
-AddonManagementDialog::AddonManagementDialog(QWidget * p)
-    : QWidget(p)
+AddonManagementDialog::AddonManagementDialog(QWidget * p) :
+    QWidget(p)
 {
 	setWindowTitle(__tr2qs_ctx("Manage Addons - KVIrc", "addon"));
 	setObjectName("Addon manager");

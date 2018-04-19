@@ -26,8 +26,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviKvsVariant.h"
 
-KviKvsTreeNodeSingleParameterIdentifier::KviKvsTreeNodeSingleParameterIdentifier(const QChar * pLocation, int iStart)
-    : KviKvsTreeNodeData(pLocation)
+KviKvsTreeNodeSingleParameterIdentifier::KviKvsTreeNodeSingleParameterIdentifier(const QChar * pLocation, int iStart) :
+    KviKvsTreeNodeData(pLocation)
 {
 	m_iStart = iStart;
 }

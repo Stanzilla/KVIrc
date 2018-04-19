@@ -327,6 +327,7 @@ public:
 	* \return void
 	*/
 	void setOnLoginCommand(const QString & szOnLoginCommand) { m_szOnLoginCommand = szOnLoginCommand; };
+
 protected:
 	/**
 	* \brief Carbon copy

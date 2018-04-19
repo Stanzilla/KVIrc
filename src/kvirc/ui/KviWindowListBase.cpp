@@ -64,8 +64,9 @@ extern QPixmap * g_pActivityMeterPixmap;
 // KviWindowListBase
 //
 
-KviWindowListBase::KviWindowListBase()
-    : QDockWidget(__tr2qs("Window List"), g_pMainWindow), m_pTitleWidget(nullptr)
+KviWindowListBase::KviWindowListBase() :
+    QDockWidget(__tr2qs("Window List"), g_pMainWindow),
+    m_pTitleWidget(nullptr)
 {
 	// FIXME: this timer should be started only if KVI_OPTION_BOOL(KviOption_boolUseWindowListActivityMeter)
 	setObjectName("windowlist");
@@ -254,8 +255,9 @@ KviWindowListItem::~KviWindowListItem()
 // KviWindowListButton
 //
 
-KviWindowListButton::KviWindowListButton(QWidget * par, KviWindow * wnd, const char * name)
-    : QPushButton(par), KviWindowListItem(wnd)
+KviWindowListButton::KviWindowListButton(QWidget * par, KviWindow * wnd, const char * name) :
+    QPushButton(par),
+    KviWindowListItem(wnd)
 {
 	setObjectName(name);
 	m_bActive = false;
@@ -301,7 +303,7 @@ void KviWindowListButton::mousePressEvent(QMouseEvent * e)
 				g_pMainWindow->setActiveWindow(m_pWindow);
 		}
 	}
-	else if (e->button() & Qt::MiddleButton)
+	else if(e->button() & Qt::MiddleButton)
 	{
 		m_pWindow->delayedClose();
 	}
@@ -559,8 +561,8 @@ void KviWindowListButton::highlight(int iLevel)
 // KviClassicWindowListToolButton
 //
 
-KviClassicWindowListToolButton::KviClassicWindowListToolButton(KviWindowListButton * par)
-	: QToolButton(par)
+KviClassicWindowListToolButton::KviClassicWindowListToolButton(KviWindowListButton * par) :
+    QToolButton(par)
 {
 	m_pPar = par;
 	setAutoRaise(true);
@@ -568,7 +570,7 @@ KviClassicWindowListToolButton::KviClassicWindowListToolButton(KviWindowListButt
 	setToolTip(__tr2qs("Close this window"));
 }
 
-void KviClassicWindowListToolButton::mousePressEvent(QMouseEvent *e)
+void KviClassicWindowListToolButton::mousePressEvent(QMouseEvent * e)
 {
 	if(e->button() & Qt::LeftButton)
 	{
@@ -586,8 +588,8 @@ QSize KviClassicWindowListToolButton::sizeHint() const
 // KviClasicWindowList
 //
 
-KviClassicWindowList::KviClassicWindowList()
-    : KviWindowListBase()
+KviClassicWindowList::KviClassicWindowList() :
+    KviWindowListBase()
 {
 	m_pButtonList = new KviPointerList<KviWindowListButton>;
 	m_pButtonList->setAutoDelete(true);

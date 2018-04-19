@@ -1,6 +1,6 @@
 # Default events file
 #
-# KVIrc has a lot of events that merely ask for a popup to be shown :)
+# KVIrc has a lot of events that merely ask for a popup to be shown
 # Notice: when adding new events here use no spaces in the event name
 #
 # Coding style/curly brackets: Allman style

@@ -446,7 +446,7 @@ namespace ThemeFunctions
 			buffer.open(QIODevice::WriteOnly);
 			out.save(&buffer, "PNG");
 			buffer.close();
-			f.addInfoField("Image", pba); // cool :) [no disk access needed]
+			f.addInfoField("Image", pba); // cool  [no disk access needed]
 		}
 
 		QString szTmp;

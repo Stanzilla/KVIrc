@@ -312,7 +312,7 @@ namespace KviKvsCoreSimpleCommands
 			WARNING[br][br]
 			The main KVIrc thread is stopped while a synchronous bell is playing
 			so if you play long notes (duration > 100) the entire application may appear to
-			freeze for a while. Be careful :)[br]
+			freeze for a while. Be careful [br]
 		@seealso:
 			[cmd]snd.play[/cmd]
 	*/
@@ -674,7 +674,7 @@ namespace KviKvsCoreSimpleCommands
 			kvi_gettimeofday(&tv);
 			KviQString::appendFormatted(szCtcpData, "%d.%d", tv.tv_sec, tv.tv_usec);
 		}
-		else if (szCtcpCmd.compare("ACTION", Qt::CaseInsensitive) == 0 && !KVSCSC_pSwitches->find('n', "notice"))
+		else if(szCtcpCmd.compare("ACTION", Qt::CaseInsensitive) == 0 && !KVSCSC_pSwitches->find('n', "notice"))
 		{
 			KviWindow * w = KVSCSC_pConnection->findChannel(szTarget);
 			if(!w)
@@ -685,7 +685,6 @@ namespace KviKvsCoreSimpleCommands
 				return true;
 			}
 		}
-
 
 		if(!szCtcpData.isEmpty())
 			szData += " " + szCtcpData;
@@ -907,7 +906,7 @@ namespace KviKvsCoreSimpleCommands
 				//if(KVSCSC_pSwitches->find('i', "immediate"))
 				//	o->dieNow();
 				//else
-				
+
 				o->die();
 			}
 		}
@@ -1390,7 +1389,7 @@ namespace KviKvsCoreSimpleCommands
 				[comment]# Rebind the command to the #linux channel to get the user list[/comment]
 				eval -r=[fnc]$channel[/fnc](#linux) "%Nicks[]=$chan.array;"
 				[comment]# A nice alias that allows iterating commands through all the consoles[/comment]
-				[comment]# This is by LatinSuD :)[/comment]
+				[comment]# This is by LatinSuD [/comment]
 				[cmd]alias[/cmd](iterate)
 				{
 					%ctxt[]=[fnc]$window.list[/fnc](console,all)

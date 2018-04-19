@@ -439,7 +439,7 @@ static bool action_kvs_cmd_create(KviKvsModuleCallbackCommandCall * c)
 
 	if(szCmd.isEmpty())
 	{
-		// just killed it :)
+		// just killed it
 		return true;
 	}
 

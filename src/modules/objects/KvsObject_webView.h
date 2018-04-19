@@ -80,6 +80,7 @@ protected:
 
 public:
 	QWidget * widget() { return (QWidget *)object(); }
+
 protected:
 	void getFrames(QWebFrame * pCurFrame, QStringList & szFramesNames);
 	QWebFrame * findFrame(QWebFrame * pCurFrame, QString & szFrameName);

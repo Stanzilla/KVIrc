@@ -30,8 +30,8 @@
 #include <QLayout>
 #include <QTextBrowser>
 
-KviHtmlDialog::KviHtmlDialog(QWidget * pParent, KviHtmlDialogData * pData)
-    : QDialog(pParent)
+KviHtmlDialog::KviHtmlDialog(QWidget * pParent, KviHtmlDialogData * pData) :
+    QDialog(pParent)
 {
 	m_pData = pData;
 

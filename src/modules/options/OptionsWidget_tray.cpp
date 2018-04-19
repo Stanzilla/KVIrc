@@ -32,8 +32,8 @@
 
 #include <QLayout>
 
-OptionsWidget_tray::OptionsWidget_tray(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_tray::OptionsWidget_tray(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("tray_options_widget");
 	createLayout();
@@ -44,7 +44,8 @@ OptionsWidget_tray::OptionsWidget_tray(QWidget * parent)
 #ifdef COMPILE_KDE_SUPPORT
 	QString szTip = __tr2qs_ctx("Take into account that if you're using KDE, this won't work if "
 	                            "you've set \"Keep window thumbnails\" as \"Always\" at \"Desktop Effects\" "
-	                            "advanced settings.", "options");
+	                            "advanced settings.",
+	    "options");
 
 	mergeTip(m_pMinimizeInTray, szTip);
 #endif

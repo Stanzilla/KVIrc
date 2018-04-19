@@ -26,26 +26,26 @@
 
 #include "KviPointerList.h"
 
-template<typename T>
-class KviPtrListIterator {
+template <typename T>
+class KviPtrListIterator
+{
 
 	KviPointerList<T> * ptrList;
 	T * c;
 
 public:
-
-	explicit KviPtrListIterator(KviPointerList<T> * ptrList, T *c)
-	: ptrList(ptrList),
-	  c(c)
+	explicit KviPtrListIterator(KviPointerList<T> * ptrList, T * c) :
+	    ptrList(ptrList),
+	    c(c)
 	{
 	}
 
-	T &operator*() const
+	T & operator*() const
 	{
 		return *this->c;
 	}
 
-	KviPtrListIterator &operator++()
+	KviPtrListIterator & operator++()
 	{
 		this->c = this->ptrList->next();
 		return *this;
@@ -55,16 +55,15 @@ public:
 	{
 		return this->c != other.c;
 	}
-
 };
 
-template<typename T>
+template <typename T>
 inline KviPtrListIterator<T> begin(KviPointerList<T> * ptrList)
 {
 	return KviPtrListIterator<T>(ptrList, ptrList->first());
 }
 
-template<typename T>
+template <typename T>
 inline KviPtrListIterator<T> end(KviPointerList<T> * ptrList)
 {
 	return KviPtrListIterator<T>(ptrList, nullptr);

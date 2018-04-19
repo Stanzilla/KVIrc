@@ -31,8 +31,8 @@
 #include "KviKvsScript.h"
 //#include <QSysInfo>
 
-KviKvsProcessAsyncOperation::KviKvsProcessAsyncOperation(KviKvsProcessDescriptorData * d)
-    : KviKvsAsyncOperation(d->pWnd)
+KviKvsProcessAsyncOperation::KviKvsProcessAsyncOperation(KviKvsProcessDescriptorData * d) :
+    KviKvsAsyncOperation(d->pWnd)
 {
 	m_pData = d;
 	m_pProcess = nullptr;
@@ -85,7 +85,7 @@ bool KviKvsProcessAsyncOperation::start()
 			// [02:50:21] <kode54> if ( QApplication::winVersion() & Qt::WV_NT_based )
 			// [02:50:41] <kode54> I see another implementation using that, maybe it is the official way of detecting that :[
 			szShell = !(QSysInfo::WindowsVersion & QSysInfo::WV_DOS_based) ? "cmd.exe /c" : "command.com /c";
-// Thnx kode54 :)
+// Thnx kode54
 #else
 			szShell = "sh -c";
 #endif

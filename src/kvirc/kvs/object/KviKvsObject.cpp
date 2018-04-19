@@ -47,7 +47,7 @@
 
 #include <time.h>
 
-	/*
+/*
 		@doc: objects
 		@title:
 			Object scripting
@@ -100,7 +100,7 @@
 			[example]
 				[cmd]if[/cmd](%myobject)
 					[cmd]echo[/cmd] "Object created!"
-				else 
+				else
 					[cmd]echo[/cmd] "Object creation failed!"
 			[/example]
 			You can also test the object ID's for equality:
@@ -178,7 +178,7 @@
 						%test = "will this persist?"
 					}
 
-					anotherfunc() 
+					anotherfunc()
 					{
 						[cmd]echo[/cmd] "var: %test"
 					}
@@ -385,8 +385,8 @@
 					{
 						[fnc:$this]$$[/fnc]-&gt;%lang = $0
 						[cmd]return[/cmd] 1
-					} 
-					else 
+					}
+					else
 					{
 						[cmd]echo[/cmd] I don't know that language ($0)
 						[cmd]echo[/cmd] defaulting to English
@@ -399,7 +399,7 @@
 				{
 					[cmd]if[/cmd]([fnc:$this]$$[/fnc]-&gt;%lang == italian)
 						[cmd]echo[/cmd] Ciao mondo!
-					else 
+					else
 						[fnc:$this]$$[/fnc]-&gt;$helloworld:sayhello()
 				}
 			}
@@ -433,7 +433,7 @@
 				[comment]# to $this-&gt;$helloworld::sayhello(),[/comment]
 				[comment]# and to $$-&gt;$helloworld::sayhello()[/comment]
 			[/example]
-			otherwise the language is Italian and we say [i]hello[/i] in Italian :).
+			otherwise the language is Italian and we say [i]hello[/i] in Italian .
 			So, to call a base class implementation of a function we prepend the base class name before the function name in the call.
 			The base class name could be also [class]object[/class] in this case, but the [class]object[/class] class has no [i]sayhello[/i] function defined
 			so it would result in an error.[br][br]
@@ -443,7 +443,7 @@
 			is effectively empty. The above class works correctly in this case, but we might want to have always
 			a coherent state of the field variables, so we need another concept: the class [b]constructor[/b]
 			that will be discussed in the next paragraph.[br][br]
-			Note: multiple inheritance (inheritance from more than one base class) is not implemented, KVIrc is not a compiler. :)[br][br]
+			Note: multiple inheritance (inheritance from more than one base class) is not implemented, KVIrc is not a compiler. [br][br]
 			Objects are much more powerful...[br][br]
 			Do a [cmd]clearobjects[/cmd] to cleanup the old class definitions and read on.
 			[big]Constructors and destructors[/big]
@@ -524,7 +524,7 @@
 			by all the modern kernels and used in inter-process communication).[br]
 	*/
 
-	/*
+/*
 		@doc: object
 		@keyterms:
 			object class, object, class
@@ -633,8 +633,10 @@
 // we don't use void * just because incrementing a void pointer doesn't look that good
 static char * g_hNextObjectHandle = (char *)nullptr;
 
-KviKvsObject::KviKvsObject(KviKvsObjectClass * pClass, KviKvsObject * pParent, const QString & szName)
-    : QObject(pParent), m_pClass{pClass}, m_szName{szName}
+KviKvsObject::KviKvsObject(KviKvsObjectClass * pClass, KviKvsObject * pParent, const QString & szName) :
+    QObject(pParent),
+    m_pClass{ pClass },
+    m_szName{ szName }
 {
 	setObjectName(szName);
 
@@ -747,7 +749,7 @@ KviKvsObject::~KviKvsObject()
 	if(m_pFunctionHandlers)
 		delete m_pFunctionHandlers;
 
-	// Bye bye :)
+	// Bye bye
 }
 
 void KviKvsObject::callDestructor()

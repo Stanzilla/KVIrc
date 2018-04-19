@@ -67,8 +67,8 @@ void stopIdentService()
 	g_pIdentDaemon = nullptr;
 }
 
-KviIdentSentinel::KviIdentSentinel()
-    : QObject(nullptr)
+KviIdentSentinel::KviIdentSentinel() :
+    QObject(nullptr)
 {
 }
 
@@ -148,8 +148,8 @@ KviIdentRequest::~KviIdentRequest()
 	kvi_socket_close(m_sock);
 }
 
-KviIdentDaemon::KviIdentDaemon()
-    : KviSensitiveThread()
+KviIdentDaemon::KviIdentDaemon() :
+    KviSensitiveThread()
 {
 	m_szUser = KVI_OPTION_STRING(KviOption_stringIdentdUser);
 	if(m_szUser.isEmpty())
@@ -545,7 +545,6 @@ exit_thread:
 		kvi_socket_close(m_sock6);
 	delete m_pRequestList;
 	m_pRequestList = nullptr;
-
 }
 
 /*

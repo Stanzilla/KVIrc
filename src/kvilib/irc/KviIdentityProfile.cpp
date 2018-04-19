@@ -25,8 +25,8 @@
 #include "KviIdentityProfile.h"
 #include "KviConfigurationFile.h"
 
-KviIdentityProfile::KviIdentityProfile()
-    : KviHeapObject()
+KviIdentityProfile::KviIdentityProfile() :
+    KviHeapObject()
 {
 }
 

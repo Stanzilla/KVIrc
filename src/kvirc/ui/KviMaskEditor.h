@@ -54,6 +54,7 @@ public:
 	~KviMaskItem();
 
 	KviMaskEntry * mask() { return &m_Mask; };
+
 protected:
 	KviMaskEntry m_Mask;
 	bool operator<(const QTreeWidgetItem & other) const

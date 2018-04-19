@@ -41,8 +41,8 @@
 // KviApplication.cpp
 extern KVIRC_API KviCtcpPageDialog * g_pCtcpPageDialog;
 
-KviCtcpPageDialog::KviCtcpPageDialog()
-    : QWidget(nullptr, Qt::WindowStaysOnTopHint | Qt::Tool | Qt::Dialog | Qt::Window)
+KviCtcpPageDialog::KviCtcpPageDialog() :
+    QWidget(nullptr, Qt::WindowStaysOnTopHint | Qt::Tool | Qt::Dialog | Qt::Window)
 {
 	setObjectName("kvirc_ctcppage_dialog");
 	setWindowTitle(__tr2qs("CTCP Page - KVIrc"));

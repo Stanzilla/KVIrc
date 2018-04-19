@@ -97,7 +97,7 @@ static KviModule * g_pPerlCoreModule = nullptr;
 		and [cmd]perl.end[/cmd]. This means that you can write Perl code
 		in the commandline, in the aliases, the event handlers, popups...anywhere.[br]
 		If you have already encountered KVIrc's [cmd]eval[/cmd] command
-		then you probably also know how to execute a Perl code snippet from a file :)
+		then you probably also know how to execute a Perl code snippet from a file
 		[big]Using KVS from Perl[/big]
 		KVIrc exports several commands to the Perl namespace
 		that allow you to invoke KVIrc's functions from inside the Perl code snippet.[br]
@@ -326,7 +326,7 @@ static KviModule * g_pPerlCoreModule = nullptr;
 		support with [fnc]perl.isAvailable[/fnc] and to embed Perl code snippets
 		in KVS even if the support is missing - the snippets will be just skipped.[br]
 		[br]
-		Happy Perl hacking :)[br]
+		Happy Perl hacking [br]
 */
 
 /*

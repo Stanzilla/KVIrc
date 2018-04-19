@@ -86,11 +86,13 @@ public:
 		QString file; //just to speedup the cache
 		bool resized;
 
-		Data(QString szFile) : QList<FrameInfo>(), refs(0), file(szFile), resized(false)
+		Data(QString szFile) :
+		    QList<FrameInfo>(), refs(0), file(szFile), resized(false)
 		{
 		}
 
-		Data(Data & other) : QList<FrameInfo>(other), refs(0), file(other.file), resized(false)
+		Data(Data & other) :
+		    QList<FrameInfo>(other), refs(0), file(other.file), resized(false)
 		{
 			for(int i = 0; i < count(); i++)
 			{

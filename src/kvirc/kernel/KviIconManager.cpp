@@ -57,7 +57,7 @@
 		the <image_id> as a parameter.
 		The <image_id> indicates an image to be displayed
 		by some GUI element. Since KVIrc has a set of
-		builtin icons, we want the user to be able to use it :).[br]
+		builtin icons, we want the user to be able to use it .[br]
 		The <image_id> can be either a signed integer number
 		or a filename.[br]
 		If it is a signed integer it is interpreted as
@@ -425,8 +425,8 @@ static const char * g_szIconNames[KviIconManager::IconCount] = {
 	"ownactioncrypted"      // 341
 };
 
-KviIconWidget::KviIconWidget(QWidget * pPar)
-    : QWidget(pPar)
+KviIconWidget::KviIconWidget(QWidget * pPar) :
+    QWidget(pPar)
 {
 	setObjectName("global_icon_widget");
 	init();
@@ -1913,8 +1913,8 @@ KviAvatar * KviIconManager::getAvatar(const QString & szLocalPath, const QString
 		{
 			pResult = new KviAvatar(szP, szN,
 			    QSize(
-			                            KVI_OPTION_UINT(KviOption_uintScaleAvatarsOnLoadWidth),
-			                            KVI_OPTION_UINT(KviOption_uintScaleAvatarsOnLoadHeight)));
+			        KVI_OPTION_UINT(KviOption_uintScaleAvatarsOnLoadWidth),
+			        KVI_OPTION_UINT(KviOption_uintScaleAvatarsOnLoadHeight)));
 		}
 		else
 		{

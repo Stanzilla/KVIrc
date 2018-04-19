@@ -28,8 +28,8 @@
 #include "KviLocale.h"
 #include "KviOptions.h"
 
-OptionsWidget_ctcp::OptionsWidget_ctcp(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_ctcp::OptionsWidget_ctcp(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ctcp_options_widget");
 
@@ -37,7 +37,8 @@ OptionsWidget_ctcp::OptionsWidget_ctcp(QWidget * parent)
 
 	addLabel(0, 0, 0, 0, __tr2qs_ctx("<p><b>Client-to-client protocol</b> (CTCP) "
 	                                 "is used to transmit special control messages over an IRC connection. "
-	                                 "These messages can request information from clients or negotiate file transfers.</p>", "options"));
+	                                 "These messages can request information from clients or negotiate file transfers.</p>",
+	                         "options"));
 
 	KviTalGroupBox * gs = addGroupBox(0, 1, 0, 1, Qt::Horizontal, __tr2qs_ctx("CTCP Replies", "options"));
 	KviStringSelector * s = addStringSelector(gs, __tr2qs_ctx("Append to VERSION reply:", "options"), KviOption_stringCtcpVersionPostfix);

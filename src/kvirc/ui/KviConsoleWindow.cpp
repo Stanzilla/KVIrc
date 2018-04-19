@@ -87,7 +87,8 @@
 extern KVIRC_API KviIrcServerDataBase * g_pServerDataBase;
 extern KVIRC_API KviProxyDataBase * g_pProxyDataBase;
 
-KviConsoleWindow::KviConsoleWindow(int iFlags) : KviWindow(KviWindow::Console, __tr2qs("CONSOLE"), this)
+KviConsoleWindow::KviConsoleWindow(int iFlags) :
+    KviWindow(KviWindow::Console, __tr2qs("CONSOLE"), this)
 {
 	m_pContext = new KviIrcContext(this);
 
@@ -255,7 +256,7 @@ void KviConsoleWindow::getUserTipText(const QString & nick, KviIrcUserEntry * e,
 
 	KviRegisteredUserMask * u = g_pRegisteredUserDataBase->findMatchingMask(nick, e->user(), e->host());
 
-	buffer =  "<table>";
+	buffer = "<table>";
 	buffer += tds;
 
 	buffer += KviQString::toHtmlEscaped(nick);
@@ -503,7 +504,7 @@ void KviConsoleWindow::connectionAttached()
 	// Update log file name
 	if(KVI_OPTION_BOOL(KviOption_boolAutoLogConsole))
 	{
-		if (m_pIrcView->isLogging())
+		if(m_pIrcView->isLogging())
 			m_pIrcView->stopLogging();
 		m_pIrcView->startLogging();
 	}
@@ -595,16 +596,16 @@ int KviConsoleWindow::triggerOnHighlight(KviWindow * pWnd, int iType, const QStr
 	}
 	if(!KVI_OPTION_STRING(KviOption_stringOnHighlightedMessageSound).isEmpty() && pWnd && !pWnd->hasAttention())
 	{
-		KviKvsVariantList soundParams{new KviKvsVariant{KVI_OPTION_STRING(KviOption_stringOnHighlightedMessageSound)}};
+		KviKvsVariantList soundParams{ new KviKvsVariant{ KVI_OPTION_STRING(KviOption_stringOnHighlightedMessageSound) } };
 		KviKvsScript::run("snd.play $0", nullptr, &soundParams);
 	}
 
 	QString szMessageType = QString("%1").arg(iType);
 
 	if(KVS_TRIGGER_EVENT_7_HALTED(KviEvent_OnHighlight,
-	    pWnd, szNick, szUser, szHost,
-	    szMsg, szTrigger,
-	    szMessageType, (iType == KVI_OUT_ACTION || iType == KVI_OUT_ACTIONCRYPTED)))
+	       pWnd, szNick, szUser, szHost,
+	       szMsg, szTrigger,
+	       szMessageType, (iType == KVI_OUT_ACTION || iType == KVI_OUT_ACTIONCRYPTED)))
 		return -1;
 	return KVI_OUT_HIGHLIGHT;
 }
@@ -849,7 +850,7 @@ void KviConsoleWindow::outputPrivmsg(KviWindow * wnd,
 		{
 			static QString pre1("*");
 			static QString suf1("* ");
-			szMessage =  prefix.isEmpty() ? pre1 : prefix;
+			szMessage = prefix.isEmpty() ? pre1 : prefix;
 			szMessage += szNick;
 			szMessage += suffix.isEmpty() ? suf1 : suffix;
 		}
@@ -857,7 +858,7 @@ void KviConsoleWindow::outputPrivmsg(KviWindow * wnd,
 		{
 			static QString pre2("<");
 			static QString suf2("> ");
-			szMessage =  prefix.isEmpty() ? pre2 : prefix;
+			szMessage = prefix.isEmpty() ? pre2 : prefix;
 			szMessage += szNick;
 			szMessage += suffix.isEmpty() ? suf2 : suffix;
 		}

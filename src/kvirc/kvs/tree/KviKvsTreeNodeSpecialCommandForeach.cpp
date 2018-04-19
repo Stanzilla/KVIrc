@@ -30,8 +30,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeSpecialCommandForeach::KviKvsTreeNodeSpecialCommandForeach(const QChar * pLocation, KviKvsTreeNodeData * pVar, KviKvsTreeNodeDataList * pArgs, KviKvsTreeNodeInstruction * pLoop)
-    : KviKvsTreeNodeSpecialCommand(pLocation, "foreach")
+KviKvsTreeNodeSpecialCommandForeach::KviKvsTreeNodeSpecialCommandForeach(const QChar * pLocation, KviKvsTreeNodeData * pVar, KviKvsTreeNodeDataList * pArgs, KviKvsTreeNodeInstruction * pLoop) :
+    KviKvsTreeNodeSpecialCommand(pLocation, "foreach")
 {
 	m_pIterationVariable = pVar;
 	m_pIterationVariable->setParent(this);

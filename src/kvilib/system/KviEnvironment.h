@@ -49,7 +49,7 @@ namespace KviEnvironment
 	{
 		LPTSTR szRet = (LPTSTR)::malloc(MAX_ENV_SIZE * sizeof(TCHAR));
 		QString szValue;
-		if (GetEnvironmentVariable(szName.toStdWString().c_str(), szRet, MAX_ENV_SIZE))
+		if(GetEnvironmentVariable(szName.toStdWString().c_str(), szRet, MAX_ENV_SIZE))
 			szValue = QString::fromStdWString(szRet);
 		::free(szRet);
 		return szValue;
@@ -58,7 +58,7 @@ namespace KviEnvironment
 	inline void setVariable(const QString & szName, const QString & szValue)
 	{
 		SetEnvironmentVariable(szName.toStdWString().c_str(),
-			szValue.toStdWString().c_str());
+		    szValue.toStdWString().c_str());
 	}
 
 	inline void unsetVariable(const QString & szName)

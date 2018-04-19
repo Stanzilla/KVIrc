@@ -73,8 +73,8 @@ extern KVIRC_API QPixmap * g_pShadedChildGlobalDesktopBackground;
 
 extern FileTransferWindow * g_pFileTransferWindow;
 
-FileTransferItem::FileTransferItem(FileTransferWidget * v, KviFileTransfer * t)
-    : KviTalTableWidgetItemEx(v)
+FileTransferItem::FileTransferItem(FileTransferWidget * v, KviFileTransfer * t) :
+    KviTalTableWidgetItemEx(v)
 {
 	m_pTransfer = t;
 	m_pTransfer->setDisplayItem(this);
@@ -123,8 +123,8 @@ QString FileTransferItem::key(int, bool) const
 	return ret;
 }
 
-FileTransferWidget::FileTransferWidget(QWidget * pParent)
-    : KviTalTableWidget(pParent)
+FileTransferWidget::FileTransferWidget(QWidget * pParent) :
+    KviTalTableWidget(pParent)
 {
 	//hide the header
 	verticalHeader()->hide();
@@ -255,8 +255,8 @@ FileTransferWindow::FileTransferWindow(
 #if 0
 	KviModuleExtensionDescriptor * d
 #endif
-    )
-    : KviWindow(KviWindow::Tool, "file transfer window", nullptr)
+    ) :
+    KviWindow(KviWindow::Tool, "file transfer window", nullptr)
 #if 0
 	, KviModuleExtension(d)
 #endif

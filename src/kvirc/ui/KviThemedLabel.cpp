@@ -40,8 +40,8 @@
 extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 #endif
 
-KviThemedLabel::KviThemedLabel(QWidget * par, KviWindow * pWindow, const char * name)
-    : QLabel(par)
+KviThemedLabel::KviThemedLabel(QWidget * par, KviWindow * pWindow, const char * name) :
+    QLabel(par)
 {
 	setObjectName(name);
 	m_pKviWindow = pWindow;

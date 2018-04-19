@@ -68,8 +68,8 @@ static QPixmap * g_pDock1 = nullptr;
 static QPixmap * g_pDock2 = nullptr;
 static QPixmap * g_pDock3 = nullptr;
 
-KviTrayIconWidget::KviTrayIconWidget()
-    : QSystemTrayIcon(g_pMainWindow), m_Tip(g_pMainWindow, "dock_tooltip"), m_CurrentPixmap(ICON_SIZE, ICON_SIZE)
+KviTrayIconWidget::KviTrayIconWidget() :
+    QSystemTrayIcon(g_pMainWindow), m_Tip(g_pMainWindow, "dock_tooltip"), m_CurrentPixmap(ICON_SIZE, ICON_SIZE)
 {
 	g_pTrayIcon = this;
 	m_pContextPopup = new QMenu(nullptr);
@@ -448,8 +448,8 @@ void KviTrayIconWidget::refresh()
 
 		thisRestrictionOfQt4IsNotNice.drawPixmap(ICON_SIZE / 2, 0, ICON_SIZE / 2, ICON_SIZE / 2,
 		    m_iQueries ? ((m_iQueries == 2)
-		                                                 ? *g_pDock3
-		                                                 : *g_pDock2)
+		                         ? *g_pDock3
+		                         : *g_pDock2)
 		               : *g_pDock1,
 		    ICON_SIZE / 2, 0, ICON_SIZE / 2, ICON_SIZE / 2);
 
@@ -474,8 +474,8 @@ void KviTrayIconWidget::activatedSlot(QSystemTrayIcon::ActivationReason reason)
 			if((KVI_OPTION_BOOL(KviOption_boolCloseInTray) || KVI_OPTION_BOOL(KviOption_boolMinimizeInTray))
 			    && ((!g_pMainWindow->isVisible()) || g_pMainWindow->isMinimized()))
 				toggleParentFrame();
-#else  //!COMPILE_ON_MAC
-			// on other platforms we always toggle the window
+#else  //!COMPILE_ON_MAC \
+       // on other platforms we always toggle the window
 			toggleParentFrame();
 #endif //!COMPILE_ON_MAC
 			break;

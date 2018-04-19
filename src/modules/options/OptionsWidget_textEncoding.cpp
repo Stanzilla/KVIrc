@@ -38,8 +38,8 @@
 
 QString g_szPrevSetLocale;
 
-OptionsWidget_textEncoding::OptionsWidget_textEncoding(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_textEncoding::OptionsWidget_textEncoding(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("textencoding_options_widget");
 	createLayout();

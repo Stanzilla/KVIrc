@@ -34,8 +34,8 @@
 #include <QStyleOption>
 #include <QAccessible>
 */
-KviTalTableWidget::KviTalTableWidget(QWidget * pParent)
-    : QTableWidget(pParent)
+KviTalTableWidget::KviTalTableWidget(QWidget * pParent) :
+    QTableWidget(pParent)
 {
 	/*
   	connect(this,SIGNAL(currentItemChanged(QTreeWidgetItem *,QTreeWidgetItem *)),this,SLOT(redirect_currentItemChanged(QTreeWidgetItem *,QTreeWidgetItem *)));

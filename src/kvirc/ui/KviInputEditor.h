@@ -35,7 +35,7 @@
 *
 * \def KVI_INPUT_MAX_BUFFER_SIZE Default maximum buffer size
 * \def KVI_INPUT_MARGIN Default margin
-* \def KVI_INPUT_BLINK_TIME Cursor blink time...just don't set it to a value less than 100 if you don't want to be lagged by your cursors :)
+* \def KVI_INPUT_BLINK_TIME Cursor blink time...just don't set it to a value less than 100 if you don't want to be lagged by your cursors
 * \def KVI_INPUT_DRAG_TIMEOUT Drag scroll speed...(smaller values = faster)
 * \def KVI_INPUT_DEF_BACK Default background color
 * \def KVI_INPUT_DEF_FORE Default foreground color
@@ -200,8 +200,10 @@ protected:
 		* \param iStartPosition The start position of the command
 		* \return EditCommand
 		*/
-		EditCommand(Type eType, const QString & szText, int iStartPosition)
-		    : m_eType(eType), m_szText(szText), m_iStartPosition(iStartPosition)
+		EditCommand(Type eType, const QString & szText, int iStartPosition) :
+		    m_eType(eType),
+		    m_szText(szText),
+		    m_iStartPosition(iStartPosition)
 		{
 		}
 

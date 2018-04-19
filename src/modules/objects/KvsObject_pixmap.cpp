@@ -672,7 +672,6 @@ KVSO_CLASS_FUNCTION(pixmap, grabWidget)
 		m_pPixmap = new QPixmap();
 	*m_pPixmap = QPixmap::grabWidget(((KvsObject_widget *)pObject)->widget());
 	return true;
-
 }
 
 KVSO_CLASS_FUNCTION(pixmap, height)

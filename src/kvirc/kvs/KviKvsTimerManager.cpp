@@ -57,8 +57,8 @@ KviKvsTimer::~KviKvsTimer()
 
 KviKvsTimerManager * KviKvsTimerManager::m_pInstance = nullptr;
 
-KviKvsTimerManager::KviKvsTimerManager()
-    : QObject()
+KviKvsTimerManager::KviKvsTimerManager() :
+    QObject()
 {
 	m_pTimerDictById = new KviPointerHashTable<int, KviKvsTimer>(17);
 	m_pTimerDictById->setAutoDelete(false);

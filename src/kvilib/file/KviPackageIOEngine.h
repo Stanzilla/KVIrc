@@ -88,6 +88,7 @@ public:
 	* \return KviPointerHashTable<QString,QByteArray> *
 	*/
 	KviPointerHashTable<QString, QByteArray> * binaryInfoFields() { return m_pBinaryInfoFields; };
+
 protected:
 	/**
 	* \brief Sets the last error

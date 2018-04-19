@@ -71,7 +71,8 @@ class QHttpNormalRequest;
 class QHttpRequest
 {
 public:
-	QHttpRequest() : finished(false)
+	QHttpRequest() :
+	    finished(false)
 	{
 		id = idCounter.fetchAndAddRelaxed(1);
 	}
@@ -97,12 +98,21 @@ class QHttpPrivate
 public:
 	Q_DECLARE_PUBLIC(QHttp)
 
-	inline QHttpPrivate(QHttp * parent)
-	    : socket(nullptr), reconnectAttempts(2),
-	      deleteSocket(0), state(QHttp::Unconnected),
-	      error(QHttp::NoError), port(0), mode(QHttp::ConnectionModeHttp),
-	      toDevice(nullptr), postDevice(nullptr), bytesDone(0), chunkedSize(-1),
-	      repost(false), pendingPost(false), q_ptr(parent)
+	inline QHttpPrivate(QHttp * parent) :
+	    socket(nullptr),
+	    reconnectAttempts(2),
+	    deleteSocket(0),
+	    state(QHttp::Unconnected),
+	    error(QHttp::NoError),
+	    port(0),
+	    mode(QHttp::ConnectionModeHttp),
+	    toDevice(nullptr),
+	    postDevice(nullptr),
+	    bytesDone(0),
+	    chunkedSize(-1),
+	    repost(false),
+	    pendingPost(false),
+	    q_ptr(parent)
 	{
 	}
 
@@ -203,13 +213,17 @@ QHttpRequestHeader QHttpRequest::requestHeader()
 class QHttpNormalRequest : public QHttpRequest
 {
 public:
-	QHttpNormalRequest(const QHttpRequestHeader & h, QIODevice * d, QIODevice * t) : header(h), to(t)
+	QHttpNormalRequest(const QHttpRequestHeader & h, QIODevice * d, QIODevice * t) :
+	    header(h),
+	    to(t)
 	{
 		is_ba = false;
 		data.dev = d;
 	}
 
-	QHttpNormalRequest(const QHttpRequestHeader & h, QByteArray * d, QIODevice * t) : header(h), to(t)
+	QHttpNormalRequest(const QHttpRequestHeader & h, QByteArray * d, QIODevice * t) :
+	    header(h),
+	    to(t)
 	{
 		is_ba = true;
 		data.ba = d;
@@ -315,11 +329,13 @@ QIODevice * QHttpNormalRequest::destinationDevice()
 class QHttpPGHRequest : public QHttpNormalRequest
 {
 public:
-	QHttpPGHRequest(const QHttpRequestHeader & h, QIODevice * d, QIODevice * t) : QHttpNormalRequest(h, d, t)
+	QHttpPGHRequest(const QHttpRequestHeader & h, QIODevice * d, QIODevice * t) :
+	    QHttpNormalRequest(h, d, t)
 	{
 	}
 
-	QHttpPGHRequest(const QHttpRequestHeader & h, QByteArray * d, QIODevice * t) : QHttpNormalRequest(h, d, t)
+	QHttpPGHRequest(const QHttpRequestHeader & h, QByteArray * d, QIODevice * t) :
+	    QHttpNormalRequest(h, d, t)
 	{
 	}
 
@@ -346,8 +362,10 @@ void QHttpPGHRequest::start(QHttp * http)
 class QHttpSetHostRequest : public QHttpRequest
 {
 public:
-	QHttpSetHostRequest(const QString & h, quint16 p, QHttp::ConnectionMode m)
-	    : hostName(h), port(p), mode(m)
+	QHttpSetHostRequest(const QString & h, quint16 p, QHttp::ConnectionMode m) :
+	    hostName(h),
+	    port(p),
+	    mode(m)
 	{
 	}
 
@@ -396,7 +414,9 @@ void QHttpSetHostRequest::start(QHttp * http)
 class QHttpSetUserRequest : public QHttpRequest
 {
 public:
-	QHttpSetUserRequest(const QString & userName, const QString & password) : user(userName), pass(password)
+	QHttpSetUserRequest(const QString & userName, const QString & password) :
+	    user(userName),
+	    pass(password)
 	{
 	}
 
@@ -475,7 +495,8 @@ private:
 class QHttpSetSocketRequest : public QHttpRequest
 {
 public:
-	QHttpSetSocketRequest(QTcpSocket * s) : socket(s)
+	QHttpSetSocketRequest(QTcpSocket * s) :
+	    socket(s)
 	{
 	}
 
@@ -596,8 +617,8 @@ public:
 /*!
         Constructs an empty HTTP header.
 */
-QHttpHeader::QHttpHeader()
-    : d_ptr(new QHttpHeaderPrivate)
+QHttpHeader::QHttpHeader() :
+    d_ptr(new QHttpHeaderPrivate)
 {
 	Q_D(QHttpHeader);
 	d->q_ptr = this;
@@ -607,8 +628,8 @@ QHttpHeader::QHttpHeader()
 /*!
         Constructs a copy of \a header.
 */
-QHttpHeader::QHttpHeader(const QHttpHeader & header)
-    : d_ptr(new QHttpHeaderPrivate)
+QHttpHeader::QHttpHeader(const QHttpHeader & header) :
+    d_ptr(new QHttpHeaderPrivate)
 {
 	Q_D(QHttpHeader);
 	d->q_ptr = this;
@@ -624,8 +645,8 @@ QHttpHeader::QHttpHeader(const QHttpHeader & header)
     "\r\n" delimited lines; each of these lines should have the format
     key, colon, space, value.
 */
-QHttpHeader::QHttpHeader(const QString & str)
-    : d_ptr(new QHttpHeaderPrivate)
+QHttpHeader::QHttpHeader(const QString & str) :
+    d_ptr(new QHttpHeaderPrivate)
 {
 	Q_D(QHttpHeader);
 	d->q_ptr = this;
@@ -635,8 +656,8 @@ QHttpHeader::QHttpHeader(const QString & str)
 
 /*! \internal
  */
-QHttpHeader::QHttpHeader(QHttpHeaderPrivate & dd, const QString & str)
-    : d_ptr(&dd)
+QHttpHeader::QHttpHeader(QHttpHeaderPrivate & dd, const QString & str) :
+    d_ptr(&dd)
 {
 	Q_D(QHttpHeader);
 	d->q_ptr = this;
@@ -647,8 +668,8 @@ QHttpHeader::QHttpHeader(QHttpHeaderPrivate & dd, const QString & str)
 
 /*! \internal
  */
-QHttpHeader::QHttpHeader(QHttpHeaderPrivate & dd, const QHttpHeader & header)
-    : d_ptr(&dd)
+QHttpHeader::QHttpHeader(QHttpHeaderPrivate & dd, const QHttpHeader & header) :
+    d_ptr(&dd)
 {
 	Q_D(QHttpHeader);
 	d->q_ptr = this;
@@ -1083,8 +1104,8 @@ public:
 /*!
     Constructs an empty HTTP response header.
 */
-QHttpResponseHeader::QHttpResponseHeader()
-    : QHttpHeader(*new QHttpResponseHeaderPrivate)
+QHttpResponseHeader::QHttpResponseHeader() :
+    QHttpHeader(*new QHttpResponseHeaderPrivate)
 {
 	setValid(false);
 }
@@ -1092,8 +1113,8 @@ QHttpResponseHeader::QHttpResponseHeader()
 /*!
     Constructs a copy of \a header.
 */
-QHttpResponseHeader::QHttpResponseHeader(const QHttpResponseHeader & header)
-    : QHttpHeader(*new QHttpResponseHeaderPrivate, header)
+QHttpResponseHeader::QHttpResponseHeader(const QHttpResponseHeader & header) :
+    QHttpHeader(*new QHttpResponseHeaderPrivate, header)
 {
 	Q_D(QHttpResponseHeader);
 	d->statCode = header.d_func()->statCode;
@@ -1124,8 +1145,8 @@ QHttpResponseHeader & QHttpResponseHeader::operator=(const QHttpResponseHeader &
     reason-phrase); each of remaining lines should have the format key, colon,
     space, value.
 */
-QHttpResponseHeader::QHttpResponseHeader(const QString & str)
-    : QHttpHeader(*new QHttpResponseHeaderPrivate)
+QHttpResponseHeader::QHttpResponseHeader(const QString & str) :
+    QHttpHeader(*new QHttpResponseHeaderPrivate)
 {
 	parse(str);
 }
@@ -1139,8 +1160,8 @@ QHttpResponseHeader::QHttpResponseHeader(const QString & str)
 
     \sa statusCode() reasonPhrase() majorVersion() minorVersion()
 */
-QHttpResponseHeader::QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer)
-    : QHttpHeader(*new QHttpResponseHeaderPrivate)
+QHttpResponseHeader::QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer) :
+    QHttpHeader(*new QHttpResponseHeaderPrivate)
 {
 	setStatusLine(code, text, majorVer, minorVer);
 }
@@ -1303,8 +1324,8 @@ public:
 /*!
     Constructs an empty HTTP request header.
 */
-QHttpRequestHeader::QHttpRequestHeader()
-    : QHttpHeader(*new QHttpRequestHeaderPrivate)
+QHttpRequestHeader::QHttpRequestHeader() :
+    QHttpHeader(*new QHttpRequestHeaderPrivate)
 {
 	setValid(false);
 }
@@ -1315,8 +1336,8 @@ QHttpRequestHeader::QHttpRequestHeader()
     minorVer. The \a path argument must be properly encoded for an
     HTTP request.
 */
-QHttpRequestHeader::QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer)
-    : QHttpHeader(*new QHttpRequestHeaderPrivate)
+QHttpRequestHeader::QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer) :
+    QHttpHeader(*new QHttpRequestHeaderPrivate)
 {
 	Q_D(QHttpRequestHeader);
 	d->m = method;
@@ -1328,8 +1349,8 @@ QHttpRequestHeader::QHttpRequestHeader(const QString & method, const QString & p
 /*!
     Constructs a copy of \a header.
 */
-QHttpRequestHeader::QHttpRequestHeader(const QHttpRequestHeader & header)
-    : QHttpHeader(*new QHttpRequestHeaderPrivate, header)
+QHttpRequestHeader::QHttpRequestHeader(const QHttpRequestHeader & header) :
+    QHttpHeader(*new QHttpRequestHeaderPrivate, header)
 {
 	Q_D(QHttpRequestHeader);
 	d->m = header.d_func()->m;
@@ -1359,8 +1380,8 @@ QHttpRequestHeader & QHttpRequestHeader::operator=(const QHttpRequestHeader & he
     HTTP-version); each of the remaining lines should have the format key,
     colon, space, value.
 */
-QHttpRequestHeader::QHttpRequestHeader(const QString & str)
-    : QHttpHeader(*new QHttpRequestHeaderPrivate)
+QHttpRequestHeader::QHttpRequestHeader(const QString & str) :
+    QHttpHeader(*new QHttpRequestHeaderPrivate)
 {
 	parse(str);
 }
@@ -1581,8 +1602,9 @@ QString QHttpRequestHeader::toString() const
     Constructs a QHttp object. The \a parent parameter is passed on
     to the QObject constructor.
 */
-QHttp::QHttp(QObject * parent)
-    : QObject(parent), d(new QHttpPrivate(this))
+QHttp::QHttp(QObject * parent) :
+    QObject(parent),
+    d(new QHttpPrivate(this))
 {
 	d->init();
 }
@@ -1595,8 +1617,9 @@ QHttp::QHttp(QObject * parent)
 
     \sa setHost()
 */
-QHttp::QHttp(const QString & hostName, quint16 port, QObject * parent)
-    : QObject(parent), d(new QHttpPrivate(this))
+QHttp::QHttp(const QString & hostName, quint16 port, QObject * parent) :
+    QObject(parent),
+    d(new QHttpPrivate(this))
 {
 	d->init();
 
@@ -1616,8 +1639,9 @@ QHttp::QHttp(const QString & hostName, quint16 port, QObject * parent)
 
     \sa setHost()
 */
-QHttp::QHttp(const QString & hostName, ConnectionMode mode, quint16 port, QObject * parent)
-    : QObject(parent), d(new QHttpPrivate(this))
+QHttp::QHttp(const QString & hostName, ConnectionMode mode, quint16 port, QObject * parent) :
+    QObject(parent),
+    d(new QHttpPrivate(this))
 {
 	d->init();
 
@@ -2583,7 +2607,7 @@ void QHttpPrivate::_q_slotSendRequest()
 #ifndef QT_NO_OPENSSL
 	    || (sslSocket && sslSocket->isEncrypted() != (mode == QHttp::ConnectionModeHttps))
 #endif
-	        )
+	)
 	{
 		socket->blockSignals(true);
 		socket->abort();

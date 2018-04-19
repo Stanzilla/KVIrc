@@ -116,13 +116,13 @@ public:
 	unsigned char uBackground;
 
 public:
-	KviInputEditorTextBlock(const QChar * p, int len)
-	    : szText(p, len)
+	KviInputEditorTextBlock(const QChar * p, int len) :
+	    szText(p, len)
 	{
 	}
 
-	KviInputEditorTextBlock(const QString & text)
-	    : szText(text)
+	KviInputEditorTextBlock(const QString & text) :
+	    szText(text)
 	{
 	}
 };
@@ -137,8 +137,8 @@ public:
 	qreal fFontElisionWidth;
 };
 
-KviInputEditor::KviInputEditor(QWidget * pPar, KviWindow * pWnd, KviUserListView * pView)
-    : QWidget(pPar)
+KviInputEditor::KviInputEditor(QWidget * pPar, KviWindow * pWnd, KviUserListView * pView) :
+    QWidget(pPar)
 {
 	m_p = new KviInputEditorPrivate();
 	m_p->bTextBlocksDirty = true;
@@ -151,15 +151,15 @@ KviInputEditor::KviInputEditor(QWidget * pPar, KviWindow * pWnd, KviUserListView
 	m_pIconMenu = nullptr;
 	m_pInputParent = pPar;
 	m_iMaxBufferSize = KVI_INPUT_MAX_BUFFER_SIZE;
-	m_iCursorPosition = 0;       //Index of the char AFTER the cursor
-	m_iSelectionBegin = -1;      //Index of the first char in the selection
-	m_iSelectionEnd = -1;        //Index of the last char in the selection
-	m_bIMComposing = false;      //Whether the input method is active (composing).
+	m_iCursorPosition = 0;  //Index of the char AFTER the cursor
+	m_iSelectionBegin = -1; //Index of the first char in the selection
+	m_iSelectionEnd = -1;   //Index of the last char in the selection
+	m_bIMComposing = false; //Whether the input method is active (composing).
 	// for input method support
-	m_iIMStart = 0;              //Index of the start of the preedit string.
-	m_iIMLength = 0;             //Length of the preedit string.
-	m_iIMSelectionBegin = 0;     //Index of the start of the selection in preedit string.
-	m_iIMSelectionLength = 0;    //Length of the selection in preedit string.
+	m_iIMStart = 0;           //Index of the start of the preedit string.
+	m_iIMLength = 0;          //Length of the preedit string.
+	m_iIMSelectionBegin = 0;  //Index of the start of the selection in preedit string.
+	m_iIMSelectionLength = 0; //Length of the selection in preedit string.
 	m_p->bTextBlocksDirty = true;
 
 	m_bCursorOn = false;         //Cursor state
@@ -171,7 +171,7 @@ KviInputEditor::KviInputEditor(QWidget * pPar, KviWindow * pWnd, KviUserListView
 	m_pKviWindow = pWnd;
 	m_pUserListView = pView;
 	m_bReadOnly = false;
-	m_bSpSlowFlag = false;       //Slow paste status flag
+	m_bSpSlowFlag = false; //Slow paste status flag
 
 	setAttribute(Qt::WA_InputMethodEnabled, true);
 
@@ -459,7 +459,7 @@ void KviInputEditor::splitTextIntoSpellCheckerBlocks(const QString & szText, std
 			case QChar::Number_Other:
 				if(!pWordBegin && !pNonWordBegin)
 					pNonWordBegin = p; // start a non-word
-				                           // else just go ahead keeping current state
+					                   // else just go ahead keeping current state
 				break;
 			default:
 				if(!pNonWordBegin)
@@ -467,9 +467,9 @@ void KviInputEditor::splitTextIntoSpellCheckerBlocks(const QString & szText, std
 					if(p->unicode() == '\'')
 					{
 						// special case for the ' character which can be part of a word in many languages
-						if(!pWordBegin)            // word not started
+						if(!pWordBegin)        // word not started
 							pNonWordBegin = p; // then start a nonwod
-						                           // else keep current state
+							                   // else keep current state
 					}
 					else
 					{
@@ -477,7 +477,7 @@ void KviInputEditor::splitTextIntoSpellCheckerBlocks(const QString & szText, std
 						{
 							// a word to spellcheck
 							if((p - 1)->unicode() == '\'') // exclude the trailing ' from the word
-								p--;                   // go back one char, so it will become a non-word
+								p--;                       // go back one char, so it will become a non-word
 
 							QString szWord(pWordBegin, p - pWordBegin);
 							ADD_SPELLCHECKER_BLOCK(lBuffer, szWord, pWordBegin - pBufferBegin, true, checkWordSpelling(szWord));
@@ -526,7 +526,7 @@ void KviInputEditor::rebuildTextBlocks()
 	m_p->bTextBlocksDirty = false;
 
 	if(lSpellCheckerBlocks.empty()) // should never happen, but well...
-		return;                   // nothing to do
+		return;                     // nothing to do
 
 #define NOT_CONTROL_CHAR() \
 	(                      \
@@ -720,7 +720,7 @@ void KviInputEditor::rebuildTextBlocks()
 
 				if(m_iSelectionEnd >= iCurEnd)
 				{
-				}	// selection ends after or at the end of this block
+				} // selection ends after or at the end of this block
 				else
 				{
 					// selection ends in the middle of the block
@@ -909,8 +909,7 @@ void KviInputEditor::drawContents(QPainter * p)
 						p->fillRect(QRectF(fCurX, iTop, pBlock->fWidth, iBottom - iTop), KVI_OPTION_MIRCCOLOR(pBlock->uBackground));
 				}
 
-
-				if (pBlock->uFlags & KviInputEditorTextBlock::IsItalic)
+				if(pBlock->uFlags & KviInputEditorTextBlock::IsItalic)
 				{
 					QFont newFont = p->font();
 					newFont.setStyle(normalFontStyle == QFont::StyleNormal ? QFont::StyleItalic : QFont::StyleNormal);
@@ -933,7 +932,7 @@ void KviInputEditor::drawContents(QPainter * p)
 					p->drawLine(QPointF(fCurX, iY), QPointF(fCurX + pBlock->fWidth, iY));
 				}
 
-				if (pBlock->uFlags & KviInputEditorTextBlock::IsItalic)
+				if(pBlock->uFlags & KviInputEditorTextBlock::IsItalic)
 				{
 					QFont newFont = p->font();
 					newFont.setStyle(normalFontStyle);
@@ -1163,7 +1162,7 @@ void KviInputEditor::showContextPopup(const QPoint & pos)
 	}
 #endif
 
-/*
+	/*
  * With Qt5 the use of input method composing works, but we are unable to query the list of
  * available ims and change the active one. By now Qt5's QInputMethod lacks several methods,
  * check it again on newer qt versions!
@@ -2152,7 +2151,7 @@ void KviInputEditor::completion(bool bShift)
 		return;
 	}
 
-	int iOffset{0};
+	int iOffset{ 0 };
 	if(KviQString::equalCI(m_szTextBuffer.left(5), "/help"))
 		iOffset = 1;
 
@@ -2294,10 +2293,9 @@ void KviInputEditor::completion(bool bShift)
 			QString szAll;
 			szMatch = tmp.front();
 			auto predicate =
-				[bIsDir](const QChar & a, const QChar & b)
-				{
-					return bIsDir ? (a.unicode() == b.unicode()) : (a.toLower().unicode() == b.toLower().unicode());
-				};
+			    [bIsDir](const QChar & a, const QChar & b) {
+				    return bIsDir ? (a.unicode() == b.unicode()) : (a.toLower().unicode() == b.toLower().unicode());
+			    };
 
 			for(auto szTmp : tmp)
 			{
@@ -3374,7 +3372,7 @@ void KviInputEditor::dummy()
 {
 } // this function does nothing. check the header file for explanation
 
-void KviInputEditor::addToHistory(const QString &szString)
+void KviInputEditor::addToHistory(const QString & szString)
 {
 	if(!m_History.empty() && m_History.front() == szString)
 		return;

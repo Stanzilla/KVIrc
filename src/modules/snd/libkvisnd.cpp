@@ -61,7 +61,7 @@
 #ifdef HAVE_LINUX_SOUNDCARD_H
 #include <linux/soundcard.h>
 #else
-// Hint by Andy Fawcett: Thnx :)
+// Hint by Andy Fawcett: Thnx
 #ifdef HAVE_SYS_SOUNDCARD_H
 #include <sys/soundcard.h>
 #else
@@ -80,8 +80,8 @@
 
 static KviSoundPlayer * g_pSoundPlayer = nullptr;
 
-KviSoundPlayer::KviSoundPlayer()
-    : QObject()
+KviSoundPlayer::KviSoundPlayer() :
+    QObject()
 {
 	m_pThreadList = new KviPointerList<KviSoundThread>;
 	m_pThreadList->setAutoDelete(true);
@@ -405,8 +405,8 @@ bool KviSoundPlayer::play(const QString & szFileName)
 	return (this->*r)(szFileName);
 }
 
-KviSoundThread::KviSoundThread(const QString & szFileName)
-    : KviThread()
+KviSoundThread::KviSoundThread(const QString & szFileName) :
+    KviThread()
 {
 	g_pSoundPlayer->registerSoundThread(this);
 	m_szFileName = szFileName;
@@ -439,8 +439,8 @@ void KviSoundThread::run()
 #if !defined(COMPILE_ON_WINDOWS) && !defined(COMPILE_ON_MINGW)
 #ifdef COMPILE_OSS_SUPPORT
 #ifdef COMPILE_AUDIOFILE_SUPPORT
-KviOssAudiofileSoundThread::KviOssAudiofileSoundThread(const QString & szFileName)
-    : KviSoundThread(szFileName)
+KviOssAudiofileSoundThread::KviOssAudiofileSoundThread(const QString & szFileName) :
+    KviSoundThread(szFileName)
 {
 }
 
@@ -535,8 +535,8 @@ exit_thread:
 }
 #endif //COMPILE_AUDIOFILE_SUPPORT
 
-KviOssSoundThread::KviOssSoundThread(const QString & szFileName)
-    : KviSoundThread(szFileName)
+KviOssSoundThread::KviOssSoundThread(const QString & szFileName) :
+    KviSoundThread(szFileName)
 {
 }
 
@@ -633,8 +633,8 @@ exit_thread:
 
 #ifdef COMPILE_ESD_SUPPORT
 
-KviEsdSoundThread::KviEsdSoundThread(const QString & szFileName)
-    : KviSoundThread(szFileName)
+KviEsdSoundThread::KviEsdSoundThread(const QString & szFileName) :
+    KviSoundThread(szFileName)
 {
 }
 
@@ -670,7 +670,7 @@ void KviEsdSoundThread::play()
 		supported.
 		On windows the supported file formats are determined by the drivers installed.
 		You should be able to play at least *.wav files.[br]
-		(This is a task where the Windows interface is really well done, I must say that :)
+		(This is a task where the Windows interface is really well done, I must say that
 	@switches:
 		!sw: -q | --quiet
 		Causes the command to run quietly (no complains about missing files, invalid formats...

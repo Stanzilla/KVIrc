@@ -51,8 +51,8 @@
 #include <QImage>
 #include <QBuffer>
 
-PackThemeDialog::PackThemeDialog(QWidget * pParent, KviPointerList<KviThemeInfo> * pThemeInfoList)
-    : QWizard(pParent)
+PackThemeDialog::PackThemeDialog(QWidget * pParent, KviPointerList<KviThemeInfo> * pThemeInfoList) :
+    QWizard(pParent)
 {
 	setWindowTitle(__tr2qs_ctx("Export Theme - KVIrc", "theme"));
 	setMinimumSize(400, 350);
@@ -127,8 +127,8 @@ PackThemeDialog::PackThemeDialog(QWidget * pParent, KviPointerList<KviThemeInfo>
 	m_pPackThemeDataWidget->parseThemes(m_pThemeInfoList);
 }
 
-PackThemeDataWidget::PackThemeDataWidget(PackThemeDialog * pParent)
-    : QWizardPage(pParent)
+PackThemeDataWidget::PackThemeDataWidget(PackThemeDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("theme_package_data_page");
 	setTitle(__tr2qs_ctx("Theme Data", "theme"));
@@ -241,8 +241,8 @@ void PackThemeDataWidget::parseThemes(KviPointerList<KviThemeInfo> * pThemeInfoL
 PackThemeDataWidget::~PackThemeDataWidget()
     = default;
 
-PackThemeInfoWidget::PackThemeInfoWidget(PackThemeDialog * pParent)
-    : QWizardPage(pParent)
+PackThemeInfoWidget::PackThemeInfoWidget(PackThemeDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("theme_package_info_page");
 	setTitle(__tr2qs_ctx("Package Information", "theme"));
@@ -310,8 +310,8 @@ void PackThemeInfoWidget::initializePage()
 PackThemeInfoWidget::~PackThemeInfoWidget()
     = default;
 
-PackThemeImageWidget::PackThemeImageWidget(PackThemeDialog * pParent)
-    : QWizardPage(pParent)
+PackThemeImageWidget::PackThemeImageWidget(PackThemeDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("theme_package_image_page");
 	setTitle(__tr2qs_ctx("Icon/Screenshot", "theme"));
@@ -361,8 +361,8 @@ void PackThemeImageWidget::imageSelectionChanged(const QString & szImagePath)
 	m_pImageLabel->setPixmap(QPixmap());
 }
 
-PackThemeSaveWidget::PackThemeSaveWidget(PackThemeDialog * pParent)
-    : QWizardPage(pParent)
+PackThemeSaveWidget::PackThemeSaveWidget(PackThemeDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("theme_package_save_page");
 	setTitle(__tr2qs_ctx("Package Path", "theme"));

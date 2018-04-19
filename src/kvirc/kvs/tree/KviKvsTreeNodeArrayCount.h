@@ -61,7 +61,7 @@ public:
 public:
 	/**
 	* \brief Sets the buffer as Array Count Operator
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	virtual void contextDescription(QString & szBuffer);

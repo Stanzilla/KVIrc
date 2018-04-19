@@ -54,8 +54,8 @@
 
 extern DccBroker * g_pDccBroker;
 
-DccCanvasWindow::DccCanvasWindow(DccDescriptor * dcc, const char * name)
-    : DccWindow(KVI_WINDOW_TYPE_DCCCANVAS, name, dcc)
+DccCanvasWindow::DccCanvasWindow(DccDescriptor * dcc, const char * name) :
+    DccWindow(KVI_WINDOW_TYPE_DCCCANVAS, name, dcc)
 {
 	m_pSplitter = new QSplitter(QSplitter::Vertical, this, "splitter");
 

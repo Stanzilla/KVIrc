@@ -27,8 +27,8 @@
 
 #include <QChildEvent>
 
-KviTalVBox::KviTalVBox(QWidget * pParent, char * pcName)
-    : QWidget(pParent)
+KviTalVBox::KviTalVBox(QWidget * pParent, char * pcName) :
+    QWidget(pParent)
 {
 	setObjectName(pcName);
 

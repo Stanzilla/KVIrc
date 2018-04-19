@@ -28,14 +28,14 @@
 
 #include <QString>
 
-KviTranslationEntry::KviTranslationEntry(char * pcKey, int iKeyLen, char * pcTr, int iTrLen)
-    : m_szKey(pcKey, iKeyLen), m_szEncodedTranslation(pcTr, iTrLen)
+KviTranslationEntry::KviTranslationEntry(char * pcKey, int iKeyLen, char * pcTr, int iTrLen) :
+    m_szKey(pcKey, iKeyLen), m_szEncodedTranslation(pcTr, iTrLen)
 {
 	m_pTranslation = nullptr;
 }
 
-KviTranslationEntry::KviTranslationEntry(const char * pcKeyAndTr)
-    : m_szKey(pcKeyAndTr), m_szEncodedTranslation(pcKeyAndTr)
+KviTranslationEntry::KviTranslationEntry(const char * pcKeyAndTr) :
+    m_szKey(pcKeyAndTr), m_szEncodedTranslation(pcKeyAndTr)
 {
 	m_pTranslation = nullptr;
 }

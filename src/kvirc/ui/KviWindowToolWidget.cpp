@@ -31,8 +31,8 @@
 #include <QObjectCleanupHandler>
 #include <QIcon>
 
-KviWindowToolWidget::KviWindowToolWidget(QWidget * pParent, KviWindowToolPageButton * pButton)
-    : QWidget(pParent)
+KviWindowToolWidget::KviWindowToolWidget(QWidget * pParent, KviWindowToolPageButton * pButton) :
+    QWidget(pParent)
 {
 	m_pButton = pButton;
 	if(m_pButton)
@@ -42,8 +42,8 @@ KviWindowToolWidget::KviWindowToolWidget(QWidget * pParent, KviWindowToolPageBut
 KviWindowToolWidget::~KviWindowToolWidget()
     = default;
 
-KviWindowToolPageButton::KviWindowToolPageButton(KviIconManager::SmallIcon eIconOff, KviIconManager::SmallIcon eIconOn, const QString & szText, QWidget * pParent, bool bOn)
-    : QToolButton(pParent)
+KviWindowToolPageButton::KviWindowToolPageButton(KviIconManager::SmallIcon eIconOff, KviIconManager::SmallIcon eIconOn, const QString & szText, QWidget * pParent, bool bOn) :
+    QToolButton(pParent)
 {
 	setAutoRaise(true);
 	setToolTip(szText);

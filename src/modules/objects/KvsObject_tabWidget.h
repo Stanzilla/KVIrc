@@ -35,6 +35,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_tabWidget)
 public:
 	QWidget * widget() { return (QWidget *)object(); };
+
 protected:
 	virtual bool init(KviKvsRunTimeContext * pContext, KviKvsVariantList * pParams);
 	QList<kvs_hobject_t> tabsList;

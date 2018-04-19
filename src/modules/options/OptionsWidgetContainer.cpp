@@ -41,8 +41,8 @@
 
 extern OptionsInstanceManager * g_pOptionsInstanceManager;
 
-OptionsWidgetContainer::OptionsWidgetContainer(QWidget * par, bool bModal)
-    : QDialog(par)
+OptionsWidgetContainer::OptionsWidgetContainer(QWidget * par, bool bModal) :
+    QDialog(par)
 {
 	m_pLayout = new QGridLayout(this);
 

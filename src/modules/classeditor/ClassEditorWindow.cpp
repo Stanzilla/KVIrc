@@ -63,8 +63,8 @@
 extern ClassEditorWindow * g_pClassEditorWindow;
 extern KviModule * g_pClassEditorModule;
 
-ClassEditorTreeWidget::ClassEditorTreeWidget(QWidget * pParent)
-    : QTreeWidget(pParent)
+ClassEditorTreeWidget::ClassEditorTreeWidget(QWidget * pParent) :
+    QTreeWidget(pParent)
 {
 	setColumnCount(1);
 	setHeaderLabel(__tr2qs_ctx("Class", "editor"));
@@ -90,8 +90,10 @@ void ClassEditorTreeWidget::mousePressEvent(QMouseEvent * e)
 	QTreeWidget::mousePressEvent(e);
 }
 
-ClassEditorTreeWidgetItem::ClassEditorTreeWidgetItem(QTreeWidget * pTreeWidget, Type eType, const QString & szName)
-    : QTreeWidgetItem(pTreeWidget), KviHeapObject(), m_eType(eType)
+ClassEditorTreeWidgetItem::ClassEditorTreeWidgetItem(QTreeWidget * pTreeWidget, Type eType, const QString & szName) :
+    QTreeWidgetItem(pTreeWidget),
+    KviHeapObject(),
+    m_eType(eType)
 {
 	setName(szName);
 	m_szInheritsClassName = "";
@@ -108,8 +110,9 @@ ClassEditorTreeWidgetItem::ClassEditorTreeWidgetItem(QTreeWidget * pTreeWidget, 
 	setIcon(0, QIcon(*pIcon));
 }
 
-ClassEditorTreeWidgetItem::ClassEditorTreeWidgetItem(ClassEditorTreeWidgetItem * pParentItem, Type eType, const QString & szName)
-    : QTreeWidgetItem(pParentItem), m_eType(eType)
+ClassEditorTreeWidgetItem::ClassEditorTreeWidgetItem(ClassEditorTreeWidgetItem * pParentItem, Type eType, const QString & szName) :
+    QTreeWidgetItem(pParentItem),
+    m_eType(eType)
 {
 	setFlags(Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
 	setName(szName);
@@ -163,8 +166,8 @@ void ClassEditorTreeWidgetItem::setType(Type eType)
 	setIcon(0, QIcon(*pIcon));
 }
 
-ClassEditorWidget::ClassEditorWidget(QWidget * pParent)
-    : QWidget(pParent)
+ClassEditorWidget::ClassEditorWidget(QWidget * pParent) :
+    QWidget(pParent)
 {
 	m_pClasses = new KviPointerHashTable<QString, ClassEditorTreeWidgetItem>(100, false);
 	m_pClasses->setAutoDelete(false);
@@ -1842,8 +1845,8 @@ void ClassEditorWidget::searchInheritedClasses(const QString szClass, KviPointer
 	}
 }
 
-ClassEditorWindow::ClassEditorWindow()
-    : KviWindow(KviWindow::ScriptEditor, "classeditor", nullptr)
+ClassEditorWindow::ClassEditorWindow() :
+    KviWindow(KviWindow::ScriptEditor, "classeditor", nullptr)
 {
 	g_pClassEditorWindow = this;
 
@@ -1914,8 +1917,8 @@ void ClassEditorWindow::loadProperties(KviConfigurationFile * pCfg)
 	m_pEditor->loadProperties(pCfg);
 }
 
-KviClassEditorDialog::KviClassEditorDialog(QWidget * pParent, const QString & szName, KviPointerHashTable<QString, ClassEditorTreeWidgetItem> * pClasses, const QString & szClassName, const QString & szInheritsClassName, bool bRenameMode)
-    : QDialog(pParent)
+KviClassEditorDialog::KviClassEditorDialog(QWidget * pParent, const QString & szName, KviPointerHashTable<QString, ClassEditorTreeWidgetItem> * pClasses, const QString & szClassName, const QString & szInheritsClassName, bool bRenameMode) :
+    QDialog(pParent)
 {
 	setObjectName(szName);
 
@@ -2028,8 +2031,8 @@ void KviClassEditorDialog::textChanged(const QString & szText)
 	m_pNewClassButton->setEnabled(!szText.isEmpty());
 }
 
-KviClassEditorFunctionDialog::KviClassEditorFunctionDialog(QWidget * pParent, const QString & szName, const QString & szClassName, const QString & szFunctionName, const QString & szReminder, bool bIsInternal, bool bRenameMode)
-    : QDialog(pParent)
+KviClassEditorFunctionDialog::KviClassEditorFunctionDialog(QWidget * pParent, const QString & szName, const QString & szClassName, const QString & szFunctionName, const QString & szReminder, bool bIsInternal, bool bRenameMode) :
+    QDialog(pParent)
 {
 	setObjectName(szName);
 

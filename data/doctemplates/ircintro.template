@@ -27,7 +27,7 @@
 		Each channel can be joined by a virtually unlimited number of users and every word spoken to the channel is
 		seen by all the users that have joined it.
 		Each channel has a topic that usually describes the ideas being exchanged between users in that moment.
-		It is a good idea to take a look at the topic before starting to talk [i]randomly[/i] :).
+		It is a good idea to take a look at the topic before starting to talk [i]randomly[/i] .
 		Channels are run by channel operators, or just [i]ops[/i] for short, who can control the channel by choosing who may join (by [i]banning[/i] some users),
 		who must leave (by [i]kicking[/i] them out), and even who may speak (by making the channel [i]moderated[/i])!
 		Channel ops have complete control over their channel, and their decisions are final.
@@ -51,5 +51,5 @@
 		You may also give a short read to the [doc:kvircintro]Introduction to KVIrc[/doc] which will
 		give you an idea of what an IRC client is.
 		[big]Well...[/big]
-		Have fun :)
+		Have fun
 */

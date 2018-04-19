@@ -29,7 +29,7 @@
 #include "KviDataBuffer.h"
 #include "KviMemory.h"
 
-// FIXME: this could resize in chunks!...this would be damn faster :)
+// FIXME: this could resize in chunks!...this would be damn faster
 
 KviDataBuffer::KviDataBuffer(int uSize, const unsigned char * data)
 {

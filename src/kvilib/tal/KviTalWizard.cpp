@@ -151,8 +151,8 @@ public:
 	}
 };
 
-KviTalWizard::KviTalWizard(QWidget * pParent)
-    : QDialog(pParent)
+KviTalWizard::KviTalWizard(QWidget * pParent) :
+    QDialog(pParent)
 {
 	m_p = new KviTalWizardPrivate;
 	m_p->pPageList = new KviPointerList<KviTalWizardPageData>;

@@ -24,8 +24,8 @@
 
 #include "KviKvsObjectFunctionHandler.h"
 
-KviKvsObjectFunctionHandler::KviKvsObjectFunctionHandler(unsigned int uFlags)
-    : m_uFlags(uFlags)
+KviKvsObjectFunctionHandler::KviKvsObjectFunctionHandler(unsigned int uFlags) :
+    m_uFlags(uFlags)
 {
 	m_bClone = false;
 }

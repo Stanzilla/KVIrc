@@ -38,6 +38,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_lineEdit)
 public:
 	QWidget * widget() { return (QWidget *)object(); };
+
 protected:
 	QCompleter * m_pCompleter;
 

@@ -79,7 +79,7 @@
 		would occupy too much bandwidth (for example).
 		The DCC download is initiated by issuing a DCC GET <avatar_file> request to B.
 		B may then reply with a standard DCC SEND or a DCC RSEND (KVIrc's extension).[br]
-		The implementation of the DCC GET protocol is defined by other documents here around :).[br]
+		The implementation of the DCC GET protocol is defined by other documents here around .[br]
 		[br]
 		The CTCP AVATAR messages can be sent to a single user, a set of users or a channel:
 		this depends only on the source user and how many clients he wants to reach.

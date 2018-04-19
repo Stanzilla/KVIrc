@@ -869,7 +869,7 @@ public:
 	* The removed items are deleted if autodeletion is enabled.
 	* The hash table iterator is invalidated.
 	* Does not change autodelete flag: make sure you don't delete the
-	* items twice :)
+	* items twice
 	* \param t The data to copy
 	* \return void
 	*/

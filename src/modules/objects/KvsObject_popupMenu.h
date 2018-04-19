@@ -37,6 +37,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_popupMenu)
 public:
 	QWidget * widget() { return (QWidget *)object(); };
+
 protected:
 	virtual bool init(KviKvsRunTimeContext * pContext, KviKvsVariantList * pParams);
 

@@ -42,8 +42,8 @@
 // KviCanvasRectangleItem
 //
 
-KviCanvasRectangleItem::KviCanvasRectangleItem(QCanvas * c, int x, int y, int w, int h)
-    : QCanvasRectangle(x, y, w, h, c)
+KviCanvasRectangleItem::KviCanvasRectangleItem(QCanvas * c, int x, int y, int w, int h) :
+    QCanvasRectangle(x, y, w, h, c)
 {
 }
 
@@ -74,8 +74,8 @@ void KviCanvasRectangleItem::setProperty(const QString & property, const QVarian
 // KviCanvasPolygon
 //
 
-KviCanvasPolygon::KviCanvasPolygon(QCanvas * c, int x, int y, QPointArray & pnts, double dScaleFactor)
-    : QCanvasPolygon(c)
+KviCanvasPolygon::KviCanvasPolygon(QCanvas * c, int x, int y, QPointArray & pnts, double dScaleFactor) :
+    QCanvasPolygon(c)
 {
 	m_properties.insert("clrForeground", QVariant(QColor(0, 0, 0)));
 	m_properties.insert("uLineWidth", QVariant((unsigned int)0));
@@ -178,8 +178,8 @@ void KviCanvasPolygon::draw(QPainter & p)
 // KviCanvasEllipticItem
 //
 
-KviCanvasEllipticItem::KviCanvasEllipticItem(QCanvas * c, int x, int y, int w, int h)
-    : KviCanvasRectangleItem(c, x, y, w, h)
+KviCanvasEllipticItem::KviCanvasEllipticItem(QCanvas * c, int x, int y, int w, int h) :
+    KviCanvasRectangleItem(c, x, y, w, h)
 {
 	m_properties.insert("clrForeground", QVariant(QColor(0, 0, 0)));
 	m_properties.insert("uLineWidth", QVariant((unsigned int)0));
@@ -243,8 +243,8 @@ int KviCanvasEllipticItem::rtti() const
 // KviCanvasEllipse
 //
 
-KviCanvasEllipse::KviCanvasEllipse(QCanvas * c, int x, int y, int w, int h)
-    : KviCanvasEllipticItem(c, x, y, w, h)
+KviCanvasEllipse::KviCanvasEllipse(QCanvas * c, int x, int y, int w, int h) :
+    KviCanvasEllipticItem(c, x, y, w, h)
 {
 }
 
@@ -266,8 +266,8 @@ void KviCanvasEllipse::drawContent(QPainter & p)
 // KviCanvasPie
 //
 
-KviCanvasPie::KviCanvasPie(QCanvas * c, int x, int y, int w, int h)
-    : KviCanvasEllipticItem(c, x, y, w, h)
+KviCanvasPie::KviCanvasPie(QCanvas * c, int x, int y, int w, int h) :
+    KviCanvasEllipticItem(c, x, y, w, h)
 {
 	m_properties.insert("iStartAngle", QVariant((int)0));
 	m_properties.insert("iExtensionAngle", QVariant((int)360));
@@ -293,8 +293,8 @@ void KviCanvasPie::drawContent(QPainter & p)
 // KviCanvasChord
 //
 
-KviCanvasChord::KviCanvasChord(QCanvas * c, int x, int y, int w, int h)
-    : KviCanvasEllipticItem(c, x, y, w, h)
+KviCanvasChord::KviCanvasChord(QCanvas * c, int x, int y, int w, int h) :
+    KviCanvasEllipticItem(c, x, y, w, h)
 {
 	m_properties.insert("iStartAngle", QVariant((int)0));
 	m_properties.insert("iExtensionAngle", QVariant((int)360));
@@ -320,8 +320,8 @@ void KviCanvasChord::drawContent(QPainter & p)
 // KviCanvasRectangle
 //
 
-KviCanvasRectangle::KviCanvasRectangle(QCanvas * c, int x, int y, int w, int h)
-    : KviCanvasRectangleItem(c, x, y, w, h)
+KviCanvasRectangle::KviCanvasRectangle(QCanvas * c, int x, int y, int w, int h) :
+    KviCanvasRectangleItem(c, x, y, w, h)
 {
 	m_properties.insert("clrForeground", QVariant(QColor(0, 0, 0)));
 	m_properties.insert("uLineWidth", QVariant((unsigned int)0));
@@ -376,8 +376,8 @@ void KviCanvasRectangle::draw(QPainter & p)
 // KviCanvasRichText
 //
 
-KviCanvasRichText::KviCanvasRichText(QCanvas * c, int x, int y, int w, int h)
-    : KviCanvasRectangleItem(c, x, y, w, h)
+KviCanvasRichText::KviCanvasRichText(QCanvas * c, int x, int y, int w, int h) :
+    KviCanvasRectangleItem(c, x, y, w, h)
 {
 	QFont f = QFont();
 	f.setStyleHint(QFont::SansSerif);
@@ -413,8 +413,8 @@ void KviCanvasRichText::draw(QPainter & p)
 // KviCanvasLine
 //
 
-KviCanvasLine::KviCanvasLine(QCanvas * c, int x1, int y1, int x2, int y2)
-    : QCanvasLine(c)
+KviCanvasLine::KviCanvasLine(QCanvas * c, int x1, int y1, int x2, int y2) :
+    QCanvasLine(c)
 {
 	setPoints(x1, y1, x2, y2);
 	m_properties.insert("uLineWidth", QVariant((unsigned int)0));
@@ -460,8 +460,8 @@ void KviCanvasLine::draw(QPainter & p)
 // KviCanvasView
 //
 
-KviCanvasView::KviCanvasView(QCanvas * c, DccCanvasWidget * cw, QWidget * par)
-    : QCanvasView(c, par)
+KviCanvasView::KviCanvasView(QCanvas * c, DccCanvasWidget * cw, QWidget * par) :
+    QCanvasView(c, par)
 {
 	m_pCanvasWidget = cw;
 	m_state = Idle;
@@ -1204,8 +1204,8 @@ void KviCanvasView::propertyChanged(const QString & s, const QVariant & v)
 // KviVariantTableItem
 //
 
-KviVariantTableItem::KviVariantTableItem(QTable * t, const QVariant & property)
-    : QTableItem(t, QTableItem::WhenCurrent, QString())
+KviVariantTableItem::KviVariantTableItem(QTable * t, const QVariant & property) :
+    QTableItem(t, QTableItem::WhenCurrent, QString())
 {
 	m_property = property;
 }
@@ -1385,8 +1385,8 @@ void KviVariantTableItem::paint(QPainter * p, const QColorGroup & cg, const QRec
 // KviCanvasItemPropertiesWidget
 //
 
-KviCanvasItemPropertiesWidget::KviCanvasItemPropertiesWidget(QWidget * par)
-    : QTable(par)
+KviCanvasItemPropertiesWidget::KviCanvasItemPropertiesWidget(QWidget * par) :
+    QTable(par)
 {
 	setSelectionMode(QTable::NoSelection);
 	setColumnMovingEnabled(false);
@@ -1477,8 +1477,8 @@ void KviCanvasItemPropertiesWidget::editItem(QCanvasItem * it)
 // DccCanvasWidget
 //
 
-DccCanvasWidget::DccCanvasWidget(QWidget * par)
-    : QWidget(par, "canvas_widget")
+DccCanvasWidget::DccCanvasWidget(QWidget * par) :
+    QWidget(par, "canvas_widget")
 {
 	m_pCanvas = new QCanvas(this);
 	//#warning "Make this size as parameter of Dcc ?"

@@ -38,8 +38,8 @@
 #include <QScrollArea>
 #include <QString>
 
-KviModeEditor::KviModeEditor(QWidget * par, KviWindowToolPageButton * button, const char * name, KviChannelWindow * pChan)
-    : KviWindowToolWidget(par, button)
+KviModeEditor::KviModeEditor(QWidget * par, KviWindowToolPageButton * button, const char * name, KviChannelWindow * pChan) :
+    KviWindowToolWidget(par, button)
 {
 	setObjectName(name);
 	m_pChannel = pChan;

@@ -62,6 +62,7 @@ protected:
 	virtual bool asciiToBinary(const char *, int *, char **) { return false; }
 	virtual int getKeyLen() const { return 32; }
 	virtual Rijndael::KeyLength getKeyLenId() const { return Rijndael::Key32Bytes; }
+
 private:
 	void setLastErrorFromRijndaelErrorCode(int errCode);
 };
@@ -70,8 +71,9 @@ class KviRijndaelHexEngine : public KviRijndaelEngine
 {
 	Q_OBJECT
 public:
-	KviRijndaelHexEngine() : KviRijndaelEngine(){}
-	virtual ~KviRijndaelHexEngine(){}
+	KviRijndaelHexEngine() :
+	    KviRijndaelEngine() {}
+	virtual ~KviRijndaelHexEngine() {}
 
 protected:
 	bool binaryToAscii(const char * inBuffer, int len, KviCString & outBuffer) override;
@@ -82,8 +84,9 @@ class KviRijndael128HexEngine : public KviRijndaelHexEngine
 {
 	Q_OBJECT
 public:
-	KviRijndael128HexEngine() : KviRijndaelHexEngine(){}
-	virtual ~KviRijndael128HexEngine(){}
+	KviRijndael128HexEngine() :
+	    KviRijndaelHexEngine() {}
+	virtual ~KviRijndael128HexEngine() {}
 
 protected:
 	int getKeyLen() const override { return 16; }
@@ -94,8 +97,9 @@ class KviRijndael192HexEngine : public KviRijndaelHexEngine
 {
 	Q_OBJECT
 public:
-	KviRijndael192HexEngine() : KviRijndaelHexEngine(){}
-	virtual ~KviRijndael192HexEngine(){}
+	KviRijndael192HexEngine() :
+	    KviRijndaelHexEngine() {}
+	virtual ~KviRijndael192HexEngine() {}
 
 protected:
 	int getKeyLen() const override { return 24; }
@@ -106,8 +110,9 @@ class KviRijndael256HexEngine : public KviRijndaelHexEngine
 {
 	Q_OBJECT
 public:
-	KviRijndael256HexEngine() : KviRijndaelHexEngine(){}
-	virtual ~KviRijndael256HexEngine(){}
+	KviRijndael256HexEngine() :
+	    KviRijndaelHexEngine() {}
+	virtual ~KviRijndael256HexEngine() {}
 
 protected:
 	int getKeyLen() const override { return 32; }
@@ -117,8 +122,9 @@ class KviRijndaelBase64Engine : public KviRijndaelEngine
 {
 	Q_OBJECT
 public:
-	KviRijndaelBase64Engine() : KviRijndaelEngine(){}
-	virtual ~KviRijndaelBase64Engine(){}
+	KviRijndaelBase64Engine() :
+	    KviRijndaelEngine() {}
+	virtual ~KviRijndaelBase64Engine() {}
 
 protected:
 	bool binaryToAscii(const char * inBuffer, int len, KviCString & outBuffer) override;
@@ -129,8 +135,9 @@ class KviRijndael128Base64Engine : public KviRijndaelBase64Engine
 {
 	Q_OBJECT
 public:
-	KviRijndael128Base64Engine() : KviRijndaelBase64Engine(){}
-	virtual ~KviRijndael128Base64Engine(){}
+	KviRijndael128Base64Engine() :
+	    KviRijndaelBase64Engine() {}
+	virtual ~KviRijndael128Base64Engine() {}
 
 protected:
 	int getKeyLen() const override { return 16; }
@@ -141,8 +148,9 @@ class KviRijndael192Base64Engine : public KviRijndaelBase64Engine
 {
 	Q_OBJECT
 public:
-	KviRijndael192Base64Engine() : KviRijndaelBase64Engine(){}
-	virtual ~KviRijndael192Base64Engine(){}
+	KviRijndael192Base64Engine() :
+	    KviRijndaelBase64Engine() {}
+	virtual ~KviRijndael192Base64Engine() {}
 
 protected:
 	int getKeyLen() const override { return 24; }
@@ -153,8 +161,9 @@ class KviRijndael256Base64Engine : public KviRijndaelBase64Engine
 {
 	Q_OBJECT
 public:
-	KviRijndael256Base64Engine() : KviRijndaelBase64Engine(){}
-	virtual ~KviRijndael256Base64Engine(){}
+	KviRijndael256Base64Engine() :
+	    KviRijndaelBase64Engine() {}
+	virtual ~KviRijndael256Base64Engine() {}
 
 protected:
 	int getKeyLen() const override { return 32; }

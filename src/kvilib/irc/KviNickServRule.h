@@ -41,19 +41,20 @@ protected:
 	QString m_szIdentifyCommand; // the IDENTIFY command to send to server
 	QString m_szServerMask;      // the mask that the server must match (not used in per-network rules)
 public:
-	KviNickServRule() : KviHeapObject(){};
+	KviNickServRule() :
+	    KviHeapObject(){};
 	KviNickServRule(
 	    const QString & szRegisteredNick,
 	    const QString & szNickServMask,
 	    const QString & szMessageRegexp,
 	    const QString & szIdentifyCommand,
-	    const QString & szServerMask = QString::null)
-	    : KviHeapObject(),
-	      m_szRegisteredNick(szRegisteredNick),
-	      m_szNickServMask(szNickServMask),
-	      m_szMessageRegexp(szMessageRegexp),
-	      m_szIdentifyCommand(szIdentifyCommand),
-	      m_szServerMask(szServerMask){};
+	    const QString & szServerMask = QString::null) :
+	    KviHeapObject(),
+	    m_szRegisteredNick(szRegisteredNick),
+	    m_szNickServMask(szNickServMask),
+	    m_szMessageRegexp(szMessageRegexp),
+	    m_szIdentifyCommand(szIdentifyCommand),
+	    m_szServerMask(szServerMask){};
 
 public:
 	const QString & registeredNick() const { return m_szRegisteredNick; };
@@ -66,6 +67,7 @@ public:
 	void setMessageRegexp(const QString & szMessageRegexp) { m_szMessageRegexp = szMessageRegexp; };
 	void setIdentifyCommand(const QString & szIdentifyCommand) { m_szIdentifyCommand = szIdentifyCommand; };
 	void setServerMask(const QString & szServerMask) { m_szServerMask = szServerMask; };
+
 public:
 	// avoid crashes under windows
 	static KviNickServRule * createInstance(const QString & szRegisteredNick,

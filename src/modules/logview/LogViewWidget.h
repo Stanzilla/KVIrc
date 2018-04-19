@@ -69,6 +69,7 @@ public:
 	LogListViewLog(QTreeWidgetItem * pPar, LogFile::Type eType, LogFile * pLog);
 	~LogListViewLog(){};
 	virtual QString fileName() const { return m_pFileData->fileName(); };
+
 protected:
 	bool operator<(const QTreeWidgetItem & other) const
 	{

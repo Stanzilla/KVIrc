@@ -390,8 +390,7 @@ namespace KviKvsCoreSimpleCommands
 		{
 			szCommand = KVI_OPTION_STRING(KviOption_stringUrlHttpsCommand);
 		}
-		else if(KviQString::equalCIN(szUrl, "ftp", 3) || KviQString::equalCIN(szUrl, "sftp", 4) ||
-		        KviQString::equalCIN(szUrl, "ftps", 4) || KviQString::equalCIN(szUrl, "ftpes", 4))
+		else if(KviQString::equalCIN(szUrl, "ftp", 3) || KviQString::equalCIN(szUrl, "sftp", 4) || KviQString::equalCIN(szUrl, "ftps", 4) || KviQString::equalCIN(szUrl, "ftpes", 4))
 		{
 			szCommand = KVI_OPTION_STRING(KviOption_stringUrlFtpCommand);
 			if(KviQString::equalCIN(szUrl, "ftp.", 4))
@@ -1308,11 +1307,11 @@ namespace KviKvsCoreSimpleCommands
 				%winid = $window[br]
 				[comment]# Rebind to the console of the current IRC context[/comment][br]
 				rebind $console[br]
-				echo "Hello from the console :)"[br]
+				echo "Hello from the console"[br]
 				echo "Hello again.. still in the console"[br]
 				[comment]# Rebind back[/comment][br]
 				rebind %winid[br]
-				echo "Again in this window :)"
+				echo "Again in this window"
 			[/example]
 			[note]
 				[big]Deprecated switches:[/big]

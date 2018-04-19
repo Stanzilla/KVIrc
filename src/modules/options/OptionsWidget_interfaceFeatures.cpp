@@ -34,8 +34,8 @@
 
 #include <string.h>
 
-OptionsWidget_interfaceFeatures::OptionsWidget_interfaceFeatures(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_interfaceFeatures::OptionsWidget_interfaceFeatures(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("interfacefeatures_options_widget");
 	createLayout();

@@ -35,8 +35,8 @@
 extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 #endif
 
-KviThemedTreeWidget::KviThemedTreeWidget(QWidget * par, KviWindow * pWindow, const char * name)
-    : QTreeWidget(par)
+KviThemedTreeWidget::KviThemedTreeWidget(QWidget * par, KviWindow * pWindow, const char * name) :
+    QTreeWidget(par)
 {
 	setObjectName(name);
 	m_pKviWindow = pWindow;

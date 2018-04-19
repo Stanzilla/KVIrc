@@ -48,6 +48,7 @@ public:
 	virtual void dump(const char * prefix);
 	void dumpSwitchList(const char * prefix);
 	const QString & commandName() { return m_szCmdName; };
+
 protected:
 	void setSwitchList(KviKvsTreeNodeSwitchList * sw);
 };

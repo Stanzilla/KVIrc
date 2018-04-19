@@ -43,8 +43,8 @@
 namespace UPnP
 {
 
-	SsdpConnection::SsdpConnection()
-	    : QObject()
+	SsdpConnection::SsdpConnection() :
+	    QObject()
 	{
 		m_pSocket = new QUdpSocket();
 		connect(m_pSocket, SIGNAL(readyRead()), this, SLOT(slotDataReceived()));

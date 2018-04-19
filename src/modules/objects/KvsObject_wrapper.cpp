@@ -152,7 +152,7 @@
 			%Win = $new(wrapper,0,test,!Window::$window,!Parent::3)
 			%Win->$setGeometry(10,10,40,40)
 		[/example]
-		Experiment with it :)
+		Experiment with it
 */
 
 KVSO_BEGIN_REGISTERCLASS(KvsObject_wrapper, "wrapper", "widget")
@@ -214,7 +214,7 @@ bool KvsObject_wrapper::init(KviKvsRunTimeContext * pContext, KviKvsVariantList 
 
 		if(
 		    KviQString::equalCI(szClass, "!Window") || KviQString::equalCI(szClass, "WinId") // compat
-		    )
+		)
 		{
 			if(pWidget)
 				pContext->warning(__tr2qs_ctx("The window identifier preceded by '!Window' should be the first in the search path", "objects"));

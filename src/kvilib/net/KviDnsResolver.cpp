@@ -72,8 +72,8 @@ void KviDnsResolverResult::appendAddress(const QString & addr)
 	m_pIpAddressList.push_back(addr);
 }
 
-KviDnsResolverThread::KviDnsResolverThread(KviDnsResolver * pDns)
-    : QThread()
+KviDnsResolverThread::KviDnsResolverThread(KviDnsResolver * pDns) :
+    QThread()
 {
 	m_pParentDns = pDns;
 }
@@ -182,7 +182,7 @@ void KviDnsResolverThread::run()
 	struct in_addr inAddr;
 	struct hostent * pHostEntry = 0;
 
-	// DIE DIE!....I hope that this stuff will disappear sooner or later :)
+	// DIE DIE!....I hope that this stuff will disappear sooner or later
 
 	if(KviNetUtils::stringIpToBinaryIp(m_szQuery, &inAddr))
 	{
@@ -255,7 +255,6 @@ void KviDnsResolverThread::run()
 	if(!bIsIPv4Ip)
 		bIsIPv6Ip = KviNetUtils::stringIpToBinaryIp_V6(m_szQuery, (struct in6_addr *)&(ipv6Addr.sin6_addr));
 #endif
-
 
 #ifdef COMPILE_IPV6_SUPPORT
 	if(bIsIPv4Ip || bIsIPv6Ip)
@@ -373,8 +372,8 @@ void KviDnsResolverThread::run()
 	QApplication::postEvent(m_pParentDns, pEvent);
 }
 
-KviDnsResolver::KviDnsResolver()
-    : QObject()
+KviDnsResolver::KviDnsResolver() :
+    QObject()
 {
 	m_pSlaveThread = new KviDnsResolverThread(this);
 	m_pDnsResult = new KviDnsResolverResult();

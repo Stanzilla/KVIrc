@@ -56,6 +56,7 @@ public:
 	void mergeResetFlag(int flag) { m_iResetFlags |= flag; };
 	void createLayout();
 	QGridLayout * layout() { return m_pLayout; };
+
 protected:
 	void commitSelectors();
 	void commitOptionsReset();

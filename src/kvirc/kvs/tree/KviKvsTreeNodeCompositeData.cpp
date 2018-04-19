@@ -27,8 +27,8 @@
 
 #define DEBUGME
 
-KviKvsTreeNodeCompositeData::KviKvsTreeNodeCompositeData(const QChar * pLocation, KviPointerList<KviKvsTreeNodeData> * pSubData)
-    : KviKvsTreeNodeData(pLocation)
+KviKvsTreeNodeCompositeData::KviKvsTreeNodeCompositeData(const QChar * pLocation, KviPointerList<KviKvsTreeNodeData> * pSubData) :
+    KviKvsTreeNodeData(pLocation)
 {
 #ifdef DEBUGME
 	if(pSubData->count() < 2)

@@ -26,7 +26,6 @@
 // This file was originally part of KviIrcView.cpp
 //
 
-
 #include "KviChannelWindow.h"
 #include "KviIrcView.h"
 #include "KviIrcView_private.h"
@@ -159,12 +158,11 @@ static inline bool url_compare_helper(const kvi_wchar_t * pData1, const kvi_wcha
 }
 
 const kvi_wchar_t * KviIrcView::getTextLine(
-		int iMsgType,
-		const kvi_wchar_t * data_ptr,
-		KviIrcViewLine * line_ptr,
-		bool bEnableTimeStamp,
-		const QDateTime & datetime_param
-	)
+    int iMsgType,
+    const kvi_wchar_t * data_ptr,
+    KviIrcViewLine * line_ptr,
+    bool bEnableTimeStamp,
+    const QDateTime & datetime_param)
 {
 	const kvi_wchar_t * pUnEscapeAt = nullptr;
 
@@ -252,57 +250,57 @@ const kvi_wchar_t * KviIrcView::getTextLine(
 		line_ptr->pChunks[0].iTextLen = 0;
 	}
 
-	//
-	// Ok... a couple of macros that occur really frequently
-	// in the following code...
-	// these could work well as functions too...but the macros are a lot faster :)
-	//
-	
-	/*
+//
+// Ok... a couple of macros that occur really frequently
+// in the following code...
+// these could work well as functions too...but the macros are a lot faster
+//
+
+/*
 	 * Profane description: this adds a block of text of known length to a already created chunk inside this line.
 	 */
-	#define APPEND_LAST_TEXT_BLOCK(__data_ptr, __data_len)                               \
-		blockLen = (__data_len);                                                         \
-		line_ptr->pChunks[iCurChunk].iTextLen += blockLen;                               \
-		kvi_appendWCharToQStringWithLength(&(line_ptr->szText), __data_ptr, __data_len); \
-		iTextIdx += blockLen;
-	
+#define APPEND_LAST_TEXT_BLOCK(__data_ptr, __data_len)                               \
+	blockLen = (__data_len);                                                         \
+	line_ptr->pChunks[iCurChunk].iTextLen += blockLen;                               \
+	kvi_appendWCharToQStringWithLength(&(line_ptr->szText), __data_ptr, __data_len); \
+	iTextIdx += blockLen;
+
 	/*
 	 * Profane description: this adds a block of text of known length to a already created chunk inside this line.
 	 * text is hidden (e.g. we want to display an emoticon instead of the ":)" text, so we insert it hidden)
 	 */
-	
-	#define APPEND_LAST_TEXT_BLOCK_HIDDEN_FROM_NOW(__data_ptr, __data_len)               \
-		blockLen = (__data_len);                                                         \
-		kvi_appendWCharToQStringWithLength(&(line_ptr->szText), __data_ptr, __data_len); \
-		iTextIdx += blockLen;
-	
+
+#define APPEND_LAST_TEXT_BLOCK_HIDDEN_FROM_NOW(__data_ptr, __data_len)               \
+	blockLen = (__data_len);                                                         \
+	kvi_appendWCharToQStringWithLength(&(line_ptr->szText), __data_ptr, __data_len); \
+	iTextIdx += blockLen;
+
 	/*
 	 * Profane description: this is dummy
 	 */
-	
-	#define APPEND_ZERO_LENGTH_BLOCK(__data_ptr) /* does nothing */
-	
+
+#define APPEND_ZERO_LENGTH_BLOCK(__data_ptr) /* does nothing */
+
 	/*
 	 * Profane description: this adds a new chunk to the current line of the specified type. A chunk is a block of text
 	 * with similar style properties (mainly with the same color)
 	 */
-	
-	#define NEW_LINE_CHUNK(_chunk_type)                                                             \
-		line_ptr->uChunkCount++;                                                                    \
-		line_ptr->pChunks = (KviIrcViewLineChunk *)KviMemory::reallocate((void *)line_ptr->pChunks, \
-		    line_ptr->uChunkCount * sizeof(KviIrcViewLineChunk));                                   \
-		iCurChunk++;                                                                                \
-		line_ptr->pChunks[iCurChunk].type = _chunk_type;                                            \
-		line_ptr->pChunks[iCurChunk].iTextStart = iTextIdx;                                         \
-		line_ptr->pChunks[iCurChunk].iTextLen = 0;                                                  \
-		if(iCurChunk > 0)                                                                           \
-			line_ptr->pChunks[iCurChunk].customFore = line_ptr->pChunks[iCurChunk - 1].customFore;
 
-		// EOF Macros
-	
+#define NEW_LINE_CHUNK(_chunk_type)                                                             \
+	line_ptr->uChunkCount++;                                                                    \
+	line_ptr->pChunks = (KviIrcViewLineChunk *)KviMemory::reallocate((void *)line_ptr->pChunks, \
+	    line_ptr->uChunkCount * sizeof(KviIrcViewLineChunk));                                   \
+	iCurChunk++;                                                                                \
+	line_ptr->pChunks[iCurChunk].type = _chunk_type;                                            \
+	line_ptr->pChunks[iCurChunk].iTextStart = iTextIdx;                                         \
+	line_ptr->pChunks[iCurChunk].iTextLen = 0;                                                  \
+	if(iCurChunk > 0)                                                                           \
+		line_ptr->pChunks[iCurChunk].customFore = line_ptr->pChunks[iCurChunk - 1].customFore;
+
+	// EOF Macros
+
 	int partLen;
-	
+
 	/*
 	 * Some additional description for the profanes: we want a fast way to check the presence of "active objects we have to process" in lines of text;
 	 * such objects can be: EOF, URLs, mIRC control characters, emoticons, and so on. We implemented a jump table to accomplish this task very fast.
@@ -311,12 +309,12 @@ const kvi_wchar_t * KviIrcView::getTextLine(
 	 * Imagine to parse the input line one character at once and match it (as a switch can do) against this big array. Every 1-byte character corresponds
 	 * to an ASCII integer between 0 and 255. If the array value for that integer key is defined and !=0, we jump to the corresponding label address.
 	 * Example, if we find a "H" (72) we'll "goto char_to_check_jump_table[72]", aka "goto check_http_url".
-	 * There exists two different versions of this tricky code, we switch them depending on the compiler abilities to accept our bad code :)
+	 * There exists two different versions of this tricky code, we switch them depending on the compiler abilities to accept our bad code
 	 */
-	
+
 #ifdef COMPILE_USE_DYNAMIC_LABELS
 
-	// Heresy :)
+	// Heresy
 
 	// This is not only usage of the *Evil Goto(tm)*
 	// This is also a *rather unclear* use of the *Really Evil Goto(tm)*
@@ -324,7 +322,7 @@ const kvi_wchar_t * KviIrcView::getTextLine(
 	// we use it to jump to the proper check
 	// loop_begin is a dynamic label, and we use it to
 	// return to the appropriate loop
-	// This is again BAD PROGRAMMING(TM) :).... but it is faster than
+	// This is again BAD PROGRAMMING(TM) .... but it is faster than
 	// the version with no dynamic gotos, and really faster
 	// that any version without gotos that came into my mind...
 	//
@@ -429,7 +427,7 @@ const kvi_wchar_t * KviIrcView::getTextLine(
 	if(KVI_OPTION_BOOL(KviOption_boolIrcViewUrlHighlighting) || KVI_OPTION_BOOL(KviOption_boolDrawEmoticons))
 	{
 		loop_begin = &&highlighting_check_loop; // get the address of the return label
-	                                            // forever loop
+		                                        // forever loop
 	highlighting_check_loop:
 		// yet more optimized
 		if(*((unsigned short *)p) < 0xff)
@@ -444,14 +442,14 @@ const kvi_wchar_t * KviIrcView::getTextLine(
 	else
 	{
 		loop_begin = &&escape_check_loop; // get the address of the return label
-	                                      // forever loop
+		                                  // forever loop
 	escape_check_loop:
 		while(*((unsigned short *)p) > 31)
 			p++;
 		goto check_escape_switch; // returns to escape_check_loop or returns from the function at all
 		                          // never here
 	}
-// never here
+	// never here
 
 #else // !COMPILE_USE_DYNAMIC_LABELS
 
@@ -530,7 +528,7 @@ check_char_loop:
 
 #endif // !COMPILE_USE_DYNAMIC_LABELS
 
-/*
+	/*
  * Profane description:
  * Here the two different approaches to the jump table ends. Following there's the list of all the possible
  * codes found. The "check table" approach needs an additional switch to discriminate between different control codes,
@@ -542,7 +540,7 @@ check_escape_switch:
 	{
 		case '\0':
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_end_of_buffer:
+		found_end_of_buffer:
 #endif //COMPILE_USE_DYNAMIC_LABELS
 			APPEND_LAST_TEXT_BLOCK(data_ptr, p - data_ptr)
 			if(pUnEscapeAt)
@@ -555,9 +553,9 @@ found_end_of_buffer:
 			break;
 		case '\n':
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_end_of_line:
-#endif //COMPILE_USE_DYNAMIC_LABELS
-			// Found the end of a line
+		found_end_of_line:
+#endif //COMPILE_USE_DYNAMIC_LABELS \
+    // Found the end of a line
 			APPEND_LAST_TEXT_BLOCK(data_ptr, p - data_ptr);
 			if(pUnEscapeAt)
 			{
@@ -573,9 +571,9 @@ found_end_of_line:
 			break;
 		case '\t':
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_tab:
-#endif //COMPILE_USE_DYNAMIC_LABELS
-			// Found tab. Artificial end of block.
+		found_tab:
+#endif //COMPILE_USE_DYNAMIC_LABELS \
+    // Found tab. Artificial end of block.
 			APPEND_LAST_TEXT_BLOCK(data_ptr, p - data_ptr);
 			// Artificial block with a single tab
 			NEW_LINE_CHUNK(KviControlCodes::ArbitraryBreak);
@@ -585,10 +583,10 @@ found_tab:
 			NEW_LINE_CHUNK(KviControlCodes::ArbitraryBreak);
 			data_ptr = p;
 			p++;
-		break;
+			break;
 		case '\r':
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_command_escape:
+		found_command_escape:
 #endif //COMPILE_USE_DYNAMIC_LABELS
 
 			if(p == pUnEscapeAt)
@@ -689,9 +687,9 @@ found_command_escape:
 			break;
 		case KviControlCodes::Color:
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_color_escape:
-#endif //COMPILE_USE_DYNAMIC_LABELS
-			//Color control code...need a new attribute struct
+		found_color_escape:
+#endif //COMPILE_USE_DYNAMIC_LABELS \
+    //Color control code...need a new attribute struct
 			APPEND_LAST_TEXT_BLOCK(data_ptr, p - data_ptr)
 			NEW_LINE_CHUNK(*p)
 			p++;
@@ -700,7 +698,7 @@ found_color_escape:
 			break;
 		case KviControlCodes::Icon:
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_icon_escape:
+		found_icon_escape:
 #endif //COMPILE_USE_DYNAMIC_LABELS
 			p++;
 			if(KVI_OPTION_BOOL(KviOption_boolDrawEmoticons))
@@ -753,7 +751,7 @@ found_icon_escape:
 		case KviControlCodes::Reverse:
 		case KviControlCodes::Reset:
 #ifdef COMPILE_USE_DYNAMIC_LABELS
-found_mirc_escape:
+		found_mirc_escape:
 #endif //COMPILE_USE_DYNAMIC_LABELS
 			APPEND_LAST_TEXT_BLOCK(data_ptr, p - data_ptr)
 			NEW_LINE_CHUNK(*p)
@@ -764,7 +762,7 @@ found_mirc_escape:
 			break;
 	}
 
-/*
+		/*
  * Profane description: end of the additional switch needed in the "check table" approach;
  * the next instruction re-starts the loop
  */
@@ -775,7 +773,7 @@ found_mirc_escape:
 	goto check_char_loop;
 #endif // !COMPILE_USE_DYNAMIC_LABELS
 
-/*
+	/*
  * Profane description: More codes. The difference from the previous block is that these codes doesn't need the additional switch in the
  * "check table" approach as before.
  */
@@ -1109,7 +1107,7 @@ got_url:
 	goto check_char_loop;
 #endif // !COMPILE_USE_DYNAMIC_LABELS
 
-//FIXME #warning: Add more emoticons, and more intelligent code to detect when they're not really emoticons
+	//FIXME #warning: Add more emoticons, and more intelligent code to detect when they're not really emoticons
 
 check_emoticon_char:
 	// What about this ?

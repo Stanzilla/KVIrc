@@ -75,6 +75,7 @@ public:
 	bool isAway() const { return m_bAway; }
 	kvi_time_t awayTime() const { return m_tAway; }
 	const QString & nickNameBeforeAway() const { return m_szNickBeforeAway; }
+
 protected:
 	void setRealName(const QString & szRealName) { m_szRealName = szRealName; }
 	void setNickName(const QString & szNickName) { m_szNickName = szNickName; }

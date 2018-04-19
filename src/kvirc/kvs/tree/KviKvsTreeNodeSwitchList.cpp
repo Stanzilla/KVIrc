@@ -25,8 +25,8 @@
 #include "KviKvsTreeNodeSwitchList.h"
 #include "KviKvsRunTimeContext.h"
 
-KviKvsTreeNodeSwitchList::KviKvsTreeNodeSwitchList(const QChar * pLocation)
-    : KviKvsTreeNode(pLocation)
+KviKvsTreeNodeSwitchList::KviKvsTreeNodeSwitchList(const QChar * pLocation) :
+    KviKvsTreeNode(pLocation)
 {
 	m_pShortSwitchDict = nullptr;
 	m_pLongSwitchDict = nullptr;

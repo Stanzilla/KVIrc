@@ -28,8 +28,8 @@
 KviIdentityProfileSet * KviIdentityProfileSet::m_pSelf = nullptr;
 unsigned int KviIdentityProfileSet::m_uCount = 0;
 
-KviIdentityProfileSet::KviIdentityProfileSet()
-    : KviHeapObject()
+KviIdentityProfileSet::KviIdentityProfileSet() :
+    KviHeapObject()
 {
 	m_bEnabled = false;
 	m_pProfiles = nullptr;

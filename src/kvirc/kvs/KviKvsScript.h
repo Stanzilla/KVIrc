@@ -113,7 +113,7 @@ public:
 	/**
 	* \brief Constructs a KVIrc Script object
 	* \param szName The name of the context
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \param eType The type of the code in the buffer
 	* \return KviKvsScript
 	*/
@@ -128,7 +128,7 @@ protected:
 	/**
 	* \brief Constructs a KVIrc Script object
 	* \param szName The name of the context
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \param pPreparsedTree The synthax tree
 	* \param eType The type of the code in the buffer
 	* \return KviKvsScript

@@ -50,7 +50,7 @@
 *
 * This is usually changed only when a setup is really needed because of an
 * incompatible change in the configuration files
-* .. so do NOT change it just when you change KVI_SOURCES_DATE_NUMERIC :)
+* .. so do NOT change it just when you change KVI_SOURCES_DATE_NUMERIC
 * \def KVI_SOURCES_DATE_NUMERIC_FORCE_SETUP Defines a forced setup
 */
 #define KVI_SOURCES_DATE_NUMERIC_FORCE_SETUP 0x20080324

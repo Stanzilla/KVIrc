@@ -31,8 +31,8 @@
 #include "KviDebugWindow.h"
 #include "KviOptions.h"
 
-KviKvsReport::KviKvsReport(Type t, const QString & szContext, const QString & szMessage, const QString & szLocation, KviWindow * pWindow)
-    : m_eType(t), m_szContext(szContext), m_szMessage(szMessage), m_szLocation(szLocation), m_pWindow(pWindow)
+KviKvsReport::KviKvsReport(Type t, const QString & szContext, const QString & szMessage, const QString & szLocation, KviWindow * pWindow) :
+    m_eType(t), m_szContext(szContext), m_szMessage(szMessage), m_szLocation(szLocation), m_pWindow(pWindow)
 {
 	m_pCallStack = nullptr;
 	m_pCodeListing = nullptr;

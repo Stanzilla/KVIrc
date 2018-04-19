@@ -67,8 +67,8 @@
 
 static KviPointerList<KviCryptEngine> * g_pEngineList = nullptr;
 
-KviRijndaelEngine::KviRijndaelEngine()
-    : KviCryptEngine()
+KviRijndaelEngine::KviRijndaelEngine() :
+    KviCryptEngine()
 {
 	g_pEngineList->append(this);
 	m_pEncryptCipher = nullptr;
@@ -439,8 +439,8 @@ static void deallocRijndaelCryptEngine(KviCryptEngine * e)
 
 #include "BlowFish.h"
 
-KviMircryptionEngine::KviMircryptionEngine()
-    : KviCryptEngine()
+KviMircryptionEngine::KviMircryptionEngine() :
+    KviCryptEngine()
 {
 	g_pEngineList->append(this);
 }

@@ -36,8 +36,8 @@
 #include "KviKvsScriptAddonManager.h"
 #include "KviMiscUtils.h"
 
-WebAddonInterfaceDialog::WebAddonInterfaceDialog(QWidget * par)
-    : KviWebPackageManagementDialog(par)
+WebAddonInterfaceDialog::WebAddonInterfaceDialog(QWidget * par) :
+    KviWebPackageManagementDialog(par)
 {
 	setWindowTitle(__tr2qs_ctx("Download Addons - KVIrc", "theme"));
 

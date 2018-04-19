@@ -27,8 +27,8 @@
 #include "KviKvsObject.h"
 #include "KviKvsHash.h"
 
-KviKvsTreeNodeObjectField::KviKvsTreeNodeObjectField(const QChar * pLocation, const QString & szIdentifier)
-    : KviKvsTreeNodeVariable(pLocation, szIdentifier)
+KviKvsTreeNodeObjectField::KviKvsTreeNodeObjectField(const QChar * pLocation, const QString & szIdentifier) :
+    KviKvsTreeNodeVariable(pLocation, szIdentifier)
 {
 }
 

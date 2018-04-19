@@ -58,9 +58,9 @@ public:
 
 protected:
 	// main data
-	QString m_szName;                        // object name
-	kvs_hobject_t m_hObject;                 // global object handle
-	KviKvsObjectClass * m_pClass = nullptr;  // the class definition
+	QString m_szName;                       // object name
+	kvs_hobject_t m_hObject;                // global object handle
+	KviKvsObjectClass * m_pClass = nullptr; // the class definition
 
 	KviKvsHash * m_pDataContainer = nullptr; // member variables
 

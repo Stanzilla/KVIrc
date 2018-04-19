@@ -40,8 +40,8 @@
 extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 #endif
 
-KviThemedComboBox::KviThemedComboBox(QWidget * par, KviWindow * pWindow, const char * name)
-    : QComboBox(par)
+KviThemedComboBox::KviThemedComboBox(QWidget * par, KviWindow * pWindow, const char * name) :
+    QComboBox(par)
 {
 	setObjectName(name);
 	m_pKviWindow = pWindow;
@@ -71,12 +71,12 @@ void KviThemedComboBox::applyOptions()
 		// workaround for broken oxygen in kde4.4: use palette() instead that stylesheet
 		// ia-ora- are the mandriva default styles
 #endif
-		setFont(KVI_OPTION_FONT(KviOption_fontLabel));
-		QPalette pal = palette();
-		pal.setBrush(QPalette::Base, bIsTrasparent ? Qt::transparent : KVI_OPTION_COLOR(KviOption_colorLabelBackground));
-		//qcombobox forces QPalette::Text as its forecolor
-		pal.setBrush(QPalette::Text, bIsTrasparent ? KVI_OPTION_MIRCCOLOR(KVI_OPTION_MSGTYPE(KVI_OUT_NONE).fore()) : KVI_OPTION_COLOR(KviOption_colorLabelForeground));
-		setPalette(pal);
+	setFont(KVI_OPTION_FONT(KviOption_fontLabel));
+	QPalette pal = palette();
+	pal.setBrush(QPalette::Base, bIsTrasparent ? Qt::transparent : KVI_OPTION_COLOR(KviOption_colorLabelBackground));
+	//qcombobox forces QPalette::Text as its forecolor
+	pal.setBrush(QPalette::Text, bIsTrasparent ? KVI_OPTION_MIRCCOLOR(KVI_OPTION_MSGTYPE(KVI_OUT_NONE).fore()) : KVI_OPTION_COLOR(KviOption_colorLabelForeground));
+	setPalette(pal);
 #if 0
 	} else {
 		//QString szStyle = QString("QComboBox { background: %1; color: %2; font-family: %3; font-size: %4pt; font-weight: %5; font-style: %6;}")

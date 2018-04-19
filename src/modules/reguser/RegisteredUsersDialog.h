@@ -54,8 +54,8 @@ signals:
 class RegisteredUsersDialogItemDelegate : public QStyledItemDelegate
 {
 public:
-	RegisteredUsersDialogItemDelegate(KviRegisteredUsersListView * pWidget = 0)
-	    : QStyledItemDelegate(pWidget){};
+	RegisteredUsersDialogItemDelegate(KviRegisteredUsersListView * pWidget = 0) :
+	    QStyledItemDelegate(pWidget){};
 	~RegisteredUsersDialogItemDelegate(){};
 	QSize sizeHint(const QStyleOptionViewItem & option, const QModelIndex & index) const;
 	void paint(QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index) const;
@@ -71,10 +71,10 @@ public:
 	};
 
 protected:
-	RegisteredUsersDialogItemBase(Types type, KviRegisteredUsersListView * par)
-	    : QTreeWidgetItem(par), m_iType(type){};
-	RegisteredUsersDialogItemBase(Types type, QTreeWidgetItem * par)
-	    : QTreeWidgetItem(par), m_iType(type){};
+	RegisteredUsersDialogItemBase(Types type, KviRegisteredUsersListView * par) :
+	    QTreeWidgetItem(par), m_iType(type){};
+	RegisteredUsersDialogItemBase(Types type, QTreeWidgetItem * par) :
+	    QTreeWidgetItem(par), m_iType(type){};
 	~RegisteredUsersDialogItemBase(){};
 
 private:
@@ -90,8 +90,8 @@ protected:
 	KviRegisteredUserGroup * m_pGroup;
 
 public:
-	RegisteredUsersGroupItem(KviRegisteredUsersListView * par, KviRegisteredUserGroup * g)
-	    : RegisteredUsersDialogItemBase(Group, par), m_pGroup(g)
+	RegisteredUsersGroupItem(KviRegisteredUsersListView * par, KviRegisteredUserGroup * g) :
+	    RegisteredUsersDialogItemBase(Group, par), m_pGroup(g)
 	{
 		setText(0, m_pGroup->name());
 	}

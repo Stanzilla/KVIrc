@@ -57,6 +57,7 @@ protected:
 	void registerTransfer(KviFileTransfer * t);
 	void unregisterTransfer(KviFileTransfer * t);
 	void setTransferWindow(KviWindow * wnd) { m_pTransferWindow = wnd; }
+
 public:
 	// might be zero!
 	KviWindow * transferWindow() const { return m_pTransferWindow; }

@@ -28,8 +28,8 @@
 #include "KviKvsVariantList.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeParameterReturn::KviKvsTreeNodeParameterReturn(const QChar * pLocation, KviKvsTreeNodeDataList * pDataList)
-    : KviKvsTreeNodeInstruction(pLocation)
+KviKvsTreeNodeParameterReturn::KviKvsTreeNodeParameterReturn(const QChar * pLocation, KviKvsTreeNodeDataList * pDataList) :
+    KviKvsTreeNodeInstruction(pLocation)
 {
 	m_pDataList = pDataList;
 	m_pDataList->setParent(this);

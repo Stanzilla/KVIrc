@@ -87,7 +87,7 @@ public:
 
 	/**
 	* \brief Sets the buffer
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	virtual void contextDescription(QString & szBuffer) = 0;

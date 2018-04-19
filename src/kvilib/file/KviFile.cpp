@@ -29,13 +29,13 @@
 
 #include <QByteArray>
 
-KviFile::KviFile()
-    : QFile()
+KviFile::KviFile() :
+    QFile()
 {
 }
 
-KviFile::KviFile(const QString & szName)
-    : QFile(szName)
+KviFile::KviFile(const QString & szName) :
+    QFile(szName)
 {
 }
 

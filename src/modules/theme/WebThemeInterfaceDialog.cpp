@@ -34,8 +34,8 @@
 #include "KviIconManager.h"
 #include "KviLocale.h"
 
-WebThemeInterfaceDialog::WebThemeInterfaceDialog(QWidget * par)
-    : KviWebPackageManagementDialog(par)
+WebThemeInterfaceDialog::WebThemeInterfaceDialog(QWidget * par) :
+    KviWebPackageManagementDialog(par)
 {
 	setWindowTitle(__tr2qs_ctx("Download Themes - KVIrc", "theme"));
 

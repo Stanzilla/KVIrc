@@ -30,8 +30,8 @@
 
 #include <QLayout>
 
-OptionsWidget_ignore::OptionsWidget_ignore(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_ignore::OptionsWidget_ignore(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ignore_options_widget");
 	createLayout();

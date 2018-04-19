@@ -1,6 +1,6 @@
 # Default popups file
 #
-# KVIrc has a lot of events that merely ask for a popup to be shown :)
+# KVIrc has a lot of events that merely ask for a popup to be shown
 # Notice: when assigning icons to popups entries use $icon("iconname") not icon numbers
 # Coding style/curly brackets: Allman style
 #

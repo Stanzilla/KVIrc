@@ -30,16 +30,16 @@
 
 #include <QLayout>
 
-OptionsWidget_ircViewTheme::OptionsWidget_ircViewTheme(QWidget * pParent)
-    : KviOptionsWidget(pParent)
+OptionsWidget_ircViewTheme::OptionsWidget_ircViewTheme(QWidget * pParent) :
+    KviOptionsWidget(pParent)
 {
 }
 
 OptionsWidget_ircViewTheme::~OptionsWidget_ircViewTheme()
     = default;
 
-OptionsWidget_ircViewLook::OptionsWidget_ircViewLook(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_ircViewLook::OptionsWidget_ircViewLook(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ircviewlook_options_widget");
 	createLayout();
@@ -135,8 +135,8 @@ void OptionsWidget_ircViewLook::commit()
 	KviOptionsWidget::commit();
 }
 
-OptionsWidget_ircViewFeatures::OptionsWidget_ircViewFeatures(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_ircViewFeatures::OptionsWidget_ircViewFeatures(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ircviewfeatures_options_widget");
 	createLayout();
@@ -166,8 +166,8 @@ OptionsWidget_ircViewFeatures::OptionsWidget_ircViewFeatures(QWidget * parent)
 OptionsWidget_ircViewFeatures::~OptionsWidget_ircViewFeatures()
     = default;
 
-OptionsWidget_ircViewMarker::OptionsWidget_ircViewMarker(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_ircViewMarker::OptionsWidget_ircViewMarker(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ircviewmarker_options_widget");
 	createLayout();

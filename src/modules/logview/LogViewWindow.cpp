@@ -62,8 +62,8 @@
 
 extern LogViewWindow * g_pLogViewWindow;
 
-LogViewListView::LogViewListView(QWidget * pParent)
-    : QTreeWidget(pParent)
+LogViewListView::LogViewListView(QWidget * pParent) :
+    QTreeWidget(pParent)
 {
 	header()->setSortIndicatorShown(true);
 	setColumnCount(1);
@@ -85,8 +85,8 @@ void LogViewListView::mousePressEvent(QMouseEvent * pEvent)
 	QTreeWidget::mousePressEvent(pEvent);
 }
 
-LogViewWindow::LogViewWindow()
-    : KviWindow(KviWindow::LogView, "log")
+LogViewWindow::LogViewWindow() :
+    KviWindow(KviWindow::LogView, "log")
 {
 	g_pLogViewWindow = this;
 	//m_pLogViewWidget = new KviLogViewWidget(this);

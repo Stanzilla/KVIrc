@@ -38,26 +38,30 @@
 #include <zlib.h>
 #endif
 
-LogListViewItem::LogListViewItem(QTreeWidgetItem * pPar, LogFile::Type eType, LogFile * pLog)
-    : QTreeWidgetItem(pPar), m_eType(eType), m_pFileData(pLog)
+LogListViewItem::LogListViewItem(QTreeWidgetItem * pPar, LogFile::Type eType, LogFile * pLog) :
+    QTreeWidgetItem(pPar),
+    m_eType(eType),
+    m_pFileData(pLog)
 {
 	setText(0, m_pFileData ? m_pFileData->name() : QString());
 }
 
-LogListViewItem::LogListViewItem(QTreeWidget * pPar, LogFile::Type eType, LogFile * pLog)
-    : QTreeWidgetItem(pPar), m_eType(eType), m_pFileData(pLog)
+LogListViewItem::LogListViewItem(QTreeWidget * pPar, LogFile::Type eType, LogFile * pLog) :
+    QTreeWidgetItem(pPar),
+    m_eType(eType),
+    m_pFileData(pLog)
 {
 	setText(0, m_pFileData ? m_pFileData->name() : QString());
 }
 
-LogListViewItemFolder::LogListViewItemFolder(QTreeWidgetItem * pPar, const QString & szLabel)
-    : LogListViewItem(pPar, LogFile::Other, nullptr)
+LogListViewItemFolder::LogListViewItemFolder(QTreeWidgetItem * pPar, const QString & szLabel) :
+    LogListViewItem(pPar, LogFile::Other, nullptr)
 {
 	setText(0, szLabel);
 }
 
-LogListViewItemType::LogListViewItemType(QTreeWidget * pPar, LogFile::Type eType)
-    : LogListViewItem(pPar, eType, nullptr)
+LogListViewItemType::LogListViewItemType(QTreeWidget * pPar, LogFile::Type eType) :
+    LogListViewItem(pPar, eType, nullptr)
 {
 	QIcon icon;
 	QString szText;
@@ -89,8 +93,8 @@ LogListViewItemType::LogListViewItemType(QTreeWidget * pPar, LogFile::Type eType
 	setText(0, szText);
 }
 
-LogListViewLog::LogListViewLog(QTreeWidgetItem * pPar, LogFile::Type eType, LogFile * pLog)
-    : LogListViewItem(pPar, eType, pLog)
+LogListViewLog::LogListViewLog(QTreeWidgetItem * pPar, LogFile::Type eType, LogFile * pLog) :
+    LogListViewItem(pPar, eType, pLog)
 {
 	setText(0, m_pFileData->date().toString("yyyy-MM-dd"));
 }

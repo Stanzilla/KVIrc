@@ -64,8 +64,8 @@ KviKvsDnsObject::~KviKvsDnsObject()
 		delete m_pParameterList;
 }
 
-KviKvsDnsManager::KviKvsDnsManager()
-    : QObject()
+KviKvsDnsManager::KviKvsDnsManager() :
+    QObject()
 {
 	m_pDnsObjects = nullptr;
 }

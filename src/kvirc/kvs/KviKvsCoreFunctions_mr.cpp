@@ -472,10 +472,10 @@ namespace KviKvsCoreFunctions
 			KviConsoleWindow * cns = g_pApp->findConsole(uContextId);
 			if(cns && cns->connection())
 				wnd = cns->connection()->findQuery(szName);
-			else if (!cns)
+			else if(!cns)
 				KVSCF_pContext->warning(__tr2qs_ctx("No such IRC context (%u)", "kvs"), uContextId);
 		}
-		else if (KVSCF_pParams->count() == 1)
+		else if(KVSCF_pParams->count() == 1)
 		{
 			if(KVSCF_pContext->window()->connection())
 				wnd = KVSCF_pContext->window()->connection()->findQuery(szName);

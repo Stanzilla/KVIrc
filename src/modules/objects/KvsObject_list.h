@@ -39,6 +39,7 @@ protected:
 
 protected:
 	KviPointerList<KviKvsVariant> * dataList() const { return m_pDataList; };
+
 public:
 	bool count(KviKvsObjectFunctionCall * c);
 	bool isEmpty(KviKvsObjectFunctionCall * c);

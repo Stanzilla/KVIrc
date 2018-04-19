@@ -153,6 +153,7 @@ private:
 public:
 	KviMutex() { kvi_threadMutexInit(&m_mutex); };
 	virtual ~KviMutex() { kvi_threadMutexDestroy(&m_mutex); };
+
 public:
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 	void lock()
@@ -196,7 +197,7 @@ public:
 	// public KviThread interface
 	// HANDLE WITH CARE
 
-	// Runs the thread...call only from external threads!!! :)
+	// Runs the thread...call only from external threads!!!
 	// This function returns true if the child thread has been successfully created
 	// this des not mean that run() is being already executed...
 	// isStartingUp() will return true from this moment until
@@ -207,7 +208,7 @@ public:
 	bool isRunning();
 	// Returns the state of the thread...safe to call from anywhere
 	bool isStartingUp(); // start() called, but not in run() yet...
-	// Waits for the termination of this thread: call only from external threads!!! :)
+	// Waits for the termination of this thread: call only from external threads!!!
 	void wait();
 	// DO NOT TOUCH THIS ONE!
 	void internalThreadRun_doNotTouchThis();
@@ -280,8 +281,8 @@ protected:
 	KviThread * m_pSender;
 
 public:
-	KviThreadEvent(int evId, KviThread * sender = 0)
-	    : QEvent((QEvent::Type)KVI_THREAD_EVENT), m_eventId(evId), m_pSender(sender){};
+	KviThreadEvent(int evId, KviThread * sender = 0) :
+	    QEvent((QEvent::Type)KVI_THREAD_EVENT), m_eventId(evId), m_pSender(sender){};
 	virtual ~KviThreadEvent(){};
 
 public:
@@ -298,8 +299,11 @@ protected:
 	TData * m_pData;
 
 public:
-	KviThreadDataEvent(int evId, TData * pData = 0, KviThread * sender = 0)
-	    : KviThreadEvent(evId, sender) { m_pData = pData; };
+	KviThreadDataEvent(int evId, TData * pData = 0, KviThread * sender = 0) :
+	    KviThreadEvent(evId, sender)
+	{
+		m_pData = pData;
+	};
 	virtual ~KviThreadDataEvent()
 	{
 		if(m_pData)

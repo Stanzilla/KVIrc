@@ -101,15 +101,15 @@ void KviKvsKernel::done()
 	}
 }
 
-#define COMPLETE_COMMAND_BY_DICT(__type, __dict)                     \
-	{                                                                  \
+#define COMPLETE_COMMAND_BY_DICT(__type, __dict)                         \
+	{                                                                    \
 		KviPointerHashTableIterator<QString, __type> it(*__dict);        \
 		int l = szCommandBegin.length();                                 \
 		while(it.current())                                              \
 		{                                                                \
-			if(KviQString::equalCIN(szCommandBegin, it.currentKey(), l))   \
-				pMatches.push_back(it.currentKey());                         \
-			++it;                                                          \
+			if(KviQString::equalCIN(szCommandBegin, it.currentKey(), l)) \
+				pMatches.push_back(it.currentKey());                     \
+			++it;                                                        \
 		}                                                                \
 	}
 

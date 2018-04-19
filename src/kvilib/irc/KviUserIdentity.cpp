@@ -29,8 +29,8 @@
 
 // FIXME: Put here also the default away message, default away nick, default ctcp replies etc ?
 
-KviUserIdentity::KviUserIdentity()
-    : KviHeapObject()
+KviUserIdentity::KviUserIdentity() :
+    KviHeapObject()
 {
 }
 

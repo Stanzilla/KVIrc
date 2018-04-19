@@ -27,8 +27,8 @@
 #include "KviTranslator.h"
 #include "KviLocale.h"
 
-KviTranslator::KviTranslator(QObject * pParent)
-    : QTranslator(pParent)
+KviTranslator::KviTranslator(QObject * pParent) :
+    QTranslator(pParent)
 {
 }
 

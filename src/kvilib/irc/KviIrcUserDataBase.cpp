@@ -28,8 +28,8 @@
 #include "KviRegisteredUserDataBase.h"
 #include "KviStringConversion.h"
 
-KviIrcUserDataBase::KviIrcUserDataBase()
-    : QObject()
+KviIrcUserDataBase::KviIrcUserDataBase() :
+    QObject()
 {
 	// we expect a maximum of ~4000 users (= ~16 KB array on a 32 bit machine)
 	// ...after that we will loose in performance

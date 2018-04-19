@@ -68,8 +68,9 @@ static unsigned int g_uNextIrcContextId = 1;
 extern KVIRC_API KviIrcServerDataBase * g_pServerDataBase;
 extern KVIRC_API KviProxyDataBase * g_pProxyDataBase;
 
-KviIrcContext::KviIrcContext(KviConsoleWindow * pConsole)
-    : QObject(), m_pConsole(pConsole)
+KviIrcContext::KviIrcContext(KviConsoleWindow * pConsole) :
+    QObject(),
+    m_pConsole(pConsole)
 {
 	m_uId = g_uNextIrcContextId;
 	g_uNextIrcContextId++;

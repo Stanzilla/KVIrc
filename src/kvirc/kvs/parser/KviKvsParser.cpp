@@ -291,7 +291,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		other tools to [i]play[/i] with an IRC connection.[br]
 		I'll try to explain the language by using examples instead of strict syntactic rules.[br]
 		I have even tried to write the rules... take a look [doc:syntactic_rules]here[/doc][br][br]
-		And please... forgive me for my [i]fantastic[/i] English :)
+		And please... forgive me for my [i]fantastic[/i] English
 		Szymon Stefanek
 */
 
@@ -489,7 +489,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		Check it out at http://www.kvirc.net!
 		[/i][br]
 		Finally, you can escape an escape character to include it literally in a parameter (and
-		this is really the end of these tricks :)
+		this is really the end of these tricks
 		Later we will discover other common usages of the backslash escape, such
 		as preventing KVIrc from interpreting a literal percent character as a variable
 		or separating variable names from the text.
@@ -563,7 +563,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		You [b]should[/b] use spaces or [b]tabs[/b] to [b]indent[/b] your code. Note that the [b]should[/b]
 		word is written in bold characters: I mean that you really should indent your code.
 		Indenting helps both you (the script writer) and the reader (any other user that will
-		read your script). A good indenting practice is the first step to become a great programmer :)
+		read your script). A good indenting practice is the first step to become a great programmer
 		[note]
 		Please note that the command parameters should be separated by
 		space characters (ASCII 32). Tabs are not granted to work as parameter separators.[br]
@@ -587,7 +587,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		a look at the [doc:commands]command index[/doc] and start trying to use them
 		while keeping in mind the rules described in this document.
 		The next suggested lecture is the documentation about [doc:kvs_aliasesandfunctions]the aliases and the functions[/doc].
-		Have fun :)
+		Have fun
 		[br]
 */
 
@@ -624,7 +624,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		case the one that you are typing in.[br]
 		[i](Surprise: in this case the -w switch is useless,
 		since echo prints text to the current window by default...
-		but it will work correctly. :)[/i]
+		but it will work correctly. [/i]
 		[br]
 		Normal function names can be made of [i]anycase[/i] letters, digits and underscores,
 		with the restriction that the first character is not a digit.[br]
@@ -1247,7 +1247,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		contain the $tr() function too. The fifth parameter is the minimal KVIrc
 		version required to run the addon. The sixth parameter is the icon to show in
 		the manager: it has to be 32x32 pixel big. There are also some switches that
-		can be used to fiddle a little bit more :)
+		can be used to fiddle a little bit more
 		[br]
 		The callback instruction that follows the registration command is the
 		uninstallation code. KVIrc will invoke it when the user will ask for your
@@ -1474,13 +1474,13 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		Remember that you must clean up [b]everything[/b] in your uninstallation callback.
 		This means that you must remove the aliases, unregister the event handlers,
 		destroy the actions, kill the timers and the object classes you've created.
-		Be a clean coder :)
+		Be a clean coder
 		[big]Where to start[/big]
 		[br]
 		It is a good idea to start in the KVIrc scripts GitHub repository https://github.com/kvirc/kvirc-scripts. There are surely
 		several addons to look at. Pick one that seems simple and analyze its layout and code
 		(wow... amazing free software!). It will be easier to do than it was to explain it :D[br]
-		Have fun! :)
+		Have fun!
 		[br]
 */
 
@@ -1544,7 +1544,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 			- [i]aux[/i] and [i]tmp[/i] for local obvious short-term temporary variables[br]
 		[br]
 		So actually by [b]only[/b] reading [i]g_pszQuitMessage[/i] I know that this is a global pointer to a string variable
-		containing a quit message. :)[br]
+		containing a quit message. [br]
 		[/p]
 */
 
@@ -1909,7 +1909,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		of arrays, hashes of arrays of hashes and any other multidimensional combination you like.
 		However remember that hash keys are strings and not variants so you can't use an array as hash key.
 		[example]
-			[comment]# here we eat 256 locations of memory at once :)[/comment]
+			[comment]# here we eat 256 locations of memory at once [/comment]
 			%a[16][16] = 10
 			[comment]# a hash of hashes: here we eat just two memory locations[/comment]
 			%a{"16"}{"16"} = 10
@@ -2030,7 +2030,7 @@ KviKvsTreeNodeInstruction * KviKvsParser::parseAsParameter(const QChar * pBuffer
 		Beside local and global variables there is a third family of them.
 		Variables that have a ':' character just after the leading '%' are [b]extended scope[/b] variables.
 		[i]%:index[/i], [i]%:Hello[/i], [i]%:something.else[/i] are all valid special scope variable names.
-		They're actually used in popups and in timers (but later I might find other usages as well :).
+		They're actually used in popups and in timers (but later I might find other usages as well .
 		"Extended scope" means that these variables are somewhere in the middle between
 		global and local variables. They normally act as local, but in some cases their [b]lifetime[/b] and [b]visibility[/b]
 		may be extended.

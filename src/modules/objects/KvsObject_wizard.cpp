@@ -347,8 +347,8 @@ void KvsObject_wizard::backClicked()
 	KviKvsVariantList * params = nullptr;
 	callFunction(this, "backClickedEvent", params);
 }
-KviKvsMdmWizard::KviKvsMdmWizard(QWidget * par, const char * name, KvsObject_wizard * parent)
-    : KviTalWizard(par)
+KviKvsMdmWizard::KviKvsMdmWizard(QWidget * par, const char * name, KvsObject_wizard * parent) :
+    KviTalWizard(par)
 {
 	m_pParentScript = parent;
 	setObjectName(name);

@@ -121,8 +121,8 @@ private:
 	SoundSystemCleanupRoutine m_pCleanupRoutine;
 
 public:
-	KviSoundPlayerEntry(SoundSystemPlayRoutine pPlayRoutine, SoundSystemCleanupRoutine pCleanupRoutine)
-	    : m_pPlayRoutine(pPlayRoutine), m_pCleanupRoutine(pCleanupRoutine)
+	KviSoundPlayerEntry(SoundSystemPlayRoutine pPlayRoutine, SoundSystemCleanupRoutine pCleanupRoutine) :
+	    m_pPlayRoutine(pPlayRoutine), m_pCleanupRoutine(pCleanupRoutine)
 	{
 	}
 

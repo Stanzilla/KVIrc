@@ -79,8 +79,8 @@ void url_module_help();
 
 #define KVI_URL_EXTENSION_NAME "URL module extension"
 
-UrlDialogTreeWidget::UrlDialogTreeWidget(QWidget * par)
-    : QTreeWidget(par)
+UrlDialogTreeWidget::UrlDialogTreeWidget(QWidget * par) :
+    QTreeWidget(par)
 {
 }
 
@@ -135,8 +135,8 @@ void UrlDialogTreeWidget::paintEvent(QPaintEvent * event)
 
 // ---------------------------- CLASS URLDIALOG ------------------------begin //
 
-UrlDialog::UrlDialog(std::unordered_set<KviUrl *>)
-    : KviWindow(KviWindow::Tool, "URL List")
+UrlDialog::UrlDialog(std::unordered_set<KviUrl *>) :
+    KviWindow(KviWindow::Tool, "URL List")
 {
 	setAutoFillBackground(false);
 
@@ -318,8 +318,8 @@ UrlDialog::~UrlDialog()
 
 // --------------------------- CLASS CONFIGDIALOG ----------------------begin //
 
-ConfigDialog::ConfigDialog()
-    : QDialog()
+ConfigDialog::ConfigDialog() :
+    QDialog()
 {
 	setWindowTitle(__tr2qs("URL Module Configuration - KVIrc"));
 
@@ -395,8 +395,8 @@ ConfigDialog::~ConfigDialog()
 
 // ---------------------------- CLASS BANFRAME ------------------------begin //
 
-BanFrame::BanFrame(QWidget * parent, const char * name, bool banEnabled)
-    : QFrame(parent)
+BanFrame::BanFrame(QWidget * parent, const char * name, bool banEnabled) :
+    QFrame(parent)
 {
 	setFrameStyle(QFrame::Panel | QFrame::Raised);
 	setObjectName(name);
@@ -631,7 +631,8 @@ void loadBanList()
 static bool url_kvs_cmd_list(KviKvsModuleCommandCall *)
 {
 	UrlDlgList * tmpitem = findFrame();
-	if(tmpitem->dlg) {
+	if(tmpitem->dlg)
+	{
 		tmpitem->dlg->delayedAutoRaise();
 		return false;
 	}

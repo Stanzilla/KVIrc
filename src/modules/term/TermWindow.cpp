@@ -38,8 +38,8 @@ extern std::unordered_set<TermWindow *> g_pTermWindowList;
 extern std::unordered_set<TermWidget *> g_pTermWidgetList;
 extern KviIconManager * g_pIconManager;
 
-TermWindow::TermWindow(const char * name)
-    : KviWindow(KviWindow::Terminal, name)
+TermWindow::TermWindow(const char * name) :
+    KviWindow(KviWindow::Terminal, name)
 {
 	g_pTermWindowList.insert(this);
 	m_pTermWidget = 0;

@@ -31,8 +31,9 @@
 
 #include <QKeyEvent>
 
-KviModeWidget::KviModeWidget(QWidget * par, KviChannelWindow & chan, const char * name)
-    : KviThemedLineEdit(par, &chan, name), m_Channel(chan)
+KviModeWidget::KviModeWidget(QWidget * par, KviChannelWindow & chan, const char * name) :
+    KviThemedLineEdit(par, &chan, name),
+    m_Channel(chan)
 {
 	reset();
 }
@@ -170,7 +171,7 @@ bool KviModeWidget::isParameterOnlyNeededWhenModeIsSet(const QChar & cMode)
 	return false;
 }
 
-std::map<QChar, QString> KviModeWidget::parseChannelModeString(const QString& szModes)
+std::map<QChar, QString> KviModeWidget::parseChannelModeString(const QString & szModes)
 {
 	std::map<QChar, QString> modeDict;
 
@@ -181,7 +182,7 @@ std::map<QChar, QString> KviModeWidget::parseChannelModeString(const QString& sz
 			QChar cMode = szSubstring.at(0);
 			modeDict[cMode] = szSubstring.mid(2);
 		}
-                else
+		else
 		{
 			for(const auto & cMode : szSubstring)
 				modeDict[cMode] = QString{};

@@ -180,7 +180,10 @@ public:
 	void setup(); // THIS SHOULD BE PRIVATE! (but is accessed from KviMain.cpp)
 
 #ifdef COMPILE_KDE_SUPPORT
-	void setAboutData(KAboutData * pAboutData) { m_pAboutData = pAboutData; }
+	void setAboutData(KAboutData * pAboutData)
+	{
+		m_pAboutData = pAboutData;
+	}
 	KAboutData * aboutData() const { return m_pAboutData; }
 #endif
 

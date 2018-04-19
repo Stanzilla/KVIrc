@@ -61,7 +61,7 @@
 		In single selection mode there can be only one selected item at a time and the selected item is also
 		the current item (this mode is the default). In Multi and Extended selection mode there can be multiple selected items
 		and the current item is one of them. The difference between multi and extended is in the way
-		that items can be selected by the mouse actions: experiment with the two modes :).
+		that items can be selected by the mouse actions: experiment with the two modes .
 		The NoSelection mode has obviously no selection at all.
 	@functions:
 		!fn: $addColumn(<text_label:string>,[<width:integer>])
@@ -579,8 +579,8 @@ void KvsObject_treeWidget::fileDropped(QString & szFile, QTreeWidgetItem * item)
 	callFunction(this, "fileDroppedEvent", nullptr, &params);
 }
 
-KviKvsTreeWidget::KviKvsTreeWidget(QWidget * par, const char *, KvsObject_treeWidget * parent)
-    : QTreeWidget(par)
+KviKvsTreeWidget::KviKvsTreeWidget(QWidget * par, const char *, KvsObject_treeWidget * parent) :
+    QTreeWidget(par)
 {
 	m_pParentScript = parent;
 	setAcceptDrops(true);

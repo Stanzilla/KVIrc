@@ -47,8 +47,8 @@
 #include <utility>
 #include <vector>
 
-ProxyOptionsTreeWidgetItem::ProxyOptionsTreeWidgetItem(QTreeWidget * parent, const QPixmap & pm, KviProxy * prx)
-    : QTreeWidgetItem(parent)
+ProxyOptionsTreeWidgetItem::ProxyOptionsTreeWidgetItem(QTreeWidget * parent, const QPixmap & pm, KviProxy * prx) :
+    QTreeWidgetItem(parent)
 {
 	qDebug("Creating item");
 	setText(0, prx->hostname());
@@ -62,15 +62,16 @@ ProxyOptionsTreeWidgetItem::~ProxyOptionsTreeWidgetItem()
 	delete m_pProxyData;
 }
 
-OptionsWidget_proxy::OptionsWidget_proxy(QWidget * parent)
-    : KviOptionsWidget(parent, "proxy_options_widget")
+OptionsWidget_proxy::OptionsWidget_proxy(QWidget * parent) :
+    KviOptionsWidget(parent, "proxy_options_widget")
 {
 	createLayout();
 
 	m_pUseProxySelector = addBoolSelector(0, 0, 1, 0, __tr2qs_ctx("Use proxy for all connections", "options"), KviOption_boolUseProxyHost);
 	QString szTip = __tr2qs_ctx("When enabled, the selected proxy will be used as the default for all connections. "
 	                            "An alternative option to define a specific per-server proxy, is also located "
-	                            "in the advanced server dialog in the connection tab.", "options");
+	                            "in the advanced server dialog in the connection tab.",
+	    "options");
 
 	mergeTip(m_pUseProxySelector, szTip);
 
@@ -88,7 +89,8 @@ OptionsWidget_proxy::OptionsWidget_proxy(QWidget * parent)
 	    this, SLOT(customContextMenuRequested(const QPoint &)));
 
 	QString tiptxt = __tr2qs_ctx("This is the list of available proxy servers.<br>"
-	                             "Right-click on the list to add or remove proxies.", "options");
+	                             "Right-click on the list to add or remove proxies.",
+	    "options");
 
 	mergeTip(m_pTreeWidget, tiptxt);
 	mergeTip(m_pTreeWidget->viewport(), tiptxt);
@@ -310,7 +312,7 @@ void OptionsWidget_proxy::commit()
 		QString tmp = it->text(0);
 		if(!tmp.isEmpty())
 		{
-			KviProxy *const proxy = new KviProxy(*(it->m_pProxyData));
+			KviProxy * const proxy = new KviProxy(*(it->m_pProxyData));
 
 			g_pProxyDataBase->insertProxy(std::unique_ptr<KviProxy>(proxy));
 

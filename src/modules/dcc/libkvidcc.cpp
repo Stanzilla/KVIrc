@@ -353,7 +353,7 @@ static bool dcc_kvs_parse_default_parameters(DccDescriptor * d, KviKvsModuleComm
 			# Tricky: simulate a HTTP server
 			dcc.chat -n -i=127.0.0.1 -p=80 WebBrowser
 			# Now open http://127.0.0.1 with your web browser
-			# and type "<html><body>Hello!</body></html>" :)
+			# and type "<html><body>Hello!</body></html>"
 			#
 			# Tricky 2: simulate the Ident daemon (if you have none)
 			dcc.chat -n -i=127.0.0.1 -p=113 Client
@@ -365,7 +365,7 @@ static bool dcc_kvs_parse_default_parameters(DccDescriptor * d, KviKvsModuleComm
 			dcc.chat -c -i=127.0.0.1 -p=1080 Src
 			# The above example will mess you a bit...
 			# Try to guess why in both windows YOU have the same nickname
-			# that is probably not Dst nor Src... :)
+			# that is probably not Dst nor Src...
 		[/example]
 		Using the shell FTP program is too easy:
 		we're [b]real hackers[/b] and want to do complicated things...
@@ -383,7 +383,7 @@ static bool dcc_kvs_parse_default_parameters(DccDescriptor * d, KviKvsModuleComm
 			# (Change the port numbers accordingly)
 			# And then type in the FTP server window (this is [b]not[/b] a KVIrc command):
 			LIST
-			# Then watch the ls output in the FtpList window. :)
+			# Then watch the ls output in the FtpList window.
 			# In this way you can also read ASCII files by FTP:
 			# Assume that in the previous ls output you have seen
 			# a README file.
@@ -394,7 +394,7 @@ static bool dcc_kvs_parse_default_parameters(DccDescriptor * d, KviKvsModuleComm
 			/dcc.chat -c -i=127.0.0.1 -p=$((22 * 256) + 227) README
 			# In the FtpServer window type:
 			RETR README
-			# And read the file in the README window :)
+			# And read the file in the README window
 		[/example]
 */
 
@@ -1313,7 +1313,7 @@ static bool dcc_module_cmd_canvas(KviModule *m,KviCommand *c)
 		if(d->console()->isConnected())
 		{
 			d->console()->socket()->getLocalHostIp(d->szListenIp,d->console()->isIPv6Connection());
-		} else d->szListenIp = "127.0.0.1"; // huh ? :)
+		} else d->szListenIp = "127.0.0.1"; // huh ?
 	}
 
 	if(c->hasSwitch('p'))c->getSwitchValue('p',d->szListenPort);
@@ -1501,7 +1501,7 @@ static bool dcc_module_cmd_canvas(KviModule *m,KviCommand *c)
 		the [i]send-ahead[/i] feature; the [b]client A[/b] does [b]not[/b] wait for the acknowledge of the first packet before sending the second one.[br]
 		The acknowledges are still sent, but just a reverse independent stream.[br] This makes the DCC SEND considerably faster.[br]
 		Since the acknowledge stream has non-zero bandwidth usage, no client can recover from an acknowledge error and
-		having them as an independent stream is more or less like having no acknowledges, the [i]Turbo[/i] ( :) ) extension has been added:
+		having them as an independent stream is more or less like having no acknowledges, the [i]Turbo[/i] (  ) extension has been added:
 		[b]client B[/b] will send no acknowledges and will just close the connection when he has received all the expected data.[br]
 		This makes the DCC SEND as fast as FTP transfers.[br]
 		The [i]Turbo[/i] extension is specified during the negotiation phase, bu using TSEND as DCC message type (instead of SEND).[br]
@@ -1566,7 +1566,7 @@ static bool dcc_module_cmd_canvas(KviModule *m,KviCommand *c)
 		[b]DCC TRSEND <filename> <filesize>[/b][br]
 		The [i]SSL[/i] extension is also activated by prepending an [b]S[/b] to the RSEND string. It can be again combined
 		with the [i]Turbo[/i] extension. The negotiation parameter becomes then [i]SRSEND[/i], [i]TSRSEND[/i] or [i]STRSEND[/i].[br]
-		Easy, no? :)
+		Easy, no?
 		[big]DCC Get[/big]
 		This is again a [i]half[/i] sub-protocol in fact since it defines only a part of the negotiation for file transfers.[br]
 		It is also NON standard, since actually no client except KVIrc implements it (AFAIK).[br]
@@ -1598,7 +1598,7 @@ static bool dcc_module_cmd_canvas(KviModule *m,KviCommand *c)
 		DCC Voice allows audio level communication between two clients, the audio stream is compressed
 		with a specified codec.[br]
 		KVIrc currently supports the ADPCM (core support) and the GSM codec (if the libgsm is available on the target system).[br]
-		[b]TODO: Finish the DCC Voice doc :)[/b]
+		[b]TODO: Finish the DCC Voice doc [/b]
 		[big]More tricks[/big]
 		KVIrc supports another [i]hack[/i] to the DCC negotiation, it recognizes [i]XDCC[/i] as
 		a DCC negotiation CTCP parameter.[br]

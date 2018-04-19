@@ -105,7 +105,8 @@ class MessageListWidget : public KviTalListWidget
 {
 	Q_OBJECT
 public:
-	MessageListWidget(QWidget * par) : KviTalListWidget(par){};
+	MessageListWidget(QWidget * par) :
+	    KviTalListWidget(par){};
 	~MessageListWidget(){};
 };
 
@@ -113,8 +114,8 @@ class MessageListWidgetItemDelegate : public QItemDelegate
 {
 	Q_OBJECT
 public:
-	MessageListWidgetItemDelegate(QAbstractItemView * pWidget = 0)
-	    : QItemDelegate(pWidget){};
+	MessageListWidgetItemDelegate(QAbstractItemView * pWidget = 0) :
+	    QItemDelegate(pWidget){};
 	~MessageListWidgetItemDelegate(){};
 	void paint(QPainter * p, const QStyleOptionViewItem & opt, const QModelIndex & index) const;
 };
@@ -151,8 +152,8 @@ class MessageColorListWidgetItemDelegate : public QItemDelegate
 {
 	Q_OBJECT
 public:
-	MessageColorListWidgetItemDelegate(QAbstractItemView * pWidget = 0)
-	    : QItemDelegate(pWidget){};
+	MessageColorListWidgetItemDelegate(QAbstractItemView * pWidget = 0) :
+	    QItemDelegate(pWidget){};
 	~MessageColorListWidgetItemDelegate(){};
 	void paint(QPainter * p, const QStyleOptionViewItem & opt, const QModelIndex & index) const;
 };

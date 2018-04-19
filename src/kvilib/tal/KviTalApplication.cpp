@@ -25,13 +25,13 @@
 #include "KviTalApplication.h"
 
 #if defined(COMPILE_KDE4_SUPPORT)
-KviTalApplication::KviTalApplication(int &, char **)
-    : KApplication()
+KviTalApplication::KviTalApplication(int &, char **) :
+    KApplication()
 {
 }
 #else  //!defined(COMPILE_KDE4_SUPPORT)
-KviTalApplication::KviTalApplication(int & iArgc, char ** ppcArgv)
-    : QApplication(iArgc, ppcArgv)
+KviTalApplication::KviTalApplication(int & iArgc, char ** ppcArgv) :
+    QApplication(iArgc, ppcArgv)
 {
 	// Session management has been broken by source incompatible changes.
 	QObject::connect(this, SIGNAL(commitDataRequest(QSessionManager &)), this, SLOT(commitData(QSessionManager &)));

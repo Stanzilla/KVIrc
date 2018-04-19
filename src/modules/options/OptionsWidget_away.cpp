@@ -29,8 +29,8 @@
 
 #include <QLayout>
 
-OptionsWidget_away::OptionsWidget_away(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_away::OptionsWidget_away(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("away_options_widget");
 

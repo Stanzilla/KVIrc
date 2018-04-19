@@ -35,8 +35,8 @@
 #include "KviSSLMaster.h"
 #endif
 
-DccThread::DccThread(QObject * par, kvi_socket_t fd)
-    : KviSensitiveThread()
+DccThread::DccThread(QObject * par, kvi_socket_t fd) :
+    KviSensitiveThread()
 {
 	m_pParent = par;
 	m_fd = fd;

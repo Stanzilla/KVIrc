@@ -156,6 +156,7 @@ public:
 
 public:
 	KviKvsPopupMenu * popup() { return m_pPopup; };
+
 public:
 	void replacePopup(KviKvsPopupMenu * popup);
 };
@@ -210,8 +211,8 @@ private:
 	QPixmap * myIconPtr() override;
 	void fillCaptionBuffers() override;
 	void getConfigGroupName(QString & szName) override { szName = "popupeditor"; };
-	void saveProperties(KviConfigurationFile *) override {};
-	void loadProperties(KviConfigurationFile *) override {};
+	void saveProperties(KviConfigurationFile *) override{};
+	void loadProperties(KviConfigurationFile *) override{};
 private slots:
 	void cancelClicked() { close(); };
 	void okClicked();

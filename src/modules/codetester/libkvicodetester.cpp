@@ -71,7 +71,7 @@ static bool codetester_module_cleanup(KviModule *)
 	{
 		auto w = g_pCodeTesterWindowList.begin();
 
-		if (w == g_pCodeTesterWindowList.end())
+		if(w == g_pCodeTesterWindowList.end())
 			break;
 
 		(*w)->close(); // deleted path!

@@ -149,8 +149,7 @@ KviIrcServer * KviIrcNetwork::findServer(const KviIrcServer * pServer)
 		{
 			// failback on the "check everything" method
 			if(KviQString::equalCI(s->hostName(), pServer->hostName())
-			    && (s->port() == pServer->port()) && (s->useSSL()
-			                                             == pServer->useSSL())
+			    && (s->port() == pServer->port()) && (s->useSSL() == pServer->useSSL())
 			    && (s->isIPv6() == pServer->isIPv6()))
 				return s;
 		}

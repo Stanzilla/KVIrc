@@ -24,8 +24,8 @@
 
 #include "KviKvsTreeNodeConstantData.h"
 
-KviKvsTreeNodeConstantData::KviKvsTreeNodeConstantData(const QChar * pLocation, KviKvsVariant * v)
-    : KviKvsTreeNodeData(pLocation)
+KviKvsTreeNodeConstantData::KviKvsTreeNodeConstantData(const QChar * pLocation, KviKvsVariant * v) :
+    KviKvsTreeNodeData(pLocation)
 {
 	m_pValue = v;
 }

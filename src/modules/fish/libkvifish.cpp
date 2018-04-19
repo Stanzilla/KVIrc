@@ -99,7 +99,7 @@ static bool fish_DH1080_gen(unsigned char ** szPubKey, int * iLen)
 		DH_generate_key(g_fish_dh);
 	}
 
-	const BIGNUM* pub_key;
+	const BIGNUM * pub_key;
 #if OPENSSL_VERSION_NUMBER >= 0x10100005L
 	DH_get0_key(g_fish_dh, &pub_key, nullptr);
 #else
@@ -172,12 +172,12 @@ bool fish_event_onQueryNotice(KviKvsModuleEventCall * c)
 			// for compatibility with fish10
 			if(szMessage.endsWith(" CBC", Qt::CaseSensitive))
 				c->window()->console()->connection()->sendFmtData("NOTICE %s :DH1080_FINISH %sA CBC",
-					c->window()->console()->connection()->encodeText(szNick).data(),
-					szTmp.data());
+				    c->window()->console()->connection()->encodeText(szNick).data(),
+				    szTmp.data());
 			else
 				c->window()->console()->connection()->sendFmtData("NOTICE %s :DH1080_FINISH %sA",
-					c->window()->console()->connection()->encodeText(szNick).data(),
-					szTmp.data());
+				    c->window()->console()->connection()->encodeText(szNick).data(),
+				    szTmp.data());
 		}
 	}
 

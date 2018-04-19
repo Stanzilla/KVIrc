@@ -48,8 +48,8 @@
 extern SharedFilesWindow * g_pSharedFilesWindow;
 extern KVIRC_API KviSharedFilesManager * g_pSharedFilesManager;
 
-SharedFileEditDialog::SharedFileEditDialog(QWidget * par, KviSharedFile * f)
-    : QDialog(par) //,"shared_file_editor",true)
+SharedFileEditDialog::SharedFileEditDialog(QWidget * par, KviSharedFile * f) :
+    QDialog(par) //,"shared_file_editor",true)
 {
 	setModal(true);
 	setObjectName("shared_file_editor");
@@ -155,7 +155,7 @@ void SharedFileEditDialog::okClicked()
 		QMessageBox::warning(this, __tr2qs_ctx("Invalid Expiry Time - KVIrc", "sharedfileswindow"),
 		    __tr2qs_ctx("The expiry date/time is in the past: please either remove the \"Expires at\""
 		                "check mark or specify a expiry date/time in the future",
-		                         "sharedfileswindow"),
+		        "sharedfileswindow"),
 		    __tr2qs_ctx("OK", "sharedfileswindow"));
 		return;
 	}
@@ -180,8 +180,8 @@ void SharedFileEditDialog::okClicked()
 	accept();
 }
 
-SharedFilesTreeWidgetItem::SharedFilesTreeWidgetItem(QTreeWidget * lv, KviSharedFile * f)
-    : QTreeWidgetItem(lv)
+SharedFilesTreeWidgetItem::SharedFilesTreeWidgetItem(QTreeWidget * lv, KviSharedFile * f) :
+    QTreeWidgetItem(lv)
 {
 	setText(0, f->name());
 	setText(1, f->absFilePath());
@@ -202,8 +202,8 @@ SharedFilesTreeWidgetItem::SharedFilesTreeWidgetItem(QTreeWidget * lv, KviShared
 SharedFilesTreeWidgetItem::~SharedFilesTreeWidgetItem()
     = default;
 
-SharedFilesWindow::SharedFilesWindow()
-    : KviWindow(KviWindow::Tool, "shared files window", nullptr)
+SharedFilesWindow::SharedFilesWindow() :
+    KviWindow(KviWindow::Tool, "shared files window", nullptr)
 {
 	g_pSharedFilesWindow = this;
 	m_pSplitter = new KviTalSplitter(Qt::Horizontal, this);

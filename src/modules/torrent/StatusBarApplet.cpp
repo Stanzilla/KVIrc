@@ -32,8 +32,8 @@
 
 #include "QTimer"
 
-StatusBarApplet::StatusBarApplet(KviStatusBar * parent, KviStatusBarAppletDescriptor * desc)
-    : KviStatusBarApplet(parent, desc)
+StatusBarApplet::StatusBarApplet(KviStatusBar * parent, KviStatusBarAppletDescriptor * desc) :
+    KviStatusBarApplet(parent, desc)
 {
 	QTimer * timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));

@@ -46,8 +46,8 @@ KviCustomToolBar * KviActionManager::m_pCurrentToolBar = nullptr;
 // KviCoreActions.cpp
 extern void register_core_actions(KviActionManager *);
 
-KviActionManager::KviActionManager()
-    : QObject()
+KviActionManager::KviActionManager() :
+    QObject()
 {
 	m_pActions = new KviPointerHashTable<QString, KviAction>(101);
 	m_pActions->setAutoDelete(false);
@@ -136,7 +136,7 @@ void KviActionManager::killAllKvsUserActions()
 		++it;
 	}
 
-	dying.clear(); // bye :)
+	dying.clear(); // bye
 }
 
 bool KviActionManager::coreActionExists(const QString & szName)

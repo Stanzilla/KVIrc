@@ -31,8 +31,8 @@
 #include <QEvent>
 #include <QMouseEvent>
 
-KviColorWindow::KviColorWindow()
-    : QWidget(nullptr)
+KviColorWindow::KviColorWindow() :
+    QWidget(nullptr)
 {
 	setObjectName("toplevel_color_window");
 	setWindowFlags(Qt::Popup);

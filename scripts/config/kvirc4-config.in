@@ -3,7 +3,7 @@
 #
 #   A script for retrieving the latest KVIrc IRC Client build configuration
 #   Mainly used for building plugins out of the source tree
-#   The idea is "stolen" from the gtk-config and xmms-config scripts :)
+#   The idea is "stolen" from the gtk-config and xmms-config scripts
 #
 #   09-04-2000 Szymon Stefanek (Initial release)
 #   31-01-2002 Szymon Stefanek (Revised for KVIrc 3.0.0)

@@ -41,8 +41,7 @@ namespace KviEnvironment
 		return (setenv(name.data(), value.data(), 1) == 0);
 #else
 #ifdef HAVE_PUTENV
-		int iLen1 = name.length()
-		int iLen2 = value.length();
+		int iLen1 = name.length() int iLen2 = value.length();
 		char * buf = (char *)KviMemory::allocate(iLen1 + iLen2 + 2);
 		KviMemory::move(buf, name.data(), iLen1);
 		*(buf + iLen1) = '=';

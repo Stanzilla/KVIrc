@@ -38,8 +38,8 @@ class QMenu;
 class RawTreeWidget : public QTreeWidget
 {
 public:
-	RawTreeWidget(QWidget * par)
-	    : QTreeWidget(par){};
+	RawTreeWidget(QWidget * par) :
+	    QTreeWidget(par){};
 	void updateItem(QTreeWidgetItem * item)
 	{
 		update(indexFromItem(item, 0));
@@ -70,8 +70,8 @@ public:
 class RawHandlerTreeWidgetItem : public QTreeWidgetItem
 {
 public:
-	RawHandlerTreeWidgetItem(QTreeWidgetItem * par, const QString & name, const QString & buffer, bool bEnabled)
-	    : QTreeWidgetItem(par), m_szBuffer(buffer), m_bEnabled(bEnabled)
+	RawHandlerTreeWidgetItem(QTreeWidgetItem * par, const QString & name, const QString & buffer, bool bEnabled) :
+	    QTreeWidgetItem(par), m_szBuffer(buffer), m_bEnabled(bEnabled)
 	{
 		setText(0, name);
 		setEnabled(bEnabled);

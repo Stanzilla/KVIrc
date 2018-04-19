@@ -68,6 +68,7 @@ public:
 	KviTreeWindowListTreeWidget(QWidget * par);
 	~KviTreeWindowListTreeWidget();
 	bool isReverseSort() { return bReverseSort; };
+
 protected:
 	virtual void mousePressEvent(QMouseEvent * e);
 	virtual void mouseMoveEvent(QMouseEvent * e);
@@ -123,8 +124,8 @@ class KVIRC_API KviTreeWindowListItemDelegate : public QStyledItemDelegate
 {
 	Q_OBJECT
 public:
-	KviTreeWindowListItemDelegate(QAbstractItemView * pWidget = 0)
-	    : QStyledItemDelegate(pWidget){};
+	KviTreeWindowListItemDelegate(QAbstractItemView * pWidget = 0) :
+	    QStyledItemDelegate(pWidget){};
 	~KviTreeWindowListItemDelegate(){};
 	QSize sizeHint(const QStyleOptionViewItem & option, const QModelIndex & index) const;
 	void paint(QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index) const;

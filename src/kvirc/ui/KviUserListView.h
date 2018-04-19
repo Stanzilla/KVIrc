@@ -136,6 +136,7 @@ class KVIRC_API KviUserListEntry : public QObject
 	Q_OBJECT
 	friend class KviUserListView;
 	friend class KviUserListViewArea;
+
 public:
 	/**
 	* \brief Constructs the user list entry object

@@ -38,8 +38,8 @@ namespace UPnP
 {
 
 	// The constructor
-	WanConnectionService::WanConnectionService(const ServiceParameters & params)
-	    : Service(params), m_bNatEnabled(false)
+	WanConnectionService::WanConnectionService(const ServiceParameters & params) :
+	    Service(params), m_bNatEnabled(false)
 	{
 	}
 

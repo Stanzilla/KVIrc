@@ -49,16 +49,16 @@
 extern KVIRC_API QPixmap * g_pShadedChildGlobalDesktopBackground;
 #endif
 
-OptionsWidget_message::OptionsWidget_message(QWidget * pParent)
-    : KviOptionsWidget(pParent)
+OptionsWidget_message::OptionsWidget_message(QWidget * pParent) :
+    KviOptionsWidget(pParent)
 {
 }
 
 OptionsWidget_message::~OptionsWidget_message()
     = default;
 
-OptionsWidget_privmsg::OptionsWidget_privmsg(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_privmsg::OptionsWidget_privmsg(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("privmsg_options_widget");
 	createLayout();
@@ -129,8 +129,8 @@ void OptionsWidget_privmsg::enableDisableSmartColorSelector(bool)
 OptionsWidget_privmsg::~OptionsWidget_privmsg()
     = default;
 
-OptionsWidget_timestamp::OptionsWidget_timestamp(QWidget * pParent)
-    : KviOptionsWidget(pParent)
+OptionsWidget_timestamp::OptionsWidget_timestamp(QWidget * pParent) :
+    KviOptionsWidget(pParent)
 {
 	createLayout();
 	m_pUseTimestampSelector = addBoolSelector(0, 0, 0, 0, __tr2qs_ctx("Show timestamp", "options"), KviOption_boolIrcViewTimestamp);
@@ -164,8 +164,8 @@ void OptionsWidget_timestamp::enableDisableTimestampSelector(bool)
 	m_pTimestampColorSelector->setEnabled(m_pUseTimestampSelector->isChecked() && m_pSpecialTimestampColorSelector->isChecked());
 }
 
-OptionsWidget_standardColors::OptionsWidget_standardColors(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_standardColors::OptionsWidget_standardColors(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("stdcolors");
 	createLayout();
@@ -173,11 +173,10 @@ OptionsWidget_standardColors::OptionsWidget_standardColors(QWidget * parent)
 	for(int i = 0; i < 16; i++)
 		m_pColorSelector[i] = addColorSelector(i % 4, i / 4, i % 4, i / 4, QString("%1:").arg(i), &(KVI_OPTION_MIRCCOLOR(i)));
 
-	QLabel * l = addLabel(0, 4, 3, 4, __tr2qs_ctx(
-	                                      "Please note that this is a set of standard IRC colors. "
-	                                      "You can adjust them a bit, make them darker or lighter but you "
-	                                      "shouldn't change their fundamental tint. "
-	                                      "Black should stay black, dark green should still remain a green darker than the light one.",
+	QLabel * l = addLabel(0, 4, 3, 4, __tr2qs_ctx("Please note that this is a set of standard IRC colors. "
+	                                              "You can adjust them a bit, make them darker or lighter but you "
+	                                              "shouldn't change their fundamental tint. "
+	                                              "Black should stay black, dark green should still remain a green darker than the light one.",
 	                                      "options"));
 	l->setAlignment(Qt::AlignLeft);
 
@@ -213,8 +212,8 @@ void OptionsWidget_standardColors::resetToDefaults()
 	m_pColorSelector[15]->forceColor(QColor(170, 170, 170));
 }
 
-MessageListWidgetItem::MessageListWidgetItem(MessageListWidget * l, int optId)
-    : KviTalListWidgetItem(l)
+MessageListWidgetItem::MessageListWidgetItem(MessageListWidget * l, int optId) :
+    KviTalListWidgetItem(l)
 {
 	m_iOptId = optId;
 	m_pMsgType = new KviMessageTypeSettings(KVI_OPTION_MSGTYPE(optId));
@@ -307,8 +306,8 @@ void MessageListWidgetItemDelegate::paint(QPainter * p, const QStyleOptionViewIt
 	}
 }
 
-MessageColorListWidgetItem::MessageColorListWidgetItem(KviTalListWidget * b, int idx)
-    : KviTalListWidgetText(b, QString())
+MessageColorListWidgetItem::MessageColorListWidgetItem(KviTalListWidget * b, int idx) :
+    KviTalListWidgetText(b, QString())
 {
 
 	m_iClrIdx = idx;
@@ -362,8 +361,8 @@ void MessageColorListWidgetItemDelegate::paint(QPainter * p, const QStyleOptionV
 	}
 }
 
-OptionsWidget_messageColors::OptionsWidget_messageColors(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_messageColors::OptionsWidget_messageColors(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("messages");
 

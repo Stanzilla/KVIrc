@@ -32,8 +32,8 @@
 
 #include <QLayout>
 
-OptionsWidget_theme::OptionsWidget_theme(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_theme::OptionsWidget_theme(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	createLayout();
 
@@ -50,8 +50,8 @@ OptionsWidget_theme::OptionsWidget_theme(QWidget * parent)
 OptionsWidget_theme::~OptionsWidget_theme()
     = default;
 
-OptionsWidget_themeTransparency::OptionsWidget_themeTransparency(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_themeTransparency::OptionsWidget_themeTransparency(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 #ifdef COMPILE_PSEUDO_TRANSPARENCY
 	createLayout();
@@ -66,20 +66,20 @@ OptionsWidget_themeTransparency::OptionsWidget_themeTransparency(QWidget * paren
 	                "transparent.<br>You must choose a blending "
 	                "background image below or check the "
 	                "\"Use compositing for real transparency\" option.",
-	             "options"));
+	        "options"));
 #elif defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 	mergeTip(m_pUseTransparencyBoolSelector,
 	    __tr2qs_ctx("This option makes all KVIrc windows look "
 	                "transparent.<br>You must choose a blending "
 	                "background image below or check the "
 	                "\"Use desktop background for transparency\" option.",
-	             "options"));
+	        "options"));
 #else
 	mergeTip(m_pUseTransparencyBoolSelector,
 	    __tr2qs_ctx("This option makes all KVIrc windows look "
 	                "like transparent.<br>You must choose a blending "
 	                "background image below.",
-	             "options"));
+	        "options"));
 #endif
 
 	u = addUIntSelector(0, 2, 1, 2, __tr2qs_ctx("Child window opacity:", "options"), KviOption_uintGlobalTransparencyChildFadeFactor, 0, 100, 35,
@@ -156,8 +156,8 @@ void OptionsWidget_themeTransparency::enableGlobalBackgroundPixmapSelector(bool)
 #endif
 }
 
-OptionsWidget_themeToolBarApplets::OptionsWidget_themeToolBarApplets(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_themeToolBarApplets::OptionsWidget_themeToolBarApplets(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	createLayout();
 

@@ -32,8 +32,8 @@
 
 #include <QRadioButton>
 
-OptionsWidget_connection::OptionsWidget_connection(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_connection::OptionsWidget_connection(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("connection_options_widget");
 	createLayout();
@@ -94,8 +94,8 @@ OptionsWidget_connection::OptionsWidget_connection(QWidget * parent)
 OptionsWidget_connection::~OptionsWidget_connection()
     = default;
 
-OptionsWidget_connectionSsl::OptionsWidget_connectionSsl(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_connectionSsl::OptionsWidget_connectionSsl(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ssl_options_widget");
 	createLayout();
@@ -139,8 +139,8 @@ OptionsWidget_connectionSsl::OptionsWidget_connectionSsl(QWidget * parent)
 OptionsWidget_connectionSsl::~OptionsWidget_connectionSsl()
     = default;
 
-OptionsWidget_connectionSocket::OptionsWidget_connectionSocket(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_connectionSocket::OptionsWidget_connectionSocket(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("transport_options_widget");
 	createLayout();
@@ -188,8 +188,8 @@ OptionsWidget_connectionSocket::OptionsWidget_connectionSocket(QWidget * parent)
 OptionsWidget_connectionSocket::~OptionsWidget_connectionSocket()
     = default;
 
-OptionsWidget_identService::OptionsWidget_identService(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_identService::OptionsWidget_identService(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ident_options_widget");
 	createLayout();
@@ -259,7 +259,7 @@ OptionsWidget_identService::OptionsWidget_identService(QWidget * parent)
 	                "This is a <b>non RFC 1413 compliant</b> Ident daemon that implements "
 	                "only a limited subset of the Identification Protocol specifications. If it is possible, install a "
 	                "real Ident daemon.</p>",
-	             "options")
+	        "options")
 #else
 	    __tr2qs_ctx("<p><b>Warning:</b><br>"
 	                "This is a <b>non RFC 1413 compliant</b> Ident daemon that implements "
@@ -267,9 +267,9 @@ OptionsWidget_identService::OptionsWidget_identService(QWidget * parent)
 	                "On UNIX, you may also need root privileges to bind to the auth port (113).<br>"
 	                "It is <b>highly recommended</b> that a <b>real</b> system-wide Ident daemon be used instead, "
 	                "or none at all if Ident is not required.</p>",
-	             "options")
+	        "options")
 #endif
-	        );
+	);
 
 	addRowSpacer(0, 5, 0, 5);
 }
@@ -295,8 +295,8 @@ void OptionsWidget_identService::enableIpv4InIpv6(bool)
 #endif
 }
 
-OptionsWidget_connectionAdvanced::OptionsWidget_connectionAdvanced(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_connectionAdvanced::OptionsWidget_connectionAdvanced(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("connection_advanced_options_widget");
 }

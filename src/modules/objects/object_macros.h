@@ -76,9 +76,8 @@
 #define KVSO_END_REGISTERCLASS(__className) \
 	}
 
-#define KVSO_BEGIN_CONSTRUCTOR(__className, __baseClass)                                                 \
-	__className::__className(KviKvsObjectClass * pClass, KviKvsObject * pParent, const QString & szName) \
-	    : __baseClass(pClass, pParent, szName)                                                           \
+#define KVSO_BEGIN_CONSTRUCTOR(__className, __baseClass)                                                                                        \
+	__className::__className(KviKvsObjectClass * pClass, KviKvsObject * pParent, const QString & szName) : __baseClass(pClass, pParent, szName) \
 	{
 
 #define KVSO_END_CONSTRUCTOR(__className) \

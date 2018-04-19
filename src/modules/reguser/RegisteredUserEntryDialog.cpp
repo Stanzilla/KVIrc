@@ -65,8 +65,8 @@ extern RegisteredUsersDialog * g_pRegisteredUsersDialog;
 
 KviRegisteredUserDataBase * g_pLocalRegisteredUserDataBase; // local copy!
 
-RegisteredUserPropertiesDialog::RegisteredUserPropertiesDialog(QWidget * p, KviPointerHashTable<QString, QString> * dict)
-    : QDialog(p)
+RegisteredUserPropertiesDialog::RegisteredUserPropertiesDialog(QWidget * p, KviPointerHashTable<QString, QString> * dict) :
+    QDialog(p)
 {
 	setObjectName("property_editor");
 	setWindowModality(Qt::WindowModal);
@@ -199,8 +199,8 @@ void RegisteredUserPropertiesDialog::delClicked()
 	}
 }
 
-RegisteredUserMaskDialog::RegisteredUserMaskDialog(QWidget * p, KviIrcMask * m)
-    : QDialog(p)
+RegisteredUserMaskDialog::RegisteredUserMaskDialog(QWidget * p, KviIrcMask * m) :
+    QDialog(p)
 {
 	setObjectName("reguser_mask_editor");
 	setWindowModality(Qt::WindowModal);
@@ -297,8 +297,8 @@ void RegisteredUserMaskDialog::okClicked()
 	accept();
 }
 
-RegisteredUserEntryDialog::RegisteredUserEntryDialog(QWidget * p, KviRegisteredUser * r, bool bModal)
-    : KviTalTabDialog(p, "reguser_entry_editor", bModal)
+RegisteredUserEntryDialog::RegisteredUserEntryDialog(QWidget * p, KviRegisteredUser * r, bool bModal) :
+    KviTalTabDialog(p, "reguser_entry_editor", bModal)
 {
 	m_pUser = r;
 	m_pCustomColor = new QColor();

@@ -58,7 +58,7 @@
 // the perl values, but well ...
 
 // anyway, once you struggled for a couple of days with all that
-// stuff then you start getting things done... and it rox :)
+// stuff then you start getting things done... and it rox
 
 // Note for kvirc4: perl embedding has changed between perl 5.8 and perl 5.10.
 // This version should work nice with both, but warranty is 5.10-only.
@@ -118,6 +118,7 @@ public:
 	void done();
 	bool execute(const QString & szCode, QStringList & args, QString & szRetVal, QString & szError, QStringList & lWarnings);
 	const QString & contextName() const { return m_szContextName; };
+
 protected:
 	QString svToQString(SV * sv);
 };
@@ -192,21 +193,21 @@ bool KviPerlInterpreter::init()
 	// I just haven't tried :D
 
 	szInitCode = QString(
-	                 "{\n"
-	                 "package KVIrc;\n"
-	                 "require Exporter;\n"
-	                 "our @ISA = qw(Exporter);\n"
-	                 "1;\n"
-	                 "}\n"
-	                 "$g_szContext = \"%1\";\n"
-	                 "$g_bExecuteQuiet = 0;\n"
-	                 "$SIG{__WARN__} = sub\n"
-	                 "{\n"
-	                 "	my($p,$f,$l,$x);\n"
-	                 "	($p,$f,$l) = caller;\n"
-	                 "	KVIrc::internalWarning(\"At line \".$l.\" of Perl code: \");\n"
-	                 "	KVIrc::internalWarning(join(' ',@_));\n"
-	                 "}\n")
+	    "{\n"
+	    "package KVIrc;\n"
+	    "require Exporter;\n"
+	    "our @ISA = qw(Exporter);\n"
+	    "1;\n"
+	    "}\n"
+	    "$g_szContext = \"%1\";\n"
+	    "$g_bExecuteQuiet = 0;\n"
+	    "$SIG{__WARN__} = sub\n"
+	    "{\n"
+	    "	my($p,$f,$l,$x);\n"
+	    "	($p,$f,$l) = caller;\n"
+	    "	KVIrc::internalWarning(\"At line \".$l.\" of Perl code: \");\n"
+	    "	KVIrc::internalWarning(join(' ',@_));\n"
+	    "}\n")
 	                 .arg(m_szContextName);
 
 	eval_pv(szInitCode.toUtf8().data(), false);
@@ -437,7 +438,7 @@ static bool perlcore_module_can_unload(KviModule *)
 #ifdef COMPILE_PERL_SUPPORT
 	return false;
 	/* return (g_pInterpreters->count() == 0);
-	 * Perlcore module can't be cleanly unloaded since PERL_SYS_INIT3 
+	 * Perlcore module can't be cleanly unloaded since PERL_SYS_INIT3
 	 * and PERL_SYS_TERM should never be called more than once (#1105)
 	 */
 #endif // COMPILE_PERL_SUPPORT

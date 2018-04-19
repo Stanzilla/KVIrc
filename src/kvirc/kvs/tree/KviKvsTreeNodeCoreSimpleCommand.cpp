@@ -27,8 +27,8 @@
 #include "KviKvsTreeNodeSwitchList.h"
 #include "KviKvsRunTimeContext.h"
 
-KviKvsTreeNodeCoreSimpleCommand::KviKvsTreeNodeCoreSimpleCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params, KviKvsCoreSimpleCommandExecRoutine * r)
-    : KviKvsTreeNodeSimpleCommand(pLocation, szCmdName, params)
+KviKvsTreeNodeCoreSimpleCommand::KviKvsTreeNodeCoreSimpleCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params, KviKvsCoreSimpleCommandExecRoutine * r) :
+    KviKvsTreeNodeSimpleCommand(pLocation, szCmdName, params)
 {
 	m_pExecRoutine = r;
 }

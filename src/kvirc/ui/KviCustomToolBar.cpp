@@ -43,8 +43,8 @@
 
 static QAction * g_pDraggedAction = nullptr;
 
-KviCustomToolBar::KviCustomToolBar(KviCustomToolBarDescriptor * pDesc, const QString & szLabel, Qt::ToolBarArea type, const char * pcName)
-    : KviToolBar(szLabel, type, pcName)
+KviCustomToolBar::KviCustomToolBar(KviCustomToolBarDescriptor * pDesc, const QString & szLabel, Qt::ToolBarArea type, const char * pcName) :
+    KviToolBar(szLabel, type, pcName)
 {
 	m_pDescriptor = pDesc;
 	m_pFilteredChildren = nullptr;
@@ -343,8 +343,8 @@ bool KviCustomToolBar::eventFilter(QObject * o, QEvent * e)
 	return KviToolBar::eventFilter(o, e);
 }
 
-KviCustomToolBarSeparator::KviCustomToolBarSeparator(KviCustomToolBar * pParent, const char * pcName)
-    : QWidget(pParent)
+KviCustomToolBarSeparator::KviCustomToolBarSeparator(KviCustomToolBar * pParent, const char * pcName) :
+    QWidget(pParent)
 {
 	setObjectName(pcName);
 	m_pToolBar = pParent;

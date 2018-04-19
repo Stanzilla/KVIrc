@@ -24,8 +24,8 @@
 
 #include "KviKvsTreeNodeSpecialCommand.h"
 
-KviKvsTreeNodeSpecialCommand::KviKvsTreeNodeSpecialCommand(const QChar * pLocation, const QString & szCmdName)
-    : KviKvsTreeNodeCommand(pLocation, szCmdName)
+KviKvsTreeNodeSpecialCommand::KviKvsTreeNodeSpecialCommand(const QChar * pLocation, const QString & szCmdName) :
+    KviKvsTreeNodeCommand(pLocation, szCmdName)
 {
 }
 

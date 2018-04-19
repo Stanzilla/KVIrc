@@ -67,7 +67,7 @@ static int g_iNextConfigId = 0;
 		[fnc]$config.id[/fnc]() function.[br]
 	@examples:
 		[example]
-			[comment]# It is a good idea to store the returned ID to a variable :)[/comment]
+			[comment]# It is a good idea to store the returned ID to a variable [/comment]
 			%cfg = $config.open(myscript.kvc)
 			%num = [fnc]$config.read[/fnc](%cfg,Number,0)
 			[cmd]echo[/cmd] Number of entries is %num

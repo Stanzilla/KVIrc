@@ -161,8 +161,8 @@ private:
 	KviDnsResolverResult * m_pResult;
 
 public:
-	KviDnsResolverThreadEvent(KviDnsResolverResult * pResult)
-	    : QEvent(QEvent::User), m_pResult(pResult)
+	KviDnsResolverThreadEvent(KviDnsResolverResult * pResult) :
+	    QEvent(QEvent::User), m_pResult(pResult)
 	{
 		KVI_ASSERT(pResult);
 	}

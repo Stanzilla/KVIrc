@@ -31,16 +31,16 @@
 
 #include <QLayout>
 
-OptionsWidget_userList::OptionsWidget_userList(QWidget * parent)
-    : KviOptionsWidget(parent, "userlistlook_options_widget")
+OptionsWidget_userList::OptionsWidget_userList(QWidget * parent) :
+    KviOptionsWidget(parent, "userlistlook_options_widget")
 {
 }
 
 OptionsWidget_userList::~OptionsWidget_userList()
     = default;
 
-OptionsWidget_userListForeground::OptionsWidget_userListForeground(QWidget * parent)
-    : KviOptionsWidget(parent, "userlistlook_foreground_options_widget")
+OptionsWidget_userListForeground::OptionsWidget_userListForeground(QWidget * parent) :
+    KviOptionsWidget(parent, "userlistlook_foreground_options_widget")
 {
 	createLayout();
 
@@ -80,8 +80,8 @@ OptionsWidget_userListForeground::OptionsWidget_userListForeground(QWidget * par
 OptionsWidget_userListForeground::~OptionsWidget_userListForeground()
     = default;
 
-OptionsWidget_userListGrid::OptionsWidget_userListGrid(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_userListGrid::OptionsWidget_userListGrid(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	createLayout();
 	KviBoolSelector * b = addBoolSelector(0, 0, 0, 0, __tr2qs_ctx("Draw nickname grid", "options"), KviOption_boolUserListViewDrawGrid);
@@ -119,8 +119,8 @@ void OptionsWidget_userListGrid::commit()
 		KVI_OPTION_UINT(KviOption_uintUserListViewGridType) = KVI_USERLISTVIEW_GRIDTYPE_DEFAULT;
 }
 
-OptionsWidget_userListBackground::OptionsWidget_userListBackground(QWidget * parent)
-    : KviOptionsWidget(parent, "userlistlook_background_options_widget")
+OptionsWidget_userListBackground::OptionsWidget_userListBackground(QWidget * parent) :
+    KviOptionsWidget(parent, "userlistlook_background_options_widget")
 {
 	createLayout();
 
@@ -216,8 +216,8 @@ void OptionsWidget_userListBackground::commit()
 	KVI_OPTION_UINT(KviOption_uintUserListPixmapAlign) = iFlags;
 }
 
-OptionsWidget_userListFeatures::OptionsWidget_userListFeatures(QWidget * parent)
-    : KviOptionsWidget(parent, "userlistfeatures_options_widget")
+OptionsWidget_userListFeatures::OptionsWidget_userListFeatures(QWidget * parent) :
+    KviOptionsWidget(parent, "userlistfeatures_options_widget")
 {
 	createLayout();
 
@@ -231,7 +231,8 @@ OptionsWidget_userListFeatures::OptionsWidget_userListFeatures(QWidget * parent)
 	                        "For specific widths for different channels, drag widget to desired width, "
 	                        "right click on channel on Tree Window List and select Save Window Properties As Default.<br>"
 	                        "<b>Please note</b> dragging method may not be as reliable and values set may be lost randomly, "
-	                        "However values will never be less than the width you specified.", "options"));
+	                        "However values will never be less than the width you specified.",
+	                "options"));
 
 	addBoolSelector(0, 1, 0, 1, __tr2qs_ctx("Show gender icons", "options"), KviOption_boolDrawGenderIcons);
 	addBoolSelector(0, 2, 0, 2, __tr2qs_ctx("Show user rank channel icons", "options"), KviOption_boolShowUserChannelIcons);
@@ -245,7 +246,8 @@ OptionsWidget_userListFeatures::OptionsWidget_userListFeatures(QWidget * parent)
 	                        "will be sorted last in userlist after all regular nicknames.<br>"
 	                        "Select this option if you prefer to see regular nicknames sorted topmost "
 	                        "on userlist.<br><br><b>Note:</b> "
-	                        "Changes to this option requires KVIrc restart.", "options"));
+	                        "Changes to this option requires KVIrc restart.",
+	                "options"));
 
 	addRowSpacer(0, 9, 0, 9);
 }

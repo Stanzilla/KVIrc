@@ -212,7 +212,7 @@ namespace KviMemory
 
 	void outOfMemory()
 	{
-		//What a cool message :)
+		//What a cool message
 		fprintf(stderr, "Virtual memory exhausted in malloc call... bye!\n");
 		exit(-1);
 	}
@@ -512,7 +512,7 @@ namespace KviMemory
 	{
 		// Trivial implementation
 		// Ignores completely locales....only A-Z chars are transformed to a-z
-		// Anyway...it will work for IRC :)
+		// Anyway...it will work for IRC
 		register int iReg;
 		register bool bEax;
 		__asm__ __volatile__ (

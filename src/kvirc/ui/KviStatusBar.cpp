@@ -54,8 +54,8 @@
 #include <QTimer>
 #include <QWidgetAction>
 
-KviStatusBar::KviStatusBar(KviMainWindow * pFrame)
-    : QStatusBar(pFrame)
+KviStatusBar::KviStatusBar(KviMainWindow * pFrame) :
+    QStatusBar(pFrame)
 {
 	setAutoFillBackground(false);
 

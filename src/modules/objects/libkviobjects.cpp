@@ -218,7 +218,7 @@ static bool objects_kvs_cmd_clearObjects(KviKvsModuleCommandCall * c)
 			but the class definitions are left unchanged.[br]
 			This command should be used only for debugging & testing purposes
 			and in particular should be [b]never[/b] used from inside an object
-			function handler (leads to SIGSEGV :).[br]
+			function handler (leads to SIGSEGV .[br]
 		@seealso:
 			[cmd]class[/cmd], [cmd]objects.killclass[/cmd],
 			[doc:objects]Object scripting[/doc]

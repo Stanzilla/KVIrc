@@ -168,10 +168,10 @@ protected:
 
 public:
 	KviClassicWindowListToolButton(KviWindowListButton * par);
-	~KviClassicWindowListToolButton() {};
+	~KviClassicWindowListToolButton(){};
 
 protected:
-	virtual void mousePressEvent(QMouseEvent *e);
+	virtual void mousePressEvent(QMouseEvent * e);
 
 public:
 	virtual QSize sizeHint() const;

@@ -38,8 +38,9 @@
 #include <QPushButton>
 #include <QValidator>
 
-KviMaskItem::KviMaskItem(QTreeWidget * pParent, KviMaskEntry * pEntry)
-    : QTreeWidgetItem(pParent), m_Mask(*pEntry)
+KviMaskItem::KviMaskItem(QTreeWidget * pParent, KviMaskEntry * pEntry) :
+    QTreeWidgetItem(pParent),
+    m_Mask(*pEntry)
 {
 	QString szDate;
 	QDateTime date;
@@ -66,8 +67,8 @@ KviMaskItem::KviMaskItem(QTreeWidget * pParent, KviMaskEntry * pEntry)
 KviMaskItem::~KviMaskItem()
     = default;
 
-KviMaskInputDialog::KviMaskInputDialog(const QString & szMask, KviMaskEditor * pEditor, KviChannelWindow * pChannel)
-    : QDialog(pEditor)
+KviMaskInputDialog::KviMaskInputDialog(const QString & szMask, KviMaskEditor * pEditor, KviChannelWindow * pChannel) :
+    QDialog(pEditor)
 {
 	m_pChannel = pChannel;
 	m_pEditor = pEditor;
@@ -119,8 +120,8 @@ void KviMaskInputDialog::accept()
 	QDialog::accept();
 }
 
-KviMaskEditor::KviMaskEditor(QWidget * par, KviChannelWindow * pChannel, KviWindowToolPageButton * button, std::vector<KviMaskEntry *> maskList, char cMode, const char * name)
-    : KviWindowToolWidget(par, button)
+KviMaskEditor::KviMaskEditor(QWidget * par, KviChannelWindow * pChannel, KviWindowToolPageButton * button, std::vector<KviMaskEntry *> maskList, char cMode, const char * name) :
+    KviWindowToolWidget(par, button)
 {
 	setObjectName(name);
 	m_pChannel = pChannel;

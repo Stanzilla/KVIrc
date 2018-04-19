@@ -431,15 +431,15 @@ void register_core_actions(KviActionManager * m)
 	    KVI_SHORTCUTS_QUIT);
 }
 
-KviIrcContextDisplayAction::KviIrcContextDisplayAction(QObject * pParent)
-    : KviAction(pParent,
-          QString(KVI_COREACTION_IRCCONTEXTDISPLAY),
-          __tr2qs("IRC Context Display"),
-          __tr2qs("Shows a small display with IRC context information"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_irccontextdisplay.png",
-          KviIconManager::PopupMenu,
-          NeedsContext | NeedsConnection)
+KviIrcContextDisplayAction::KviIrcContextDisplayAction(QObject * pParent) :
+    KviAction(pParent,
+        QString(KVI_COREACTION_IRCCONTEXTDISPLAY),
+        __tr2qs("IRC Context Display"),
+        __tr2qs("Shows a small display with IRC context information"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_irccontextdisplay.png",
+        KviIconManager::PopupMenu,
+        NeedsContext | NeedsConnection)
 {
 }
 
@@ -504,15 +504,15 @@ void KviIrcContextDisplayAction::setEnabled(bool)
 	// does nothing here : always enabled!
 }
 
-KviSeparatorAction::KviSeparatorAction(QObject * pParent)
-    : KviAction(pParent,
-          QString(KVI_COREACTION_SEPARATOR),
-          __tr2qs("Separator"),
-          __tr2qs("Acts as a separator for other items: performs no action"),
-          KviActionManager::categoryGeneric(),
-          KVI_BIGICON_SEPARATOR,
-          KviIconManager::None,
-          0)
+KviSeparatorAction::KviSeparatorAction(QObject * pParent) :
+    KviAction(pParent,
+        QString(KVI_COREACTION_SEPARATOR),
+        __tr2qs("Separator"),
+        __tr2qs("Acts as a separator for other items: performs no action"),
+        KviActionManager::categoryGeneric(),
+        KVI_BIGICON_SEPARATOR,
+        KviIconManager::None,
+        0)
 {
 }
 
@@ -536,16 +536,16 @@ QAction * KviSeparatorAction::addToCustomToolBar(KviCustomToolBar * t)
 	return pAction;
 }
 
-KviConnectAction::KviConnectAction(QObject * pParent)
-    : KviAction(pParent,
-          QString(KVI_COREACTION_CONNECT),
-          __tr2qs("Connect/Disconnect"),
-          __tr2qs("Allows you to connect to a server or to terminate the current connection"),
-          KviActionManager::categoryIrc(),
-          KVI_BIGICON_CONNECTED,
-          KviIconManager::None, // no small icon for now
-          NeedsContext | NeedsConnection,
-          QString(KVI_SHORTCUTS_CONNECT))
+KviConnectAction::KviConnectAction(QObject * pParent) :
+    KviAction(pParent,
+        QString(KVI_COREACTION_CONNECT),
+        __tr2qs("Connect/Disconnect"),
+        __tr2qs("Allows you to connect to a server or to terminate the current connection"),
+        KviActionManager::categoryIrc(),
+        KVI_BIGICON_CONNECTED,
+        KviIconManager::None, // no small icon for now
+        NeedsContext | NeedsConnection,
+        QString(KVI_SHORTCUTS_CONNECT))
 {
 }
 
@@ -709,17 +709,17 @@ KviSubmenuAction::KviSubmenuAction(
     KviActionCategory * pCategory,
     const QString & szBigIconId,
     KviIconManager::SmallIcon eSmallIcon,
-    unsigned int uFlags)
-    : KviKvsAction(
-          pParent,
-          szName,
-          szScriptCode,
-          szVisibleName,
-          szDescription,
-          pCategory,
-          szBigIconId,
-          eSmallIcon,
-          uFlags)
+    unsigned int uFlags) :
+    KviKvsAction(
+        pParent,
+        szName,
+        szScriptCode,
+        szVisibleName,
+        szDescription,
+        pCategory,
+        szBigIconId,
+        eSmallIcon,
+        uFlags)
 {
 	m_pPopup = nullptr;
 }
@@ -783,16 +783,16 @@ QAction * KviSubmenuAction::addToCustomToolBar(KviCustomToolBar * t)
 	return pAction;
 }
 
-KviJoinChannelAction::KviJoinChannelAction(QObject * pParent)
-    : KviSubmenuAction(pParent,
-          QString(KVI_COREACTION_CHANNELMENU),
-          QString("channelsjoin.open"),
-          __tr2qs("Join Channel"),
-          __tr2qs("Shows a popup menu that allows quickly selecting a channel to join"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_channelspopup.png",
-          KviIconManager::Channel,
-          NeedsConnection | NeedsContext)
+KviJoinChannelAction::KviJoinChannelAction(QObject * pParent) :
+    KviSubmenuAction(pParent,
+        QString(KVI_COREACTION_CHANNELMENU),
+        QString("channelsjoin.open"),
+        __tr2qs("Join Channel"),
+        __tr2qs("Shows a popup menu that allows quickly selecting a channel to join"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_channelspopup.png",
+        KviIconManager::Channel,
+        NeedsConnection | NeedsContext)
 {
 }
 
@@ -837,17 +837,17 @@ void KviJoinChannelAction::popupActivated(QAction * pAction)
 	}
 }
 
-KviChangeNickAction::KviChangeNickAction(QObject * pParent)
-    : KviSubmenuAction(
-          pParent,
-          QString(KVI_COREACTION_NICKNAMEMENU),
-          QString("dialog.textinput(\"" + __tr2qs("Change Nickname") + "\",\"" + __tr2qs("Please enter the new nickname") + "\",\"" + __tr2qs("OK") + "\",\"" + __tr2qs("Cancel") + "\"){ if($0 == 0 && $1 != \"\")nick $1; }"),
-          __tr2qs("Change Nickname"),
-          __tr2qs("Shows a popup menu that allows quickly changing the nickname"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_nickpopup.png",
-          KviIconManager::NickPopup,
-          NeedsConnection | NeedsContext)
+KviChangeNickAction::KviChangeNickAction(QObject * pParent) :
+    KviSubmenuAction(
+        pParent,
+        QString(KVI_COREACTION_NICKNAMEMENU),
+        QString("dialog.textinput(\"" + __tr2qs("Change Nickname") + "\",\"" + __tr2qs("Please enter the new nickname") + "\",\"" + __tr2qs("OK") + "\",\"" + __tr2qs("Cancel") + "\"){ if($0 == 0 && $1 != \"\")nick $1; }"),
+        __tr2qs("Change Nickname"),
+        __tr2qs("Shows a popup menu that allows quickly changing the nickname"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_nickpopup.png",
+        KviIconManager::NickPopup,
+        NeedsConnection | NeedsContext)
 {
 }
 
@@ -893,17 +893,17 @@ void KviChangeNickAction::popupActivated(QAction * pAction)
 	}
 }
 
-KviConnectToServerAction::KviConnectToServerAction(QObject * pParent)
-    : KviSubmenuAction(
-          pParent,
-          QString(KVI_COREACTION_SERVERMENU),
-          QString("options.edit OptionsWidget_servers"),
-          __tr2qs("Connect to"),
-          __tr2qs("Shows a popup menu that allows quickly connecting to a server"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_server.png",
-          KviIconManager::Server,
-          NeedsContext)
+KviConnectToServerAction::KviConnectToServerAction(QObject * pParent) :
+    KviSubmenuAction(
+        pParent,
+        QString(KVI_COREACTION_SERVERMENU),
+        QString("options.edit OptionsWidget_servers"),
+        __tr2qs("Connect to"),
+        __tr2qs("Shows a popup menu that allows quickly connecting to a server"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_server.png",
+        KviIconManager::Server,
+        NeedsContext)
 {
 }
 
@@ -945,17 +945,17 @@ void KviConnectToServerAction::popupActivated(QAction * pAction)
 	}
 }
 
-KviChangeUserModeAction::KviChangeUserModeAction(QObject * pParent)
-    : KviSubmenuAction(
-          pParent,
-          QString(KVI_COREACTION_USERMODEMENU),
-          QString(""),
-          __tr2qs("User Mode"),
-          __tr2qs("Shows a popup menu that allows quickly changing user modes"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_usermode.png",
-          KviIconManager::UserMode,
-          NeedsContext | NeedsConnection)
+KviChangeUserModeAction::KviChangeUserModeAction(QObject * pParent) :
+    KviSubmenuAction(
+        pParent,
+        QString(KVI_COREACTION_USERMODEMENU),
+        QString(""),
+        __tr2qs("User Mode"),
+        __tr2qs("Shows a popup menu that allows quickly changing user modes"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_usermode.png",
+        KviIconManager::UserMode,
+        NeedsContext | NeedsConnection)
 {
 }
 
@@ -1038,18 +1038,18 @@ void KviChangeUserModeAction::popupActivated(QAction * pAction)
 	}
 }
 
-KviGoAwayAction::KviGoAwayAction(QObject * pParent)
-    : KviKvsAction(
-          pParent,
-          QString(KVI_COREACTION_AWAYBACK),
-          QString("if($away())back; else away -d;"),
-          __tr2qs("Away/Back"),
-          __tr2qs("Allows entering and leaving away state"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_away.png",
-          KviIconManager::Away,
-          KviKvsAction::NeedsContext | KviKvsAction::NeedsConnection,
-          KVI_SHORTCUTS_AWAY)
+KviGoAwayAction::KviGoAwayAction(QObject * pParent) :
+    KviKvsAction(
+        pParent,
+        QString(KVI_COREACTION_AWAYBACK),
+        QString("if($away())back; else away -d;"),
+        __tr2qs("Away/Back"),
+        __tr2qs("Allows entering and leaving away state"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_away.png",
+        KviIconManager::Away,
+        KviKvsAction::NeedsContext | KviKvsAction::NeedsConnection,
+        KVI_SHORTCUTS_AWAY)
 {
 }
 
@@ -1194,17 +1194,17 @@ QAction * KviGoAwayAction::addToCustomToolBar(KviCustomToolBar * t)
 	return pAction;
 }
 
-KviIrcToolsAction::KviIrcToolsAction(QObject * pParent)
-    : KviSubmenuAction(
-          pParent,
-          QString(KVI_COREACTION_IRCTOOLS),
-          QString(""),
-          __tr2qs("IRC Tools"),
-          __tr2qs("Shows a popup menu with some IRC tools"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_tools.png",
-          KviIconManager::Tools,
-          NeedsConnection | NeedsContext)
+KviIrcToolsAction::KviIrcToolsAction(QObject * pParent) :
+    KviSubmenuAction(
+        pParent,
+        QString(KVI_COREACTION_IRCTOOLS),
+        QString(""),
+        __tr2qs("IRC Tools"),
+        __tr2qs("Shows a popup menu with some IRC tools"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_tools.png",
+        KviIconManager::Tools,
+        NeedsConnection | NeedsContext)
 {
 }
 
@@ -1230,17 +1230,17 @@ void KviIrcToolsAction::popupActivated(QAction *)
 {
 }
 
-KviIrcOperationsAction::KviIrcOperationsAction(QObject * pParent)
-    : KviSubmenuAction(
-          pParent,
-          QString(KVI_COREACTION_IRCACTIONS),
-          QString(""),
-          __tr2qs("IRC Actions"),
-          __tr2qs("Shows a popup menu with some IRC actions"),
-          KviActionManager::categoryIrc(),
-          "kvi_bigicon_actions.png",
-          KviIconManager::Action,
-          NeedsConnection | NeedsContext)
+KviIrcOperationsAction::KviIrcOperationsAction(QObject * pParent) :
+    KviSubmenuAction(
+        pParent,
+        QString(KVI_COREACTION_IRCACTIONS),
+        QString(""),
+        __tr2qs("IRC Actions"),
+        __tr2qs("Shows a popup menu with some IRC actions"),
+        KviActionManager::categoryIrc(),
+        "kvi_bigicon_actions.png",
+        KviIconManager::Action,
+        NeedsConnection | NeedsContext)
 {
 }
 

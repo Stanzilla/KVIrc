@@ -56,6 +56,7 @@ public:
 	void setClone(bool bCl) { m_bClone = bCl; };
 	bool isClone();
 	unsigned int flags() { return m_uFlags; };
+
 protected:
 	virtual bool isScriptHandler();
 	virtual QString scriptHandlerCode();

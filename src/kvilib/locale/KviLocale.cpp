@@ -253,8 +253,8 @@ private:
 	QTextCodec * m_pSendCodec;
 
 public:
-	KviSmartTextCodec(const char * szName, QTextCodec * pChildCodec, bool bSendInUtf8)
-	    : QTextCodec()
+	KviSmartTextCodec(const char * szName, QTextCodec * pChildCodec, bool bSendInUtf8) :
+	    QTextCodec()
 	{
 		Q_ASSERT(pChildCodec);
 
@@ -282,6 +282,7 @@ public:
 	int mibEnum() const override { return 0; };
 
 	QByteArray name() const override { return m_szName; };
+
 protected:
 	QByteArray convertFromUnicode(const QChar * input, int number, ConverterState * state) const override
 	{

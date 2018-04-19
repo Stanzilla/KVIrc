@@ -53,7 +53,9 @@ QT_BEGIN_NAMESPACE
 struct Document
 {
 	Document() = default;
-	Document(int d, int f) : docNumber(d), frequency(f) {}
+	Document(int d, int f) :
+	    docNumber(d),
+	    frequency(f) {}
 	bool operator==(const Document & doc) const
 	{
 		return docNumber == doc.docNumber;
@@ -84,7 +86,8 @@ public:
 	struct Entry
 	{
 		Entry(int d) { documents.append(Document(d, 1)); }
-		Entry(QVector<Document> l) : documents(l) {}
+		Entry(QVector<Document> l) :
+		    documents(l) {}
 		QVector<Document> documents;
 	};
 	struct PosEntry

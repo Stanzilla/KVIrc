@@ -74,17 +74,17 @@ namespace KviByteOrder
 		return ((i << 8) | (i >> 8));
 	}
 
-//
-// Byte Orders Reminder
-//   Number                             0xaabbccdd
-//   Little Endian Stores               0xdd 0xcc 0xbb 0xaa
-//   Big Endian Stores                  0xaa 0xbb 0xcc 0xdd
-//   Perverse Middle Endian             0xbb 0xaa 0xdd 0xcc or another braindamaged combination (unsupported)
-//   Network Byte Order is Big Endian
-//   Intel Stuff uses Little Endian
-//   PPC is Big Endian
-//   Universal binaries on MacOSX use both Big and Little Endian
-//
+	//
+	// Byte Orders Reminder
+	//   Number                             0xaabbccdd
+	//   Little Endian Stores               0xdd 0xcc 0xbb 0xaa
+	//   Big Endian Stores                  0xaa 0xbb 0xcc 0xdd
+	//   Perverse Middle Endian             0xbb 0xaa 0xdd 0xcc or another braindamaged combination (unsupported)
+	//   Network Byte Order is Big Endian
+	//   Intel Stuff uses Little Endian
+	//   PPC is Big Endian
+	//   Universal binaries on MacOSX use both Big and Little Endian
+	//
 
 #ifdef BIG_ENDIAN_MACHINE_BYTE_ORDER
 
@@ -180,7 +180,7 @@ namespace KviByteOrder
 
 #else //!BIG_ENDIAN_MACHINE_BYTE_ORDER
 
-// We ASSUME that the local cpu is little endian.. if it isn't.. well :)
+// We ASSUME that the local cpu is little endian.. if it isn't.. well
 #define LOCAL_CPU_LITTLE_ENDIAN 1
 
 	inline kvi_u16_t localCpuToLittleEndian16(kvi_u16_t u)

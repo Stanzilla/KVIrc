@@ -39,16 +39,16 @@
 
 // FIXME: This module doesn't ???? properly when auto-detection is performed!
 
-OptionsWidget_sound::OptionsWidget_sound(QWidget * pParent)
-    : KviOptionsWidget(pParent)
+OptionsWidget_sound::OptionsWidget_sound(QWidget * pParent) :
+    KviOptionsWidget(pParent)
 {
 }
 
 OptionsWidget_sound::~OptionsWidget_sound()
     = default;
 
-OptionsWidget_soundGeneral::OptionsWidget_soundGeneral(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_soundGeneral::OptionsWidget_soundGeneral(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	m_bFirstShow = true;
 
@@ -226,7 +226,7 @@ void OptionsWidget_soundGeneral::soundFillBox()
 
 	m_pSoundSystemBox->clear();
 
-	for(const auto& it : l)
+	for(const auto & it : l)
 		m_pSoundSystemBox->addItem(it);
 
 	cnt = m_pSoundSystemBox->count();
@@ -259,7 +259,7 @@ void OptionsWidget_soundGeneral::mediaFillBox()
 
 	m_pMediaPlayerBox->clear();
 
-	for(const auto& it : l)
+	for(const auto & it : l)
 		m_pMediaPlayerBox->addItem(it);
 
 	cnt = m_pMediaPlayerBox->count();
@@ -316,8 +316,8 @@ void OptionsWidget_soundGeneral::commit()
 #endif
 }
 
-OptionsWidget_sounds::OptionsWidget_sounds(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_sounds::OptionsWidget_sounds(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("sound_options_widget");
 	createLayout();

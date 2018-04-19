@@ -40,8 +40,8 @@
 #include <QPalette>
 #include <QScrollBar>
 
-KviTextIconWindow::KviTextIconWindow()
-    : QWidget(nullptr, Qt::Popup)
+KviTextIconWindow::KviTextIconWindow() :
+    QWidget(nullptr, Qt::Popup)
 {
 	m_pOwner = nullptr;
 	m_bAltMode = false;

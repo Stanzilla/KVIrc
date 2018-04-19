@@ -4,7 +4,7 @@
 # Feel free to use it as base for writing your own scripts
 # It is a good starting point; I have tried to add as many comments as possible.
 #
-# Have fun :)
+# Have fun
 #   Szymon Stefanek
 #
 #################################################################################################
@@ -35,5 +35,5 @@ options.save
 echo $tr("The default script has been successfully installed.","defscript")
 echo $tr("To connect to a server, type /server <server name>","defscript")
 echo "---"
-echo $tr("Happy ircing :)","defscript")
+echo $tr("Happy ircing ","defscript")
 echo "- Szymon Stefanek $tr("and the KVIrc Development Team","defscript")"

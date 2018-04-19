@@ -22,10 +22,10 @@
 //
 //===========================================================================
 
-// Damn complex class ...but it works :)
+// Damn complex class ...but it works
 // #include <brain.h>
 //
-// #define HOPE_THAT_IT_WILL_NEVER_NEED_TO_BE_MODIFIED :)
+// #define HOPE_THAT_IT_WILL_NEVER_NEED_TO_BE_MODIFIED
 
 // 07 May 1999,
 //      Already forgot how this damn thing works,
@@ -60,7 +60,7 @@
 
 // 25 Sep 2001
 //      This stuff is going to be ported to Windoze
-//      A conditionally compiled code will use only Qt calls...let's see :)
+//      A conditionally compiled code will use only Qt calls...let's see
 //
 
 //
@@ -148,7 +148,7 @@ extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 // X Error: BadDrawable (invalid Pixmap or Window parameter) 9
 //   Major opcode:  55
 // Program received signal SIGABRT, Aborted.
-// Do not change unless you're sure that it will not happen :)
+// Do not change unless you're sure that it will not happen
 #define KVI_IRCVIEW_MINIMUM_WIDTH 22
 // 16+4+(2*4) * Do not change
 // this is mostly needed to avoid collapsing in slit view
@@ -191,8 +191,8 @@ extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 // The IrcView : construct and destroy
 //
 
-KviIrcView::KviIrcView(QWidget * parent, KviWindow * pWnd)
-    : QWidget(parent)
+KviIrcView::KviIrcView(QWidget * parent, KviWindow * pWnd) :
+    QWidget(parent)
 {
 	setObjectName("irc_view");
 	// Ok...here we go
@@ -377,8 +377,8 @@ void KviIrcView::showEvent(QShowEvent * e)
 	if(!pWin)
 		return; // huh ?
 
-	QObject::disconnect(pWin,SIGNAL(screenChanged(QScreen *)),this,SLOT(screenChanged(QScreen *)));
-	QObject::connect(pWin,SIGNAL(screenChanged(QScreen *)),this,SLOT(screenChanged(QScreen *)));
+	QObject::disconnect(pWin, SIGNAL(screenChanged(QScreen *)), this, SLOT(screenChanged(QScreen *)));
+	QObject::connect(pWin, SIGNAL(screenChanged(QScreen *)), this, SLOT(screenChanged(QScreen *)));
 }
 
 void KviIrcView::screenChanged(QScreen *)
@@ -386,7 +386,6 @@ void KviIrcView::screenChanged(QScreen *)
 	// Changing screen can change DPI. Reset font so metrics are recomputed.
 	setFont(font());
 }
-
 
 //
 // The IrcView : options
@@ -525,7 +524,7 @@ void KviIrcView::setTimestamp(bool bTimestamp)
 
 // STATS FOR A BUFFER FULL OF HIGHLY COLORED STRINGS, HIGHLY WRAPPED
 //
-// Lines = 1024 (322425 bytes - 314 KB) (avg 314 bytes per line), well :)
+// Lines = 1024 (322425 bytes - 314 KB) (avg 314 bytes per line), well
 // string bytes = 87745 (85 KB)
 // attributes = 3576 (42912 bytes - 41 KB)
 // blocks = 12226 (146712 bytes - 143 KB)
@@ -749,13 +748,13 @@ void KviIrcView::removeHeadLine(bool bRepaint)
 		KviIrcViewLine * aux_ptr = m_pFirstLine->pNext; // get the next line
 		aux_ptr->pPrev = nullptr;                       // becomes the first
 		if(m_pFirstLine == m_pCurLine)
-			m_pCurLine = aux_ptr;                       // move the cur line if necessary
+			m_pCurLine = aux_ptr;                           // move the cur line if necessary
 		delete_text_line(m_pFirstLine, &m_hAnimatedSmiles); // delete the struct
 		m_pFirstLine = aux_ptr;                             // set the last
 		m_iNumLines--;                                      // and decrement the count
 	}
 	else
-	{	// unique line
+	{ // unique line
 		m_pCurLine = nullptr;
 		delete_text_line(m_pFirstLine, &m_hAnimatedSmiles);
 		m_pFirstLine = nullptr;
@@ -979,7 +978,7 @@ void KviIrcView::fastScroll(int lines)
 	if(!m_pFm)
 	{
 		repaint(); // We must get the metrics from a real paint event :/
-		return;	   // must do a full repaint to get them..
+		return;    // must do a full repaint to get them..
 	}
 
 	// Ok...the current line is the last one here
@@ -1017,7 +1016,7 @@ void KviIrcView::fastScroll(int lines)
 	scroll(0, -(heightToPaint - 1), QRect(1, 1, widgetWidth - 2, widgetHeight - 2));
 
 	if(m_iLastLinkRectHeight > -1)
-	{	// need to kill the last highlighted link
+	{ // need to kill the last highlighted link
 		m_iLastLinkRectTop -= heightToPaint;
 		if(m_iLastLinkRectTop < 0)
 		{
@@ -1285,8 +1284,8 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 						}
 						bacWasTransp = (aux == KviControlCodes::Transparent);
 						break;
-					//case KviControlCodes::Icon:
-					//case KviControlCodes::UnIcon:
+						//case KviControlCodes::Icon:
+						//case KviControlCodes::UnIcon:
 						// does nothing
 						//qDebug("Have a block with ICON/UNICON attr");
 						//break;
@@ -1301,14 +1300,14 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 				curBottomCoord += m_iFontLineSpacing;
 			}
 
-//
-// Here we run really out of bounds :)))))
-// A couple of macros that could work well as functions...
-// but since there are really many params to be passed
-// and push & pop calls take clock cycles
-// my paranoid mind decided to go for the macro way.
-// This is NOT good programming
-//
+			//
+			// Here we run really out of bounds
+			// A couple of macros that could work well as functions...
+			// but since there are really many params to be passed
+			// and push & pop calls take clock cycles
+			// my paranoid mind decided to go for the macro way.
+			// This is NOT good programming
+			//
 
 #define SET_PEN(_color, _custom)                                                             \
 	if(((unsigned char)_color) < 16)                                                         \
@@ -1360,13 +1359,13 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 			theWdth = width() - (curLeftCoord + KVI_IRCVIEW_HORIZONTAL_BORDER + scrollbarWidth);                                                                                       \
 		pa.fillRect(curLeftCoord, curBottomCoord - m_iFontLineSpacing + m_iFontDescent, theWdth, m_iFontLineSpacing, KVI_OPTION_MIRCCOLOR(KVI_OPTION_MSGTYPE(KVI_OUT_SELECT).back())); \
 	}                                                                                                                                                                                  \
-	pPenFont.setStyle(curItalic ^ (normalFontStyle != QFont::StyleNormal) ? QFont::StyleItalic : QFont::StyleNormal);                                                 \
-	if (m_bUseRealBold)                                                                                                                                             \
-		pPenFont.setBold(curBold);                                                                                                                                  \
-	pa.setFont(pPenFont);                                                                                                                                           \
-	pa.drawText(curLeftCoord, curBottomCoord, _text_str.mid(_text_idx, _text_len));                                                                                 \
-	if(curBold && !m_bUseRealBold)                                                                                                                                  \
-		pa.drawText(curLeftCoord + 1, curBottomCoord, _text_str.mid(_text_idx, _text_len));                                                                         \
+	pPenFont.setStyle(curItalic ^ (normalFontStyle != QFont::StyleNormal) ? QFont::StyleItalic : QFont::StyleNormal);                                                                  \
+	if(m_bUseRealBold)                                                                                                                                                                 \
+		pPenFont.setBold(curBold);                                                                                                                                                     \
+	pa.setFont(pPenFont);                                                                                                                                                              \
+	pa.drawText(curLeftCoord, curBottomCoord, _text_str.mid(_text_idx, _text_len));                                                                                                    \
+	if(curBold && !m_bUseRealBold)                                                                                                                                                     \
+		pa.drawText(curLeftCoord + 1, curBottomCoord, _text_str.mid(_text_idx, _text_len));                                                                                            \
 	curLeftCoord += _text_width;
 
 #define DRAW_NORMAL_TEXT(_text_str, _text_idx, _text_len, _text_width)                                                                                              \
@@ -1378,9 +1377,9 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 			theWdth = width() - (curLeftCoord + KVI_IRCVIEW_HORIZONTAL_BORDER + scrollbarWidth);                                                                    \
 		pa.fillRect(curLeftCoord, curBottomCoord - m_iFontLineSpacing + m_iFontDescent, theWdth, m_iFontLineSpacing, KVI_OPTION_MIRCCOLOR((unsigned char)curBack)); \
 	}                                                                                                                                                               \
-	pPenFont.setStyle(curItalic ^ (normalFontStyle != QFont::StyleNormal) ? QFont::StyleItalic : QFont::StyleNormal);                                                 \
-	if (m_bUseRealBold)                                                                                                                                             \
-	    pPenFont.setBold(curBold);                                                                                                                                  \
+	pPenFont.setStyle(curItalic ^ (normalFontStyle != QFont::StyleNormal) ? QFont::StyleItalic : QFont::StyleNormal);                                               \
+	if(m_bUseRealBold)                                                                                                                                              \
+		pPenFont.setBold(curBold);                                                                                                                                  \
 	pa.setFont(pPenFont);                                                                                                                                           \
 	pa.drawText(curLeftCoord, curBottomCoord, _text_str.mid(_text_idx, _text_len));                                                                                 \
 	if(curBold && !m_bUseRealBold)                                                                                                                                  \
@@ -1394,7 +1393,7 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 	}                                                                                                                                                               \
 	curLeftCoord += _text_width;
 
-	// EOF macro declarations
+			// EOF macro declarations
 
 			if(pCurTextLine == m_pCursorLine)
 			{
@@ -1530,7 +1529,7 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 
 					newFont = pa.font();
 					newFont.setStyle(curItalic ^ (normalFontStyle != QFont::StyleNormal) ? QFont::StyleItalic : QFont::StyleNormal);
-					if (m_bUseRealBold)
+					if(m_bUseRealBold)
 						newFont.setBold(bBold);
 					pa.setFont(newFont);
 
@@ -1542,7 +1541,7 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 
 					pa.drawText(curLeftCoord, curBottomCoord, pCurTextLine->szText.mid(block->block_start, block->block_len));
 
-					if (bBold && !m_bUseRealBold)
+					if(bBold && !m_bUseRealBold)
 					{
 						// Draw doubled font (simulate bold)
 						pa.drawText(curLeftCoord + 1, curBottomCoord, pCurTextLine->szText.mid(block->block_start, block->block_len));
@@ -1592,7 +1591,7 @@ void KviIrcView::paintEvent(QPaintEvent * p)
 				pa.setPen(pen);
 				pa.drawLine(0, curBottomCoord, widgetWidth, curBottomCoord);
 				//pa.setRasterOp(CopyROP);
-			}       // else was partially visible only
+			} // else was partially visible only
 		}
 
 		pCurTextLine = pCurTextLine->pPrev;
@@ -1847,7 +1846,7 @@ void KviIrcView::calculateLineWraps(KviIrcViewLine * ptr, int maxWidth)
 				return;
 		}
 		else if(ptr->uLineWraps > 128)
-		{	// oops.. this is looping endlessly: it may happen in certain insane window width / font size configurations...
+		{ // oops.. this is looping endlessly: it may happen in certain insane window width / font size configurations...
 			return;
 		}
 	}
@@ -2008,13 +2007,13 @@ bool KviIrcView::checkSelectionBlock(KviIrcViewLine * line, int bufIndex)
 			return true;
 		}
 		if(line->pBlocks[bufIndex].block_start >= initChar)
-		{	// Whole chunk selected
+		{ // Whole chunk selected
 			m_pWrappedBlockSelectionInfo->selection_type = KVI_IRCVIEW_BLOCK_SELECTION_TOTAL;
 			return true;
 		}
 
 		if(line->pBlocks[bufIndex].block_start < initChar && (line->pBlocks[bufIndex].block_start + line->pBlocks[bufIndex].block_len) > initChar)
-		{	// Selection begins in THIS BLOCK!
+		{ // Selection begins in THIS BLOCK!
 			m_pWrappedBlockSelectionInfo->selection_type = KVI_IRCVIEW_BLOCK_SELECTION_RIGHT;
 			m_pWrappedBlockSelectionInfo->part_1_length = initChar - line->pBlocks[bufIndex].block_start;
 			m_pWrappedBlockSelectionInfo->part_1_width = 0;
@@ -2053,13 +2052,13 @@ bool KviIrcView::checkSelectionBlock(KviIrcViewLine * line, int bufIndex)
 			return true;
 		}
 		if((line->pBlocks[bufIndex].block_start + line->pBlocks[bufIndex].block_len) <= endChar)
-		{	// Whole chunk selected
+		{ // Whole chunk selected
 			m_pWrappedBlockSelectionInfo->selection_type = KVI_IRCVIEW_BLOCK_SELECTION_TOTAL;
 			return true;
 		}
 
 		if(line->pBlocks[bufIndex].block_start < endChar && (line->pBlocks[bufIndex].block_start + line->pBlocks[bufIndex].block_len) > endChar)
-		{	// Selection ends in THIS BLOCK!
+		{ // Selection ends in THIS BLOCK!
 			m_pWrappedBlockSelectionInfo->selection_type = KVI_IRCVIEW_BLOCK_SELECTION_LEFT;
 			m_pWrappedBlockSelectionInfo->part_1_length = endChar - line->pBlocks[bufIndex].block_start;
 			m_pWrappedBlockSelectionInfo->part_1_width = 0;
@@ -2110,7 +2109,7 @@ void KviIrcView::recalcFontVariables(const QFont & font, const QFontInfo & fi)
 		fontBold.setBold(true);
 		QFontMetrics fmBold = QFontMetrics(fontBold);
 		for(unsigned short i = 32; i < 256; i++)
-			if (m_iFontCharacterWidth[i] && fmBold.width(QChar(i)) != m_iFontCharacterWidth[i])
+			if(m_iFontCharacterWidth[i] && fmBold.width(QChar(i)) != m_iFontCharacterWidth[i])
 			{
 				//printf("Char %d: %d != %d\n", i, fmBold.width(QChar(i)), m_iFontCharacterWidth[i]);
 				m_bUseRealBold = false;
@@ -2620,7 +2619,7 @@ int KviIrcView::getVisibleCharIndexAt(KviIrcViewLine *, int xPos, int yPos)
 			}
 			else
 			{
-			/*
+				/*
 			 * Profane description: Once we get here, we know the correct line l, the correct row top coordinate iTop and
 			 * the index of the first chunk in this line i.
 			 * Calculate the left border of this row: if this is not the first one, add any margin.
@@ -2659,13 +2658,14 @@ int KviIrcView::getVisibleCharIndexAt(KviIrcViewLine *, int xPos, int yPos)
 				// add the width of each single character until we get the right one
 				while(iLeft < xPos && retValue < l->pBlocks[i].block_len)
 				{
-					oldIndex = retValue; oldLeft = iLeft;
+					oldIndex = retValue;
+					oldLeft = iLeft;
 
 					curChar = l->szText.at(l->pBlocks[i].block_start + retValue);
-					if (curChar >= 0xD800 && curChar <= 0xDC00) // Surrogate pair
+					if(curChar >= 0xD800 && curChar <= 0xDC00) // Surrogate pair
 					{
 						iLeft += m_pFm->width(l->szText.mid(retValue), 2);
-						retValue+=2;
+						retValue += 2;
 					}
 					else
 					{
@@ -2678,7 +2678,7 @@ int KviIrcView::getVisibleCharIndexAt(KviIrcViewLine *, int xPos, int yPos)
 				// i.e. if the user starts selecting from the left half of a character, select that character too.
 				// This mimics the behavior of most other GUI applications.
 				int iMid = (oldLeft + iLeft) / 2;
-				if (xPos <= iMid)
+				if(xPos <= iMid)
 					retValue = oldIndex;
 
 				//printf("%d\n",l->pBlocks[i].block_start+retValue);
@@ -2690,7 +2690,7 @@ int KviIrcView::getVisibleCharIndexAt(KviIrcViewLine *, int xPos, int yPos)
 }
 
 KviIrcViewWrappedBlock * KviIrcView::getLinkUnderMouse(int xPos, int yPos, QRect * pRect, QString * linkCmd, QString * linkText)
-{	/*
+{ /*
 	 * Profane description: this functions sums up most of the complications involved in the ircview. We got a mouse position and have
 	 * to identify if there's a link inside the KviIrcViewLine at that position.
 	 * l contains the current KviIrcViewLine we're checking, iTop is the y coordinate of the
@@ -2774,7 +2774,7 @@ KviIrcViewWrappedBlock * KviIrcView::getLinkUnderMouse(int xPos, int yPos, QRect
 			}
 			else
 			{
-			/*
+				/*
 			 * Profane description: Once we get here, we know the correct line l, the correct row top coordinate iTop and
 			 * the index of the first chunk in this line i.
 			 * Calculate the left border of this row: if this is not the first one, add any margin.
@@ -2815,7 +2815,7 @@ KviIrcViewWrappedBlock * KviIrcView::getLinkUnderMouse(int xPos, int yPos, QRect
 					else
 					{
 						if(i < (l->iBlockCount - 1))
-						{	// There is another block, check if it is a wrap (we reached the end of the row)
+						{ // There is another block, check if it is a wrap (we reached the end of the row)
 							if(l->pBlocks[i + 1].pChunk == nullptr)
 							{
 								iBlockWidth = width() - iLastLeft;
@@ -2987,7 +2987,7 @@ void KviIrcView::scrollToMarker()
 		pLine = pLine->pPrev;
 
 	if(pLine == nullptr)
-	{	// The buffer has already cleaned the marker line
+	{ // The buffer has already cleaned the marker line
 		ensureLineVisible(m_pFirstLine);
 	}
 	else

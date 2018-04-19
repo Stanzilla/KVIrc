@@ -39,7 +39,8 @@
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 #include <winsock2.h>
 
-typedef enum _QueryInfo {
+typedef enum _QueryInfo
+{
 	Os_Release,
 	Os_Version,
 	Os_Type
@@ -229,7 +230,7 @@ static QString queryWinInfo(QueryInfo info)
 
 	switch(osvi.dwPlatformId)
 	{
-		// Test for the Windows NT product family.
+			// Test for the Windows NT product family.
 
 		case VER_PLATFORM_WIN32_NT:
 
@@ -732,9 +733,7 @@ namespace KviRuntimeInfo
 
 	QString qtTheme()
 	{
-		static QString theme{qApp->style()->objectName().isEmpty() ?
-		                         __tr2qs("Overridden with a stylesheet") :
-		                         qApp->style()->objectName()};
+		static QString theme{ qApp->style()->objectName().isEmpty() ? __tr2qs("Overridden with a stylesheet") : qApp->style()->objectName() };
 		return theme;
 	}
 }

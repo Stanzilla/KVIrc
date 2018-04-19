@@ -61,8 +61,8 @@ class KVIRC_API KviHybridServerInfo : public KviBasicIrcServerInfo
 {
 	// This is a major IRCd that most modern forks are based off of
 public:
-	KviHybridServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviHybridServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -74,8 +74,8 @@ class KVIRC_API KviIrcdRatboxIrcServerInfo : public KviHybridServerInfo
 {
 	// efnet
 public:
-	KviIrcdRatboxIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviHybridServerInfo(pParent, version) {}
+	KviIrcdRatboxIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviHybridServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -86,8 +86,8 @@ public:
 class KVIRC_API KviCharybdisServerInfo : public KviIrcdRatboxIrcServerInfo
 {
 public:
-	KviCharybdisServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviIrcdRatboxIrcServerInfo(pParent, version) {}
+	KviCharybdisServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviIrcdRatboxIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -99,8 +99,8 @@ class KVIRC_API KviIrcdSevenIrcServerInfo : public KviCharybdisServerInfo
 {
 	// freenode
 public:
-	KviIrcdSevenIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviCharybdisServerInfo(pParent, version) {}
+	KviIrcdSevenIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviCharybdisServerInfo(pParent, version) {}
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
 	const char * getSoftware() const override { return "Ircd-seven"; }
@@ -110,8 +110,8 @@ class KVIRC_API KviPlexusIrcServerInfo : public KviHybridServerInfo
 {
 	// rizon; note: plexus is an extension to hybrid
 public:
-	KviPlexusIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviHybridServerInfo(pParent, version) {}
+	KviPlexusIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviHybridServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -123,8 +123,8 @@ class KVIRC_API KviOftcIrcServerInfo : public KviHybridServerInfo
 {
 	// oftc; note: hybrid+oftc is an extension to hybrid
 public:
-	KviOftcIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviHybridServerInfo(pParent, version) {}
+	KviOftcIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviHybridServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -141,8 +141,8 @@ class KVIRC_API KviIrcuIrcServerInfo : public KviBasicIrcServerInfo
 {
 	// undernet
 public:
-	KviIrcuIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviIrcuIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -155,8 +155,8 @@ class KVIRC_API KviSnircdIrcServerInfo : public KviIrcuIrcServerInfo
 {
 	// quakenet; note: snird is an extension to ircu
 public:
-	KviSnircdIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviIrcuIrcServerInfo(pParent, version) {}
+	KviSnircdIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviIrcuIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -168,8 +168,8 @@ class KVIRC_API KviDarenetIrcServerInfo : public KviIrcuIrcServerInfo
 {
 	// darenet; note: u2+ircd-darenet is an extension to ircu
 public:
-	KviDarenetIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviIrcuIrcServerInfo(pParent, version) {}
+	KviDarenetIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviIrcuIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -184,8 +184,8 @@ public:
 class KVIRC_API KviUnrealIrcServerInfo : public KviBasicIrcServerInfo
 {
 public:
-	KviUnrealIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviUnrealIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	char getRegisterModeChar() const override { return 'r'; }
 	const char * getSoftware() const override { return "Unreal"; }
@@ -197,8 +197,8 @@ class KVIRC_API KviUnreal32IrcServerInfo : public KviUnrealIrcServerInfo
 	// This is a continuation on to Unreal, so use its predecessor
 	// as a base class.
 public:
-	KviUnreal32IrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviUnrealIrcServerInfo(pParent, version) {}
+	KviUnreal32IrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviUnrealIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -208,8 +208,8 @@ public:
 class KVIRC_API KviUnreal40IrcServerInfo : public KviUnreal32IrcServerInfo
 {
 public:
-	KviUnreal40IrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviUnreal32IrcServerInfo(pParent, version) {}
+	KviUnreal40IrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviUnreal32IrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	const char * getSoftware() const override { return "Unreal40"; }
@@ -219,8 +219,8 @@ class KVIRC_API KviCritenIrcServerInfo : public KviBasicIrcServerInfo
 {
 	// abjects
 public:
-	KviCritenIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviCritenIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -233,16 +233,16 @@ class KVIRC_API KviNemesisIrcServerInfo : public KviCritenIrcServerInfo
 {
 	// criten
 public:
-	KviNemesisIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviCritenIrcServerInfo(pParent, version) {}
+	KviNemesisIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviCritenIrcServerInfo(pParent, version) {}
 	const char * getSoftware() const override { return "Nemesis"; }
 };
 
 class KVIRC_API KviNemesis20IrcServerInfo : public KviUnreal32IrcServerInfo
 {
 public:
-	KviNemesis20IrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviUnreal32IrcServerInfo(pParent, version) {}
+	KviNemesis20IrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviUnreal32IrcServerInfo(pParent, version) {}
 	const char * getSoftware() const override { return "Nemesis2.0"; }
 };
 
@@ -250,8 +250,8 @@ class KVIRC_API KviBahamutIrcServerInfo : public KviBasicIrcServerInfo
 {
 	// dalnet, azzurranet
 public:
-	KviBahamutIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviBahamutIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -263,8 +263,8 @@ class KVIRC_API KviHyperionIrcServerInfo : public KviBasicIrcServerInfo
 {
 	// legacy freenode : no longer maintained
 public:
-	KviHyperionIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviHyperionIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
 	char getRegisterModeChar() const override { return 'e'; }
@@ -276,8 +276,8 @@ class KVIRC_API KviInspIRCdIrcServerInfo : public KviBasicIrcServerInfo
 {
 	// chatspike
 public:
-	KviInspIRCdIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty)
-	    : KviBasicIrcServerInfo(pParent, version) {}
+	KviInspIRCdIrcServerInfo(KviIrcConnectionServerInfo * pParent = nullptr, const QString & version = KviQString::Empty) :
+	    KviBasicIrcServerInfo(pParent, version) {}
 	const QString & getChannelModeDescription(char mode) const override;
 	const QString & getUserModeDescription(QChar mode) const override;
 	QChar getUserModeRequirement(QChar mode) const override;
@@ -299,9 +299,9 @@ protected:
 
 private:
 	KviBasicIrcServerInfo * m_pServInfo;
-	QString m_szNetworkName;           // the most actual network name (may be the one we specify or the one that the server reports)
-	QString m_szName;                  // the most actual server name (may be the one we specify or the one that the server wants to be known as)
-	QString m_szSupportedUserModes;    // the supported user modes
+	QString m_szNetworkName;                         // the most actual network name (may be the one we specify or the one that the server reports)
+	QString m_szName;                                // the most actual server name (may be the one we specify or the one that the server wants to be known as)
+	QString m_szSupportedUserModes;                  // the supported user modes
 	QString m_szSupportedChannelModes = "pstnmiklb"; // the supported channel modes (all of them)
 	QString m_szSupportedModePrefixes = "@+";        // the actually used mode prefixes  @+
 	QString m_szSupportedStatusMsgPrefixes;          // mode prefixes that can be used to target messages (from the STATUSMSG ISUPPORT token)
@@ -381,6 +381,7 @@ protected:
 	void setMaxTopicLen(int iTopLen) { m_iMaxTopicLen = iTopLen; }
 	void setMaxModeChanges(int iModes) { m_iMaxModeChanges = iModes; }
 	void setSupportsWhox(bool bSupportsWhox) { m_bSupportsWhox = bSupportsWhox; }
+
 private:
 	void buildModePrefixTable();
 };

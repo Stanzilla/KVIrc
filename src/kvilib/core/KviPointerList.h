@@ -43,7 +43,7 @@
 * to the Qt<=3.x series. The pointer lists with the autodelete
 * feature was great and I don't completely understand why they have
 * been removed from Qt4 in favor of the value based non-autodeleting
-* lists... anyway: here we go :)
+* lists... anyway: here we go
 *
 * \def NULL Define NULL type to 0
 * \def KviPointerListBase Defines KviPointerListBase as KviPointerList

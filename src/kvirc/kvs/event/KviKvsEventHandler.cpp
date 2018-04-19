@@ -24,16 +24,16 @@
 
 #include "KviKvsEventHandler.h"
 
-KviKvsEventHandler::KviKvsEventHandler(Type t)
-    : KviHeapObject(), m_type(t)
+KviKvsEventHandler::KviKvsEventHandler(Type t) :
+    KviHeapObject(), m_type(t)
 {
 }
 
 KviKvsEventHandler::~KviKvsEventHandler()
     = default;
 
-KviKvsScriptEventHandler::KviKvsScriptEventHandler(const QString & szHandlerName, const QString & szContextName, const QString & szCode, bool bEnabled)
-    : KviKvsEventHandler(KviKvsEventHandler::Script), m_szName(szHandlerName), m_bEnabled(bEnabled)
+KviKvsScriptEventHandler::KviKvsScriptEventHandler(const QString & szHandlerName, const QString & szContextName, const QString & szCode, bool bEnabled) :
+    KviKvsEventHandler(KviKvsEventHandler::Script), m_szName(szHandlerName), m_bEnabled(bEnabled)
 {
 	m_pScript = new KviKvsScript(szContextName, szCode);
 }
@@ -48,8 +48,8 @@ KviKvsScriptEventHandler * KviKvsScriptEventHandler::createInstance(const QStrin
 	return new KviKvsScriptEventHandler(szHandlerName, szContextName, szCode, bEnabled);
 }
 
-KviKvsModuleEventHandler::KviKvsModuleEventHandler(KviKvsModuleInterface * m, KviKvsModuleEventHandlerRoutine proc)
-    : KviKvsEventHandler(KviKvsEventHandler::Module), m_pModule(m)
+KviKvsModuleEventHandler::KviKvsModuleEventHandler(KviKvsModuleInterface * m, KviKvsModuleEventHandlerRoutine proc) :
+    KviKvsEventHandler(KviKvsEventHandler::Module), m_pModule(m)
 {
 	m_pProc = new KviKvsModuleEventHandlerRoutine(proc);
 }

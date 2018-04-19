@@ -229,7 +229,7 @@ namespace KviKvsCoreSimpleCommands
 		@short:
 			A builtin alias for parse
 		@description:
-			This is a builtin alias for [cmd]parse[/cmd] that gives scripts a [i]more C-ish[/i] look :)
+			This is a builtin alias for [cmd]parse[/cmd] that gives scripts a [i]more C-ish[/i] look
 		@seealso:
 			[cmd]parse[/cmd]
 	*/

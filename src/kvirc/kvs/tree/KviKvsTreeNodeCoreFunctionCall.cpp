@@ -25,8 +25,8 @@
 #include "KviKvsTreeNodeCoreFunctionCall.h"
 #include "KviKvsRunTimeContext.h"
 
-KviKvsTreeNodeCoreFunctionCall::KviKvsTreeNodeCoreFunctionCall(const QChar * pLocation, const QString & szFncName, KviKvsCoreFunctionExecRoutine * r, KviKvsTreeNodeDataList * pParams)
-    : KviKvsTreeNodeFunctionCall(pLocation, szFncName, pParams)
+KviKvsTreeNodeCoreFunctionCall::KviKvsTreeNodeCoreFunctionCall(const QChar * pLocation, const QString & szFncName, KviKvsCoreFunctionExecRoutine * r, KviKvsTreeNodeDataList * pParams) :
+    KviKvsTreeNodeFunctionCall(pLocation, szFncName, pParams)
 {
 	m_pExecRoutine = r;
 }

@@ -244,10 +244,10 @@ static bool notifier_kvs_cmd_show(KviKvsModuleCommandCall * c)
 		is disabled the messages sent to it will not be shown.[br]
 		The only method that you (the scripter) can use to forcibly
 		re-enable the notifier is to unload the module and
-		reload it, but [b]don't do it[/b] :)[br]
+		reload it, but [b]don't do it[/b] [br]
 		There is also a global option that allows forcibly disabling
 		the notifier forever, this option could be overridden with [cmd]option[/cmd]
-		instead, but again [b]don't do it[/b] :)[br]
+		instead, but again [b]don't do it[/b] [br]
 
 */
 

@@ -47,8 +47,8 @@ extern KviModule * g_pTermModule;
 extern std::unordered_set<TermWidget *> g_pTermWidgetList;
 extern std::unordered_set<TermWindow *> g_pTermWindowList;
 
-TermWidget::TermWidget(QWidget * par, bool bIsStandalone)
-    : QFrame(par)
+TermWidget::TermWidget(QWidget * par, bool bIsStandalone) :
+    QFrame(par)
 {
 	setObjectName("term_widget");
 	if(bIsStandalone)

@@ -26,8 +26,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviKvsVariant.h"
 
-KviKvsTreeNodeParameterCount::KviKvsTreeNodeParameterCount(const QChar * pLocation)
-    : KviKvsTreeNodeData(pLocation)
+KviKvsTreeNodeParameterCount::KviKvsTreeNodeParameterCount(const QChar * pLocation) :
+    KviKvsTreeNodeData(pLocation)
 {
 }
 

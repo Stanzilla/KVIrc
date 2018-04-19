@@ -71,8 +71,8 @@
 		see the [widget:ctcpavatarprotooptions]CTCP AVATAR protocol options[/widget] and [widget:ctcpdccprotooptions]CTCP DCC protocol options[/widget].[br]
 */
 
-OptionsWidget_ctcpFloodProtection::OptionsWidget_ctcpFloodProtection(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_ctcpFloodProtection::OptionsWidget_ctcpFloodProtection(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("ctcpfloodprotection_options_widget");
 

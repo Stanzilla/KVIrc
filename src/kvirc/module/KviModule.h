@@ -96,7 +96,7 @@ typedef struct _KviModuleInfo
 	* This routine is called when the module is being unloaded
 	* Note that the module can be unloaded even if can_unload returns false:
 	* that's the user choice, KVIrc can only forcibly unload the module,
-	* so better cleanup everything here :)
+	* so better cleanup everything here
 	*/
 	KviModuleSystemRoutine cleanup_routine; // WARNING : g_pApp may be in the destructor and may have no frames open!
 } KviModuleInfo;

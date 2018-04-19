@@ -50,14 +50,15 @@ QT_BEGIN_NAMESPACE
 class QUrlInfoPrivate
 {
 public:
-	QUrlInfoPrivate() : permissions(0),
-	                    size(0),
-	                    isDir(false),
-	                    isFile(true),
-	                    isSymLink(false),
-	                    isWritable(true),
-	                    isReadable(true),
-	                    isExecutable(false)
+	QUrlInfoPrivate() :
+	    permissions(0),
+	    size(0),
+	    isDir(false),
+	    isFile(true),
+	    isSymLink(false),
+	    isWritable(true),
+	    isReadable(true),
+	    isExecutable(false)
 	{
 	}
 

@@ -897,7 +897,7 @@ KviKvsTreeNodeCommand * KviKvsParser::parseSpecialCommandIf()
 			[/example]
 		@seealso:
 			[doc:expressioneval]Expression evaluation identifier[/doc]
-		
+
 	*/
 
 	if(KVSP_curCharUnicode != '(')
@@ -1673,7 +1673,7 @@ KviKvsTreeNodeSpecialCommandDefpopupLabelPopup * KviKvsParser::parseSpecialComma
 		return nullptr;
 	}
 
-	std::unique_ptr<KviKvsTreeNodeSpecialCommandDefpopupLabelPopup> pPopup{new KviKvsTreeNodeSpecialCommandDefpopupLabelPopup(KVSP_curCharPointer)};
+	std::unique_ptr<KviKvsTreeNodeSpecialCommandDefpopupLabelPopup> pPopup{ new KviKvsTreeNodeSpecialCommandDefpopupLabelPopup(KVSP_curCharPointer) };
 
 	KVSP_skipChar;
 

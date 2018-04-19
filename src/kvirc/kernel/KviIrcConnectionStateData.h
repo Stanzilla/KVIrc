@@ -87,17 +87,17 @@ protected:
 	///
 	bool m_bInsideInitialStartTls = false;
 	bool m_bIgnoreOneYouHaveNotRegisteredError = false; // true if we have sent a CAP LS request followed by a PING which will generate an error (and we need to ignore it)
-	bool m_bInsideInitialCapReq = false;        // true if there's a CAP REQ request pending
-	bool m_bInsideAuthenticate = false;         // true if there's a AUTHENTICATE request pending
-	bool m_bSentStartTls = false;               // the state of STARTTLS protocol
-	bool m_bSentQuit = false;                   // have we sent the quit message for this connection ?
-	QString m_szCommandToExecAfterConnect;      // yes.. this is a special command to execute after connection
-	bool m_bSimulateUnexpectedDisconnect = false; // this is set to true if we have to simulate an unexpected disconnect even if we have sent a normal quit message
-	kvi_time_t m_tLastReceivedChannelWhoReply;  // the time that we have received our last channel who reply
-	kvi_time_t m_tLastSentChannelWhoRequest;    // the time that we have sent our last channel who request
-	kvi_time_t m_tLastReceivedWhoisReply = 0;   // the time that we have received the last whois reply, reset to 0 when we receive an /END OF WHOIS
-	QStringList m_lEnabledCaps;                 // the CAPs currently enabled
-	bool m_bIdentifyMsgCapabilityEnabled = false; // do we have the msg-identity CAP enabled ?
+	bool m_bInsideInitialCapReq = false;                // true if there's a CAP REQ request pending
+	bool m_bInsideAuthenticate = false;                 // true if there's a AUTHENTICATE request pending
+	bool m_bSentStartTls = false;                       // the state of STARTTLS protocol
+	bool m_bSentQuit = false;                           // have we sent the quit message for this connection ?
+	QString m_szCommandToExecAfterConnect;              // yes.. this is a special command to execute after connection
+	bool m_bSimulateUnexpectedDisconnect = false;       // this is set to true if we have to simulate an unexpected disconnect even if we have sent a normal quit message
+	kvi_time_t m_tLastReceivedChannelWhoReply;          // the time that we have received our last channel who reply
+	kvi_time_t m_tLastSentChannelWhoRequest;            // the time that we have sent our last channel who request
+	kvi_time_t m_tLastReceivedWhoisReply = 0;           // the time that we have received the last whois reply, reset to 0 when we receive an /END OF WHOIS
+	QStringList m_lEnabledCaps;                         // the CAPs currently enabled
+	bool m_bIdentifyMsgCapabilityEnabled = false;       // do we have the msg-identity CAP enabled ?
 public:
 	///
 	/// Sets the current login nickname state

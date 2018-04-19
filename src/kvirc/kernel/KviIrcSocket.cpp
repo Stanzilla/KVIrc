@@ -56,8 +56,9 @@
 
 unsigned int g_uNextIrcLinkId = 1;
 
-KviIrcSocket::KviIrcSocket(KviIrcLink * pLink)
-    : QObject(), m_pLink(pLink)
+KviIrcSocket::KviIrcSocket(KviIrcLink * pLink) :
+    QObject(),
+    m_pLink(pLink)
 {
 	m_uId = g_uNextIrcLinkId;
 	g_uNextIrcLinkId++;
@@ -266,7 +267,7 @@ KviError::Code KviIrcSocket::startConnection(KviIrcServer * pServer, KviProxy * 
 		// check the proxy IP address
 		if(m_pProxy->isIPv6())
 		{
-// IPv6 proxy :) (STILL QUITE UNTESTED ?)
+// IPv6 proxy  (STILL QUITE UNTESTED ?)
 #ifdef COMPILE_IPV6_SUPPORT
 			bTargetIPv6 = true;
 			if(!KviNetUtils::isValidStringIPv6(m_pProxy->ip()))
@@ -375,7 +376,7 @@ KviError::Code KviIrcSocket::startConnection(KviIrcServer * pServer, KviProxy * 
 			}
 			// die :(
 			reset();
-			// And declare problems :)
+			// And declare problems
 			if(iSockError)
 				return KviError::translateSystemError(iSockError);
 			else
@@ -613,7 +614,7 @@ void KviIrcSocket::readProxyData(int)
 		// - a totally blocked network
 		// - remote host is not a SOCKS/HTTP server
 		// Anyway....it is always a meaningless reply
-		// better to try again later :)
+		// better to try again later
 		raiseError(KviError::UnrecognizedProxyReply);
 		reset();
 		return;
@@ -1227,7 +1228,7 @@ void KviIrcSocket::proxyHandleV4FinalReply(unsigned char cReply)
 	// Just looked out of the window...
 	// Hmmmm...strange light outside...
 	// Looked at the clock...6:34 !
-	// I think I'll go sleep.... :)
+	// I think I'll go sleep....
 }
 
 void KviIrcSocket::proxyHandleHttpFinalReply(const char * pcBuffer, int)
@@ -1281,7 +1282,6 @@ void KviIrcSocket::proxyHandleHttpFinalReply(const char * pcBuffer, int)
 	m_pRsn->setEnabled(true);
 
 	setState(ProxyHttpError);
-
 }
 
 //
@@ -1388,7 +1388,7 @@ void KviIrcSocket::doSSLHandshake(int)
 			int iErr = kvi_socket_error();
 			if(!kvi_socket_recoverableError(iErr))
 			{
-				// Declare problems :)
+				// Declare problems
 				raiseError((iErr ? KviError::translateSystemError(iErr) : KviError::UnknownError));
 			}
 			else
@@ -1795,8 +1795,8 @@ void KviIrcSocket::flushSendQueue()
 					outputSocketWarning(__tr2qs("Partial socket write: packet broken into smaller pieces."));
 #ifndef COMPILE_SSL_SUPPORT
 			}
-#endif // COMPILE_SSL_SUPPORT
-			// Async continue...
+#endif // COMPILE_SSL_SUPPORT \
+    // Async continue...
 			m_pFlushTimer->start(KVI_OPTION_UINT(KviOption_uintSocketQueueFlushTimeout));
 			return;
 		}

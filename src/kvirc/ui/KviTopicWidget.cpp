@@ -58,8 +58,8 @@ extern KviColorWindow * g_pColorWindow;
 
 extern QStringList * g_pRecentTopicList;
 
-KviTopicListBoxItemDelegate::KviTopicListBoxItemDelegate(QAbstractItemView * pWidget)
-    : KviTalIconAndRichTextItemDelegate(pWidget)
+KviTopicListBoxItemDelegate::KviTopicListBoxItemDelegate(QAbstractItemView * pWidget) :
+    KviTalIconAndRichTextItemDelegate(pWidget)
 {
 }
 
@@ -83,8 +83,8 @@ void KviTopicListBoxItemDelegate::paint(QPainter * p, const QStyleOptionViewItem
 		KviTopicWidget::paintColoredText(p, item->text(), option.palette, option.rect);
 }
 
-KviTopicListBoxItem::KviTopicListBoxItem(KviTalListWidget * listbox, const QString & text)
-    : KviTalListWidgetText(listbox, text)
+KviTopicListBoxItem::KviTopicListBoxItem(KviTalListWidget * listbox, const QString & text) :
+    KviTalListWidgetText(listbox, text)
 {
 }
 
@@ -96,8 +96,8 @@ int KviTopicListBoxItem::width(const KviTalListWidget * lb) const
 	return lb->fontMetrics().width(KviControlCodes::stripControlBytes(text()));
 }
 
-KviTopicWidget::KviTopicWidget(QWidget * par, KviChannelWindow * pChannel, const char * name)
-    : QWidget(par)
+KviTopicWidget::KviTopicWidget(QWidget * par, KviChannelWindow * pChannel, const char * name) :
+    QWidget(par)
 {
 	setObjectName(name);
 	m_pKviChannelWindow = pChannel;

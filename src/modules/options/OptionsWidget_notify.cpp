@@ -30,8 +30,8 @@
 
 #include <QLayout>
 
-OptionsWidget_notify::OptionsWidget_notify(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_notify::OptionsWidget_notify(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("notify_options_widget");
 	createLayout();

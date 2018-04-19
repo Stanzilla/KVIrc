@@ -52,15 +52,17 @@ extern QPixmap * g_pActivityMeterPixmap;
 
 // KviTreeWindowListItem
 
-KviTreeWindowListItem::KviTreeWindowListItem(QTreeWidget * par, KviWindow * wnd)
-    : QTreeWidgetItem(par), KviWindowListItem(wnd)
+KviTreeWindowListItem::KviTreeWindowListItem(QTreeWidget * par, KviWindow * wnd) :
+    QTreeWidgetItem(par),
+    KviWindowListItem(wnd)
 {
 	applyOptions();
 	captionChanged();
 }
 
-KviTreeWindowListItem::KviTreeWindowListItem(KviTreeWindowListItem * par, KviWindow * wnd)
-    : QTreeWidgetItem(par), KviWindowListItem(wnd)
+KviTreeWindowListItem::KviTreeWindowListItem(KviTreeWindowListItem * par, KviWindow * wnd) :
+    QTreeWidgetItem(par),
+    KviWindowListItem(wnd)
 {
 	applyOptions();
 	captionChanged();
@@ -196,8 +198,8 @@ QString KviTreeWindowListItem::key() const
 
 // KviTreeWindowListTreeWidget
 
-KviTreeWindowListTreeWidget::KviTreeWindowListTreeWidget(QWidget * par)
-    : QTreeWidget(par)
+KviTreeWindowListTreeWidget::KviTreeWindowListTreeWidget(QWidget * par) :
+    QTreeWidget(par)
 {
 	setObjectName("tree_windowlist");
 	bReverseSort = false;
@@ -371,8 +373,8 @@ void KviTreeWindowListTreeWidget::paintEvent(QPaintEvent * event)
 
 // KviTreeWindowList
 
-KviTreeWindowList::KviTreeWindowList()
-    : KviWindowListBase()
+KviTreeWindowList::KviTreeWindowList() :
+    KviWindowListBase()
 {
 	m_pTreeWidget = new KviTreeWindowListTreeWidget(this);
 	m_pTreeWidget->setColumnWidth(0, 135);
@@ -596,7 +598,7 @@ void KviTreeWindowListItemDelegate::paint(QPainter * p, const QStyleOptionViewIt
 			QColor col(KVI_OPTION_COLOR(KviOption_colorTreeWindowListActiveBackground));
 			col.setAlpha(127);
 
-	#if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
+#if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 			if(treeWidget->style()->inherits("QStyleSheetStyle") || treeWidget->style()->inherits("QWindowsVistaStyle"))
 			{
 				// The Windows style does not honor our colors. It uses the system ones instead.
@@ -605,12 +607,12 @@ void KviTreeWindowListItemDelegate::paint(QPainter * p, const QStyleOptionViewIt
 			}
 			else
 			{
-	#endif
+#endif
 				opt.palette.setColor(QPalette::Highlight, col);
 				treeWidget->style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, p, treeWidget);
-	#if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
+#if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 			}
-	#endif
+#endif
 		}
 #endif
 	}

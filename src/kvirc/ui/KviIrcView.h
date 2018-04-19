@@ -74,6 +74,7 @@ public:
 	int dummyRead() const { return 0; };
 	bool getPaintOnScreen() const { return testAttribute(Qt::WA_PaintOnScreen); };
 	void setPaintOnScreen(bool bFlag) { setAttribute(Qt::WA_PaintOnScreen, bFlag); };
+
 private:
 	//	QDate                       m_lastLogDay;
 	int m_iFlushTimer;

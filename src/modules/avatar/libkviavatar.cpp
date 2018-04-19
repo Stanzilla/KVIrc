@@ -58,8 +58,8 @@
 static KviPointerList<KviAsyncAvatarSelectionDialog> * g_pAvatarSelectionDialogList = nullptr;
 extern KVIRC_API KviSharedFilesManager * g_pSharedFilesManager;
 
-KviAsyncAvatarSelectionDialog::KviAsyncAvatarSelectionDialog(QWidget * par, const QString & szInitialPath, KviIrcConnection * c)
-    : QDialog(par)
+KviAsyncAvatarSelectionDialog::KviAsyncAvatarSelectionDialog(QWidget * par, const QString & szInitialPath, KviIrcConnection * c) :
+    QDialog(par)
 {
 	setModal(false);
 	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);

@@ -45,8 +45,8 @@ namespace UPnP
 #define WanPPPConnectionType "urn:schemas-upnp-org:service:WANPPPConnection:1"
 
 	// The constructor
-	IgdControlPoint::IgdControlPoint(const QString & hostname, int port, const QString & rootUrl)
-	    : QObject(), m_bGatewayAvailable(false), m_iIgdPort(0), m_pRootService(nullptr), m_pWanConnectionService(nullptr)
+	IgdControlPoint::IgdControlPoint(const QString & hostname, int port, const QString & rootUrl) :
+	    QObject(), m_bGatewayAvailable(false), m_iIgdPort(0), m_pRootService(nullptr), m_pWanConnectionService(nullptr)
 	{
 		qDebug() << "CREATED UPnP::IgdControlPoint: created control point"
 		         << " url='" << hostname << ":" << port << "/" << rootUrl << "'." << endl;

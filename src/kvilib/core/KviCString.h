@@ -75,7 +75,7 @@ __KVI_EXTERN KVILIB_API bool kvi_strEqualCI(const char * str1, const char * str2
 // Note that if str1 or str2 are shorter than len characters then are considered as NOT equal!
 __KVI_EXTERN KVILIB_API bool kvi_strEqualCIN(const char * str1, const char * str2, int len);
 // My own implementations of strcmp and strncasecmp
-// Once I wrote it, I KNOW what they do : ALWAYS :)
+// Once I wrote it, I KNOW what they do : ALWAYS
 // Note that greater here means that comes AFTER in the alphabetic order.
 __KVI_EXTERN KVILIB_API int kvi_strcmpCI(const char * str1, const char * str2);
 //__KVI_EXTERN KVILIB_API int kvi_strcmpCIN(const char *str1,const char *str2,int len);
@@ -94,15 +94,15 @@ __KVI_EXTERN KVILIB_API int kvi_wvsnprintf(kvi_wchar_t * buffer, kvi_wslen_t len
 // -No data sharing.<br>
 // -Not UNICODE.<br>
 // -Has ALWAYS NON-NULL DATA.<br>
-// -(Maybe)Unsafe :)<br>
-// WARNING : Handle with care and use at own risk :)<br>
+// -(Maybe)Unsafe <br>
+// WARNING : Handle with care and use at own risk <br>
 //
 
 class KVILIB_API KviCString : public KviHeapObject
 {
 public:
 	// No particular reason for these two names...
-	// It is just because I like it :)
+	// It is just because I like it
 
 	enum KviFormatConstructorTag
 	{
@@ -130,7 +130,7 @@ public:
 	// but can handle only %s %d %u and %c.
 	KviCString(KviFormatConstructorTag tag, const char * fmt, ...);
 
-	// Carbon copy :)...fast
+	// Carbon copy ...fast
 	KviCString(const KviCString & str);
 
 	// Compat with QT...<br>
@@ -157,7 +157,6 @@ public:
 	int m_len;    // string data length not including the terminator
 
 public:
-
 	// Basic const interface (read stuff)
 	// Internal data buffer
 	char * ptr() const { return m_ptr; };
@@ -337,7 +336,7 @@ public:
 	// Strips spaces and tabs only
 	KviCString & stripSpace();
 	// Strips all occurrences of the character c from the beginning of the string.<br>
-	// Note that c can not be '\0' :)
+	// Note that c can not be '\0'
 	KviCString & stripLeft(char c);
 	KviCString & stripRight(char c);
 

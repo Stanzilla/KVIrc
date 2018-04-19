@@ -27,8 +27,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviKvsVariant.h"
 
-KviKvsTreeNodeCommandEvaluation::KviKvsTreeNodeCommandEvaluation(const QChar * pLocation, KviKvsTreeNodeInstruction * pInstruction)
-    : KviKvsTreeNodeData(pLocation)
+KviKvsTreeNodeCommandEvaluation::KviKvsTreeNodeCommandEvaluation(const QChar * pLocation, KviKvsTreeNodeInstruction * pInstruction) :
+    KviKvsTreeNodeData(pLocation)
 {
 	m_pInstruction = pInstruction;
 	m_pInstruction->setParent(this);

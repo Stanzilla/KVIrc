@@ -23,7 +23,7 @@
 //   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 //
 //   Thnx to Alexander Stillich <torque at pltn dot org> for Audacious
-//   media player interface hints :)
+//   media player interface hints
 //
 //=============================================================================
 

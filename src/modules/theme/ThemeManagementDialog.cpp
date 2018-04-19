@@ -71,8 +71,8 @@
 
 extern QRect g_rectManagementDialogGeometry;
 
-ThemeListWidgetItem::ThemeListWidgetItem(KviTalListWidget * pBox, KviThemeInfo * pInfo)
-    : KviTalListWidgetItem(pBox)
+ThemeListWidgetItem::ThemeListWidgetItem(KviTalListWidget * pBox, KviThemeInfo * pInfo) :
+    KviTalListWidgetItem(pBox)
 {
 	m_pThemeInfo = pInfo;
 
@@ -110,8 +110,8 @@ ThemeListWidgetItem::~ThemeListWidgetItem()
 
 ThemeManagementDialog * ThemeManagementDialog::m_pInstance = nullptr;
 
-ThemeManagementDialog::ThemeManagementDialog(QWidget * parent)
-    : QWidget(parent)
+ThemeManagementDialog::ThemeManagementDialog(QWidget * parent) :
+    QWidget(parent)
 {
 	m_pItemDelegate = nullptr;
 #ifdef COMPILE_WEBKIT_SUPPORT

@@ -39,8 +39,8 @@
 #include <QEvent>
 #include <QMouseEvent>
 
-KviActionDrawer::KviActionDrawer(QWidget * pParent)
-    : QTabWidget(pParent)
+KviActionDrawer::KviActionDrawer(QWidget * pParent) :
+    QTabWidget(pParent)
 {
 }
 
@@ -82,8 +82,8 @@ void KviActionDrawer::fill()
 	}
 }
 
-KviActionDrawerPage::KviActionDrawerPage(QWidget * pParent, const QString & szDescription)
-    : QWidget(pParent)
+KviActionDrawerPage::KviActionDrawerPage(QWidget * pParent, const QString & szDescription) :
+    QWidget(pParent)
 {
 	QGridLayout * pLayout = new QGridLayout(this);
 
@@ -103,8 +103,8 @@ void KviActionDrawerPage::add(KviAction * pAction)
 	(void)new KviActionDrawerPageListWidgetItem(m_pListWidget, pAction);
 }
 
-KviActionDrawerPageListWidget::KviActionDrawerPageListWidget(KviActionDrawerPage * pParent)
-    : KviTalListWidget(pParent)
+KviActionDrawerPageListWidget::KviActionDrawerPageListWidget(KviActionDrawerPage * pParent) :
+    KviTalListWidget(pParent)
 {
 	KviTalIconAndRichTextItemDelegate * pItemDelegate = new KviTalIconAndRichTextItemDelegate(this);
 	setItemDelegate(pItemDelegate);
@@ -147,9 +147,9 @@ void KviActionDrawerPageListWidget::resizeEvent(QResizeEvent * e)
 		iWidth = LVI_MINIMUM_CELL_WIDTH;
 }
 
-KviActionDrawerPageListWidgetItem::KviActionDrawerPageListWidgetItem(KviTalListWidget * pList, KviAction * pAction)
-    : KviTalListWidgetItem(pList),
-      m_szName(pAction->name())
+KviActionDrawerPageListWidgetItem::KviActionDrawerPageListWidgetItem(KviTalListWidget * pList, KviAction * pAction) :
+    KviTalListWidgetItem(pList),
+    m_szName(pAction->name())
 {
 	QString szText = "<b>" + pAction->visibleName() + "</b>";
 	if(pAction->isKviUserActionNeverOverrideThis())

@@ -1145,7 +1145,7 @@ static bool str_kvs_fnc_match(KviKvsModuleFunctionCall * c)
 	KVSM_PARAMETER("case", KVS_PT_BOOL, KVS_PF_OPTIONAL, bCase)
 	KVSM_PARAMETERS_END(c)
 	bool bRegExp = szFlags.contains('r', Qt::CaseInsensitive);
-	bool bExact  = szFlags.contains('e', Qt::CaseInsensitive);
+	bool bExact = szFlags.contains('e', Qt::CaseInsensitive);
 	bool bIs = KviQString::matchString(szWildcard, szString, bRegExp, bExact, bCase);
 	c->returnValue()->setBoolean(bIs);
 	return true;
@@ -1389,7 +1389,7 @@ static bool str_kvs_fnc_digest(KviKvsModuleFunctionCall * c)
 	if(szType.isEmpty())
 		szType = "md5";
 
-	EVP_MD_CTX *mdctx;
+	EVP_MD_CTX * mdctx;
 	const EVP_MD * md;
 	unsigned char md_value[EVP_MAX_MD_SIZE];
 	unsigned int md_len, i;
@@ -1584,10 +1584,10 @@ static bool str_kvs_fnc_grep(KviKvsModuleFunctionCall * c)
 
 	// FIXME: The sub pattern matching does not belong to grep.
 	// FIXME: DO NOT DOCUMENT FLAGS p and x (they should be removed)
-	// 2015.08.24: Left for compatibility: remove in some years :)
+	// 2015.08.24: Left for compatibility: remove in some years
 	bool bSubPatterns = szFlags.contains('p', Qt::CaseInsensitive);
 	bool bExcludeCompleteMatch = szFlags.contains('x', Qt::CaseInsensitive);
-	// 2015.08.24: End of "left for compatibility": remove in some years :)
+	// 2015.08.24: End of "left for compatibility": remove in some years
 
 	int idx = 0;
 	int cnt = a->size();
@@ -1608,7 +1608,7 @@ static bool str_kvs_fnc_grep(KviKvsModuleFunctionCall * c)
 				{
 					// FIXME: The sub pattern matching does not belong to grep.
 					// FIXME: DO NOT DOCUMENT FLAGS p and x (they should be removed)
-					// 2015.08.24: Left for compatibility: remove in some years :)
+					// 2015.08.24: Left for compatibility: remove in some years
 					if(bSubPatterns)
 					{
 						int start = 0;
@@ -1628,12 +1628,12 @@ static bool str_kvs_fnc_grep(KviKvsModuleFunctionCall * c)
 					}
 					else
 					{
-						// 2015.08.24: End of "left for compatibility": remove in some years :)
+						// 2015.08.24: End of "left for compatibility": remove in some years
 						n->set(i, new KviKvsVariant(sz));
 						i++;
-						// 2015.08.24: Left for compatibility: remove in some years :)
+						// 2015.08.24: Left for compatibility: remove in some years
 					}
-					// 2015.08.24: End of "left for compatibility": remove in some years :)
+					// 2015.08.24: End of "left for compatibility": remove in some years
 				}
 			}
 			idx++;
@@ -1722,7 +1722,7 @@ static bool str_kvs_fnc_split(KviKvsModuleFunctionCall * c)
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
 	if(c->params()->count() < 4)
-	    iMaxItems = -1;
+		iMaxItems = -1;
 
 	KviKvsArray * a = new KviKvsArray();
 	c->returnValue()->setArray(a);
@@ -1731,7 +1731,7 @@ static bool str_kvs_fnc_split(KviKvsModuleFunctionCall * c)
 		return true;
 	if(iMaxItems == 1)
 	{
-		a->append(new KviKvsVariant{szStr});
+		a->append(new KviKvsVariant{ szStr });
 		return true;
 	}
 
@@ -1743,22 +1743,22 @@ static bool str_kvs_fnc_split(KviKvsModuleFunctionCall * c)
 
 	QVector<QStringRef> list;
 	if(bWild || bContainsR)
-		list = szStr.splitRef(QRegExp{szSep, sensitivity, bWild ? QRegExp::Wildcard : QRegExp::RegExp2}, splitBehavior);
+		list = szStr.splitRef(QRegExp{ szSep, sensitivity, bWild ? QRegExp::Wildcard : QRegExp::RegExp2 }, splitBehavior);
 	else
 		list = szStr.splitRef(szSep, splitBehavior, sensitivity);
 
 	if(iMaxItems < 0 || iMaxItems >= list.size())
 	{
-		for(auto&& str : list)
-			a->append(new KviKvsVariant{str.toString()});
+		for(auto && str : list)
+			a->append(new KviKvsVariant{ str.toString() });
 	}
 	else
 	{
-		for(int i{0}; i < iMaxItems - 1; ++i)
-			a->append(new KviKvsVariant{list[i].toString()});
-		a->append(new KviKvsVariant{szStr.mid(list[iMaxItems - 1].position())});
+		for(int i{ 0 }; i < iMaxItems - 1; ++i)
+			a->append(new KviKvsVariant{ list[i].toString() });
+		a->append(new KviKvsVariant{ szStr.mid(list[iMaxItems - 1].position()) });
 	}
-#else //QT_VERSION
+#else  //QT_VERSION
 	if(c->params()->count() < 4)
 		iMaxItems = -1;
 
@@ -2320,7 +2320,7 @@ static bool str_kvs_fnc_evpSign(KviKvsModuleFunctionCall * c)
 #if defined(COMPILE_SSL_SUPPORT)
 
 	KviSSL::globalSSLInit();
-	EVP_MD_CTX *md_ctx;
+	EVP_MD_CTX * md_ctx;
 	EVP_PKEY * pKey = nullptr;
 	unsigned int len = 0;
 	unsigned char * sig = nullptr;
@@ -2461,7 +2461,7 @@ static bool str_kvs_fnc_evpVerify(KviKvsModuleFunctionCall * c)
 	szSign = QByteArray::fromBase64(szSignB64);
 	const char * message = szMessage.data();
 
-	EVP_MD_CTX* md_ctx;
+	EVP_MD_CTX * md_ctx;
 	EVP_PKEY * pKey = nullptr;
 	X509 * cert = nullptr;
 	int err = -1;

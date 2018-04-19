@@ -76,8 +76,11 @@
 extern KVIRC_API KviIrcServerDataBase * g_pServerDataBase;
 extern KVIRC_API KviProxyDataBase * g_pProxyDataBase;
 
-KviIrcConnection::KviIrcConnection(KviIrcContext * pContext, KviIrcConnectionTarget * pTarget, KviUserIdentity * pIdentity)
-    : QObject(), m_pContext(pContext), m_pTarget(pTarget), m_pUserIdentity(pIdentity)
+KviIrcConnection::KviIrcConnection(KviIrcContext * pContext, KviIrcConnectionTarget * pTarget, KviUserIdentity * pIdentity) :
+    QObject(),
+    m_pContext(pContext),
+    m_pTarget(pTarget),
+    m_pUserIdentity(pIdentity)
 {
 	m_pConsole = pContext->console();
 	m_pLink = new KviIrcLink(this);
@@ -748,7 +751,7 @@ void KviIrcConnection::resurrectDeadQueries()
 // Max buffer that can be sent to an IRC server is 512 bytes
 // including CRLF. (ircd simply 'cuts' messages to 512 bytes
 // and discards the remainig part)
-// Note that 510 bytes of data is a reasonably long message :)
+// Note that 510 bytes of data is a reasonably long message
 //
 // 01234567890123456789012345678901234567890123456789
 // 01234567890123456789012345678901234567890123456789
@@ -1030,7 +1033,7 @@ void KviIrcConnection::userInfoReceived(const QString & szUserName, const QStrin
 
 	bool bChangeIp = true;
 
-// if we don't have any routable IP yet, then it is worth to lookup the new hostname
+	// if we don't have any routable IP yet, then it is worth to lookup the new hostname
 
 #ifdef COMPILE_IPV6_SUPPORT
 	if((KviNetUtils::isValidStringIp(m_pUserInfo->hostIp()) && KviNetUtils::isRoutableIpString(m_pUserInfo->hostIp())) || KviNetUtils::isValidStringIPv6(m_pUserInfo->hostIp()))
@@ -1684,11 +1687,10 @@ void KviIrcConnection::joinChannels(const std::vector<std::pair<QString, QString
 	std::vector<std::pair<QString, QString>> lSorted = lChannelsAndPasses;
 
 	std::sort(lSorted.begin(), lSorted.end(),
-		[](const std::pair<QString, QString> & left,
-		   const std::pair<QString, QString> & right)
-	{
-		return left.second.count() > right.second.count();
-	});
+	    [](const std::pair<QString, QString> & left,
+	        const std::pair<QString, QString> & right) {
+		    return left.second.count() > right.second.count();
+	    });
 
 	// We send the channel list in chunks to avoid overflowing the 510 character limit on the message.
 	QString szChans, szPasses;

@@ -76,8 +76,8 @@ class TermWidget : public QObject
 {
 	Q_OBJECT
 public:
-	TermWidget()
-	    : QObject()
+	TermWidget() :
+	    QObject()
 	{
 	}
 };

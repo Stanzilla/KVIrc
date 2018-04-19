@@ -60,8 +60,8 @@ const QDBusArgument & operator>>(const QDBusArgument & argument, MPRISPlayerStat
 	return argument;
 }
 
-MpMprisInterface::MpMprisInterface()
-    : MpInterface()
+MpMprisInterface::MpMprisInterface() :
+    MpInterface()
 {
 	qDBusRegisterMetaType<MPRISPlayerStatus>();
 }
@@ -243,28 +243,23 @@ QString MpMprisInterface::mrl()
 	return "";
 }
 
-QString MpMprisInterface::title()
-{
+QString MpMprisInterface::title(){
 	MPRIS_GET_METADATA_FIELD("title", QString, "")
 }
 
-QString MpMprisInterface::artist()
-{
+QString MpMprisInterface::artist(){
 	MPRIS_GET_METADATA_FIELD("artist", QString, "")
 }
 
-QString MpMprisInterface::genre()
-{
+QString MpMprisInterface::genre(){
 	MPRIS_GET_METADATA_FIELD("genre", QString, "")
 }
 
-QString MpMprisInterface::comment()
-{
+QString MpMprisInterface::comment(){
 	MPRIS_GET_METADATA_FIELD("comment", QString, "")
 }
 
-QString MpMprisInterface::year()
-{
+QString MpMprisInterface::year(){
 	MPRIS_GET_METADATA_FIELD("year", QString, "")
 }
 
@@ -340,8 +335,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://audacious-media-player.org\n",
         "mediaplayer"))
 
-MpAudaciousInterface::MpAudaciousInterface()
-    : MpMprisInterface()
+MpAudaciousInterface::MpAudaciousInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.audacious";
 }
@@ -451,17 +446,15 @@ int MpAudaciousInterface::length()
 	QDBusInterface dbus_iface("org.mpris.audacious", "/org/atheme/audacious",                          \
 	    "org.atheme.audacious", QDBusConnection::sessionBus());                                        \
 	QList<QVariant> args;                                                                              \
-	args << (uint) this->getPlayListPos() << QString(__field);                                         \
+	args << (uint)this->getPlayListPos() << QString(__field);                                          \
 	QDBusReply<QDBusVariant> reply = dbus_iface.callWithArgumentList(QDBus::Block, "SongTuple", args); \
 	return reply.value().variant().toString();
 
-QString MpAudaciousInterface::year()
-{
+QString MpAudaciousInterface::year(){
 	AUDACIOUS_GET_TUPLE_FIELD("year")
 }
 
-QString MpAudaciousInterface::mediaType()
-{
+QString MpAudaciousInterface::mediaType(){
 	AUDACIOUS_GET_TUPLE_FIELD("codec")
 }
 
@@ -474,8 +467,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://sourceforge.net/projects/beepmp\n",
         "mediaplayer"))
 
-MpBmpxInterface::MpBmpxInterface()
-    : MpMprisInterface()
+    MpBmpxInterface::MpBmpxInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.bmp";
 }
@@ -495,8 +488,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://amarok.kde.org\n",
         "mediaplayer"))
 
-MpAmarok2Interface::MpAmarok2Interface()
-    : MpMprisInterface()
+MpAmarok2Interface::MpAmarok2Interface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.amarok";
 }
@@ -510,8 +503,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://qmmp.ylsoftware.com\n",
         "mediaplayer"))
 
-MpQmmpInterface::MpQmmpInterface()
-    : MpMprisInterface()
+MpQmmpInterface::MpQmmpInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.qmmp";
 }
@@ -525,8 +518,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://xmms2.org\n",
         "mediaplayer"))
 
-MpXmms2Interface::MpXmms2Interface()
-    : MpMprisInterface()
+MpXmms2Interface::MpXmms2Interface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.xmms2";
 }
@@ -542,8 +535,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "available at http://addons.songbirdnest.com/addon/1626.\n",
         "mediaplayer"))
 
-MpSongbirdInterface::MpSongbirdInterface()
-    : MpMprisInterface()
+MpSongbirdInterface::MpSongbirdInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.songbird";
 }
@@ -562,8 +555,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://projects.gnome.org/totem/\n",
         "mediaplayer"))
 
-MpTotemInterface::MpTotemInterface()
-    : MpMprisInterface()
+MpTotemInterface::MpTotemInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.Totem";
 }
@@ -579,8 +572,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "interface in the VLC preferences\n",
         "mediaplayer"))
 
-MpVlcInterface::MpVlcInterface()
-    : MpMprisInterface()
+MpVlcInterface::MpVlcInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.vlc";
 }
@@ -594,8 +587,8 @@ MP_IMPLEMENT_DESCRIPTOR(
         "Download it from http://www.clementine-player.org/\n",
         "mediaplayer"))
 
-MpClementineInterface::MpClementineInterface()
-    : MpMprisInterface()
+MpClementineInterface::MpClementineInterface() :
+    MpMprisInterface()
 {
 	m_szServiceName = "org.mpris.clementine";
 }

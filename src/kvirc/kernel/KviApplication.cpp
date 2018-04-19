@@ -200,8 +200,8 @@ KVIRC_API KviCryptEngineManager * g_pCryptEngineManager = nullptr;
 
 #include <QStyleFactory>
 
-KviApplication::KviApplication(int & argc, char ** argv)
-    : KviTalApplication(argc, argv)
+KviApplication::KviApplication(int & argc, char ** argv) :
+    KviTalApplication(argc, argv)
 {
 	setApplicationName("KVIrc");
 	setApplicationVersion(KVIRC_VERSION_RELEASE);
@@ -854,8 +854,8 @@ void KviApplication::notifierMessage(KviWindow * pWnd, int iIconId, const QStrin
 		}
 		else
 		{
-#endif // COMPILE_DBUS_SUPPORT
-			// Scheme 1c-2b-3: KVIrc
+#endif // COMPILE_DBUS_SUPPORT \
+    // Scheme 1c-2b-3: KVIrc
 			KviModule * m = g_pModuleManager->getModule("notifier");
 			if(!m)
 				return;
@@ -1070,7 +1070,7 @@ void KviApplication::ipcMessage(char * pcMessage)
 			szCmd.cutRight(szCmd.len() - (iIdx + 1));
 		pConsole->output(KVI_OUT_SYSTEMMESSAGE, __tr2qs("Remote command received (%s ...)"), szCmd.ptr());
 	}
-	if (kvi_strEqualCIN(pcMessage, "openurl ", 8))
+	if(kvi_strEqualCIN(pcMessage, "openurl ", 8))
 	{
 		// there actually is no reliable way of raising the main window, but we try our best!
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
@@ -1299,7 +1299,7 @@ void KviApplication::updatePseudoTransparency()
 		else
 #endif // COMPILE_ON_WINDOWS || COMPILE_ON_MINGW
 
-		if(KVI_OPTION_PIXMAP(KviOption_pixmapGlobalTransparencyBackground).pixmap())
+		    if(KVI_OPTION_PIXMAP(KviOption_pixmapGlobalTransparencyBackground).pixmap())
 		{
 			createGlobalBackgrounds(KVI_OPTION_PIXMAP(KviOption_pixmapGlobalTransparencyBackground).pixmap());
 		}

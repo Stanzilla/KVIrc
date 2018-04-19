@@ -44,7 +44,7 @@ public:
 private:
 	KviChannelWindow & m_Channel;
 
-	std::map<QChar, QString> parseChannelModeString(const QString& szModes);
+	std::map<QChar, QString> parseChannelModeString(const QString & szModes);
 	void sendModeChanges(const QString szModeString, const QStringList params);
 
 protected:

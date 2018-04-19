@@ -64,8 +64,8 @@
 #include "KviMemory.h"
 #endif
 
-KviMediaManager::KviMediaManager()
-    : KviMutex()
+KviMediaManager::KviMediaManager() :
+    KviMutex()
 {
 	m_pMediaTypeList = new KviPointerList<KviMediaType>;
 	m_pMediaTypeList->setAutoDelete(true);

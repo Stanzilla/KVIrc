@@ -51,8 +51,8 @@
 // Tool widget implementation
 //
 
-KviIrcMessageCheckListItem::KviIrcMessageCheckListItem(QTreeWidget * par, KviIrcViewToolWidget * w, int id)
-    : QTreeWidgetItem(par)
+KviIrcMessageCheckListItem::KviIrcMessageCheckListItem(QTreeWidget * par, KviIrcViewToolWidget * w, int id) :
+    QTreeWidgetItem(par)
 {
 	m_iId = id;
 	setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable);
@@ -65,8 +65,8 @@ KviIrcMessageCheckListItem::KviIrcMessageCheckListItem(QTreeWidget * par, KviIrc
 KviIrcMessageCheckListItem::~KviIrcMessageCheckListItem()
     = default;
 
-KviIrcViewToolWidget::KviIrcViewToolWidget(KviIrcView * pParent)
-    : QWidget(pParent)
+KviIrcViewToolWidget::KviIrcViewToolWidget(KviIrcView * pParent) :
+    QWidget(pParent)
 {
 	m_pIrcView = pParent;
 	setAutoFillBackground(true);
@@ -294,8 +294,8 @@ void KviIrcViewToolWidget::findNext()
 // Link tip label implementation
 //
 
-KviIrcViewToolTip::KviIrcViewToolTip(KviIrcView * pView)
-    : KviTalToolTip(pView)
+KviIrcViewToolTip::KviIrcViewToolTip(KviIrcView * pView) :
+    KviTalToolTip(pView)
 {
 	m_pView = pView;
 }

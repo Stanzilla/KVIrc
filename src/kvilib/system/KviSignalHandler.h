@@ -39,7 +39,7 @@ class KviSignalHandler : public QObject
 	Q_OBJECT
 
 public:
-	KviSignalHandler(QObject *parent = 0);
+	KviSignalHandler(QObject * parent = 0);
 
 	static void unixSignalHandler(int unused);
 
@@ -50,12 +50,12 @@ public slots:
 private:
 	static int fd[2];
 
-	QSocketNotifier *sn;
+	QSocketNotifier * sn;
 };
 
 bool KVILIB_API kvi_signalHandlerSetup();
 
-#else // !defined(COMPILE_ON_WINDOWS) && !defined(COMPILE_ON_MINGW)
+#else  // !defined(COMPILE_ON_WINDOWS) && !defined(COMPILE_ON_MINGW)
 static bool kvi_signalHandlerSetup() { return true; }
 #endif // !defined(COMPILE_ON_WINDOWS) && !defined(COMPILE_ON_MINGW)
 

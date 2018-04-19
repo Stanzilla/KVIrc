@@ -101,7 +101,7 @@ namespace KviKvsCoreCallbackCommands
 					[cmd]echo[/cmd] "Error: $2";
 				}
 			}
-			ahost -i ("irc.flashnet.it","Hello :)")
+			ahost -i ("irc.flashnet.it","Hello!")
 			{
 				[cmd]echo[/cmd] "Lookup: "$0;
 				[cmd]echo[/cmd] "Magic: $3";
@@ -763,7 +763,7 @@ namespace KviKvsCoreCallbackCommands
 			exec -k=20000 -p=1000 -t ("cat")
 			{
 				if($0 == "ping")echo "[event:$0] Please wait while doing a huge computation ..."
-				else if($0 == "terminated")echo "[event:$0] OK, done :)"
+				else if($0 == "terminated")echo "[event:$0] OK, done"
 			}
 			[comment]# Do the same but this time use the extended scope vars[/comment]
 			[comment]# Use also a nicer syntax[/comment]
@@ -785,7 +785,7 @@ namespace KviKvsCoreCallbackCommands
 					break;
 					case("terminated"):
 					{
-						echo "OK, done :)"
+						echo "OK, done"
 					}
 					break;
 				}
@@ -904,7 +904,7 @@ namespace KviKvsCoreCallbackCommands
 						{
 							%:state++
 							echo "Sending body..."
-							return "This is a test message :)$cr$lf$cr$lf.$cr$lf"
+							return "This is a test message $cr$lf$cr$lf.$cr$lf"
 						} else {
 							echo "Mail body not accepted: $1"
 							halt
@@ -913,7 +913,7 @@ namespace KviKvsCoreCallbackCommands
 					break;
 					case(5):
 					{
-						[comment]# We don't wait anymore :)[/comment]
+						[comment]# We don't wait anymore[/comment]
 						%:state++
 						echo "Sending QUIT..."
 						return "QUIT$cr$lf"

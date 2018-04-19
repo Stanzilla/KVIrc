@@ -63,7 +63,7 @@
 		the way back. A totally [i]fantastic[/i] usage of this concept could be an [i]on-the-fly translator[/i];
 		it could translate for example Italian to English while sending to a channel
 		and English to Italian on the way back... the implementation of a such engine is left
-		to the reader as exercise :) Another (maybe less interesting) usage is to
+		to the reader as exercise  Another (maybe less interesting) usage is to
 		colorize the outgoing text, or transform it
 		in a way that it is still readable but has a different look. This engine
 		would not require a back transformation (so no [i]decrypt stage[/i]). A [i]symmetric[/i]

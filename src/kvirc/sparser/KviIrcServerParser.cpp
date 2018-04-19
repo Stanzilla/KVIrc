@@ -37,8 +37,8 @@
 
 KviIrcServerParser * g_pServerParser = nullptr;
 
-KviIrcServerParser::KviIrcServerParser()
-    : QObject(nullptr)
+KviIrcServerParser::KviIrcServerParser() :
+    QObject(nullptr)
 {
 	setObjectName("server_parser");
 }
@@ -86,7 +86,7 @@ void KviIrcServerParser::parseMessage(const char * message, KviIrcConnection * p
 			//      - this message is unrecognized and looks like a RPL_WHOIS*
 			// then pass it to the WhoisOther handler.
 			//
-			// Thnx Elephantman :)
+			// Thnx Elephantman
 
 			if(msg.paramCount() >= 3) // might look like :prefix RPL_WHOIS* <target> <nick> [?] :<something>
 			{

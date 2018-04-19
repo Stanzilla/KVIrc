@@ -36,8 +36,8 @@
 
 #include <QTimer>
 
-DccMarshal::DccMarshal(DccMarshalOutputContext * ctx)
-    : QObject(nullptr)
+DccMarshal::DccMarshal(DccMarshalOutputContext * ctx) :
+    QObject(nullptr)
 {
 	setObjectName("dcc_marshal");
 	m_pSn = nullptr;
@@ -253,7 +253,7 @@ void DccMarshal::doListen()
 		return;
 	}
 
-// Reread the port in case we're binding to a random one (0)
+	// Reread the port in case we're binding to a random one (0)
 
 #ifdef COMPILE_IPV6_SUPPORT
 	KviSockaddr sareal(0, m_bIPv6);
@@ -378,7 +378,7 @@ void DccMarshal::doConnect()
 		return;
 	}
 
-// fill the sockaddr structure
+	// fill the sockaddr structure
 
 #ifdef COMPILE_IPV6_SUPPORT
 	KviSockaddr sa(m_szIp.toUtf8().data(), m_uPort, m_bIPv6);
@@ -411,7 +411,7 @@ void DccMarshal::doConnect()
 			}
 			// Die
 			reset();
-			// And declare problems :)
+			// And declare problems
 			if(sockError)
 				emit error(KviError::translateSystemError(sockError));
 			else
@@ -640,7 +640,7 @@ void DccMarshal::doSSLHandshake(int)
 			}
 			else
 			{
-				// Declare problems :)
+				// Declare problems
 				reset();
 				emit error(err ? KviError::translateSystemError(err) : KviError::UnknownError);
 			}

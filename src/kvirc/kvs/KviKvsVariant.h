@@ -805,6 +805,7 @@ public:
 	* \return void
 	*/
 	void operator=(const KviKvsVariant & variant) { copyFrom(variant); };
+
 private:
 	/**
 	* \brief Unserializes the variant data using the JSON format

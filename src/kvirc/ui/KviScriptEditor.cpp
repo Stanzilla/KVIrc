@@ -54,7 +54,7 @@ KviScriptEditor * KviScriptEditor::createInstance(QWidget * par)
 	if(!m)
 		return KviScriptEditor::getDummyEditor(par); // dummy implementation
 
-	editorModuleCreateScriptEditor = (KviScriptEditor * (*)(QWidget *))m->getSymbol("editor_module_createScriptEditor");
+	editorModuleCreateScriptEditor = (KviScriptEditor * (*)(QWidget *)) m->getSymbol("editor_module_createScriptEditor");
 
 	if(!editorModuleCreateScriptEditor)
 		return KviScriptEditor::getDummyEditor(par);

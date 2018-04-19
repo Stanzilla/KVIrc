@@ -39,8 +39,8 @@ static QMenu * g_pToolBarIconSizesPopup = nullptr;
 static QMenu * g_pToolBarButtonStylePopup = nullptr;
 static uint uToolBarInstances = 0;
 
-KviToolBar::KviToolBar(const QString & szLabel, Qt::ToolBarArea type, const char * pcName)
-    : QToolBar(szLabel, g_pMainWindow)
+KviToolBar::KviToolBar(const QString & szLabel, Qt::ToolBarArea type, const char * pcName) :
+    QToolBar(szLabel, g_pMainWindow)
 {
 	uToolBarInstances++;
 

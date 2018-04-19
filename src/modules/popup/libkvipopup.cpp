@@ -798,7 +798,7 @@ static bool popup_kvs_fnc_currentItemId(KviKvsModuleFunctionCall * c)
 		eventually passing the [parameters]. Please note that you can't
 		use this command inside one of the [cmd]defpopup[/cmd] command
 		handlers for <popup_name>. In other words, you can't "popup
-		a popup" while it is being popped up. :) (This would
+		a popup" while it is being popped up.  (This would
 		be an endless recursive behaviour).[br]
 		If the -p switch is used, then <screen_coordinates> must be
 		in the form <x>,<y> and will be used as screen coordinates

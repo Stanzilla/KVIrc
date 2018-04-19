@@ -38,8 +38,9 @@
 
 #include <algorithm>
 
-KviLagMeter::KviLagMeter(KviIrcConnection * c)
-    : QObject(), m_pConnection(c)
+KviLagMeter::KviLagMeter(KviIrcConnection * c) :
+    QObject(),
+    m_pConnection(c)
 {
 	// FIXME: We could use the KviIrcConnection::heartbeat() here!
 	if(KVI_OPTION_UINT(KviOption_uintLagMeterHeartbeat) < 2000)
@@ -55,7 +56,7 @@ KviLagMeter::~KviLagMeter()
 {
 	if(m_pDeletionSignal)
 		*m_pDeletionSignal = true;
-		
+
 	qDeleteAll(m_lCheckList);
 }
 
@@ -272,6 +273,6 @@ void KviLagMeter::lagCheckAbort(const char * key)
 		if(kvi_strEqualCS(c->szKey.ptr(), key))
 			lAborted.append(c);
 	}
-	
+
 	qDeleteAll(lAborted);
 }

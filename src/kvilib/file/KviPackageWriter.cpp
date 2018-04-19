@@ -60,8 +60,8 @@ public:
 	int iCurrentProgress;
 };
 
-KviPackageWriter::KviPackageWriter()
-    : KviPackageIOEngine()
+KviPackageWriter::KviPackageWriter() :
+    KviPackageIOEngine()
 {
 	m_p = new KviPackageWriterPrivate();
 	m_p->pDataFields = new KviPointerList<KviPackageWriterDataField>();

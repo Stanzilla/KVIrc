@@ -57,8 +57,8 @@
 #include <QPixmap>
 #include <QString>
 
-KviQueryWindow::KviQueryWindow(KviConsoleWindow * lpConsole, const QString & szNick)
-    : KviWindow(KviWindow::Query, szNick, lpConsole)
+KviQueryWindow::KviQueryWindow(KviConsoleWindow * lpConsole, const QString & szNick) :
+    KviWindow(KviWindow::Query, szNick, lpConsole)
 {
 	m_iFlags = 0;
 	connection()->registerQuery(this);

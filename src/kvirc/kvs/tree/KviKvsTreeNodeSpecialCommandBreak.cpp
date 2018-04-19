@@ -26,8 +26,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeSpecialCommandBreak::KviKvsTreeNodeSpecialCommandBreak(const QChar * pLocation)
-    : KviKvsTreeNodeSpecialCommand(pLocation, "break")
+KviKvsTreeNodeSpecialCommandBreak::KviKvsTreeNodeSpecialCommandBreak(const QChar * pLocation) :
+    KviKvsTreeNodeSpecialCommand(pLocation, "break")
 {
 }
 

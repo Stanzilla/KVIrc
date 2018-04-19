@@ -54,8 +54,8 @@ extern QRect g_rectChannelsJoinGeometry;
 // KviApplication.cpp
 extern KVIRC_API KviRegisteredChannelDataBase * g_pRegisteredChannelDataBase;
 
-ChannelsJoinDialog::ChannelsJoinDialog(const char * name)
-    : QDialog(g_pMainWindow)
+ChannelsJoinDialog::ChannelsJoinDialog(const char * name) :
+    QDialog(g_pMainWindow)
 {
 	setObjectName(name);
 	setWindowTitle(__tr2qs("Join Channels - KVIrc"));

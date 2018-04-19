@@ -41,8 +41,8 @@
 extern QPixmap * g_pShadedChildGlobalDesktopBackground;
 #endif
 
-KviThemedLineEdit::KviThemedLineEdit(QWidget * par, KviWindow * pWindow, const char * name)
-    : QLineEdit(par)
+KviThemedLineEdit::KviThemedLineEdit(QWidget * par, KviWindow * pWindow, const char * name) :
+    QLineEdit(par)
 {
 	setObjectName(name);
 	m_pKviWindow = pWindow;

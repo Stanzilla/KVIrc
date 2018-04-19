@@ -47,8 +47,9 @@ protected:
 public:
 	KviKvsModuleRunTimeCall(KviModule * pModule,
 	    KviKvsRunTimeContext * pContext,
-	    KviKvsVariantList * pParams)
-	    : KviKvsRunTimeCall(pContext, pParams), m_pModule(pModule) {}
+	    KviKvsVariantList * pParams) :
+	    KviKvsRunTimeCall(pContext, pParams),
+	    m_pModule(pModule) {}
 	~KviKvsModuleRunTimeCall(){};
 
 public:
@@ -60,8 +61,8 @@ class KVIRC_API KviKvsModuleEventCall : public KviKvsModuleRunTimeCall
 public:
 	KviKvsModuleEventCall(KviModule * pModule,
 	    KviKvsRunTimeContext * pContext,
-	    KviKvsVariantList * pParams)
-	    : KviKvsModuleRunTimeCall(pModule, pContext, pParams){};
+	    KviKvsVariantList * pParams) :
+	    KviKvsModuleRunTimeCall(pModule, pContext, pParams){};
 	~KviKvsModuleEventCall(){};
 };
 
@@ -74,8 +75,9 @@ public:
 	KviKvsModuleCommandCall(KviModule * pModule,
 	    KviKvsRunTimeContext * pContext,
 	    KviKvsVariantList * pParams,
-	    KviKvsSwitchList * pSwitches)
-	    : KviKvsModuleRunTimeCall(pModule, pContext, pParams), m_pSwitchList(pSwitches){};
+	    KviKvsSwitchList * pSwitches) :
+	    KviKvsModuleRunTimeCall(pModule, pContext, pParams),
+	    m_pSwitchList(pSwitches){};
 	~KviKvsModuleCommandCall(){};
 
 public:
@@ -98,8 +100,9 @@ public:
 	    KviKvsVariantList * pParams,
 	    KviKvsSwitchList * pSwitches,
 	    const KviKvsScript * pCallback,
-	    KviKvsTreeNodeDataList * pDataList)
-	    : KviKvsModuleCommandCall(pModule, pContext, pParams, pSwitches), m_pCallback(pCallback), m_pParameterDataList(pDataList){};
+	    KviKvsTreeNodeDataList * pDataList) :
+	    KviKvsModuleCommandCall(pModule, pContext, pParams, pSwitches),
+	    m_pCallback(pCallback), m_pParameterDataList(pDataList){};
 	~KviKvsModuleCallbackCommandCall(){};
 
 public:
@@ -119,8 +122,9 @@ public:
 	KviKvsModuleFunctionCall(KviModule * pModule,
 	    KviKvsRunTimeContext * pContext,
 	    KviKvsVariantList * pParams,
-	    KviKvsVariant * pResult)
-	    : KviKvsModuleRunTimeCall(pModule, pContext, pParams), m_pResult(pResult){};
+	    KviKvsVariant * pResult) :
+	    KviKvsModuleRunTimeCall(pModule, pContext, pParams),
+	    m_pResult(pResult){};
 	~KviKvsModuleFunctionCall(){};
 
 public:

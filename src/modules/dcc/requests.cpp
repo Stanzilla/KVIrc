@@ -219,13 +219,13 @@ static void dccModuleParseDccChat(KviDccRequest * dcc)
 	//     DCC CHAT chat <ipaddress> <port>
 	//
 	// This means that we're requested to setup an ACTIVE chat connection
-	// ... Easy task :)
+	// ... Easy task
 	//
 	// Anybody understands the meaning of the secondo "chat" in there ?
 	// It was meant to simplify the parsing ? :DDD
 	//
 	// There is a mIrc extension that allows <port> to be 0
-	// and adds a last parameter that seems to be a random number (thnx YaP :)
+	// and adds a last parameter that seems to be a random number (thnx YaP)
 	// that is used to keep track of the connection.
 	// This extension is used by firewalled machines to initiate a DCC CHAT:
 	// the receiving side should respond with a DCC CHAT offer
@@ -385,7 +385,7 @@ static void dccModuleParseDccSend(KviDccRequest * dcc)
 	//      ACCEPT <filename> <port> <resumepos>
 	//
 	// There is a mIrc extension that allows <port> to be 0
-	// and adds a last parameter that seems to be a random number (thnx YaP :)
+	// and adds a last parameter that seems to be a random number (thnx YaP)
 	// that is used to keep track of the connection.
 	// This extension is used by firewalled machines to initiate a DCC SEND:
 	// the receiving side should respond with a DCC SEND offer
@@ -421,7 +421,7 @@ static void dccModuleParseDccSend(KviDccRequest * dcc)
 		// zero port acknowledge: treat as a RECV that should look like
 		// DCC [TS]RECV <filename> <remoteip> <remoteport> <resume-filesize>
 		// but since we have stored the sharedfile with the name <tag>
-		// we do exchange the params :)
+		// we do exchange the params
 
 		KviDccZeroPortTag * t = g_pDccBroker->findZeroPortTag(dcc->szParam5.ptr());
 		if(t)
@@ -1007,7 +1007,7 @@ static void dccModuleParseDccVoice(KviDccRequest * dcc)
 	//     DCC VOICE codec <ipaddress> <port> <sample-rate>
 	//
 	// This means that we're requested to setup an ACTIVE voice connection
-	// ... Easy task :)
+	// ... Easy task
 	//
 
 	if(!dcc_module_check_limits(dcc))
@@ -1080,7 +1080,7 @@ static void dccModuleParseDccVideo(KviDccRequest * dcc)
 	//     DCC VIDEO codec <ipaddress> <port>
 	//
 	// This means that we're requested to setup an ACTIVE voice connection
-	// ... Easy task :)
+	// ... Easy task
 	//
 
 	if(!dcc_module_check_limits(dcc))
@@ -1141,7 +1141,7 @@ static void dccModuleParseDccCanvas(KviDccRequest * dcc)
 	//     DCC CANVAS unused <ipaddress> <port>
 	//
 	// This means that we're requested to setup an ACTIVE canvas connection
-	// ... Easy task :)
+	// ... Easy task
 	//
 	if(!dcc_module_check_limits(dcc))
 		return;

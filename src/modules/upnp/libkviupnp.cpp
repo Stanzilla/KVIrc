@@ -29,7 +29,7 @@
 
 #include "Manager.h"
 
-// Please use our common variable naming conventions and coding style :)
+// Please use our common variable naming conventions and coding style
 // Let's be so:)
 UPnP::Manager * g_pManager = nullptr;
 

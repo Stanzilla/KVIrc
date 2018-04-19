@@ -43,8 +43,9 @@
 #include <algorithm>
 #include <limits>
 
-KviBoolSelector::KviBoolSelector(QWidget * par, const QString & txt, bool * pOption, bool bEnabled)
-    : QCheckBox(txt, par), KviSelectorInterface()
+KviBoolSelector::KviBoolSelector(QWidget * par, const QString & txt, bool * pOption, bool bEnabled) :
+    QCheckBox(txt, par),
+    KviSelectorInterface()
 {
 	setEnabled(bEnabled);
 	setChecked(*pOption);
@@ -67,8 +68,9 @@ void KviBoolSelector::commit()
 }
 
 KviUIntSelector::KviUIntSelector(QWidget * par, const QString & txt, unsigned int * pOption,
-    unsigned int uLowBound, unsigned int uHighBound, unsigned int uDefault, bool bEnabled, bool bShortInt)
-    : KviTalHBox(par), KviSelectorInterface()
+    unsigned int uLowBound, unsigned int uHighBound, unsigned int uDefault, bool bEnabled, bool bShortInt) :
+    KviTalHBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 	m_pSpinBox = new QSpinBox(this);
@@ -129,8 +131,9 @@ void KviUIntSelector::setEnabled(bool bEnabled)
 	m_pSpinBox->setEnabled(bEnabled);
 }
 
-KviStringSelector::KviStringSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled)
-    : KviTalHBox(par), KviSelectorInterface()
+KviStringSelector::KviStringSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled) :
+    KviTalHBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 	m_pLineEdit = new QLineEdit(this);
@@ -167,8 +170,9 @@ void KviStringSelector::setText(const QString & text)
 	m_pLineEdit->setText(text);
 }
 
-KviPasswordSelector::KviPasswordSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled)
-    : KviTalHBox(par), KviSelectorInterface()
+KviPasswordSelector::KviPasswordSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled) :
+    KviTalHBox(par),
+    KviSelectorInterface()
 {
 	setSpacing(0);
 	setMargin(0);
@@ -221,8 +225,8 @@ void KviPasswordSelector::setText(const QString & text)
 	m_pLineEdit->setText(text);
 }
 
-KviPasswordLineEdit::KviPasswordLineEdit(QWidget * par)
-    : KviTalHBox(par)
+KviPasswordLineEdit::KviPasswordLineEdit(QWidget * par) :
+    KviTalHBox(par)
 {
 	setSpacing(0);
 	setMargin(0);
@@ -264,8 +268,8 @@ void KviPasswordLineEdit::setText(const QString & text)
 	m_pLineEdit->setText(text);
 }
 
-KviPixmapPreview::KviPixmapPreview(QWidget * par)
-    : QScrollArea(par)
+KviPixmapPreview::KviPixmapPreview(QWidget * par) :
+    QScrollArea(par)
 {
 	m_pLabPixmap = new QLabel(this);
 	setWidget(m_pLabPixmap);
@@ -284,8 +288,9 @@ void KviPixmapPreview::setPixmap(KviPixmap * pix)
 	}
 }
 
-KviPixmapSelector::KviPixmapSelector(QWidget * par, const QString & txt, KviPixmap * pOption, bool bEnabled)
-    : QWidget(par), KviSelectorInterface()
+KviPixmapSelector::KviPixmapSelector(QWidget * par, const QString & txt, KviPixmap * pOption, bool bEnabled) :
+    QWidget(par),
+    KviSelectorInterface()
 {
 	QGridLayout * g = new QGridLayout(this);
 	m_pOption = pOption;
@@ -376,8 +381,9 @@ void KviPixmapSelector::setEnabled(bool bEnabled)
 }
 
 // FIXME: #warning "Option for DIR_MUST_EXISTS...(this widget could be turned into a file selector too)"
-KviFileSelector::KviFileSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled, unsigned int uFlags, const QString & szFilter)
-    : QWidget(par), KviSelectorInterface()
+KviFileSelector::KviFileSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled, unsigned int uFlags, const QString & szFilter) :
+    QWidget(par),
+    KviSelectorInterface()
 {
 	m_Layout = new QGridLayout(this);
 
@@ -466,8 +472,8 @@ void KviFileSelector::select()
 	}
 }
 
-KviDirectorySelector::KviDirectorySelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled, unsigned int uFlags)
-    : KviFileSelector(par, txt, pOption, bEnabled, uFlags)
+KviDirectorySelector::KviDirectorySelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled, unsigned int uFlags) :
+    KviFileSelector(par, txt, pOption, bEnabled, uFlags)
 {
 }
 
@@ -481,8 +487,9 @@ void KviDirectorySelector::select()
 	}
 }
 
-KviStringListSelector::KviStringListSelector(QWidget * par, const QString & txt, QStringList * pOption, bool bEnabled)
-    : KviTalVBox(par), KviSelectorInterface()
+KviStringListSelector::KviStringListSelector(QWidget * par, const QString & txt, QStringList * pOption, bool bEnabled) :
+    KviTalVBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 	m_pListWidget = new KviTalListWidget(this);
@@ -580,8 +587,9 @@ void KviStringListSelector::removeClicked()
 	}
 }
 
-KviColorSelector::KviColorSelector(QWidget * par, const QString & txt, QColor * pOption, bool bEnabled)
-    : KviTalHBox(par), KviSelectorInterface()
+KviColorSelector::KviColorSelector(QWidget * par, const QString & txt, QColor * pOption, bool bEnabled) :
+    KviTalHBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 
@@ -634,8 +642,9 @@ void KviColorSelector::setEnabled(bool bEnabled)
 	m_pButton->setEnabled(bEnabled);
 }
 
-KviFontSelector::KviFontSelector(QWidget * par, const QString & txt, QFont * pOption, bool bEnabled)
-    : KviTalHBox(par), KviSelectorInterface()
+KviFontSelector::KviFontSelector(QWidget * par, const QString & txt, QFont * pOption, bool bEnabled) :
+    KviTalHBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 
@@ -678,8 +687,9 @@ void KviFontSelector::setEnabled(bool bEnabled)
 	m_pButton->setEnabled(bEnabled);
 }
 
-KviMircTextColorSelector::KviMircTextColorSelector(QWidget * par, const QString & txt, unsigned int * uFore, unsigned int * uBack, bool bEnabled)
-    : KviTalHBox(par), KviSelectorInterface()
+KviMircTextColorSelector::KviMircTextColorSelector(QWidget * par, const QString & txt, unsigned int * uFore, unsigned int * uBack, bool bEnabled) :
+    KviTalHBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 
@@ -797,8 +807,8 @@ void KviMircTextColorSelector::backSelected(QAction * pAction)
 	setButtonPalette();
 }
 
-KviSoundSelector::KviSoundSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled)
-    : KviFileSelector(par, txt, pOption, bEnabled)
+KviSoundSelector::KviSoundSelector(QWidget * par, const QString & txt, QString * pOption, bool bEnabled) :
+    KviFileSelector(par, txt, pOption, bEnabled)
 {
 	m_pPlayButton = new QPushButton(__tr2qs("Play"), this);
 	connect(m_pPlayButton, SIGNAL(clicked()), this, SLOT(playSound()));
@@ -814,7 +824,7 @@ KviSoundSelector::~KviSoundSelector()
 
 void KviSoundSelector::playSound()
 {
-	KviKvsVariantList soundParams{new KviKvsVariant{m_pLineEdit->text()}};
+	KviKvsVariantList soundParams{ new KviKvsVariant{ m_pLineEdit->text() } };
 	KviKvsScript::run("snd.play $0", nullptr, &soundParams);
 }
 
@@ -824,8 +834,8 @@ void KviSoundSelector::setEnabled(bool bEnabled)
 	m_pPlayButton->setEnabled(bEnabled);
 }
 
-KviChanTreeViewItem::KviChanTreeViewItem(QTreeWidget * pList, QString szChan, QString szPass)
-    : QTreeWidgetItem(pList)
+KviChanTreeViewItem::KviChanTreeViewItem(QTreeWidget * pList, QString szChan, QString szPass) :
+    QTreeWidgetItem(pList)
 {
 	m_szPass = szPass;
 	QString mask;
@@ -834,8 +844,9 @@ KviChanTreeViewItem::KviChanTreeViewItem(QTreeWidget * pList, QString szChan, QS
 	setText(1, mask);
 }
 
-KviChannelListSelector::KviChannelListSelector(QWidget * par, const QString & txt, QStringList * pOption, bool bEnabled)
-    : KviTalVBox(par), KviSelectorInterface()
+KviChannelListSelector::KviChannelListSelector(QWidget * par, const QString & txt, QStringList * pOption, bool bEnabled) :
+    KviTalVBox(par),
+    KviSelectorInterface()
 {
 	m_pLabel = new QLabel(txt, this);
 	m_pTreeWidget = new QTreeWidget(this);

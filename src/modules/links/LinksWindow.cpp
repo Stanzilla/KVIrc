@@ -47,8 +47,9 @@
 
 extern std::unordered_set<LinksWindow *> g_pLinksWindowList;
 
-LinksWindow::LinksWindow(KviConsoleWindow * lpConsole)
-    : KviWindow(KviWindow::Links, "links", lpConsole), KviExternalServerDataParser()
+LinksWindow::LinksWindow(KviConsoleWindow * lpConsole) :
+    KviWindow(KviWindow::Links, "links", lpConsole),
+    KviExternalServerDataParser()
 {
 	g_pLinksWindowList.insert(this);
 
@@ -505,8 +506,8 @@ void LinksWindow::applyOptions()
 	KviWindow::applyOptions();
 }
 
-LinksListView::LinksListView(QWidget * par, KviWindow * wnd, const char * txt)
-    : KviThemedTreeWidget(par, wnd, txt)
+LinksListView::LinksListView(QWidget * par, KviWindow * wnd, const char * txt) :
+    KviThemedTreeWidget(par, wnd, txt)
 {
 	header()->setSortIndicatorShown(true);
 	setColumnCount(3);

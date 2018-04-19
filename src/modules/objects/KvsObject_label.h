@@ -34,6 +34,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_label)
 public:
 	QWidget * widget() { return (QWidget *)object(); };
+
 protected:
 	virtual bool init(KviKvsRunTimeContext * pContext, KviKvsVariantList * pParams);
 

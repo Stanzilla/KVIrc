@@ -1646,7 +1646,7 @@ static bool mediaplayer_module_init(KviModule * m)
 		}
 	}
 
-// check for "auto" interface too!
+	// check for "auto" interface too!
 
 #define MP_KVS_REGCMD(__name, __stringname) KVSM_REGISTER_SIMPLE_COMMAND(m, __stringname, mediaplayer_kvs_cmd_##__name)
 #define MP_KVS_REGFNC(__name, __stringname) KVSM_REGISTER_FUNCTION(m, __stringname, mediaplayer_kvs_fnc_##__name)

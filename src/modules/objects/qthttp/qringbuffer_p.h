@@ -59,7 +59,8 @@
 class QRingBuffer
 {
 public:
-	inline QRingBuffer(int growth = 4096) : basicBlockSize(growth)
+	inline QRingBuffer(int growth = 4096) :
+	    basicBlockSize(growth)
 	{
 		buffers << QByteArray();
 		clear();

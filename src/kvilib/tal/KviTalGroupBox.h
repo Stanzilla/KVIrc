@@ -148,7 +148,7 @@ public:
 
 	/**
 	* \brief Sets the orientation
-	* \param orientation The orientation :)
+	* \param orientation The orientation
 	* \return void
 	*/
 	void setOrientation(Qt::Orientation orientation);

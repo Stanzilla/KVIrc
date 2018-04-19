@@ -98,7 +98,7 @@ void KviConfigurationFile::clearKey(const QString & szKey)
 
 bool KviConfigurationFile::load()
 {
-	// this is really faster than the old version :)
+	// this is really faster than the old version
 	// open the file
 	KviFile f(m_szFileName);
 	if(!f.open(QFile::ReadOnly))
@@ -157,7 +157,7 @@ bool KviConfigurationFile::load()
 					}
 					// there is something in the buffer but we have readed 0 bytes
 					// this usually means that the last line in the file has no trailing newline
-					// ...we just fake it :)
+					// ...we just fake it
 					*p = '\n';
 					readedLen = 1;
 				}

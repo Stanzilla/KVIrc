@@ -28,8 +28,8 @@
 #include "KviLocale.h"
 #include "KviOptions.h"
 
-OptionsWidget_general::OptionsWidget_general(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_general::OptionsWidget_general(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("generalopt_options_widget");
 	createLayout();

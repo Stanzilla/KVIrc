@@ -74,8 +74,8 @@ public:
 	* \param ircUser The mask of the user
 	* \return KviIrcMask
 	*/
-	KviIrcMask(const KviIrcMask & ircUser)
-	    : m_szNick(ircUser.m_szNick), m_szUser(ircUser.m_szUser), m_szHost(ircUser.m_szHost){};
+	KviIrcMask(const KviIrcMask & ircUser) :
+	    m_szNick(ircUser.m_szNick), m_szUser(ircUser.m_szUser), m_szHost(ircUser.m_szHost){};
 
 	/**
 	* \brief Carbon copy
@@ -84,8 +84,8 @@ public:
 	* \param host The hostname of the user
 	* \return KviIrcMask
 	*/
-	KviIrcMask(const QString & nick, const QString & user, const QString & host)
-	    : m_szNick(nick), m_szUser(user), m_szHost(host){};
+	KviIrcMask(const QString & nick, const QString & user, const QString & host) :
+	    m_szNick(nick), m_szUser(user), m_szHost(host){};
 
 	/**
 	* \enum MaskType

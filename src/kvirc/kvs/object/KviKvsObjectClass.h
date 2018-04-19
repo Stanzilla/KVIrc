@@ -57,7 +57,7 @@ public:
 	    const QString & szName,                // class name
 	    KviKvsObjectAllocateInstanceProc proc, // instance allocation proc
 	    bool bBuiltin = true                   // this is a builtin or script based class ?
-	    );
+	);
 	~KviKvsObjectClass();
 
 protected:
@@ -72,6 +72,7 @@ protected:
 	void registerChildClass(KviKvsObjectClass * pClass);
 	void unregisterChildClass(KviKvsObjectClass * pClass);
 	KviPointerHashTable<QString, KviKvsObjectFunctionHandler> * functionHandlers() { return m_pFunctionHandlers; };
+
 public:
 	void clearDirtyFlag() { m_bDirty = false; };
 	bool isDirty() { return m_bDirty; };

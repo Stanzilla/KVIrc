@@ -49,16 +49,16 @@ namespace UPnP
 {
 
 	// The constructor for information services
-	Service::Service(const QString & hostname, int port, const QString & informationUrl)
-	    : m_iPendingRequests(0), m_szBaseXmlPrefix("s"), m_szHostname(hostname), m_iPort(port)
+	Service::Service(const QString & hostname, int port, const QString & informationUrl) :
+	    m_iPendingRequests(0), m_szBaseXmlPrefix("s"), m_szHostname(hostname), m_iPort(port)
 	{
 		m_szInformationUrl = informationUrl;
 		qDebug() << "UPnP::Service: created information service url='" << m_szInformationUrl << "'." << endl;
 	}
 
 	// The constructor for action services
-	Service::Service(const ServiceParameters & params)
-	    : m_szControlUrl(params.controlUrl), m_szInformationUrl(params.scpdUrl), m_iPendingRequests(0), m_szServiceId(params.serviceId), m_szServiceType(params.serviceType), m_szBaseXmlPrefix("s"), m_szHostname(params.hostname), m_iPort(params.port)
+	Service::Service(const ServiceParameters & params) :
+	    m_szControlUrl(params.controlUrl), m_szInformationUrl(params.scpdUrl), m_iPendingRequests(0), m_szServiceId(params.serviceId), m_szServiceType(params.serviceType), m_szBaseXmlPrefix("s"), m_szHostname(params.hostname), m_iPort(params.port)
 	{
 		qDebug() << "CREATED UPnP::Service: url='" << m_szControlUrl << "' id='" << m_szServiceId << "'." << endl;
 	}

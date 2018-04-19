@@ -25,8 +25,8 @@
 #include "KviKvsTreeNodeSimpleCommand.h"
 #include "KviKvsTreeNodeDataList.h"
 
-KviKvsTreeNodeSimpleCommand::KviKvsTreeNodeSimpleCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params)
-    : KviKvsTreeNodeCommandWithParameters(pLocation, szCmdName, params)
+KviKvsTreeNodeSimpleCommand::KviKvsTreeNodeSimpleCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params) :
+    KviKvsTreeNodeCommandWithParameters(pLocation, szCmdName, params)
 {
 }
 

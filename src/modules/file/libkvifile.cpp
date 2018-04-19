@@ -657,7 +657,7 @@ static bool file_kvs_fnc_allSizes(KviKvsModuleFunctionCall * c)
 		There is a minor problem with UNIX paths converted to the windows system: UNIX
 		has no [i]drive[/i] concept, thus the UNIX paths do not contain a drive - KVIrc will
 		always map the paths to the [i]default[/i] C: drive. This is a good reason to avoid
-		using absolute hard-coded paths :).[br][br]
+		using absolute hard-coded paths .[br][br]
 		Please note that you [b]don't need[/b] to call this function on paths that you
 		pass to the other file.* functions: they are adjusted automatically.[br]
 	@seealso:
@@ -1139,7 +1139,7 @@ static bool file_kvs_fnc_readLines(KviKvsModuleFunctionCall * c)
 		The lines are separated by a carriage-return+line-feed character
 		combination, compatible with Windows text mode files.
 		For reference, this is the only way to make the file readable in Windows Notepad.
-		Please note that this is broken design: do [b]not[/b] use it :)
+		Please note that this is broken design: do [b]not[/b] use it
 		!sw: -n | --no-separator
 		Do not separate the lines at all (either the separators are already
 		inside the lines array or no line separation is desired at all).
@@ -1489,7 +1489,8 @@ static bool file_kvs_fnc_diskSpace(KviKvsModuleFunctionCall * c)
 // this for win
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 	ULARGE_INTEGER free, total;
-	if (GetDiskFreeSpaceEx(szPath.toStdWString().c_str(), NULL, &total, &free) == 0) {
+	if(GetDiskFreeSpaceEx(szPath.toStdWString().c_str(), NULL, &total, &free) == 0)
+	{
 		c->warning(__tr2qs("An error occurred retrieving the amount of free space in '%Q'"), &szPath);
 		return true;
 	}
@@ -1499,7 +1500,8 @@ static bool file_kvs_fnc_diskSpace(KviKvsModuleFunctionCall * c)
 	// this one for linux and macos
 	auto pcPath = szPath.toUtf8();
 	struct statvfs stFileSystem;
-	if (statvfs(pcPath.data(), &stFileSystem) == -1) {
+	if(statvfs(pcPath.data(), &stFileSystem) == -1)
+	{
 		c->warning(__tr2qs("An error occurred retrieving the amount of free space in '%Q'"), &szPath);
 		return true;
 	}
@@ -1559,7 +1561,7 @@ static bool file_kvs_fnc_digest(KviKvsModuleFunctionCall * c)
 	if(szAlgo.isEmpty())
 		szAlgo = "md5";
 
-	EVP_MD_CTX *mdctx;
+	EVP_MD_CTX * mdctx;
 	const EVP_MD * pMD;
 	unsigned char ucMDValue[EVP_MAX_MD_SIZE];
 	unsigned int uMDLen, u;

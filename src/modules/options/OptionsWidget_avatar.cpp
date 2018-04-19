@@ -29,8 +29,8 @@
 #include "KviOptions.h"
 #include "KviTalToolTip.h"
 
-OptionsWidget_avatar::OptionsWidget_avatar(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_avatar::OptionsWidget_avatar(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("avatar_advanced_options_widget");
 	createLayout();

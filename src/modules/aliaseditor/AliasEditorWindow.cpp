@@ -60,8 +60,11 @@
 extern AliasEditorWindow * g_pAliasEditorWindow;
 extern KviModule * g_pAliasEditorModule;
 
-AliasEditorTreeWidgetItem::AliasEditorTreeWidgetItem(QTreeWidget * pTreeWidget, Type eType, const QString & szName)
-    : QTreeWidgetItem(pTreeWidget), KviHeapObject(), m_eType(eType), m_pParentItem(nullptr)
+AliasEditorTreeWidgetItem::AliasEditorTreeWidgetItem(QTreeWidget * pTreeWidget, Type eType, const QString & szName) :
+    QTreeWidgetItem(pTreeWidget),
+    KviHeapObject(),
+    m_eType(eType),
+    m_pParentItem(nullptr)
 {
 	setName(szName);
 	m_cPos = 0;
@@ -71,8 +74,10 @@ AliasEditorTreeWidgetItem::AliasEditorTreeWidgetItem(QTreeWidget * pTreeWidget, 
 		setIcon(0, QIcon(*(g_pIconManager->getSmallIcon(KviIconManager::Alias))));
 }
 
-AliasEditorTreeWidgetItem::AliasEditorTreeWidgetItem(AliasEditorTreeWidgetItem * pParentItem, Type eType, const QString & szName)
-    : QTreeWidgetItem(pParentItem), m_eType(eType), m_pParentItem(pParentItem)
+AliasEditorTreeWidgetItem::AliasEditorTreeWidgetItem(AliasEditorTreeWidgetItem * pParentItem, Type eType, const QString & szName) :
+    QTreeWidgetItem(pParentItem),
+    m_eType(eType),
+    m_pParentItem(pParentItem)
 {
 	setName(szName);
 	m_cPos = 0;
@@ -97,8 +102,8 @@ void AliasEditorTreeWidgetItem::setType(Type t)
 		setIcon(0, QIcon(*(g_pIconManager->getSmallIcon(KviIconManager::Alias))));
 }
 
-AliasEditorTreeWidget::AliasEditorTreeWidget(QWidget * par)
-    : QTreeWidget(par)
+AliasEditorTreeWidget::AliasEditorTreeWidget(QWidget * par) :
+    QTreeWidget(par)
 {
 	setColumnCount(1);
 	setHeaderLabel(__tr2qs_ctx("Alias", "editor"));
@@ -114,8 +119,8 @@ AliasEditorTreeWidget::~AliasEditorTreeWidget()
 	clear();
 }
 
-AliasEditorWidget::AliasEditorWidget(QWidget * par)
-    : QWidget(par)
+AliasEditorWidget::AliasEditorWidget(QWidget * par) :
+    QWidget(par)
 {
 	m_pAliases = new KviPointerList<AliasEditorTreeWidgetItem>;
 	m_pAliases->setAutoDelete(false);
@@ -1241,8 +1246,8 @@ void AliasEditorWidget::commit()
 	m_bSaving = false;
 }
 
-AliasEditorWindow::AliasEditorWindow()
-    : KviWindow(KviWindow::ScriptEditor, "aliaseditor", nullptr)
+AliasEditorWindow::AliasEditorWindow() :
+    KviWindow(KviWindow::ScriptEditor, "aliaseditor", nullptr)
 {
 	g_pAliasEditorWindow = this;
 

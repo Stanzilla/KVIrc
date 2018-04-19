@@ -92,7 +92,7 @@ bool dcc_module_get_listen_ip_address(KviCommand *c,KviConsoleWindow * pConsole,
 			//#warning "The IPV6 choice is not OK here.... and maybe allow to bind to specified ports"
 			pConsole->socket()->getLocalHostIp(szListenIp,pConsole->isIPv6Connection());
 		} else {
-			szListenIp = "0.0.0.0"; // huh ? :)
+			szListenIp = "0.0.0.0"; // huh?
 		}
 	} else {
 		szListenIp = "0.0.0.0";
@@ -170,7 +170,7 @@ bool dcc_kvs_get_listen_ip_address(KviKvsModuleCommandCall * c, KviConsoleWindow
 		}
 		else
 		{
-			szListenIp = "0.0.0.0"; // huh ? :)
+			szListenIp = "0.0.0.0"; // huh?
 		}
 	}
 	else

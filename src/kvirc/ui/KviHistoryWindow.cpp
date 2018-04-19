@@ -36,8 +36,8 @@
 
 #include <ctype.h>
 
-KviHistoryWindow::KviHistoryWindow(QWidget * pParent)
-    : QListWidget(pParent)
+KviHistoryWindow::KviHistoryWindow(QWidget * pParent) :
+    QListWidget(pParent)
 {
 	m_pParent = pParent;
 	m_pOwner = nullptr;
@@ -171,8 +171,8 @@ void KviHistoryWindow::hideEvent(QHideEvent *)
 	}
 }
 
-KviHistoryWindowWidget::KviHistoryWindowWidget()
-    : QWidget(nullptr)
+KviHistoryWindowWidget::KviHistoryWindowWidget() :
+    QWidget(nullptr)
 {
 	setWindowFlags(Qt::Popup);
 	m_pWindow = new KviHistoryWindow(this);

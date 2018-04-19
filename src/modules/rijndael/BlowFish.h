@@ -80,9 +80,13 @@
 struct SBlock
 {
 	//Constructors
-	SBlock(unsigned int l = 0, unsigned int r = 0) : m_uil(l), m_uir(r) {}
+	SBlock(unsigned int l = 0, unsigned int r = 0) :
+	    m_uil(l),
+	    m_uir(r) {}
 	//Copy Constructor
-	SBlock(const SBlock & roBlock) : m_uil(roBlock.m_uil), m_uir(roBlock.m_uir) {}
+	SBlock(const SBlock & roBlock) :
+	    m_uil(roBlock.m_uil),
+	    m_uir(roBlock.m_uir) {}
 	SBlock & operator^=(SBlock & b)
 	{
 		m_uil ^= b.m_uil;

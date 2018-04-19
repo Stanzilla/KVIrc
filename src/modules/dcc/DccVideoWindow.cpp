@@ -82,8 +82,8 @@ static DccVideoCodec * kvi_dcc_video_get_codec(const char * codecName)
 	return new DccVideoSJpegCodec();
 }
 
-DccVideoThread::DccVideoThread(KviWindow * wnd, kvi_socket_t fd, KviDccVideoThreadOptions * opt)
-    : DccThread(wnd, fd)
+DccVideoThread::DccVideoThread(KviWindow * wnd, kvi_socket_t fd, KviDccVideoThreadOptions * opt) :
+    DccThread(wnd, fd)
 {
 	m_pOpt = opt;
 	m_bPlaying = false;
@@ -392,8 +392,8 @@ exit_dcc:
 	m_fd = KVI_INVALID_SOCKET;
 }
 
-DccVideoWindow::DccVideoWindow(DccDescriptor * dcc, const char * name)
-    : DccWindow(KviWindow::DccVideo, name, dcc)
+DccVideoWindow::DccVideoWindow(DccDescriptor * dcc, const char * name) :
+    DccWindow(KviWindow::DccVideo, name, dcc)
 {
 	m_pDescriptor = dcc;
 	m_pSlaveThread = 0;

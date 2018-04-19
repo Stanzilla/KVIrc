@@ -189,8 +189,8 @@ bool KviKvsTreeNodeSpecialCommandDefpopupLabelPrologue::execute(KviKvsRunTimeCon
 	return true;
 }
 
-KviKvsTreeNodeSpecialCommandDefpopupLabelPopup::KviKvsTreeNodeSpecialCommandDefpopupLabelPopup(const QChar * pLocation)
-    : KviKvsTreeNodeSpecialCommandDefpopupConditionalLabelWithTextAndIcon(pLocation, QString(), QString(), QString(), QString())
+KviKvsTreeNodeSpecialCommandDefpopupLabelPopup::KviKvsTreeNodeSpecialCommandDefpopupLabelPopup(const QChar * pLocation) :
+    KviKvsTreeNodeSpecialCommandDefpopupConditionalLabelWithTextAndIcon(pLocation, QString(), QString(), QString(), QString())
 {
 	m_pLabels = new KviPointerList<KviKvsTreeNodeSpecialCommandDefpopupLabel>;
 	m_pLabels->setAutoDelete(true);
@@ -255,8 +255,8 @@ bool KviKvsTreeNodeSpecialCommandDefpopupLabelPopup::fill(KviKvsRunTimeContext *
 	return true;
 }
 
-KviKvsTreeNodeSpecialCommandDefpopup::KviKvsTreeNodeSpecialCommandDefpopup(const QChar * pLocation, KviKvsTreeNodeData * pPopupName, KviKvsTreeNodeSpecialCommandDefpopupLabelPopup * pMainPopup)
-    : KviKvsTreeNodeSpecialCommand(pLocation, "defpopup")
+KviKvsTreeNodeSpecialCommandDefpopup::KviKvsTreeNodeSpecialCommandDefpopup(const QChar * pLocation, KviKvsTreeNodeData * pPopupName, KviKvsTreeNodeSpecialCommandDefpopupLabelPopup * pMainPopup) :
+    KviKvsTreeNodeSpecialCommand(pLocation, "defpopup")
 {
 	m_pPopupName = pPopupName;
 	m_pPopupName->setParent(this);

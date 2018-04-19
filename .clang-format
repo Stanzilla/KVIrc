@@ -1,4 +1,3 @@
----
 BasedOnStyle: WebKit
 Standard: Cpp11
 
@@ -8,8 +7,11 @@ TabWidth: 4
 NamespaceIndentation: All
 IndentCaseLabels: true
 SpaceBeforeParens: Never
+AlwaysBreakAfterReturnType: None
+BreakConstructorInitializers: AfterColon
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
 BreakBeforeBraces: Allman
-BreakConstructorInitializersBeforeComma: false
 BreakBeforeInheritanceComma: false
 
 AlignTrailingComments: true
@@ -19,4 +21,3 @@ PointerAlignment: Middle
 SortIncludes: false
 
 AccessModifierOffset: -4
-...

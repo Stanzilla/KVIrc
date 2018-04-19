@@ -36,6 +36,7 @@ public:
 	KVSO_DECLARE_OBJECT(KvsObject_wrapper)
 public:
 	QWidget * widget() { return (QWidget *)object(); };
+
 protected:
 	virtual bool init(KviKvsRunTimeContext * pContext, KviKvsVariantList * pParams);
 	QWidget * findTopLevelWidgetToWrap(const QString & szClass, const QString & szName, bool bRecursive);

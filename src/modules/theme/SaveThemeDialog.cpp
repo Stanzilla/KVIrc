@@ -55,8 +55,8 @@
 #include <QLabel>
 #include <QCheckBox>
 
-SaveThemeDialog::SaveThemeDialog(QWidget * pParent)
-    : KviTalWizard(pParent)
+SaveThemeDialog::SaveThemeDialog(QWidget * pParent) :
+    KviTalWizard(pParent)
 {
 	setWindowTitle(__tr2qs_ctx("Save Current Theme - KVIrc", "theme"));
 	setMinimumSize(400, 350);

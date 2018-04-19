@@ -26,8 +26,8 @@
 #include "KviKvsRunTimeContext.h"
 #include "KviKvsVariant.h"
 
-KviKvsTreeNodeMultipleParameterIdentifier::KviKvsTreeNodeMultipleParameterIdentifier(const QChar * pLocation, int iStart, int iEnd)
-    : KviKvsTreeNodeData(pLocation)
+KviKvsTreeNodeMultipleParameterIdentifier::KviKvsTreeNodeMultipleParameterIdentifier(const QChar * pLocation, int iStart, int iEnd) :
+    KviKvsTreeNodeData(pLocation)
 {
 	m_iStart = iStart;
 	m_iEnd = iEnd;

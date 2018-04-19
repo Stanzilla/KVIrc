@@ -25,8 +25,8 @@
 #include "KviKvsTreeNodeData.h"
 #include "KviLocale.h"
 
-KviKvsTreeNodeData::KviKvsTreeNodeData(const QChar * pLocation)
-    : KviKvsTreeNode(pLocation), m_pEndingLocation(nullptr)
+KviKvsTreeNodeData::KviKvsTreeNodeData(const QChar * pLocation) :
+    KviKvsTreeNode(pLocation), m_pEndingLocation(nullptr)
 {
 }
 

@@ -25,10 +25,10 @@
 //=============================================================================
 
 /**
-* \file KviKvsTreeNode.h
-* \author Szymon Stefanek
-* \brief Treenode instruction handling
-*/
+ * \file KviKvsTreeNode.h
+ * \author Szymon Stefanek
+ * \brief Treenode instruction handling
+ */
 
 #include "KviQString.h"
 #include "KviKvsTreeNodeBase.h"
@@ -36,50 +36,50 @@
 class KviKvsRunTimeContext;
 
 /**
-* \class KviKvsTreeNodeInstruction
-* \brief Treenode class to handle instructions
-*/
+ * \class KviKvsTreeNodeInstruction
+ * \brief Treenode class to handle instructions
+ */
 class KVIRC_API KviKvsTreeNodeInstruction : public KviKvsTreeNode
 {
 public:
 	/**
-	* \brief Constructs the treenode instruction object
-	* \param pLocation The location char of the instruction
-	* \return KviKvsTreeNodeInstruction
-	*/
-	KviKvsTreeNodeInstruction(const QChar * pLocation)
-	    : KviKvsTreeNode(pLocation){};
+	 * \brief Constructs the treenode instruction object
+	 * \param pLocation The location char of the instruction
+	 * \return KviKvsTreeNodeInstruction
+	 */
+	KviKvsTreeNodeInstruction(const QChar * pLocation) :
+	    KviKvsTreeNode(pLocation){};
 
 	/**
-	* \brief Destroys the treenode instruction object
-	*/
+	 * \brief Destroys the treenode instruction object
+	 */
 	~KviKvsTreeNodeInstruction(){};
 
 public:
 	/**
-	* \brief Sets the buffer as Instruction
-	* \param szBuffer The buffer :)
-	* \return void
-	*/
+	 * \brief Sets the buffer as Instruction
+	 * \param szBuffer The buffer
+	 * \return void
+	 */
 	virtual void contextDescription(QString & szBuffer);
 
 	/**
-	* \brief Dumps the instructions tree
-	* \param prefix The prefix of the instruction
-	* \return void
-	*/
+	 * \brief Dumps the instructions tree
+	 * \param prefix The prefix of the instruction
+	 * \return void
+	 */
 	virtual void dump(const char * prefix);
 
 	/**
-	* \brief This is the main entry point to the tree visit
-	*
-	* It returns false when the tree visiting has to be stopped and returns
-	* true when it has been successfully completed. A false return value may
-	* signal an error but is also used by break, halt, return and similar.
-	* The error condition is signaled by KviKvsRunTimeContext::error().
-	* \param c The source context
-	* \return bool
-	*/
+	 * \brief This is the main entry point to the tree visit
+	 *
+	 * It returns false when the tree visiting has to be stopped and returns
+	 * true when it has been successfully completed. A false return value may
+	 * signal an error but is also used by break, halt, return and similar.
+	 * The error condition is signaled by KviKvsRunTimeContext::error().
+	 * \param c The source context
+	 * \return bool
+	 */
 	virtual bool execute(KviKvsRunTimeContext * c) = 0;
 };
 

@@ -35,8 +35,8 @@
 
 #include <QByteArray>
 
-KviKvsTreeNodeAliasSimpleCommand::KviKvsTreeNodeAliasSimpleCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params)
-    : KviKvsTreeNodeSimpleCommand(pLocation, szCmdName, params)
+KviKvsTreeNodeAliasSimpleCommand::KviKvsTreeNodeAliasSimpleCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params) :
+    KviKvsTreeNodeSimpleCommand(pLocation, szCmdName, params)
 {
 }
 

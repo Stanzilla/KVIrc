@@ -53,8 +53,8 @@
 #include <QCloseEvent>
 #include <QFileInfo>
 
-NickAlternativesDialog::NickAlternativesDialog(QWidget * par, const QString & n1, const QString & n2, const QString & n3)
-    : QDialog(par)
+NickAlternativesDialog::NickAlternativesDialog(QWidget * par, const QString & n1, const QString & n2, const QString & n3) :
+    QDialog(par)
 {
 	QGridLayout * g = new QGridLayout(this);
 
@@ -114,8 +114,8 @@ void NickAlternativesDialog::fill(QString & n1, QString & n2, QString & n3)
 	n3 = m_pNickEdit3->text();
 }
 
-AvatarDownloadDialog::AvatarDownloadDialog(QWidget * par, const QString & szUrl)
-    : QDialog(par)
+AvatarDownloadDialog::AvatarDownloadDialog(QWidget * par, const QString & szUrl) :
+    QDialog(par)
 {
 	setWindowTitle(__tr2qs_ctx("Avatar Download - KVIrc", "options"));
 
@@ -197,8 +197,8 @@ void AvatarDownloadDialog::downloadTerminated(bool bSuccess)
 	}
 }
 
-AvatarSelectionDialog::AvatarSelectionDialog(QWidget * par, const QString & szInitialPath)
-    : QDialog(par)
+AvatarSelectionDialog::AvatarSelectionDialog(QWidget * par, const QString & szInitialPath) :
+    QDialog(par)
 {
 	setWindowTitle(__tr2qs_ctx("Choose Avatar - KVIrc", "options"));
 
@@ -277,16 +277,16 @@ void AvatarSelectionDialog::closeEvent(QCloseEvent * e)
 	reject();
 }
 
-OptionsWidget_identity::OptionsWidget_identity(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_identity::OptionsWidget_identity(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 }
 
 OptionsWidget_identity::~OptionsWidget_identity()
     = default;
 
-KviIdentityGeneralOptionsWidget::KviIdentityGeneralOptionsWidget(QWidget * parent)
-    : KviOptionsWidget(parent)
+KviIdentityGeneralOptionsWidget::KviIdentityGeneralOptionsWidget(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	m_szAltNicknames[0] = KVI_OPTION_STRING(KviOption_stringNickname2);
 	m_szAltNicknames[1] = KVI_OPTION_STRING(KviOption_stringNickname3);
@@ -461,8 +461,8 @@ void KviIdentityGeneralOptionsWidget::commit()
 	}
 }
 
-OptionsWidget_identityAvatar::OptionsWidget_identityAvatar(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_identityAvatar::OptionsWidget_identityAvatar(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	createLayout();
 	layout()->setMargin(10);
@@ -565,7 +565,7 @@ void OptionsWidget_identityAvatar::chooseAvatar()
 					    __tr2qs_ctx("Failed to load the avatar image.<br>"
 					                "It may be an inaccessible file or an "
 					                "unsupported image format.",
-					                         "options"),
+					        "options"),
 					    QMessageBox::Ok, QMessageBox::NoButton);
 				} // else loaded!
 			}
@@ -615,7 +615,7 @@ void OptionsWidget_identityAvatar::chooseAvatar()
 			    __tr2qs_ctx("Failed to load the avatar image.<br>"
 			                "It may be an inaccessible file or an "
 			                "unsupported image format.",
-			                         "options"),
+			        "options"),
 			    QMessageBox::Ok, QMessageBox::NoButton);
 			szCurrent = "";
 		}
@@ -658,8 +658,8 @@ void OptionsWidget_identityAvatar::chooseAvatar()
 	m_pAvatarPreview->setPixmap(m_pLocalAvatar);
 }
 
-OptionsWidget_identityAdvanced::OptionsWidget_identityAdvanced(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_identityAdvanced::OptionsWidget_identityAdvanced(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	m_pISelector = nullptr;
 	m_pWSelector = nullptr;
@@ -712,8 +712,8 @@ void OptionsWidget_identityAdvanced::commit()
 	KVI_OPTION_STRING(KviOption_stringDefaultUserMode) = m_sModeStr.ptr();
 }
 
-OptionsWidget_identityProfile::OptionsWidget_identityProfile(QWidget * pParent)
-    : KviOptionsWidget(pParent)
+OptionsWidget_identityProfile::OptionsWidget_identityProfile(QWidget * pParent) :
+    KviOptionsWidget(pParent)
 {
 	setObjectName("identity_profiles_option_widget");
 	m_pEditor = nullptr;
@@ -756,8 +756,9 @@ OptionsWidget_identityProfile::OptionsWidget_identityProfile(QWidget * pParent)
 	                                              "data before the data is sent to the IRC server.<br>"
 	                                              "This is useful if a user wants to use different data "
 	                                              "on different networks without changing them at every "
-	                                              "connection attempt.", "options"));
-			
+	                                              "connection attempt.",
+	                                      "options"));
+
 	pLayout->addWidget(m_pTreeWidget, 1, 0, 1, 3);
 	connect(m_pTreeWidget, SIGNAL(itemSelectionChanged()), this, SLOT(toggleControls()));
 
@@ -910,8 +911,8 @@ void OptionsWidget_identityProfile::commit()
 	KviOptionsWidget::commit();
 }
 
-IdentityProfileEditor::IdentityProfileEditor(QWidget * pParent)
-    : QDialog(pParent)
+IdentityProfileEditor::IdentityProfileEditor(QWidget * pParent) :
+    QDialog(pParent)
 {
 	setObjectName("identity_profile_editor");
 	setWindowTitle(__tr2qs_ctx("Profile Editor - KVIrc", "options"));

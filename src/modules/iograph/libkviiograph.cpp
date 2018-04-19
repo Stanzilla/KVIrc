@@ -42,8 +42,8 @@ extern KVIRC_API QPixmap * g_pShadedChildGlobalDesktopBackground;
 
 KviIOGraphWindow * g_pIOGraphWindow = nullptr;
 
-KviIOGraphWindow::KviIOGraphWindow(const char * name)
-    : KviWindow(KviWindow::IOGraph, name)
+KviIOGraphWindow::KviIOGraphWindow(const char * name) :
+    KviWindow(KviWindow::IOGraph, name)
 {
 	m_pIOGraph = new KviIOGraphWidget(this);
 	setAutoFillBackground(false);
@@ -122,8 +122,8 @@ void KviIOGraphWindow::paintEvent(QPaintEvent * e)
 #endif
 }
 
-KviIOGraphWidget::KviIOGraphWidget(QWidget * par)
-    : QWidget(par)
+KviIOGraphWidget::KviIOGraphWidget(QWidget * par) :
+    QWidget(par)
 {
 	m_uLastSentBytes = g_uOutgoingTraffic;
 	m_uLastRecvBytes = g_uIncomingTraffic;

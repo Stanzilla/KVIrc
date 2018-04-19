@@ -182,7 +182,7 @@ public:
 
 	/**
 	* \brief Called when we perform an action
-	* \param szBuffer The buffer :)
+	* \param szBuffer The buffer
 	* \return void
 	*/
 	void ownAction(const QString & szBuffer);

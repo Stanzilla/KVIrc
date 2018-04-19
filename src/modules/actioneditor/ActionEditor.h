@@ -64,11 +64,12 @@ public:
 	    const QString & szSmallIcon,
 	    unsigned int uFlags,
 	    const QString & szKeySequence,
-	    ActionEditorTreeWidgetItem * pItem)
-	    : m_szName(szName), m_szScriptCode(szScriptCode), m_szVisibleName(szVisibleName),
-	      m_szDescription(szDescription), m_szCategory(szCategory), m_szBigIcon(szBigIcon),
-	      m_szSmallIcon(szSmallIcon), m_szKeySequence(szKeySequence), m_uFlags(uFlags),
-	      m_pItem(pItem){};
+	    ActionEditorTreeWidgetItem * pItem) :
+	    m_szName(szName),
+	    m_szScriptCode(szScriptCode), m_szVisibleName(szVisibleName),
+	    m_szDescription(szDescription), m_szCategory(szCategory), m_szBigIcon(szBigIcon),
+	    m_szSmallIcon(szSmallIcon), m_szKeySequence(szKeySequence), m_uFlags(uFlags),
+	    m_pItem(pItem){};
 };
 
 class ActionEditorTreeWidgetItem : public QTreeWidgetItem

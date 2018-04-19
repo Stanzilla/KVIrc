@@ -172,6 +172,7 @@ public:
 	* \return KviInputHistory *
 	*/
 	inline KviInputHistory * history() { return KviInputHistory::instance(); };
+
 protected:
 	void installShortcuts();
 	virtual void focusInEvent(QFocusEvent * e);

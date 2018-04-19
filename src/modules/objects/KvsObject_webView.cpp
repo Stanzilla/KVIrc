@@ -47,8 +47,8 @@
 #include <QToolTip>
 
 static int g_iDownloadId = 1;
-KviKvsDownloadHandler::KviKvsDownloadHandler(KvsObject_webView * pParent, QFile * pFile, QNetworkReply * pNetReply, int iId)
-    : QObject(pParent)
+KviKvsDownloadHandler::KviKvsDownloadHandler(KvsObject_webView * pParent, QFile * pFile, QNetworkReply * pNetReply, int iId) :
+    QObject(pParent)
 {
 
 	m_Id = iId;
@@ -1329,8 +1329,8 @@ void KvsObject_webView::slotDownloadRequest(const QNetworkRequest & r)
 	}
 }
 
-KviKvsWebView::KviKvsWebView(QWidget * par, const char * name, KvsObject_webView * parent)
-    : QWebView(par)
+KviKvsWebView::KviKvsWebView(QWidget * par, const char * name, KvsObject_webView * parent) :
+    QWebView(par)
 {
 	m_pParentScript = parent;
 	setObjectName(name);

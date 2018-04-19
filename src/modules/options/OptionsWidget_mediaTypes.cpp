@@ -46,8 +46,8 @@ static void copyMediaType(KviMediaType * dst, const KviMediaType * src)
 	dst->szIcon = src->szIcon;
 }
 
-MediaTypeTreeWidgetItem::MediaTypeTreeWidgetItem(QTreeWidget * w, KviMediaType * t)
-    : QTreeWidgetItem(w)
+MediaTypeTreeWidgetItem::MediaTypeTreeWidgetItem(QTreeWidget * w, KviMediaType * t) :
+    QTreeWidgetItem(w)
 {
 	copyData(t);
 }
@@ -63,8 +63,8 @@ void MediaTypeTreeWidgetItem::copyData(KviMediaType * t)
 	setText(2, m_data.szDescription.ptr());
 }
 
-OptionsWidget_mediaTypes::OptionsWidget_mediaTypes(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_mediaTypes::OptionsWidget_mediaTypes(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("mediatypes_options_widget");
 

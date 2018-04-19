@@ -28,7 +28,7 @@
 //
 // This file contains non-customizable standards
 //
-// Better to not touch this :)
+// Better to not touch this
 //
 
 /**
@@ -52,7 +52,7 @@
 // created when looking for a good placement for the CRYPT escape char in KVirc.
 // I guess that the best chars to be used were FS,GS,RS,US,DC1,DC2,DC3,DC4...they have the "less defined"
 // meaning as ASCII control chars.
-// mmmh... :)
+// mmmh...
 
 // ASCII                              IRC Meaning
 // 000 NUL Null                       (Cannot be assigned)
@@ -149,19 +149,19 @@ namespace KviControlCodes
 	*/
 	enum Control
 	{
-		CTCP = 0x01,        /**< CTCP, IRC control code */
-		Bold = 0x02,        /**< Bold */
-		Color = 0x03,       /**< Color */
-		Escape = 0x04,      /**< Escape, totally artificial and internal to KviIrcView */
-		UnEscape = 0x05,    /**< Unescape, totally artificial and internal to KviIrcView */
-		UnIcon = 0x06,      /**< Unicon, totally artificial and internal to KviIrcView */
+		CTCP = 0x01,             /**< CTCP, IRC control code */
+		Bold = 0x02,             /**< Bold */
+		Color = 0x03,            /**< Color */
+		Escape = 0x04,           /**< Escape, totally artificial and internal to KviIrcView */
+		UnEscape = 0x05,         /**< Unescape, totally artificial and internal to KviIrcView */
+		UnIcon = 0x06,           /**< Unicon, totally artificial and internal to KviIrcView */
 		ArbitraryBreak = UnIcon, /**< Arbitrary block break, totally artificial and internal to KviIrcView */
-		Reset = 0x0f,       /**< Reset */
-		Reverse = 0x16,     /**< Reverse */
-		Icon = 0x1c,        /**< Icon, KVIrc control code */
-		Italic = 0x1d,      /**< Italic */
-		CryptEscape = 0x1e, /**< Crypt escape, KVIrc control code */
-		Underline = 0x1f    /**< Underline */
+		Reset = 0x0f,            /**< Reset */
+		Reverse = 0x16,          /**< Reverse */
+		Icon = 0x1c,             /**< Icon, KVIrc control code */
+		Italic = 0x1d,           /**< Italic */
+		CryptEscape = 0x1e,      /**< Crypt escape, KVIrc control code */
+		Underline = 0x1f         /**< Underline */
 	};
 
 	/**

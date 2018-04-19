@@ -21,7 +21,7 @@
 //   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 //
 //   Thnx to Alexander Stillich <torque at pltn dot org> for Audacious
-//   media player interface hints :)
+//   media player interface hints
 //
 //=============================================================================
 
@@ -67,8 +67,8 @@ static const char * audacious_lib_names[] = {
 	nullptr
 };
 
-KviXmmsInterface::KviXmmsInterface()
-    : MpInterface()
+KviXmmsInterface::KviXmmsInterface() :
+    MpInterface()
 {
 	m_pPlayerLibrary = nullptr;
 	m_szPlayerLibraryName = "libxmms.so";
@@ -85,8 +85,8 @@ KviXmmsInterface::~KviXmmsInterface()
 	}
 }
 
-KviAudaciousClassicInterface::KviAudaciousClassicInterface()
-    : KviXmmsInterface()
+KviAudaciousClassicInterface::KviAudaciousClassicInterface() :
+    KviXmmsInterface()
 {
 	m_szPlayerLibraryName = "libaudacious.so";
 	m_pLibraryPaths = audacious_lib_names;

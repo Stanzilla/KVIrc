@@ -281,7 +281,7 @@ void KviOggTheoraDecoder::addData(KviDataBuffer * stream)
 		else
 		{
 			//qDebug("ogg_stream_packetout <=0");
-			//need more data :)
+			//need more data
 			return;
 		}
 	}

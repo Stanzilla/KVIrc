@@ -30,8 +30,8 @@
 #include <QLayout>
 #include <QLabel>
 
-OptionsWidget_antispam::OptionsWidget_antispam(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_antispam::OptionsWidget_antispam(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	setObjectName("antispam_options_widget");
 	createLayout();

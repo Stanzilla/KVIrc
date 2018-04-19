@@ -36,8 +36,8 @@ class KVILIB_API KviTalListWidget : public QListWidget
 	Q_OBJECT
 public:
 	KviTalListWidget(QWidget * pParent, QString name, Qt::WindowType f = Qt::Widget);
-	KviTalListWidget(QWidget * pParent)
-	    : QListWidget(pParent){};
+	KviTalListWidget(QWidget * pParent) :
+	    QListWidget(pParent){};
 	virtual ~KviTalListWidget(){};
 
 protected:
@@ -50,12 +50,12 @@ signals:
 class KVILIB_API KviTalListWidgetItem : public QListWidgetItem
 {
 public:
-	KviTalListWidgetItem()
-	    : QListWidgetItem(){};
-	KviTalListWidgetItem(KviTalListWidget * pParent)
-	    : QListWidgetItem(pParent){};
-	KviTalListWidgetItem(KviTalListWidget * pParent, QString & label)
-	    : QListWidgetItem(label, pParent){};
+	KviTalListWidgetItem() :
+	    QListWidgetItem(){};
+	KviTalListWidgetItem(KviTalListWidget * pParent) :
+	    QListWidgetItem(pParent){};
+	KviTalListWidgetItem(KviTalListWidget * pParent, QString & label) :
+	    QListWidgetItem(label, pParent){};
 	KviTalListWidget * listWidget() { return (KviTalListWidget *)QListWidgetItem::listWidget(); };
 	virtual ~KviTalListWidgetItem(){};
 };

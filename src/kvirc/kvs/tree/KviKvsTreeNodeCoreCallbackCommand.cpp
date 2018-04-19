@@ -28,8 +28,8 @@
 #include "KviKvsScript.h"
 #include "KviKvsRunTimeContext.h"
 
-KviKvsTreeNodeCoreCallbackCommand::KviKvsTreeNodeCoreCallbackCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params, KviKvsCoreCallbackCommandExecRoutine * r, KviKvsScript * pCallback)
-    : KviKvsTreeNodeCallbackCommand(pLocation, szCmdName, params, pCallback)
+KviKvsTreeNodeCoreCallbackCommand::KviKvsTreeNodeCoreCallbackCommand(const QChar * pLocation, const QString & szCmdName, KviKvsTreeNodeDataList * params, KviKvsCoreCallbackCommandExecRoutine * r, KviKvsScript * pCallback) :
+    KviKvsTreeNodeCallbackCommand(pLocation, szCmdName, params, pCallback)
 {
 	m_pExecRoutine = r;
 }

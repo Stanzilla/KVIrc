@@ -189,13 +189,13 @@ void KvsObject_treeWidgetItem::childDestroyed()
 	die();
 }
 
-KviKvsStandardTreeWidgetItem::KviKvsStandardTreeWidgetItem(KvsObject_treeWidgetItem * ob, QTreeWidget * par)
-    : QTreeWidgetItem(par), m_pMasterObject(ob)
+KviKvsStandardTreeWidgetItem::KviKvsStandardTreeWidgetItem(KvsObject_treeWidgetItem * ob, QTreeWidget * par) :
+    QTreeWidgetItem(par), m_pMasterObject(ob)
 {
 }
 
-KviKvsStandardTreeWidgetItem::KviKvsStandardTreeWidgetItem(KvsObject_treeWidgetItem * ob, QTreeWidgetItem * par)
-    : QTreeWidgetItem(par), m_pMasterObject(ob)
+KviKvsStandardTreeWidgetItem::KviKvsStandardTreeWidgetItem(KvsObject_treeWidgetItem * ob, QTreeWidgetItem * par) :
+    QTreeWidgetItem(par), m_pMasterObject(ob)
 {
 }
 

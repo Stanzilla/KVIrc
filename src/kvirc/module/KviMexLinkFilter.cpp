@@ -24,8 +24,8 @@
 
 #include "KviMexLinkFilter.h"
 
-KviMexLinkFilter::KviMexLinkFilter(KviModuleExtensionDescriptor * d)
-    : QObject(), KviModuleExtension(d)
+KviMexLinkFilter::KviMexLinkFilter(KviModuleExtensionDescriptor * d) :
+    QObject(), KviModuleExtension(d)
 {
 }
 

@@ -567,7 +567,7 @@ namespace KviKvsCoreFunctions
 				[cmd]echo[/cmd] [fnc]$tr[/fnc]("your default language text","myscript")
 			[/example]
 			If you did everything well, you should see the translated
-			text echoed in the window :)[br]
+			text echoed in the window [br]
 			[br]
 			Obviously if you don't set LANG="XX", the same command will
 			output the original string unchanged.
@@ -874,7 +874,7 @@ namespace KviKvsCoreFunctions
 		if(sz.length() > 1)
 		{
 			KviKvsArray * a = new KviKvsArray();
-			for(auto&& c : sz)
+			for(auto && c : sz)
 				a->append(new KviKvsVariant((kvs_int_t)(c.unicode())));
 			KVSCF_pRetBuffer->setArray(a);
 		}

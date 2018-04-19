@@ -49,8 +49,9 @@
 extern KVIRC_API KviIrcServerDataBase * g_pServerDataBase;
 extern KVIRC_API KviProxyDataBase * g_pProxyDataBase;
 
-KviIrcLink::KviIrcLink(KviIrcConnection * pConnection)
-    : QObject(), m_pConnection(pConnection)
+KviIrcLink::KviIrcLink(KviIrcConnection * pConnection) :
+    QObject(),
+    m_pConnection(pConnection)
 {
 	m_pTarget = pConnection->target();
 	m_pConsole = m_pConnection->console();

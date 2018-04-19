@@ -51,15 +51,15 @@
 
 extern NotifierWindow * g_pNotifierWindow;
 
-NotifierWindow::NotifierWindow()
-    : QWidget(nullptr, Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
+NotifierWindow::NotifierWindow() :
+    QWidget(nullptr, Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
-          | Qt::Tool)
+            | Qt::Tool)
 #else
 #ifndef COMPILE_ON_MAC
-              | Qt::Tool | Qt::X11BypassWindowManagerHint
+            | Qt::Tool | Qt::X11BypassWindowManagerHint
 #endif
-          )
+    )
 #endif
 {
 	setObjectName("kvirc_notifier_window");
@@ -405,7 +405,7 @@ void NotifierWindow::heartbeat()
 
 			setWindowOpacity(m_dOpacity);
 		}
-			break;
+		break;
 		case FocusingOff:
 		{
 			double targetOpacity = KVI_OPTION_UINT(KviOption_uintNotifierInactiveTransparency);
@@ -422,7 +422,7 @@ void NotifierWindow::heartbeat()
 
 			setWindowOpacity(m_dOpacity);
 		}
-			break;
+		break;
 		case Hiding:
 			m_dOpacity -= OPACITY_STEP;
 			setWindowOpacity(m_dOpacity);
@@ -633,7 +633,7 @@ void NotifierWindow::mouseMoveEvent(QMouseEvent * e)
 
 void NotifierWindow::mousePressEvent(QMouseEvent * e)
 {
-	// stop blinking first of all :)
+	// stop blinking first of all
 	bool bWasBlinkOn = m_bBlinkOn;
 	m_bBlinkOn = false;
 	stopBlinkTimer();

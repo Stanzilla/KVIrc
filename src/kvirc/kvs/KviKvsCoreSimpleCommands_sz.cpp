@@ -290,7 +290,8 @@ namespace KviKvsCoreSimpleCommands
 			d->bSTARTTLS = false;
 			d->szServer = szServer;
 			// if the user wants to connect using ssl but didn't specify a port, default to 6697
-			if (d->bUseSSL && !(uPort > 0))uPort = 6697;
+			if(d->bUseSSL && !(uPort > 0))
+				uPort = 6697;
 			d->uPort = (kvi_u32_t)uPort;
 			d->szLinkFilter = szSocketFilter;
 			d->bPortIsOk = (uPort > 0);

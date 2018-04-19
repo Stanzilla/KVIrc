@@ -40,8 +40,8 @@
 static KviPointerList<HttpFileTransfer> * g_pHttpFileTransfers = nullptr;
 static QPixmap * g_pHttpIcon = nullptr;
 
-HttpFileTransfer::HttpFileTransfer()
-    : KviFileTransfer()
+HttpFileTransfer::HttpFileTransfer() :
+    KviFileTransfer()
 {
 	init(); // ensure we're initialized
 	g_pHttpFileTransfers->append(this);

@@ -104,8 +104,8 @@ static QAction * g_pMdiWindowSystemTextEncodingDefaultAction = nullptr;
 
 unsigned long int g_uUniqueWindowId = 1;
 
-KviWindow::KviWindow(Type eType, const QString & szName, KviConsoleWindow * lpConsole)
-    : QWidget(nullptr)
+KviWindow::KviWindow(Type eType, const QString & szName, KviConsoleWindow * lpConsole) :
+    QWidget(nullptr)
 {
 	m_uId = g_uUniqueWindowId;
 	g_uUniqueWindowId++;
@@ -333,7 +333,7 @@ const char * KviWindow::m_typeTable[TypeCount] = {
 	"offer",        // 23
 	"debug",        // 24
 	// <------ NEW TYPES GO HERE!
-	"unknown"       // 25
+	"unknown" // 25
 };
 
 const char * KviWindow::typeString()
@@ -505,7 +505,7 @@ void KviWindow::getConfigGroupName(QString & szBuffer)
 void KviWindow::getDefaultLogFileName(QString & szBuffer)
 {
 	return getDefaultLogFileName(szBuffer, QDate::currentDate(), KVI_OPTION_BOOL(KviOption_boolGzipLogs),
-		KVI_OPTION_UINT(KviOption_uintOutputDatetimeFormat));
+	    KVI_OPTION_UINT(KviOption_uintOutputDatetimeFormat));
 }
 
 void KviWindow::getDefaultLogFileName(QString & szBuffer, QDate date, bool bGzip, unsigned int uDatetimeFormat)
@@ -1166,7 +1166,7 @@ void KviWindow::lostUserFocus()
 
 void KviWindow::internalOutput(KviIrcView * pView, int iMsgType, const kvi_wchar_t * pwText, int iFlags, const QDateTime & datetime)
 {
-	// all roads lead to Rome :)
+	// all roads lead to Rome
 
 	if(pView)
 	{
@@ -1399,14 +1399,14 @@ void KviWindow::pasteLastLog()
 	QDate checkDate = date.addDays(iInterval);
 
 	unsigned int uMaxLines = KVI_OPTION_UINT(bChannel ? KviOption_uintLinesToPasteOnChannelJoin : KviOption_uintLinesToPasteOnQueryJoin);
-	if (!uMaxLines)
+	if(!uMaxLines)
 		return;
 
 	std::vector<std::tuple<QString, QDate, int>> vLines;
 
-	for (; date >= checkDate; date = date.addDays(-1))
-		for (int iGzip = 0; iGzip <= 1; iGzip++)
-			for (unsigned int uDatetimeFormat = 0; uDatetimeFormat < 3; uDatetimeFormat++)
+	for(; date >= checkDate; date = date.addDays(-1))
+		for(int iGzip = 0; iGzip <= 1; iGzip++)
+			for(unsigned int uDatetimeFormat = 0; uDatetimeFormat < 3; uDatetimeFormat++)
 			{
 				bool bGzip = !!iGzip;
 
@@ -1414,7 +1414,7 @@ void KviWindow::pasteLastLog()
 				getDefaultLogFileName(szFileName, date, bGzip, uDatetimeFormat);
 
 				QFileInfo fi(szFileName);
-				if (!fi.exists() || !fi.isFile())
+				if(!fi.exists() || !fi.isFile())
 					continue;
 
 				// Load the log
@@ -1426,31 +1426,31 @@ void KviWindow::pasteLastLog()
 				QList<QByteArray> list = log.split('\n');
 				unsigned int uCount = list.size();
 
-				while (uCount)
+				while(uCount)
 				{
 					vLines.emplace_back(QString(list.at(--uCount)), date, uDatetimeFormat);
 
-					if (vLines.size() == uMaxLines)
+					if(vLines.size() == uMaxLines)
 						goto enough;
 				}
 			}
 
-	if (vLines.empty())
+	if(vLines.empty())
 		return;
 
 enough:
 	QString szDummy = __tr2qs("Starting last log");
 	output(KVI_OUT_LOG, szDummy);
 
-	for (auto logIter = vLines.rbegin(); logIter != vLines.rend(); ++logIter)
+	for(auto logIter = vLines.rbegin(); logIter != vLines.rend(); ++logIter)
 	{
-		QString & szLine      = std::get<0>(*logIter);
+		QString & szLine = std::get<0>(*logIter);
 		const QDate & logDate = std::get<1>(*logIter);
-		int uDatetimeFormat   = std::get<2>(*logIter);
+		int uDatetimeFormat = std::get<2>(*logIter);
 
 		bool ok;
 		int msgType = szLine.section(' ', 0, 0).toInt(&ok);
-		if (ok)
+		if(ok)
 			szLine = szLine.section(' ', 1);
 		else
 			msgType = KVI_OUT_LOG;
@@ -1461,7 +1461,7 @@ enough:
 			case 0:
 			{
 				QTime time = QTime::fromString(szLine.section(' ', 0, 0), "[hh:mm:ss]");
-				if (time.isValid())
+				if(time.isValid())
 				{
 					date = QDateTime(logDate, time);
 					szLine = szLine.section(' ', 1);
@@ -1470,7 +1470,7 @@ enough:
 			}
 			case 1:
 				date = QDateTime::fromString(szLine.section(' ', 0, 0), Qt::ISODate);
-				if (date.isValid())
+				if(date.isValid())
 					szLine = szLine.section(' ', 1);
 				break;
 			case 2:
@@ -1479,27 +1479,27 @@ enough:
 				// Count how many spaces a typical time format has,
 				// and assume that that number is not going to change.
 				static int iSpaceCount = -1;
-				if (iSpaceCount == -1)
+				if(iSpaceCount == -1)
 				{
 					QString szTypicalDate = QDateTime::currentDateTime().toString(Qt::SystemLocaleShortDate);
 					iSpaceCount = szTypicalDate.count(' ');
 				}
 				date = QDateTime::fromString(szLine.section(' ', 0, iSpaceCount), Qt::SystemLocaleShortDate);
-				if (date.isValid())
+				if(date.isValid())
 				{
-					szLine = szLine.section(' ', iSpaceCount+1);
+					szLine = szLine.section(' ', iSpaceCount + 1);
 
 					// Work around Qt bug:
 					// if the date string contains a two-digit year, it may be
 					// parsed in the wrong century (i.e. 1916 instead of 2016).
-					if (logDate.year() == date.date().year() + 100)
+					if(logDate.year() == date.date().year() + 100)
 						date = date.addYears(100);
 				}
 				break;
 			}
 		}
 
-		if (szLine.isEmpty())
+		if(szLine.isEmpty())
 			continue;
 
 		// Print the line in the channel buffer

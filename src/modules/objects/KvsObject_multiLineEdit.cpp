@@ -798,14 +798,15 @@ bool KvsObject_textedit::functionloadFile(KviKvsObjectFunctionCall * c)
 	QTextStream ts(&file);
 	QString txt = ts.readAll();
 
-	if (szFormat.isEmpty())
+	if(szFormat.isEmpty())
 		//settext tries to understand if the text is html or plain
 		((QTextEdit *)widget())->setText(txt);
-	else if (KviQString::equalCI(szFormat, "text"))
+	else if(KviQString::equalCI(szFormat, "text"))
 		((QTextEdit *)widget())->setPlainText(txt);
-	else if (KviQString::equalCI(szFormat, "html"))
+	else if(KviQString::equalCI(szFormat, "html"))
 		((QTextEdit *)widget())->setHtml(txt);
-	else {
+	else
+	{
 		c->warning(__tr2qs_ctx("Unknown text document format '%Q'", "objects"), &szFormat);
 		((QTextEdit *)widget())->setText(txt);
 	}
@@ -822,10 +823,11 @@ bool KvsObject_textedit::functionsaveFile(KviKvsObjectFunctionCall * c)
 	KVSO_PARAMETER("format", KVS_PT_STRING, KVS_PF_OPTIONAL, szFormat)
 	KVSO_PARAMETERS_END(c)
 
-	if (KviQString::equalCI(szFormat, "html"))
+	if(KviQString::equalCI(szFormat, "html"))
 		szData = ((QTextEdit *)widget())->document()->toHtml(QByteArray("utf-8"));
-	else {
-		if (!szFormat.isEmpty() && !KviQString::equalCI(szFormat, "text"))
+	else
+	{
+		if(!szFormat.isEmpty() && !KviQString::equalCI(szFormat, "text"))
 			c->warning(__tr2qs_ctx("Unknown text document format '%Q'. Writing the document as plain text.", "objects"), &szFormat);
 
 		szData = ((QTextEdit *)widget())->toPlainText();

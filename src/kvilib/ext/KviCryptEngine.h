@@ -121,6 +121,7 @@ public:
 	// was no error after the last init() call.
 	//
 	const QString & lastError() const { return m_szLastError; }
+
 protected:
 	//
 	// The following two should have clear meaning

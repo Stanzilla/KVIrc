@@ -643,6 +643,6 @@ void KviKvsEventManager::cleanHandlerName(QString & szHandlerName)
 {
 	static QRegExp re(KVI_KVS_EVENT_HANDLER_NAME_INVALID_CHARS_REG_EXP);
 	szHandlerName.replace(re, "");
-	if (szHandlerName.isEmpty())
+	if(szHandlerName.isEmpty())
 		szHandlerName = "unnamed";
 }

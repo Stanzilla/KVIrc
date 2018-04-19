@@ -80,8 +80,11 @@ public:
 	* \param uPriority The priority of the message
 	* \return KviStatusBarMessage
 	*/
-	KviStatusBarMessage(const QString & szText, unsigned int uTimeout = 8000, unsigned int uPriority = 0)
-	    : KviHeapObject(), m_szText(szText), m_uTimeout(uTimeout), m_uPriority(uPriority){};
+	KviStatusBarMessage(const QString & szText, unsigned int uTimeout = 8000, unsigned int uPriority = 0) :
+	    KviHeapObject(),
+	    m_szText(szText),
+	    m_uTimeout(uTimeout),
+	    m_uPriority(uPriority){};
 
 	/**
 	* \brief Destroys the statusbar message object

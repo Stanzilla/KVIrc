@@ -175,6 +175,7 @@ protected:
 
 public:
 	void connectOrDisconnect() { connectButtonClicked(); }
+
 protected:
 	//
 	// KviIrcConnection interface

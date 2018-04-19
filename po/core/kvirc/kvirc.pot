@@ -8004,7 +8004,7 @@ msgstr ""
 
 #: src/modules/setup/SetupWizard.cpp:158
 msgid ""
-"<p><h2>Welcome :)</h2>This is your first time running this version of KVIrc."
+"<p><h2>Welcome </h2>This is your first time running this version of KVIrc."
 "<br>This wizard will guide you through the few steps required to complete "
 "the setup.<br><br>If you had a previous version of KVIrc installed, no "
 "worries. You will have a chance to preserve the old configuration.</"

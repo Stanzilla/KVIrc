@@ -36,17 +36,17 @@ KviKvsAction::KviKvsAction(
     const QString & szBigIconId,
     const QString & szSmallIconId,
     unsigned int uFlags,
-    const QString & szKeySequence)
-    : KviAction(
-          pParent,
-          szName,
-          szVisibleName,
-          szDescription,
-          pCategory,
-          szBigIconId,
-          szSmallIconId,
-          uFlags,
-          szKeySequence)
+    const QString & szKeySequence) :
+    KviAction(
+        pParent,
+        szName,
+        szVisibleName,
+        szDescription,
+        pCategory,
+        szBigIconId,
+        szSmallIconId,
+        uFlags,
+        szKeySequence)
 {
 	m_szScript = QString(szScriptCode);
 }
@@ -61,17 +61,17 @@ KviKvsAction::KviKvsAction(
     const QString & szBigIconId,
     KviIconManager::SmallIcon eSmallIcon,
     unsigned int uFlags,
-    const QString & szKeySequence)
-    : KviAction(
-          pParent,
-          szName,
-          szVisibleName,
-          szDescription,
-          pCategory,
-          szBigIconId,
-          eSmallIcon,
-          uFlags,
-          szKeySequence)
+    const QString & szKeySequence) :
+    KviAction(
+        pParent,
+        szName,
+        szVisibleName,
+        szDescription,
+        pCategory,
+        szBigIconId,
+        eSmallIcon,
+        uFlags,
+        szKeySequence)
 {
 	m_szScript = QString(szScriptCode);
 }

@@ -25,8 +25,8 @@
 #include "KviKvsTreeNodeLocalVariable.h"
 #include "KviKvsRunTimeContext.h"
 
-KviKvsTreeNodeLocalVariable::KviKvsTreeNodeLocalVariable(const QChar * pLocation, const QString & szIdentifier)
-    : KviKvsTreeNodeVariable(pLocation, szIdentifier)
+KviKvsTreeNodeLocalVariable::KviKvsTreeNodeLocalVariable(const QChar * pLocation, const QString & szIdentifier) :
+    KviKvsTreeNodeVariable(pLocation, szIdentifier)
 {
 }
 

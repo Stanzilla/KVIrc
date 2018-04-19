@@ -42,8 +42,8 @@
 #include <QWidgetAction>
 #include <QMenu>
 
-TextIconTableItem::TextIconTableItem(QTableWidget *, KviTextIcon * icon)
-    : QTableWidgetItem(QString(), Qt::ItemIsEditable)
+TextIconTableItem::TextIconTableItem(QTableWidget *, KviTextIcon * icon) :
+    QTableWidgetItem(QString(), Qt::ItemIsEditable)
 {
 	if(icon)
 		m_pIcon = icon;
@@ -67,8 +67,8 @@ void TextIconTableItem::setId(int id)
 		setIcon(QIcon(*pix));
 }
 
-OptionsWidget_textIcons::OptionsWidget_textIcons(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_textIcons::OptionsWidget_textIcons(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 	m_pPopup = nullptr;
 	m_iLastEditedRow = -1;
@@ -88,7 +88,8 @@ OptionsWidget_textIcons::OptionsWidget_textIcons(QWidget * parent)
 
 	mergeTip(m_pTable->viewport(), __tr2qs_ctx("This table contains the text icon associations.<br>"
 	                                           "KVIrc will use them to display the Alt+E escape sequences "
-	                                           "and eventually the emoticons.", "options"));
+	                                           "and eventually the emoticons.",
+	                                   "options"));
 
 	layout()->addWidget(m_pTable, 0, 0, 1, 3);
 

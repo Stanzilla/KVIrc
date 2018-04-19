@@ -132,6 +132,7 @@ public:
 	* \return State
 	*/
 	State state() const { return m_eState; }
+
 protected:
 	/**
 	* \brief Sends a data packet
@@ -183,7 +184,7 @@ protected:
 	* This is called by KviIrcSocket.
 	* The buffer is iLength+1 bytes long and contains a null terminator
 	* It's an interface for KviIrcSocket (lower protocol in stack)
-	* \param buffer The buffer :)
+	* \param buffer The buffer
 	* \param iLength The length of the buffer
 	* \return void
 	*/

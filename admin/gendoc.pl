@@ -1347,7 +1347,7 @@ sub generate_indexes
 $|=1;
 
 # print "--\n";
-# print "-- Generating documentation, this may take a while :)\n";
+# print "-- Generating documentation, this may take a while \n";
 # print "--\n";
 # print "-- Extracting keyterms\n";
 # Extract the keywords to generate the cross-references

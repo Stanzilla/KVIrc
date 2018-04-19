@@ -42,6 +42,7 @@ protected:
 public:
 	kvi_time_t connectionStartTime() const { return m_tConnectionStart; }
 	kvi_time_t lastMessageTime() const { return m_tLastMessage; }
+
 protected:
 	void setLastMessageTime(kvi_time_t t) { m_tLastMessage = t; }
 	void setConnectionStartTime(kvi_time_t t) { m_tConnectionStart = t; }

@@ -71,6 +71,7 @@ protected:
 
 public:
 	HelpWidget * helpWidget() { return m_pHelpWidget; };
+
 protected:
 	virtual QPixmap * myIconPtr();
 	virtual void fillCaptionBuffers();

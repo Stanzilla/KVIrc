@@ -28,7 +28,8 @@
 #include "KviOptions.h"
 #include "KviLocale.h"
 
-OptionsWidget_topicLabel::OptionsWidget_topicLabel(QWidget * p) : KviOptionsWidget(p, "topic_label_look_options_widget")
+OptionsWidget_topicLabel::OptionsWidget_topicLabel(QWidget * p) :
+    KviOptionsWidget(p, "topic_label_look_options_widget")
 {
 	createLayout();
 

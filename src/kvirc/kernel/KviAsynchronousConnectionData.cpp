@@ -25,8 +25,8 @@
 #include "KviAsynchronousConnectionData.h"
 #include "KviIrcServerReconnectInfo.h"
 
-KviAsynchronousConnectionData::KviAsynchronousConnectionData()
-    : KviHeapObject()
+KviAsynchronousConnectionData::KviAsynchronousConnectionData() :
+    KviHeapObject()
 {
 }
 

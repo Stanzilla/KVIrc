@@ -45,8 +45,8 @@
 extern KVIRC_API KviRegisteredUserDataBase * g_pRegisteredUserDataBase;
 extern KviPointerList<RegistrationWizard> * g_pRegistrationWizardList;
 
-RegistrationWizard::RegistrationWizard(const QString & startMask, KviRegisteredUserDataBase * db, QWidget * par, bool bModal)
-    : KviTalWizard(par)
+RegistrationWizard::RegistrationWizard(const QString & startMask, KviRegisteredUserDataBase * db, QWidget * par, bool bModal) :
+    KviTalWizard(par)
 {
 	m_pDb = db;
 
@@ -452,7 +452,7 @@ void RegistrationWizard::notifyNickChanged(const QString &)
 
 	if(!bYes)
 	{
-		// we need at least one nickname then :)
+		// we need at least one nickname then
 		KviCString tmp = m_pNotifyNickEdit1->text();
 		if(tmp.hasData())
 		{

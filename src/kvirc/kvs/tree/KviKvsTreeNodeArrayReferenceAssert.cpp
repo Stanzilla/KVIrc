@@ -29,8 +29,8 @@
 #include "KviLocale.h"
 #include "KviKvsObject.h"
 
-KviKvsTreeNodeArrayReferenceAssert::KviKvsTreeNodeArrayReferenceAssert(const QChar * pLocation, KviKvsTreeNodeData * pSource)
-    : KviKvsTreeNodeIndirectData(pLocation, pSource)
+KviKvsTreeNodeArrayReferenceAssert::KviKvsTreeNodeArrayReferenceAssert(const QChar * pLocation, KviKvsTreeNodeData * pSource) :
+    KviKvsTreeNodeIndirectData(pLocation, pSource)
 {
 }
 

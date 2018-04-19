@@ -117,8 +117,8 @@ static DccVoiceCodec * kvi_dcc_voice_get_codec(const char * codecName)
 	return new DccVoiceAdpcmCodec();
 }
 
-DccVoiceThread::DccVoiceThread(KviWindow * wnd, kvi_socket_t fd, KviDccVoiceThreadOptions * opt)
-    : DccThread(wnd, fd)
+DccVoiceThread::DccVoiceThread(KviWindow * wnd, kvi_socket_t fd, KviDccVoiceThreadOptions * opt) :
+    DccThread(wnd, fd)
 {
 #ifndef COMPILE_DISABLE_DCC_VOICE
 	m_pOpt = opt;
@@ -363,14 +363,14 @@ bool DccVoiceThread::readWriteStep()
 		      //		}
 		      //#warning "Usleep here ?"
 	}         // else {
-//		if(!(m_bPlaying || m_bRecording))
-//		{
-//			// Really NOTHING is happening...sleep a bit more
-//			m_uSleepTime += 800;
-//		} else {
-//			m_uSleepTime += 100;
-//		}
-//	}
+	          //		if(!(m_bPlaying || m_bRecording))
+	          //		{
+	          //			// Really NOTHING is happening...sleep a bit more
+	          //			m_uSleepTime += 800;
+	          //		} else {
+	          //			m_uSleepTime += 100;
+	          //		}
+	          //	}
 
 #endif // !COMPILE_DISABLE_DCC_VOICE
 	return true;
@@ -688,8 +688,8 @@ exit_dcc:
 	m_fd = KVI_INVALID_SOCKET;
 }
 
-DccVoiceWindow::DccVoiceWindow(DccDescriptor * dcc, const char * name)
-    : DccWindow(KviWindow::DccVoice, name, dcc)
+DccVoiceWindow::DccVoiceWindow(DccDescriptor * dcc, const char * name) :
+    DccWindow(KviWindow::DccVoice, name, dcc)
 {
 	m_pDescriptor = dcc;
 	m_pSlaveThread = nullptr;

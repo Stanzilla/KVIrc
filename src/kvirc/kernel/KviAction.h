@@ -70,10 +70,10 @@ public:
 	* \param szDescription Description of the category
 	* \return KviActionCategory
 	*/
-	KviActionCategory(QString szName, QString szVisibleName, QString szDescription)
-	    : m_szName(std::move(szName)),
-	      m_szVisibleName(std::move(szVisibleName)),
-	      m_szDescription(std::move(szDescription))
+	KviActionCategory(QString szName, QString szVisibleName, QString szDescription) :
+	    m_szName(std::move(szName)),
+	    m_szVisibleName(std::move(szVisibleName)),
+	    m_szDescription(std::move(szDescription))
 	{
 	}
 
@@ -137,7 +137,7 @@ public:
 	* \brief Constructs the action object
 	* \param pParent The parent object
 	*
-	* It can be 0, but using a QObject will help in deleting this action :)
+	* It can be 0, but using a QObject will help in deleting this action
 	* \param szName Internal name of this action, in form [module.]name
 	* \param szVisibleName Permanent visible name, visible at least in the action drawer
 	* \param szDescription What this action does
@@ -166,7 +166,7 @@ public:
 	* \brief Constructs the action object
 	* \param pParent The parent object
 	*
-	* It can be 0, but using a QObject will help in deleting this action :)
+	* It can be 0, but using a QObject will help in deleting this action
 	* \param szName Internal name of this action, in form [module.]name
 	* \param szVisibleName Permanent visible name, visible at least in the action drawer
 	* \param szDescription What this action does
@@ -313,10 +313,11 @@ public:
 	virtual QAction * addToCustomToolBar(KviCustomToolBar * pParentToolBar);
 
 	/**
-	* \brief Destroys itself. Maybe the best function in the whole APIs :)
+	* \brief Destroys itself. Maybe the best function in the whole APIs
 	* \return void
 	*/
 	void suicide() { delete this; }
+
 protected:
 	/**
 	* \brief Returns true if the setup is finished

@@ -33,8 +33,8 @@
 #include <QLabel>
 #include <QRadioButton>
 
-OptionsWidget_urlHandlers::OptionsWidget_urlHandlers(QWidget * parent)
-    : KviOptionsWidget(parent)
+OptionsWidget_urlHandlers::OptionsWidget_urlHandlers(QWidget * parent) :
+    KviOptionsWidget(parent)
 {
 #if defined(COMPILE_ON_WINDOWS) || defined(COMPILE_ON_MINGW)
 #define START_ROW 2

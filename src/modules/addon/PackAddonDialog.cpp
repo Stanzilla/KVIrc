@@ -41,8 +41,8 @@
 #include <QDir>
 #include <QDirIterator>
 
-PackAddonDialog::PackAddonDialog(QWidget * pParent)
-    : QWizard(pParent)
+PackAddonDialog::PackAddonDialog(QWidget * pParent) :
+    QWizard(pParent)
 {
 	setMinimumSize(400, 350);
 	setObjectName("addon_package_wizard");
@@ -187,8 +187,8 @@ bool PackAddonDialog::packAddon()
 	return true;
 }
 
-PackAddonInfoPackageWidget::PackAddonInfoPackageWidget(PackAddonDialog * pParent)
-    : QWizardPage(pParent)
+PackAddonInfoPackageWidget::PackAddonInfoPackageWidget(PackAddonDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("addon_package_info_page");
 	setTitle(__tr2qs_ctx("Package Information", "addon"));
@@ -251,8 +251,8 @@ PackAddonInfoPackageWidget::PackAddonInfoPackageWidget(PackAddonDialog * pParent
 PackAddonInfoPackageWidget::~PackAddonInfoPackageWidget()
     = default;
 
-PackAddonFileSelectionWidget::PackAddonFileSelectionWidget(PackAddonDialog * pParent)
-    : QWizardPage(pParent)
+PackAddonFileSelectionWidget::PackAddonFileSelectionWidget(PackAddonDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("addon_package_file_page");
 	setTitle(__tr2qs_ctx("Package Files", "addon"));
@@ -276,8 +276,8 @@ PackAddonFileSelectionWidget::PackAddonFileSelectionWidget(PackAddonDialog * pPa
 PackAddonFileSelectionWidget::~PackAddonFileSelectionWidget()
     = default;
 
-PackAddonSaveSelectionWidget::PackAddonSaveSelectionWidget(PackAddonDialog * pParent)
-    : QWizardPage(pParent)
+PackAddonSaveSelectionWidget::PackAddonSaveSelectionWidget(PackAddonDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("addon_package_save_page");
 	setTitle(__tr2qs_ctx("Save Package", "addon"));
@@ -318,8 +318,8 @@ void PackAddonSaveSelectionWidget::initializePage()
 	m_pSavePathSelector->setTmpFile(szSavePath);
 }
 
-PackAddonSummaryInfoWidget::PackAddonSummaryInfoWidget(PackAddonDialog * pParent)
-    : QWizardPage(pParent)
+PackAddonSummaryInfoWidget::PackAddonSummaryInfoWidget(PackAddonDialog * pParent) :
+    QWizardPage(pParent)
 {
 	setObjectName("addon_package_summary_info_page");
 	setTitle(__tr2qs_ctx("Final Information", "addon"));
@@ -382,8 +382,8 @@ void PackAddonSummaryInfoWidget::initializePage()
 	m_pLabelInfo->setText(szText);
 }
 
-PackAddonSummaryFilesWidget::PackAddonSummaryFilesWidget(PackAddonDialog * pParent)
-    : QDialog(pParent)
+PackAddonSummaryFilesWidget::PackAddonSummaryFilesWidget(PackAddonDialog * pParent) :
+    QDialog(pParent)
 {
 	setObjectName("addon_package_summary_file_dialog");
 	setWindowTitle(__tr2qs_ctx("File Summary Review - KVIrc", "addon"));

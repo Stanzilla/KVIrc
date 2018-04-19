@@ -32,8 +32,8 @@
 
 #define LVI_AFTER_ICON (LVI_BORDER + LVI_ICON_SIZE + LVI_SPACING)
 
-KviTalIconAndRichTextItemDelegate::KviTalIconAndRichTextItemDelegate(QAbstractItemView * pWidget)
-    : QStyledItemDelegate(pWidget), m_pParent(pWidget), m_oMinimumSize(0, 0), m_oIconSize(LVI_ICON_SIZE, LVI_ICON_SIZE)
+KviTalIconAndRichTextItemDelegate::KviTalIconAndRichTextItemDelegate(QAbstractItemView * pWidget) :
+    QStyledItemDelegate(pWidget), m_pParent(pWidget), m_oMinimumSize(0, 0), m_oIconSize(LVI_ICON_SIZE, LVI_ICON_SIZE)
 {
 }
 

@@ -56,8 +56,8 @@
 #include <QUrl>
 #include <QShowEvent>
 
-KviWebPackageManagementDialog::KviWebPackageManagementDialog(QWidget * pParent)
-    : QWidget(pParent)
+KviWebPackageManagementDialog::KviWebPackageManagementDialog(QWidget * pParent) :
+    QWidget(pParent)
 {
 	setAttribute(Qt::WA_DeleteOnClose);
 

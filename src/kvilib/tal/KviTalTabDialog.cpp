@@ -30,8 +30,8 @@
 #include <QGridLayout>
 #include <QPushButton>
 
-KviTalTabDialog::KviTalTabDialog(QWidget * pParent, const char * name, bool bModal)
-    : QDialog(pParent)
+KviTalTabDialog::KviTalTabDialog(QWidget * pParent, const char * name, bool bModal) :
+    QDialog(pParent)
 {
 	setObjectName(name);
 	setModal(bModal);

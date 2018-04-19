@@ -44,8 +44,8 @@
 #include <QKeySequence>
 #include <QMenu>
 
-KviMenuBar::KviMenuBar(KviMainWindow * par, const char * name)
-    : KviTalMenuBar(par, name)
+KviMenuBar::KviMenuBar(KviMainWindow * par, const char * name) :
+    KviTalMenuBar(par, name)
 {
 	setAutoFillBackground(false);
 	m_pFrm = par;

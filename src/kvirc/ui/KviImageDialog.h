@@ -42,8 +42,11 @@ public:
 	QString m_szTipText;
 
 public:
-	KviImageDialogItem(KviTalListWidget * b, const QPixmap & thumb, const QString & szFile, const QString & image_id, const QString & szTipText = QString(), bool bIsFolder = false)
-	    : KviTalListWidgetPixmap(b, thumb, szFile), m_bIsFolder(bIsFolder), m_szImageId(image_id), m_szTipText(szTipText){};
+	KviImageDialogItem(KviTalListWidget * b, const QPixmap & thumb, const QString & szFile, const QString & image_id, const QString & szTipText = QString(), bool bIsFolder = false) :
+	    KviTalListWidgetPixmap(b, thumb, szFile),
+	    m_bIsFolder(bIsFolder),
+	    m_szImageId(image_id),
+	    m_szTipText(szTipText){};
 	~KviImageDialogItem(){};
 
 public:
@@ -94,6 +97,7 @@ protected:
 
 public:
 	const QString & selectedImage() { return m_szSelectedImage; };
+
 protected:
 	void startJob(int type, const QString & szInitialPath = QString());
 	void jobTerminated();
