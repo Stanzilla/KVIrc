@@ -35,7 +35,7 @@
 #include <QStyleOptionFrame>
 #include <QPaintEvent>
 
-#include <qdrawutil.h> // qDrawShadePanel
+#include <qdrawutil.h> // // qDrawShadePanel
 
 #ifdef COMPILE_PSEUDO_TRANSPARENCY
 extern QPixmap * g_pShadedChildGlobalDesktopBackground;
@@ -89,7 +89,7 @@ void KviThemedLineEdit::paintEvent(QPaintEvent * event)
 	QPalette pal = palette();
 
 	// In Qt5 QStyle::drawPrimitive seems to always overwrite the background, no matter what.
-	qDrawShadePanel(p, 0, 0, width(), height(), palette(), true, 1, nullptr);
+	// qDrawShadePanel(p, 0, 0, width(), height(), palette(), true, 1, nullptr);
 
 	QRect r(1, 1, width() - 2, height() - 2);
 

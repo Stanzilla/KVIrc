@@ -69,7 +69,7 @@
 #include <QUrl>
 #include <QWidgetAction>
 
-#include <qdrawutil.h> // qDrawShadePanel
+#include <qdrawutil.h> // // qDrawShadePanel
 
 #include <algorithm>
 #include <functional>
@@ -820,7 +820,7 @@ void KviInputEditor::paintEvent(QPaintEvent *)
 #endif
 
 	// In Qt5 QStyle::drawPrimitive seems to always overwrite the background, no matter what.
-	qDrawShadePanel(&p, 0, 0, width(), height(), palette(), true, 1, nullptr);
+	// qDrawShadePanel(&p, 0, 0, width(), height(), palette(), true, 1, nullptr);
 
 	QRect r(1, 1, width() - 1, height() - 1);
 
